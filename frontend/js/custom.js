@@ -1,6 +1,15 @@
-//Fade In images
+//Fixed header
+jQuery(window).load(function(){
+	if (jQuery(this).scrollTop() > 0 && jQuery('body').hasClass('fixed-header')) {
+        jQuery('nav.navbar').css({position: 'fixed'});
+	}
 
-   function fadeIn (obj) {
-        $(obj).fadeIn(1000);
-    }
-
+    jQuery(this).scroll(function () {
+        if (jQuery(this).scrollTop() > 0 && jQuery('body').hasClass('fixed-header')) {
+            jQuery('nav.navbar').css({position: 'fixed'});
+        }
+        else {
+            jQuery('nav.navbar').css({position: 'static'});
+        }
+    });
+});

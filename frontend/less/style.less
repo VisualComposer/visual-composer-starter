@@ -3,8 +3,10 @@
 
 //Background colors
 @default-bg-color: #fff;
-@main-footer-background: #333;
-@secondary-footer-background: #383838;
+@main-footer-background: hsl(0, 0%, 20%);
+
+@lightness-percentage: lightness(@main-footer-background)/10;
+@secondary-footer-background: lighten(@main-footer-background, @lightness-percentage);
 
 //Icons and text color
 @sandwich-color-light: #fff;
@@ -13,37 +15,46 @@
 @headers-color: #333;
 @footer-main-color: #777;
 @footer-headers-color: #fff;
-@footer-link-color: #fff;
+@footer-active-color: #fff;
 
 //Typography
 @default-font-family: 'Roboto';
 @secondary-font-family: 'Playfair Display';
+@icon-font-family: 'Visual Composer Theme Font';
 @default-font-size: 16px;
-@default-line-height: 1.4;
+@default-line-height: 1.7;
+@active-text-color: #557cbf;
 
 
 //Link
 .a() {
-	display: inline-block;
 	border-bottom-width: 1px;
-	border-bottom-color: transparent;
+	border-bottom-color: @active-text-color;
 	border-bottom-style: solid;
-	transition: border-bottom 0.4s ease 0s;
+	transition: border-bottom 0.3s ease;
 	line-height: 1.2;
 
-	&:hover {
+	&:hover, &:focus {
 		text-decoration: none;
+		border-bottom-color: transparent;
+		color: @active-text-color;
 	}
 }
 
 html {
-	font-family: @default-font-family;
 	font-size: @default-font-size;
-	line-height: @default-line-height;
 }
 
 body {
 	background-color: @default-bg-color;
+	font-size: 100%;
+	font-family: @default-font-family;
+	line-height: @default-line-height;
+	letter-spacing: 0.01rem;
+}
+
+a {
+	color: @active-text-color;
 }
 
 
@@ -57,6 +68,20 @@ body {
 	background: @default-bg-color;
 	border: none;
 	margin-bottom: 0;
+}
+
+body.fixed-header {
+  	.navbar {
+		width: 100%;
+		z-index: 999;
+	}
+}
+
+body.header-full-width {
+	.navbar {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
 }
 
 .navbar-brand {
@@ -111,7 +136,7 @@ body {
 				width: 13.75rem;
 				background-color: #fff;
 				box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-				transition: all 0.2s ease;
+				transition: all 0.3s ease;
 				li {
 					list-style: none;
 					position: relative;
@@ -124,14 +149,11 @@ body {
 					}
 				}
 			}
-
 		}
 	}
 }
 
 .header-image {
-	max-height: 400px;
-	overflow: hidden;
 	img {
 		width: 100%;
 		height: auto;
@@ -144,11 +166,160 @@ body {
 	margin-bottom: 45px;
 }
 
+body.content-full-width {
+	.content-wrapper {
+		padding-right: 100px;
+		padding-left: 100px;
+	}
+}
 
 //Typography
 h1, h2, h3, h4, h5, h6 {
 	font-family: @secondary-font-family;
 	color: #333;
+}
+
+h1 {
+	margin: 0 0 2.125rem 0;
+	font-size: 2.625rem;
+}
+
+.entry-content {
+	p, ol, ul, table, .wp-caption, datalist {
+		margin: 0 0 1.625rem 0;
+
+		a {
+			.a();
+		}
+	}
+
+
+
+}
+
+.wp-caption {
+	img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.wp-caption-text {
+		color: #777;
+		font-size: 0.875rem;
+		font-style: italic;
+		margin-top: 5px;
+		text-align: center;
+	}
+}
+
+.aligncenter {
+	display: block;
+}
+
+
+
+
+//Widgets
+.widget-title {
+	margin: 0 0 1rem 0;
+	font-size: 1.375rem;
+}
+
+.widget_search {
+	form {
+		position: relative;
+
+		&:after {
+			content: '\70';
+			font-family: @icon-font-family;
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 40px;
+			height: 40px;
+			font-size: 16px;
+			line-height: 40px;
+			text-align: center;
+			z-index: 1;
+		}
+
+		label {
+			width: 100%;
+			margin-bottom: 0;
+			.screen-reader-text {
+				display: none;
+			}
+
+			.search-field {
+				width: 100%;
+				height: 40px;
+				padding: 0 40px 0 15px;
+				border: 1px solid #d4d4d4;
+				outline: none;
+				font-style: italic;
+				font-weight: 500;
+				font-size: 0.875rem;
+			}
+		}
+
+		input[type="submit"] {
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 40px;
+			height: 40px;
+			opacity: 0;
+			z-index: 2;
+		}
+	}
+}
+
+
+//Saidbar
+.sidebar-widget-area {
+	.widget {
+		padding-top: 20px;
+		border-top: 1px solid #eee;
+		margin-bottom: 25px;
+		font-size: 0.875rem;;
+		transition: color 0.3s ease;
+	}
+
+	.widget_recent_entries, .widget_archive, .widget_categories, .widget_meta {
+		ul {
+			li {
+				color: @active-text-color;
+
+				&:hover, &:focus {
+					color: @text-color;
+				}
+
+				a {
+					display: inline-block;
+					vertical-align: top;
+				}
+			}
+		}
+	}
+
+	.widget_search {
+		form {
+			margin-top: 5px;
+		}
+	}
+
+
+	a {
+		&:hover, &:focus {
+			text-decoration: none;
+			color: @text-color;
+		}
+	}
+
+	ul {
+		padding-left: 16px;
+	}
 }
 
 //Footer
@@ -159,28 +330,70 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.7;
 
 	a {
-		color: @footer-link-color;
-		.a();
+		border-bottom-width: 1px;
+		border-bottom-color: transparent;
+		border-bottom-style: solid;
+		transition: border-bottom 0.3s ease;
+		line-height: 1.2;
+		color: @footer-active-color;
+
 		&:hover {
-			border-bottom-color: @footer-link-color;
+			border-bottom-color: @footer-active-color;
+			text-decoration: none;
+		}
+	}
+
+	ul, ol {
+		li {
+			color: @footer-active-color;
+		}
+	}
+
+	.footer-socials {
+		padding-top: 7px;
+		ul {
+			padding: 0;
+			margin: 0;
+			text-align: right;
+
+			li {
+				list-style: none;
+				display: inline-block;
+				margin-left: 8px;
+				a {
+					line-height: 1;
+					font-size: 32px;
+					color: @footer-main-color;
+					border-bottom: none;
+					opacity: 0.75;
+					transition: opacity 0.3s ease;
+
+					&:hover {
+						opacity: 1;
+					}
+
+					span {display: block;}
+				}
+			}
 		}
 	}
 }
 
 .footer-widget-area {
 	background-color: @secondary-footer-background;
-	padding: 45px 0;
+	padding: 45px 0 15px 0;
+
+	.widget {
+		margin-bottom: 25px;
+	}
 
 	.widget-title {
 		color: @footer-headers-color;
-		margin-top: 0;
-		margin-bottom: 1rem;
 		line-height: @default-line-height;
-		font-size: 1.375rem;
 	}
 
-	p {
-		margin-bottom: 25px;
+	p, ul, ol {
+		margin-bottom: 20px;
 	}
 
 	.instagram-feed {
@@ -213,42 +426,21 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
-.footer-menu {
-	ul {
-		padding: 0;
-		li {
-			list-style: none;
-			display: inline-block;
-			margin-right: 8px;
-		}
+body.content-full-width {
+	.footer-bottom, .footer-widget-area {
+		padding-left: 40px;
+		padding-right: 40px;
 	}
 }
 
-
-.footer-socials {
-	padding-top: 7px;
+.footer-menu {
 	ul {
 		padding: 0;
-		text-align: right;
-
+		margin: 0;
 		li {
-			list-style: none;
 			display: inline-block;
-			margin-left: 8px;
-			a {
-				font-size: 32px;
-				color: #666 !important;
-				border-bottom: none !important;
-				span {
-					transition: color 0.4s ease 0s;;
-				}
-
-
-				&:hover {
-					color: #fff !important;
-
-				}
-			}
+			list-style: none;
+			margin-right: 8px;
 		}
 	}
 }
