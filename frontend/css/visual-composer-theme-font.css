@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Visual Composer Theme Font';
   src: url('../fonts/visual-composer-theme-font.eot');
-  src: url('../fonts/visual-composer-theme-font.eot?#iefix') format('embedded-opentype'), url('../fonts/visual-composer-theme-font.woff2') format('woff2'), url('../fonts/visual-composer-theme-font.woff') format('woff'), url('../fonts/visual-composer-theme-font.ttf') format('truetype'), url('../fonts/visual-composer-theme-font.svg#visual-composer-theme-font') format('svg');
+  src: url('../fonts/visual-composer-theme-font.eot?#iefix') format('embedded-opentype'), url('../fonts/visual-composer-theme-font.woff') format('woff'), url('../fonts/visual-composer-theme-font.ttf') format('truetype'), url('../fonts/visual-composer-theme-font.svg#visual-composer-theme-font') format('svg');
 }
 [data-icon]:before {
   font-family: "Visual Composer Theme Font" !important;

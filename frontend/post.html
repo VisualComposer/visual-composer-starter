@@ -2,42 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Post</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i|Roboto:400,400i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/visual-composer-theme-font.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+
+    <!--For WP Theme Customizer-->
+    <style>
+        #main-menu, #main-menu ul {background-color: #333;}
+        #main-menu ul li a {color: #ccc}
+        #main-menu ul li a:hover, #main-menu ul li a:focus {color: #fff}
+    </style>
+    <!--For WP Theme Customizer-->
+
 </head>
-<body>
+<body class="navbar-no-background sandwich-color-light menu-sandwich">
 <header id="header">
     <nav class="navbar">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" alt="Site title">
+                    <img width="50" height="49" src="images/logo.svg" alt="Site title">
                 </a>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+                <button type="button" class="navbar-toggle">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
             </div>
-            <div class="collapse navbar-collapse" id="main-menu">
+            <div id="main-menu">
+                <div class="button-close"></div>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Features</a></li>
-                    <li>
+                    <li class="menu-item-has-children">
                         <a href="#">Services</a>
                         <ul>
                             <li><a href="#">Frontend Editor</a></li>
-                            <li>
+                            <li class="menu-item-has-children">
                                 <a href="#">Content Elements</a>
                                 <ul>
                                     <li><a href="#">Simple Button</a></li>
                                     <li><a href="#">Call to Action Block</a></li>
-                                    <li>
+                                    <li class="menu-item-has-children">
                                         <a href="#">Instagram Image</a>
                                         <ul>
                                             <li><a href="#">Instagram Embed</a></li>
@@ -57,7 +68,7 @@
         </div>
     </nav>
     <div class="header-image">
-        <img src="images/header-image.jpg" alt="">
+        <img src="images/post-image.jpg" alt="">
     </div>
 </header>
 <div class="content-wrapper">
@@ -67,22 +78,24 @@
                 <div class="main-content">
                     <article class="entry-full-content">
                         <div class="row">
-                            <div class="entry-author-data col-md-3">
-                                <div class="author-avatar">
-                                    <img src="" alt="Author name">
+                            <div class="col-md-2">
+                                <div class="entry-author-data">
+                                    <div class="author-avatar">
+                                        <img src="images/avatar-1.jpg" alt="Author name">
+                                    </div>
                                     <p class="author-name">Rice Kellogg</p>
-                                    <p class="author-biography">Share a little biographical information to fill out your profile. This may be shown publicly.</p>
+                                    <p class="author-biography">A food blogger and Green Peace member since my mom bought me a sheep.</p>
                                 </div>
                             </div>
-                            <div class="entry-content col-md-9">
+                            <div class="entry-content col-md-10">
                                 <div class="entry-meta">
-                                    On <a href="#">October 20, 2016</a> by <a href="#">Rice Kellogg</a> to
-                                    <a href="#">Food</a>
+                                    On <a href="#">October 20, 2016</a> by <a href="#">Rice Kellogg</a> to <a href="#">Food</a>
                                 </div>
                                 <div class="text-content">
-                                    <h1>Lorem ipsum dolor sit amet</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur dolorem dolorum eaque enim esse excepturi odit tempora tenetur veniam. Assumenda cum in, molestiae nemo perspiciatis quas quos veritatis voluptatum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur dolorem dolorum eaque enim esse excepturi odit tempora tenetur veniam. Assumenda cum in, molestiae nemo perspiciatis quas quos veritatis voluptatum.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur dolorem dolorum eaque enim esse excepturi odit tempora tenetur veniam. Assumenda cum in, molestiae nemo perspiciatis quas quos veritatis voluptatum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur dolorem dolorum eaque enim esse excepturi odit tempora tenetur veniam. Assumenda cum in, molestiae nemo perspiciatis quas quos veritatis voluptatum.</p>
+                                    <h1>Sweet Corn Increases Ferulic Acid</h1>
+                                    <p>In most of Latin America, sweet corn is traditionally eaten with beans; each plant is deficient in an essential
+                                        <a href="#">amino acid</a> that happens to be abundant in the other, so together sweet corn and beans form a protein-complete meal. In Brazil, sweet corn cut off from the cobs is generally eaten with peas.</p>
+                                    <p>Similarly, sweet corn in Indonesia is traditionally ground or soaked with milk, which makes available the B vitamin niacin in the corn, the absence of which would otherwise lead to pellagra; in Brazil, a combination of ground sweet corn and milk is also the basis of various well-known dishes, such as pamonha and the pudding-like dessert curau, while sweet corn eaten directly off the cobs tends to be served with butter.</p>
                                     <figure>
                                         <img class="size-medium wp-image-30" src="images/image1.jpg" alt="Beautiful picture" width="300" height="248" />
                                         <figcaption class="wp-caption-text">Beautiful picture</figcaption>
@@ -239,7 +252,7 @@
     </div>
     <div class="footer-bottom">
         <div class="container">
-            <div class="footer-left-block pull-left">
+            <div class="footer-left-block">
                 <p class="copyright">Copyright &copy; 2016 Visual Composer. All Rights Reserved. Proudly powered by <a href="http://visualcomposer.io">Visual Composer</a> and
                     <a href="https://wordpress.org">WordPress</a></p>
                 <div class="footer-menu">
@@ -251,7 +264,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="footer-right-block pull-right">
+            <div class="footer-right-block">
                 <div class="footer-socials">
                     <ul>
                         <li><a href="#"><span class="vc-icon-facebook-with-circle"></span></a></li>

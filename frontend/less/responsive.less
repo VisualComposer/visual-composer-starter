@@ -1,0 +1,156 @@
+@media only screen and (min-width: 768px) {
+	body:not(.menu-sandwich) {
+		.navbar-toggle {display: none !important;}
+
+		#main-menu {
+			position: static;
+			width: auto;
+			background: none;
+			padding: 0;
+
+			.button-close {
+				display: none;
+			}
+
+			>ul {
+				margin: 7.5px -15px;
+				>li {
+					a {
+						padding: 10px 15px;
+					}
+					>ul {
+						top: 100% !important;
+						left: 0;
+						margin-top: 10px;
+					}
+				}
+			}
+
+			ul {
+				li {
+					&:hover {
+						>ul {
+							visibility: visible;
+							opacity: 1;
+						}
+					}
+
+					ul {
+						transition: all 0.3s ease;
+						display: block !important;
+						padding: 0;
+						visibility: hidden;
+						opacity: 0;
+						z-index: 100;
+						position: absolute;
+						right: 100%;
+						top: 0;
+						width: 13.75rem;
+						background-color: #fff;
+						box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+						li {
+							position: relative;
+							a {
+								padding: 12px 18px;
+								display: block;
+								&:hover {
+									background-color: #eee;
+								}
+							}
+							ul {
+								padding: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#main-menu {
+		ul {
+			li {
+				a {
+					font-size: 0.875em;
+				}
+			}
+		}
+	}
+}/*min-width: 768px*/
+
+@media only screen and (min-width: 992px) {
+
+	#footer {
+		.footer-left-block {
+			float: left;
+			max-width: 66.6%;
+		}
+
+		.footer-right-block {
+			float: right;
+			max-width: 33.3%;
+		}
+
+		.footer-socials {
+			padding-top: 7px;
+			ul {
+				text-align: right;
+				li {
+					margin: 0 0 0 8px;
+				}
+			}
+		}
+
+		.copyright {
+			margin-bottom: 5px;
+		}
+	}
+
+	.footer-menu {
+		margin: 0;
+	}
+
+	.footer-bottom {
+		padding: 40px 0;
+	}
+}/*min-width: 992px*/
+
+@media only screen and (min-width: 1024px) {
+	#main-menu {
+		ul {
+			li {
+				a {
+					font-size: 1em;
+				}
+			}
+		}
+	}
+
+	body.header-full-width {
+		.navbar {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+	}
+
+	body.content-full-width {
+		.content-wrapper {
+			padding-right: 65px;
+			padding-left: 65px;
+		}
+
+		.footer-bottom, .footer-widget-area {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+	}
+}/*min-width: 1024px*/
+
+@media only screen and (min-width: 1400px) {
+	body.content-full-width {
+		.content-wrapper {
+			padding-right: 100px;
+			padding-left: 100px;
+		}
+	}
+}/*min-width: 1400px*/
