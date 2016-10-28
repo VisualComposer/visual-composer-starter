@@ -53,6 +53,10 @@
   body:not(.menu-sandwich) #main-menu ul li ul li ul {
     padding: 0;
   }
+  body.navbar-no-background:not(.menu-sandwich) #main-menu,
+  body.navbar-no-background:not(.menu-sandwich) #main-menu .navbar-nav {
+    background-color: transparent !important;
+  }
   #main-menu ul li a {
     font-size: 0.875em;
   }
@@ -67,13 +71,24 @@
   }
   .comment-form-author,
   .comment-form-email,
-  .comment-form-url {
+  .comment-form-url,
+  .form-submit,
+  .comment-subscription-form {
     width: 32%;
     float: left;
     margin-left: 2%;
   }
-  .comment-form-author {
+  .comment-form-author,
+  .form-submit {
     margin-left: 0;
+  }
+  .comment-subscription-form {
+    display: table;
+    height: 46px;
+  }
+  .comment-subscription-form label {
+    display: table-cell;
+    vertical-align: middle;
   }
 }
 /*min-width: 768px*/
@@ -85,16 +100,15 @@
   .nav-previous {
     margin-bottom: 0;
   }
-  #footer .footer-left-block {
-    float: left;
-    max-width: 66.6%;
-  }
   #footer .footer-right-block {
     float: right;
-    max-width: 33.3%;
+    margin-left: 12.5%;
+    margin-bottom: 0;
+    display: table;
   }
   #footer .footer-socials {
-    padding-top: 7px;
+    display: table-cell;
+    vertical-align: middle;
   }
   #footer .footer-socials ul {
     text-align: right;
@@ -103,7 +117,10 @@
     margin: 0 0 0 8px;
   }
   #footer .copyright {
-    margin-bottom: 5px;
+    margin-bottom: 0;
+  }
+  #footer .copyright span {
+    display: inline-block;
   }
   .footer-menu {
     margin: 0;

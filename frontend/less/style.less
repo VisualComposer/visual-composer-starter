@@ -58,6 +58,24 @@ a {
 	color: @active-text-color;
 }
 
+.blue-button {
+	display: inline-block;
+	background-color: #557cbf;
+	border-radius: 0;
+	border: none;
+	color: #f4f4f4;
+	font-family: @secondary-font-family;
+	padding: 15px 30px;
+	line-height: 1;
+
+	&:hover, &:focus {
+		color: #f4f4f4;
+		text-decoration: none;
+		background-color: #3c63a6;
+		outline: none;
+	}
+}
+
 
 //HEADER
 #header {
@@ -176,7 +194,6 @@ body.menu-sandwich {
 	}
 
 	ul {
-		background-color: @default-navbar-color;
 		li {
 			a {
 				color: #555;
@@ -211,6 +228,10 @@ body.menu-sandwich {
 
 
 //Content
+.content-wrapper {
+	overflow-wrap: break-word;
+}
+
 .main-content {
 	padding-bottom: 40px;
 }
@@ -400,7 +421,6 @@ body.menu-sandwich {
 				&:hover, &:focus {
 					text-decoration: none;
 					border-bottom-color: #777;
-
 				}
 			}
 		}
@@ -477,19 +497,52 @@ body.menu-sandwich {
 		}
 	}
 
+	.form-submit, .comment-subscription-form {
+		margin-bottom: 30px;
+	}
+
+	.comment-subscription-form {
+		line-height: 1rem;
+
+		label {
+			font-size: 14px;
+			position: relative;
+			padding-left: 35px;
+			cursor: pointer;
+
+			&:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 50%;
+				margin-top: -10px;
+				display: block;
+				width: 20px;
+				height: 20px;
+				background-color: #fff;
+				border: 1px solid #dadada;
+				font-size: 25px;
+				color: @active-text-color;
+				line-height: 18px;
+				text-align: center;
+
+			}
+		}
+
+		input[type="checkbox"] {
+			display: none;
+		}
+
+		input:checked + label {
+			&:before {
+				content: '\2022';
+			}
+		}
+	}
+
 	.form-submit {
 		input[type="submit"] {
-			background-color: #557cbf;
-			border-radius: none;
-			border: none;
-			color: #f4f4f4;
-			font-family: @secondary-font-family;
-			padding: 15px 30px;
-			line-height: 1;
-
-			&:focus {
-				outline: none;
-			}
+			.blue-button();
 		}
 	}
 }
@@ -503,6 +556,90 @@ body.menu-sandwich {
 	overflow-wrap: normal !important;
 	position: absolute !important;
 	width: 1px;
+}
+
+.search-results-header {
+	padding-top: 20px;
+	border-top: 1px solid #eee;
+	margin-bottom: 20px;
+
+	h4 {
+		color: #777;
+		margin-bottom: 0;
+
+		strong {
+			font-weight: 500;
+			color: @headers-color;
+		}
+	}
+}
+
+.archive {
+
+}
+
+.entry-preview {
+	margin-bottom: 45px;
+
+	.entry-meta {
+		padding: 0;
+		margin-bottom: 10px;
+		list-style: none;
+
+		li {
+			display: inline-block;
+			margin-right: 10px;
+			font-size: 14px;
+			color: #777;
+			line-height: 20px;
+
+			&:before {
+				font-family: @icon-font-family;
+				font-size: 22px;
+				color: #d4d4d4;
+				margin-right: 5px;
+				display: inline;
+				vertical-align: text-bottom;
+			}
+
+			&.entry-meta-date {
+				&:before {
+					content: '\62';
+				}
+			}
+
+			&.entry-meta-author {
+				&:before {
+					content: '\6e';
+				}
+			}
+
+			&.entry-meta-category {
+				&:before {
+					content: '\65';
+				}
+			}
+
+			&.entry-meta-comments {
+				&:before {
+					content: '\61';
+					line-height: 15px;
+				}
+			}
+
+			a {
+				color: #777;
+				border-bottom: 1px solid transparent;
+				transition: border-bottom 0.3s ease;
+
+				&:hover, &:focus {
+					color: #777;
+					text-decoration: none;
+					border-bottom-color: #777;
+				}
+			}
+		}
+	}
 }
 
 //Typography
@@ -582,6 +719,39 @@ h6 {
 
 	.wp-caption {
 		margin-bottom: 1.625rem;
+	}
+
+	.gallery {
+		font-size: 0;
+		margin: 0 -1.16667% 1.625rem -1.16667%;
+	}
+
+	.gallery-item {
+		display: inline-block;
+		width: 100%;
+		max-width: 33.3%;
+		vertical-align: top;
+		padding: 0 1.14007%;
+		margin-bottom: 1rem;
+	}
+
+	.gallery-icon {
+		display: block;
+
+		img {
+			margin: 0 auto;
+			display: block;
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
+	.gallery-caption {
+		color: #777;
+		font-size: 14px;
+		font-style: italic;
+		margin-top: 10px;
+		text-align: center;
 	}
 
 	img {
@@ -671,8 +841,12 @@ h6 {
 
 .alignleft {
 	float: left;
+	margin-right: 1.625rem;
 }
 
+.alignnone {
+	margin: 5px 20px 20px 0;
+}
 
 //Widgets
 .widget-title {
@@ -804,7 +978,12 @@ h6 {
 		}
 	}
 
+	.footer-right-block {
+		margin-bottom: 10px;
+	}
+
 	.footer-socials {
+
 		ul {
 			padding: 0;
 			margin: 0;
@@ -815,16 +994,21 @@ h6 {
 				a {
 					line-height: 1;
 					font-size: 32px;
-					color: @footer-main-color;
+					color: @footer-active-color;
 					border-bottom: none;
-					opacity: 0.75;
-					transition: opacity 0.3s ease;
+
 
 					&:hover {
-						opacity: 1;
+						span {
+							opacity: 1;
+						}
 					}
 
-					span {display: block;}
+					span {
+						display: block;
+						opacity: 0.25;
+						transition: opacity 0.3s ease;
+					}
 				}
 			}
 		}

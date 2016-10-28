@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
+    <title>Search Result</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i|Roboto:400,400i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/visual-composer-theme-font.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
-<body>
+<body class="menu-sandwich navbar-no-background">
 <header id="header">
     <nav class="navbar">
         <div class="container">
@@ -18,27 +18,27 @@
                 <a class="navbar-brand" href="#">
                     <img width="50" height="49" src="images/logo.svg" alt="Site title">
                 </a>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+                <button type="button" class="navbar-toggle">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
             </div>
-            <div class="collapse navbar-collapse" id="main-menu">
+            <div id="main-menu">
+                <div class="button-close"></div>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li>
-                        <a href="#">Services</a>
+                    <li class="menu-item-has-children">
+                        <a href="#">Features</a>
                         <ul>
                             <li><a href="#">Frontend Editor</a></li>
-                            <li>
+                            <li class="menu-item-has-children">
                                 <a href="#">Content Elements</a>
                                 <ul>
                                     <li><a href="#">Simple Button</a></li>
                                     <li><a href="#">Call to Action Block</a></li>
-                                    <li>
+                                    <li class="menu-item-has-children">
                                         <a href="#">Instagram Image</a>
                                         <ul>
                                             <li><a href="#">Instagram Embed</a></li>
@@ -51,6 +51,7 @@
                             <li><a href="">Premium Support</a></li>
                         </ul>
                     </li>
+                    <li><a href="#">Services</a></li>
                     <li><a href="#">Articles</a></li>
                     <li><a href="">Contacts</a></li>
                 </ul>
@@ -58,7 +59,6 @@
         </div>
     </nav>
     <div class="header-image">
-        <img src="images/header-image.jpg" alt="">
     </div>
 </header>
 <div class="content-wrapper">
@@ -67,50 +67,71 @@
             <div class="col-md-9">
                 <div class="main-content">
                     <div class="search-results-header">
-                        <h1>Search results for <strong>New York</strong></h1>
+                        <h4>Search results for <strong>New York</strong></h4>
                     </div>
                     <div class="archive">
                         <article class="entry-preview">
-                            <div class="entry-featured-image">
-                                <img src="" alt="Post title">
-                            </div>
                             <ul class="entry-meta">
-                                <li class="entry-meta-date">October 20, 2016</li>
-                                <li class="entry-meta-author">Rice Kellogg</li>
-                                <li class="entry-meta-category">Food</li>
-                                <li class="entry-meta-comments">8</li>
+                                <li class="entry-meta-date"><a href="#">October 20, 2016</a></li>
+                                <li class="entry-meta-author"><a href="#">Rice Kellogg</a></li>
+                                <li class="entry-meta-category"><a href="#">Food</a></li>
+                                <li class="entry-meta-comments"><a href="#">8 Comments</a></li>
                             </ul>
-                            <div class="entry-content text-content">
+                            <div class="entry-content">
                                 <h2>Sweet Corn Increases Ferulic Acid</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate explicabo, sequi. Amet animi aspernatur commodi consectetur corporis dolorem ea et, eveniet facere maiores nobis provident ratione totam? Nobis, quibusdam, sed. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem beatae debitis dolore doloremque esse excepturi fuga id impedit itaque magnam nemo, neque nesciunt perferendis quasi, quos recusandae voluptate. Ad.</p>
+                                <p>In most of Latin America, sweet corn is traditionally eaten with beans; each plant is deficient in an essential amino acid that happens to be abundant in the other, so together sweet corn and beans form a protein-complete meal. In Brazil, sweet corn cut off from the cobs is generally eaten with peas.</p>
                             </div>
-                            <a href="#" class="read-more">Read More</a>
+                            <a href="#" class="blue-button read-more">Read More</a>
                         </article>
                         <article class="entry-preview">
                             <ul class="entry-meta">
-                                <li class="entry-meta-date">October 20, 2016</li>
-                                <li class="entry-meta-author">Rice Kellogg</li>
-                                <li class="entry-meta-category">Food</li>
-                                <li class="entry-meta-comments">8</li>
+                                <li class="entry-meta-date"><a href="#">October 20, 2016</a></li>
+                                <li class="entry-meta-author"><a href="#">Rice Kellogg</a></li>
+                                <li class="entry-meta-category"><a href="#">Food</a></li>
                             </ul>
-                            <div class="entry-content text-content">
-                                <h2>Sweet Corn Increases Ferulic Acid</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate explicabo, sequi. Amet animi aspernatur commodi consectetur corporis dolorem ea et, eveniet facere maiores nobis provident ratione totam? Nobis, quibusdam, sed. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem beatae debitis dolore doloremque esse excepturi fuga id impedit itaque magnam nemo, neque nesciunt perferendis quasi, quos recusandae voluptate. Ad.</p>
+                            <div class="entry-content">
+                                <h2>On Our Way to New York City</h2>
+                                <p>In most of Latin America, sweet corn is traditionally eaten with beans; each plant is deficient in an essential amino acid that happens to be abundant in the other, so together sweet corn and beans form a protein-complete meal. In Brazil, sweet corn cut off from the cobs is generally eaten with peas.</p>
                             </div>
-                            <a href="#" class="read-more">Read More</a>
+                            <a href="#" class="blue-button read-more">Read More</a>
                         </article>
                         <article class="entry-preview">
                             <ul class="entry-meta">
-                                <li class="entry-meta-date">October 20, 2016</li>
-                                <li class="entry-meta-author">Rice Kellogg</li>
-                                <li class="entry-meta-category">Food</li>
-                                <li class="entry-meta-comments">8</li>
+                                <li class="entry-meta-date"><a href="#">October 20, 2016</a></li>
+                                <li class="entry-meta-author"><a href="#">Rice Kellogg</a></li>
+                                <li class="entry-meta-category"><a href="#">Food</a></li>
+                                <li class="entry-meta-comments"><a href="#">8 Comments</a></li>
                             </ul>
-                            <div class="entry-content text-content">
-                                <h2>Sweet Corn Increases Ferulic Acid</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate explicabo, sequi. Amet animi aspernatur commodi consectetur corporis dolorem ea et, eveniet facere maiores nobis provident ratione totam? Nobis, quibusdam, sed. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem beatae debitis dolore doloremque esse excepturi fuga id impedit itaque magnam nemo, neque nesciunt perferendis quasi, quos recusandae voluptate. Ad.</p>
+                            <div class="entry-content">
+                                <h2>Beans In Latin America</h2>
+                                <p>In most of Latin America, sweet corn is traditionally eaten with beans; each plant is deficient in an essential amino acid that happens to be abundant in the other, so together sweet corn and beans form a protein-complete meal. In Brazil, sweet corn cut off from the cobs is generally eaten with peas.</p>
                             </div>
-                            <a href="#" class="read-more">Read More</a>
+                            <a href="#" class="blue-button read-more">Read More</a>
+                        </article>
+                        <article class="entry-preview">
+                            <ul class="entry-meta">
+                                <li class="entry-meta-date"><a href="#">October 20, 2016</a></li>
+                                <li class="entry-meta-author"><a href="#">Rice Kellogg</a></li>
+                                <li class="entry-meta-category"><a href="#">Food</a></li>
+                                <li class="entry-meta-comments"><a href="#">8 Comments</a></li>
+                            </ul>
+                            <div class="entry-content">
+                                <h2>Sunday In Brooklyn With Brunch</h2>
+                                <p>In most of Latin America, sweet corn is traditionally eaten with beans; each plant is deficient in an essential amino acid that happens to be abundant in the other, so together sweet corn and beans form a protein-complete meal. In Brazil, sweet corn cut off from the cobs is generally eaten with peas.</p>
+                            </div>
+                            <a href="#" class="blue-button read-more">Read More</a>
+                        </article>
+                        <article class="entry-preview">
+                            <ul class="entry-meta">
+                                <li class="entry-meta-date"><a href="#">October 20, 2016</a></li>
+                                <li class="entry-meta-author"><a href="#">Rice Kellogg</a></li>
+                                <li class="entry-meta-category"><a href="#">Food</a></li>
+                            </ul>
+                            <div class="entry-content">
+                                <h2>New York Times Announce Vote Results</h2>
+                                <p>A blog can also be defined by which type of device is used to compose it.</p>
+                            </div>
+                            <a href="#" class="blue-button read-more">Read More</a>
                         </article>
                     </div>
                     <div class="pagination">
@@ -207,7 +228,18 @@
     </div>
     <div class="footer-bottom">
         <div class="container">
-            <div class="footer-left-block pull-left">
+            <div class="footer-right-block">
+                <div class="footer-socials">
+                    <ul>
+                        <li><a href="#"><span class="vc-icon-facebook-with-circle"></span></a></li>
+                        <li><a href="#"><span class="vc-icon-twitter-with-circle"></span></a></li>
+                        <li><a href="#"><span class="vc-icon-instagram-with-circle"></span></a></li>
+                        <li><a href="#"><span class="vc-icon-vimeo-with-circle"></span></a></li>
+                        <li><a href="mailto:#"><span class="vc-icon-mail-circle"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-left-block">
                 <p class="copyright">Copyright &copy; 2016 Visual Composer. All Rights Reserved. Proudly powered by <a href="http://visualcomposer.io">Visual Composer</a> and
                     <a href="https://wordpress.org">WordPress</a></p>
                 <div class="footer-menu">
@@ -216,17 +248,6 @@
                         <li><a href="#">Terms of Use</a></li>
                         <li><a href="#">Privacy policy</a></li>
                         <li><a href="">Contacts</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-right-block pull-right">
-                <div class="footer-socials">
-                    <ul>
-                        <li><a href="#"><span class="vc-icon-facebook-with-circle"></span></a></li>
-                        <li><a href="#"><span class="vc-icon-twitter-with-circle"></span></a></li>
-                        <li><a href="#"><span class="vc-icon-instagram-with-circle"></span></a></li>
-                        <li><a href="#"><span class="vc-icon-vimeo-with-circle"></span></a></li>
-                        <li><a href="mailto:#"><span class="vc-icon-mail-circle"></span></a></li>
                     </ul>
                 </div>
             </div>

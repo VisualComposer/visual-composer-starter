@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Post</title>
+    <title>Post No Comments</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i|Roboto:400,400i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/visual-composer-theme-font.css">
@@ -12,14 +12,19 @@
 
     <!--For WP Theme Customizer-->
     <style>
+        #main-menu .navbar-nav > li > a {color: #fff;}
+        #main-menu .navbar-nav > li > a:hover {color: #ddd;}
         #main-menu, #main-menu ul {background-color: #333;}
-        #main-menu ul li a {color: #ccc}
-        #main-menu ul li a:hover, #main-menu ul li a:focus {color: #fff}
+
+        @media only screen and (max-width: 767px) {
+            #main-menu .navbar-nav li a {color: #fff;}
+            #main-menu .navbar-nav li a:hover {color: #ddd;}
+        }
     </style>
     <!--For WP Theme Customizer-->
 
 </head>
-<body class="navbar-no-background sandwich-color-light menu-sandwich">
+<body class="navbar-no-background sandwich-color-light">
 <header id="header">
     <nav class="navbar">
         <div class="container">
@@ -38,9 +43,8 @@
                 <div class="button-close"></div>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Features</a></li>
                     <li class="menu-item-has-children">
-                        <a href="#">Services</a>
+                        <a href="#">Features</a>
                         <ul>
                             <li><a href="#">Frontend Editor</a></li>
                             <li class="menu-item-has-children">
@@ -61,6 +65,7 @@
                             <li><a href="">Premium Support</a></li>
                         </ul>
                     </li>
+                    <li><a href="#">Services</a></li>
                     <li><a href="#">Articles</a></li>
                     <li><a href="">Contacts</a></li>
                 </ul>
@@ -164,83 +169,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="comments-title">8 Comments</h3>
-                    <p class="comments-subtitle">Join the discussion and tell us your opinion.</p>
-                    <ol class="comment-list">
-                        <li id="comment-2" class="comment byuser even thread-even depth-1 parent">
-                            <article id="div-comment-2" class="comment-body">
-                                <div class="author-avatar">
-                                    <img src="images/avatar-3.jpg" height="80" width="80" />
-                                </div>
-                                <div class="comment-wrapper">
-                                    <footer class="comment-meta">
-                                        <div class="comment-author vcard">
-                                            Curtis Lee Brown <span class="says">says:</span>
-                                        </div>
-                                        <div class="comment-metadata">
-                                            <a href="#">On October 20, 2016 at 22:00</a>
-                                        </div>
-                                    </footer>
-                                    <div class="comment-content">
-                                        <p>Su cultivars are best when cooked within 30 minutes of harvest. Despite their short storage life, many open pollinated cultivars such as 'Golden Bantam' remain popular for home gardeners and specialty markets, or are marketed as heirloom seeds. Although less sweet, they are often described as more tender and flavorful than hybrids.</p>
-                                    </div>
-                                    <div class="reply">
-                                        <a rel="nofollow" class="comment-reply-link" href="#">Reply</a>
-                                    </div>
-                                </div>
-                            </article>
-                            <ol class="children">
-                                <li id="comment-3" class="comment byuser comment-author-admin bypostauthor odd alt depth-2">
-                                    <article id="div-comment-3" class="comment-body">
-                                        <div class="author-avatar">
-                                            <img src="images/avatar-1.jpg" height="80" width="80" />
-                                        </div>
-                                        <div class="comment-wrapper">
-                                            <footer class="comment-meta">
-                                                <div class="comment-author vcard">
-                                                    Rice Kellogg <span class="says">says:</span>
-                                                </div>
-                                                <div class="comment-metadata">
-                                                    <a href="#">On October 20, 2016 at 22:09</a>
-                                                </div>
-                                            </footer>
-                                            <div class="comment-content">
-                                                <p>Although less sweet, they are often described as more tender and flavorful than hybrids.</p>
-                                            </div>
-                                            <div class="reply">
-                                                <a rel="nofollow" class="comment-reply-link" href="#">Reply</a>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </li>
-                            </ol>
-                        </li>
-                        <li id="comment-4" class="comment byuser comment-author-admin bypostauthor even thread-odd thread-alt depth-1">
-                            <article id="div-comment-4" class="comment-body">
-                                <div class="author-avatar">
-                                    <img src="images/avatar-2.jpg" height="80" width="80" />
-                                </div>
-                                <div class="comment-wrapper">
-                                    <footer class="comment-meta">
-                                        <div class="comment-author vcard">
-                                            Anna Wolzacky <span class="says">says:</span>
-                                        </div>
-                                        <div class="comment-metadata">
-                                            <a href="#">On October 22, 2016 at 9:20</a>
-                                        </div>
-                                    </footer>
-                                    <div class="comment-content">
-                                        <p>Despite their short storage life, many open pollinated cultivars such as 'Golden Bantam' remain popular for home gardeners and specialty markets, or are marketed as heirloom seeds. Although less sweet, they are often described as more tender and flavorful than hybrids.</p>
-                                    </div>
-                                    <div class="reply">
-                                        <a rel="nofollow" class="comment-reply-link" href="#">Reply</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                    </ol>
                     <div id="respond" class="comment-respond">
-                        <h2 id="reply-title" class="comment-reply-title">Leave A Comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display:none;">Cancel reply</a></small></h2>
+                        <h2 id="reply-title" class="comment-reply-title">Share Your Thoughts <small><a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display:none;">Cancel reply</a></small></h2>
                         <form action="" method="post" id="commentform" class="comment-form" novalidate>
                             <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p>
                             <p class="comment-form-comment">

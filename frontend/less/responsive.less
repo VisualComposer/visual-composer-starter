@@ -67,6 +67,12 @@
 		}
 	}
 
+	body.navbar-no-background:not(.menu-sandwich) {
+		#main-menu, #main-menu .navbar-nav {
+			background-color: transparent !important;
+		}
+	}
+
 	#main-menu {
 		ul {
 			li {
@@ -93,14 +99,24 @@
 		}
 	}
 
-	.comment-form-author, .comment-form-email, .comment-form-url {
+	.comment-form-author, .comment-form-email, .comment-form-url, .form-submit, .comment-subscription-form {
 		width: 32%;
 		float: left;
 		margin-left: 2%;
 	}
 
-	.comment-form-author {
+	.comment-form-author, .form-submit {
 		margin-left: 0;
+	}
+
+	.comment-subscription-form {
+		display: table;
+		height: 46px;
+
+		label {
+			display: table-cell;
+			vertical-align: middle;
+		}
 	}
 }/*min-width: 768px*/
 
@@ -114,18 +130,16 @@
 	}
 
 	#footer {
-		.footer-left-block {
-			float: left;
-			max-width: 66.6%;
-		}
-
 		.footer-right-block {
 			float: right;
-			max-width: 33.3%;
+			margin-left: 12.5%;
+			margin-bottom: 0;
+			display: table;
 		}
 
 		.footer-socials {
-			padding-top: 7px;
+			display: table-cell;
+			vertical-align: middle;
 			ul {
 				text-align: right;
 				li {
@@ -135,7 +149,11 @@
 		}
 
 		.copyright {
-			margin-bottom: 5px;
+			margin-bottom: 0;
+
+			span {
+				display: inline-block;
+			}
 		}
 	}
 
