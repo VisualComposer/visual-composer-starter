@@ -60,7 +60,7 @@ a {
 
 .blue-button {
 	display: inline-block;
-	background-color: #557cbf;
+	background-color: @active-text-color;
 	border-radius: 0;
 	border: none;
 	color: #f4f4f4;
@@ -316,7 +316,7 @@ body.menu-sandwich {
 	margin-bottom: 1.625rem;
 }
 
-.nav-links {
+.nav-links.post-navigation {
 	margin-top: 1.625rem;
 	padding-top: 1.625rem;
 	border-top: 1px solid #eee;
@@ -346,6 +346,38 @@ body.menu-sandwich {
 				border-bottom-color: @headers-color;
 			}
 		}
+	}
+}
+
+.pagination {
+	margin: 0;
+	display: block;
+	border-radius: 0;
+}
+
+.nav-links.archive-navigation {
+	.page-numbers {
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		margin: 0 10px 10px 0;
+		background-color: #eee;
+		border-radius: 50%;
+		text-align: center;
+		line-height: 32px;
+		font-size: 14px;
+		font-style: italic;
+		color: #777;
+
+		&.dots {
+			background: none;
+		}
+	}
+
+	a.page-numbers:hover, a.page-numbers:focus, .page-numbers.current {
+		text-decoration: none;
+		background-color: @active-text-color;
+		color: #fff;
 	}
 }
 
@@ -478,6 +510,7 @@ body.menu-sandwich {
 		padding-right: 10px;
 		width: 100%;
 		border: 1px solid #dadada;
+		box-shadow: none;
 		&:focus {
 			outline: none;
 		}
@@ -523,7 +556,7 @@ body.menu-sandwich {
 				border: 1px solid #dadada;
 				font-size: 25px;
 				color: @active-text-color;
-				line-height: 18px;
+				line-height: 19px;
 				text-align: center;
 
 			}
@@ -574,8 +607,90 @@ body.menu-sandwich {
 	}
 }
 
-.archive {
+.entry-content.archive {
+	margin-bottom: 45px;
 
+	h1 {
+		margin-bottom: 1.625rem;
+	}
+}
+
+.featured-content {
+	margin-bottom: 25px;
+
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	.video-wrapper {
+		position: relative;
+		height: 0;
+		padding-bottom: 56.25%;
+
+		embed, iframe, object, video {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+		}
+	}
+
+	.gallery-slider {
+		position: relative;
+
+		>.gallery-item {
+			&:first-child {
+				position: relative;
+				z-index: 100;
+			}
+
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		.slick-dots {
+			position: absolute;
+			bottom: 0;
+			margin-top: 30px;
+			list-style: none;
+			padding: 0;
+			text-align: center;
+			z-index: 200;
+			width: 100%;
+
+			li {
+				display: inline-block;
+				margin: 0 5px;
+
+				&.slick-active {
+					button {
+						background-color: #fff;
+					}
+				}
+
+				button {
+					width: 12px;
+					height: 12px;
+					text-indent: -9999px;
+					overflow: hidden;
+					border-radius: 50%;
+					border: none;
+					box-shadow: none;
+					background-color: rgba(255, 255, 255, 0.5);
+
+					&:hover, &:focus {
+						background-color: #fff;
+						outline: none;
+					}
+				}
+			}
+		}
+	}
 }
 
 .entry-preview {
@@ -593,49 +708,59 @@ body.menu-sandwich {
 			color: #777;
 			line-height: 20px;
 
-			&:before {
-				font-family: @icon-font-family;
-				font-size: 22px;
-				color: #d4d4d4;
-				margin-right: 5px;
-				display: inline;
-				vertical-align: text-bottom;
-			}
-
 			&.entry-meta-date {
-				&:before {
-					content: '\62';
+				a {
+					&:before {
+						content: '\62';
+					}
 				}
 			}
 
 			&.entry-meta-author {
-				&:before {
-					content: '\6e';
+				a {
+					&:before {
+						content: '\6e';
+					}
 				}
 			}
 
 			&.entry-meta-category {
-				&:before {
-					content: '\65';
+				a {
+					&:before {
+						content: '\65';
+					}
 				}
 			}
 
 			&.entry-meta-comments {
-				&:before {
-					content: '\61';
-					line-height: 15px;
+				a {
+					&:before {
+						content: '\61';
+						line-height: 15px;
+					}
 				}
 			}
 
 			a {
 				color: #777;
-				border-bottom: 1px solid transparent;
-				transition: border-bottom 0.3s ease;
+				transition: color 0.3s ease;
 
 				&:hover, &:focus {
-					color: #777;
+					color: @headers-color;
 					text-decoration: none;
-					border-bottom-color: #777;
+
+					&:before {
+						color: @active-text-color;
+					}
+				}
+
+				&:before {
+					font-family: @icon-font-family;
+					font-size: 22px;
+					color: #d4d4d4;
+					margin-right: 5px;
+					display: inline;
+					vertical-align: text-bottom;
 				}
 			}
 		}
@@ -761,7 +886,7 @@ h6 {
 
 
 	blockquote {
-		border-left: 4px solid #557cbf;
+		border-left: 4px solid @active-text-color;
 		padding: 10px 0 10px 23px;
 		color: #777;
 		font-size: 22px;
