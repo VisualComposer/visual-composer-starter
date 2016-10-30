@@ -1,22 +1,37 @@
+[].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+    img.setAttribute('src', img.getAttribute('data-src'));
+    img.onload = function() {
+        img.removeAttribute('data-src');
+    };
+});
+
 jQuery(window).load(function(){
 
     //Header without background
     if(jQuery('body').hasClass('navbar-no-background')) {
-        jQuery('#header').css({minHeight: jQuery('nav.navbar').outerHeight()})
+        jQuery('#header').css({minHeight: jQuery('nav.navbar').outerHeight()});
     }
 
     //Fixed header
-	if (jQuery(this).scrollTop() > 0 && jQuery('body').hasClass('fixed-header')) {
-        jQuery('nav.navbar').css({position: 'fixed'});
+	if (jQuery('body').hasClass('fixed-header')) {
+        jQuery('nav.navbar').addClass('fixed');
+        if(!jQuery('body').hasClass('navbar-no-background')) {
+            jQuery('body').css({paddingTop: jQuery('nav.navbar').outerHeight()});
+        }
+        else {
+            if (jQuery(this).scrollTop() > 0) {
+                jQuery('nav.navbar').addClass('scroll');
+            }
+        }
 	}
 
     jQuery(this).scroll(function () {
-        if (jQuery(this).scrollTop() > 0 && jQuery('body').hasClass('fixed-header')) {
-            jQuery('nav.navbar').css({position: 'fixed'});
+        if (jQuery(this).scrollTop() > 0 && jQuery('body').hasClass('navbar-no-background')) {
+            jQuery('nav.navbar').addClass('scroll');
         }
         else {
-            if (jQuery('body').hasClass('fixed-header')) {
-                jQuery('nav.navbar').css({position: 'static'});
+            if (jQuery('body').hasClass('navbar-no-background')) {
+                jQuery('nav.navbar').removeClass('scroll');
             }
         }
     });

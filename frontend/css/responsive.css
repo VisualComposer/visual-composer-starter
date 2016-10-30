@@ -12,7 +12,7 @@
     display: none;
   }
   body:not(.menu-sandwich) #main-menu > ul {
-    margin: 7.5px -15px;
+    margin: 7.5px 0;
   }
   body:not(.menu-sandwich) #main-menu > ul > li a {
     padding: 10px 15px;
@@ -139,8 +139,8 @@
     padding-right: 40px;
   }
   body.content-full-width .content-wrapper {
-    padding-right: 65px;
-    padding-left: 65px;
+    padding-right: 80px;
+    padding-left: 80px;
   }
   body.content-full-width .footer-bottom,
   body.content-full-width .footer-widget-area {
@@ -151,8 +151,8 @@
 /*min-width: 1024px*/
 @media only screen and (min-width: 1400px) {
   body.content-full-width .content-wrapper {
-    padding-right: 100px;
-    padding-left: 100px;
+    padding-right: 115px;
+    padding-left: 115px;
   }
 }
 /*min-width: 1400px*/

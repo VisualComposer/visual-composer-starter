@@ -75,3 +75,6 @@
 .vc-icon-search:before {
   content: "\70";
 }
+.vc-icon-dropdown-icon:before {
+  content: "\71";
+}

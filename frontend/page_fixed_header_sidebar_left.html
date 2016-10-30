@@ -1,120 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Page Fixed Header, Sidebar Left</title>
-	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i|Roboto:400,400i,700,700i" rel="stylesheet">
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/visual-composer-theme-font.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/responsive.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page Fixed Header, Sidebar Left</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i|Roboto:400,400i,700,700i"
+          rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/visual-composer-theme-font.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body class="fixed-header">
 <header id="header">
     <nav class="navbar">
         <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <img width="50" height="49" src="images/logo.svg" alt="Site title">
-                </a>
-                <button type="button" class="navbar-toggle">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div id="main-menu">
-                <div class="button-close"></div>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li class="menu-item-has-children">
-                        <a href="#">Services</a>
-                        <ul>
-                            <li><a href="#">Frontend Editor</a></li>
-                            <li class="menu-item-has-children">
-                                <a href="#">Content Elements</a>
-                                <ul>
-                                    <li><a href="#">Simple Button</a></li>
-                                    <li><a href="#">Call to Action Block</a></li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#">Instagram Image</a>
-                                        <ul>
-                                            <li><a href="#">Instagram Embed</a></li>
-                                            <li><a href="#">Documentation</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="">Responsive Settings</a></li>
-                            <li><a href="">Premium Support</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Articles</a></li>
-                    <li><a href="">Contacts</a></li>
-                </ul>
+            <div class="navbar-wrapper">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <img width="50" height="49" src="images/logo.svg" alt="Site title">
+                    </a>
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="main-menu">
+                    <div class="button-close"></div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Services</a>
+                            <ul>
+                                <li><a href="#">Frontend Editor</a></li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">Content Elements</a>
+                                    <ul>
+                                        <li><a href="#">Simple Button</a></li>
+                                        <li><a href="#">Call to Action Block</a></li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">Instagram Image</a>
+                                            <ul>
+                                                <li><a href="#">Instagram Embed</a></li>
+                                                <li><a href="#">Documentation</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="">Responsive Settings</a></li>
+                                <li><a href="">Premium Support</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Articles</a></li>
+                        <li><a href="">Contacts</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
     <div class="header-image">
-        <img src="images/header-image.jpg" alt="">
+        <div class="fade-in-img">
+            <img src="images/header-image.jpg" data-src="images/header-image.jpg" alt="">
+            <noscript>
+                <img src="images/header-image.jpg" alt="">
+            </noscript>
+        </div>
     </div>
 </header>
-<div class="content-wrapper">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-9 col-md-push-3">
-				<div class="main-content">
-					<div class="entry-content">
-						<h1>In The Family Rosaceae</h1>
-						<p>Pear cultivation in cool temperate climates extends to the remotest antiquity, and there is evidence of its use as a food since prehistoric times. Many traces of it have been found in prehistoric pile dwellings around Lake Zurich. The word “pear”, or its equivalent, occurs in all the Celtic languages, while in Slavic and other dialects, differing appellations, still referring to the same thing, are found—a diversity and multiplicity of nomenclature which led <a href="#">Alphonse Pyramus de Candolle</a> to infer a very ancient cultivation of the tree from the shores of the Caspian to those of the Atlantic.</p>
-						<figure class="wp-caption">
-							<img class="size-medium wp-image-30" src="images/page-image.jpg" alt="Fruits are perfect fit for morning coffee and bakeries" width="470" height="340" />
-							<figcaption class="wp-caption-text">Fruits are perfect fit for morning coffee and bakeries</figcaption>
-						</figure>
-						<p>A certain race of pears, with white down on the undersurface of their leaves, is supposed to have originated from P. nivalis, and their fruit is chiefly used in France in the manufacture of perry (see also cider). Other small-fruited pears, distinguished by their early ripening and apple-like fruit, may be referred to as P. cordata, a species found wild in western France and southwestern England. Pears have been cultivated in China for approximately 3000 years.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-md-pull-9">
-				<div class="sidebar-widget-area">
-					<section class="widget widget_recent_entries">
-						<h3 class="widget-title">Recent Posts</h3>
-						<ul>
-							<li><a href="#">Sweet Corn Increases Ferulic Acid</a></li>
-							<li><a href="#">Economic Botany In Springer New York City Downtown</a></li>
-							<li><a href="#">New Revelations of the Americas Before Columbus</a></li>
-						</ul>
-					</section>
-					<section class="widget widget_search">
-						<form role="search" method="get" class="search-form" action="">
-							<label>
-								<span class="screen-reader-text">Search for:</span>
-								<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
-							</label>
-							<input type="submit" class="search-submit" value="Search" />
-						</form>
-					</section>
-					<section class="widget widget_categories">
-						<h3 class="widget-title">Post Categories</h3>
-						<ul>
-							<li><a href="#">Food</a></li>
-							<li><a href="#">Rural Economics</a></li>
-							<li><a href="#">Cooking</a></li>
-							<li><a href="#">Manufacturing</a></li>
-							<li><a href="#">Research</a></li>
-							<li><a href="#">United States</a></li>
-							<li><a href="#">Case Studies</a></li>
-							<li><a href="#">Energy</a></li>
-							<li><a href="#">Green Peace</a></li>
-						</ul>
-					</section>
-				</div>
-			</div>
-		</div>
-	</div>
+
+<div class="container">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-9 col-md-push-3">
+                <div class="main-content">
+                    <div class="entry-content">
+                        <h1>In The Family Rosaceae</h1>
+                        <p>Pear cultivation in cool temperate climates extends to the remotest antiquity, and there is
+                            evidence of its use as a food since prehistoric times. Many traces of it have been found in
+                            prehistoric pile dwellings around Lake Zurich. The word “pear”, or its equivalent, occurs in
+                            all the Celtic languages, while in Slavic and other dialects, differing appellations, still
+                            referring to the same thing, are found—a diversity and multiplicity of nomenclature which
+                            led <a href="#">Alphonse Pyramus de Candolle</a> to infer a very ancient cultivation of the
+                            tree from the shores of the Caspian to those of the Atlantic.</p>
+                        <figure class="wp-caption">
+                            <img class="size-medium wp-image-30" src="images/page-image.jpg"
+                                 alt="Fruits are perfect fit for morning coffee and bakeries" width="470" height="340"/>
+                            <figcaption class="wp-caption-text">Fruits are perfect fit for morning coffee and bakeries
+                            </figcaption>
+                        </figure>
+                        <p>A certain race of pears, with white down on the undersurface of their leaves, is supposed to
+                            have originated from P. nivalis, and their fruit is chiefly used in France in the
+                            manufacture of perry (see also cider). Other small-fruited pears, distinguished by their
+                            early ripening and apple-like fruit, may be referred to as P. cordata, a species found wild
+                            in western France and southwestern England. Pears have been cultivated in China for
+                            approximately 3000 years.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-md-pull-9">
+                <div class="sidebar-widget-area">
+                    <section class="widget widget_recent_entries">
+                        <h3 class="widget-title">Recent Posts</h3>
+                        <ul>
+                            <li><a href="#">Sweet Corn Increases Ferulic Acid</a></li>
+                            <li><a href="#">Economic Botany In Springer New York City Downtown</a></li>
+                            <li><a href="#">New Revelations of the Americas Before Columbus</a></li>
+                        </ul>
+                    </section>
+                    <section class="widget widget_search">
+                        <form role="search" method="get" class="search-form" action="">
+                            <label>
+                                <span class="screen-reader-text">Search for:</span>
+                                <input type="search" class="search-field" placeholder="Search &hellip;" value=""
+                                       name="s"/>
+                            </label>
+                            <input type="submit" class="search-submit" value="Search"/>
+                        </form>
+                    </section>
+                    <section class="widget widget_categories">
+                        <h3 class="widget-title">Post Categories</h3>
+                        <ul>
+                            <li><a href="#">Food</a></li>
+                            <li><a href="#">Rural Economics</a></li>
+                            <li><a href="#">Cooking</a></li>
+                            <li><a href="#">Manufacturing</a></li>
+                            <li><a href="#">Research</a></li>
+                            <li><a href="#">United States</a></li>
+                            <li><a href="#">Case Studies</a></li>
+                            <li><a href="#">Energy</a></li>
+                            <li><a href="#">Green Peace</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <footer id="footer">
     <div class="footer-widget-area">
@@ -124,7 +148,8 @@
                     <div class="widget">
                         <h3 class="widget-title">About Us</h3>
                         <p>The pear is any of several tree and shrub species of genus Pyrus in the family Rosaceae.</p>
-                        <p>It is also the name of the pomaceous fruit of these trees. Several species of pear are valued for their edible fruit, while others are cultivated as ornamental trees.</p>
+                        <p>It is also the name of the pomaceous fruit of these trees. Several species of pear are valued
+                            for their edible fruit, while others are cultivated as ornamental trees.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -173,7 +198,8 @@
                 </div>
             </div>
             <div class="footer-left-block">
-                <p class="copyright">Copyright &copy; 2016 Visual Composer. All Rights Reserved. Proudly powered by <a href="http://visualcomposer.io">Visual Composer</a> and
+                <p class="copyright">Copyright &copy; 2016 Visual Composer. All Rights Reserved. Proudly powered by <a
+                        href="http://visualcomposer.io">Visual Composer</a> and
                     <a href="https://wordpress.org">WordPress</a></p>
                 <div class="footer-menu">
                     <ul>
@@ -192,6 +218,7 @@
 <!--/must be deleted for WP-->
 <script src="js/transition.js"></script>
 <script src="js/collapse.js"></script>
+<script src="js/slick.min.js"></script>
 <script src="js/custom.js"></script>
 </body>
 </html>

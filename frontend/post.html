@@ -4,75 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Post</title>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i|Roboto:400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i|Roboto:400,400i,700,700i"
+          rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/visual-composer-theme-font.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 
     <!--For WP Theme Customizer-->
     <style>
-        #main-menu, #main-menu ul {background-color: #333;}
+        .navbar.fixed.scroll, #main-menu, #main-menu ul {background-color: #333 !important;}
         #main-menu ul li a {color: #ccc}
         #main-menu ul li a:hover, #main-menu ul li a:focus {color: #fff}
     </style>
     <!--For WP Theme Customizer-->
 
 </head>
-<body class="navbar-no-background sandwich-color-light menu-sandwich">
+<body class="navbar-no-background sandwich-color-light menu-sandwich fixed-header">
 <header id="header">
     <nav class="navbar">
         <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <img width="50" height="49" src="images/logo.svg" alt="Site title">
-                </a>
-                <button type="button" class="navbar-toggle">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div id="main-menu">
-                <div class="button-close"></div>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li class="menu-item-has-children">
-                        <a href="#">Services</a>
-                        <ul>
-                            <li><a href="#">Frontend Editor</a></li>
-                            <li class="menu-item-has-children">
-                                <a href="#">Content Elements</a>
-                                <ul>
-                                    <li><a href="#">Simple Button</a></li>
-                                    <li><a href="#">Call to Action Block</a></li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#">Instagram Image</a>
-                                        <ul>
-                                            <li><a href="#">Instagram Embed</a></li>
-                                            <li><a href="#">Documentation</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="">Responsive Settings</a></li>
-                            <li><a href="">Premium Support</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Articles</a></li>
-                    <li><a href="">Contacts</a></li>
-                </ul>
+            <div class="navbar-wrapper">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <img width="50" height="49" src="images/logo.svg" alt="Site title">
+                    </a>
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="main-menu">
+                    <div class="button-close"></div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Services</a>
+                            <ul>
+                                <li><a href="#">Frontend Editor</a></li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">Content Elements</a>
+                                    <ul>
+                                        <li><a href="#">Simple Button</a></li>
+                                        <li><a href="#">Call to Action Block</a></li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">Instagram Image</a>
+                                            <ul>
+                                                <li><a href="#">Instagram Embed</a></li>
+                                                <li><a href="#">Documentation</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="">Responsive Settings</a></li>
+                                <li><a href="">Premium Support</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Articles</a></li>
+                        <li><a href="">Contacts</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
     <div class="header-image">
-        <img src="images/post-image.jpg" alt="">
+        <div class="fade-in-img">
+            <img src="images/post-image.jpg" data-src="images/post-image.jpg" alt="">
+            <noscript>
+                <img src="images/post-image.jpg" alt="">
+            </noscript>
+        </div>
     </div>
 </header>
-<div class="content-wrapper">
-    <div class="container">
+
+<div class="container">
+    <div class="content-wrapper">
         <div class="row">
             <div class="col-md-12">
                 <div class="main-content">
@@ -81,10 +91,17 @@
                             <div class="col-md-2">
                                 <div class="entry-author-data">
                                     <div class="author-avatar">
-                                        <img src="images/avatar-1.jpg" alt="Author name">
+                                        <div class="fade-in-img">
+                                            <img src="images/avatar-1.jpg" data-src="images/avatar-1.jpg"
+                                                 alt="Author name">
+                                            <noscript>
+                                                <img src="images/avatar-1.jpg" alt="Author name">
+                                            </noscript>
+                                        </div>
                                     </div>
                                     <p class="author-name">Rice Kellogg</p>
-                                    <p class="author-biography">A food blogger and Green Peace member since my mom bought me a sheep.</p>
+                                    <p class="author-biography">A food blogger and Green Peace member since my mom
+                                        bought me a sheep.</p>
                                 </div>
                             </div>
                             <div class="entry-content col-md-10">
@@ -93,24 +110,48 @@
                                 </div>
                                 <div class="text-content">
                                     <h1>Sweet Corn Increases Ferulic Acid</h1>
-                                    <p>In most of Latin America, sweet corn is traditionally eaten with beans; each plant is deficient in an essential
-                                        <a href="#">amino acid</a> that happens to be abundant in the other, so together sweet corn and beans form a protein-complete meal. In Brazil, sweet corn cut off from the cobs is generally eaten with peas.</p>
+                                    <p>In most of Latin America, sweet corn is traditionally eaten with beans; each
+                                        plant is deficient in an essential
+                                        <a href="#">amino acid</a> that happens to be abundant in the other, so together
+                                        sweet corn and beans form a protein-complete meal. In Brazil, sweet corn cut off
+                                        from the cobs is generally eaten with peas.</p>
                                     <figure class="wp-caption alignright" style="width: 370px">
-                                        <img class="size-medium" src="images/image-1.jpg" alt="Beautiful picture" width="370" height="471" />
-                                        <figcaption class="wp-caption-text">It can be found in Tex-Mex cooking in chili, tacos, and salads.</figcaption>
+                                        <img class="size-medium" src="images/image-1.jpg" alt="Beautiful picture"
+                                             width="370" height="471">
+                                        <figcaption class="wp-caption-text">It can be found in Tex-Mex cooking in chili,
+                                            tacos, and salads.
+                                        </figcaption>
                                     </figure>
-                                    <p>Similarly, sweet corn in Indonesia is traditionally ground or soaked with milk, which makes available the B vitamin niacin in the corn, the absence of which would otherwise lead to pellagra; in Brazil, a combination of ground sweet corn and milk is also the basis of various well-known dishes, such as pamonha and the pudding-like dessert curau, while sweet corn eaten directly off the cobs tends to be served with butter.</p>
+                                    <p>Similarly, sweet corn in Indonesia is traditionally ground or soaked with milk,
+                                        which makes available the B vitamin niacin in the corn, the absence of which
+                                        would otherwise lead to pellagra; in Brazil, a combination of ground sweet corn
+                                        and milk is also the basis of various well-known dishes, such as pamonha and the
+                                        pudding-like dessert curau, while sweet corn eaten directly off the cobs tends
+                                        to be served with butter.</p>
                                     <blockquote>
-                                        <p>A fruit of the corn plant is the corn kernel, a type of fruit called a caryopsis. The ear is a collection of kernels on the cob. <cite>Roberto S., Rural Conference Michigan, 1998</cite>
+                                        <p>A fruit of the corn plant is the corn kernel, a type of fruit called a
+                                            caryopsis. The ear is a collection of kernels on the cob. <cite>Roberto S.,
+                                                Rural Conference Michigan, 1998</cite>
                                         </p>
                                     </blockquote>
-                                    <p>The <a href="#">kernels</a> are boiled or steamed. In Europe, China, Korea, Japan and India, they are often used as a pizza topping, or in salads. Corn on the cob is a sweet corn cob that has been boiled, steamed, or grilled whole; the kernels are then eaten directly off the cob or cut off. Creamed corn is sweet corn served in a milk or cream sauce. Sweet corn can also be eaten as baby corn.</p>
+                                    <p>The <a href="#">kernels</a> are boiled or steamed. In Europe, China, Korea, Japan
+                                        and India, they are often used as a pizza topping, or in salads. Corn on the cob
+                                        is a sweet corn cob that has been boiled, steamed, or grilled whole; the kernels
+                                        are then eaten directly off the cob or cut off. Creamed corn is sweet corn
+                                        served in a milk or cream sauce. Sweet corn can also be eaten as baby corn.</p>
                                     <h2>Succotash and Lima Mix</h2>
-                                    <p>In the United States, sweet corn is eaten as a steamed vegetable, or on the cob, usually served with butter and salt. It can be found in Tex-Mex cooking in chili, tacos, and salads. When corn is mixed with Lima beans it is called Succotash. If left to dry on the plant, kernels may be taken off the cob and cooked in oil where, unlike popcorn, they expand to about double the original kernel size and are often called corn nuts.</p>
+                                    <p>In the United States, sweet corn is eaten as a steamed vegetable, or on the cob,
+                                        usually served with butter and salt. It can be found in Tex-Mex cooking in
+                                        chili, tacos, and salads. When corn is mixed with Lima beans it is called
+                                        Succotash. If left to dry on the plant, kernels may be taken off the cob and
+                                        cooked in oil where, unlike popcorn, they expand to about double the original
+                                        kernel size and are often called corn nuts.</p>
                                     <h3>Breeding Methods</h3>
-                                    <p>Modern breeding methods have also introduced cultivars incorporating multiple gene types:</p>
+                                    <p>Modern breeding methods have also introduced cultivars incorporating multiple
+                                        gene types:</p>
                                     <ul>
-                                        <li>sy (for synergistic) adds the sh2 gene to some kernels (usually 25%) on the same cob as a se base
+                                        <li>sy (for synergistic) adds the sh2 gene to some kernels (usually 25%) on the
+                                            same cob as a se base
                                             <ul>
                                                 <li>synergistic adds</li>
                                                 <li>se base modifications</li>
@@ -119,9 +160,17 @@
                                         <li>augmented sh2 adds the se and su gene to a sh2 parent</li>
                                     </ul>
                                     <h4>Trademarks</h4>
-                                    <p>Often seed producers of the sy and augmented sh2 types will use brand names or trademarks to distinguish these cultivars instead of mentioning the genetics behind them. Generally these brands or trademarks will offer a choice of white, bi-color and yellow cultivars which otherwise have very similar characteristics.</p>
+                                    <p>Often seed producers of the sy and augmented sh2 types will use brand names or
+                                        trademarks to distinguish these cultivars instead of mentioning the genetics
+                                        behind them. Generally these brands or trademarks will offer a choice of white,
+                                        bi-color and yellow cultivars which otherwise have very similar
+                                        characteristics.</p>
                                     <h5>Storage Life</h5>
-                                    <p>Su cultivars are best when cooked within 30 minutes of harvest. Despite their short storage life, many open pollinated cultivars such as 'Golden Bantam' remain popular for home gardeners and specialty markets, or are marketed as heirloom seeds. Although less sweet, they are often described as more tender and flavorful than hybrids.</p>
+                                    <p>Su cultivars are best when cooked within 30 minutes of harvest. Despite their
+                                        short storage life, many open pollinated cultivars such as 'Golden Bantam'
+                                        remain popular for home gardeners and specialty markets, or are marketed as
+                                        heirloom seeds. Although less sweet, they are often described as more tender and
+                                        flavorful than hybrids.</p>
                                     <h6>Corn Soup Recipe</h6>
                                     <p>A soup may also be made from the plant, called sweet corn soup.</p>
                                 </div>
@@ -160,124 +209,161 @@
             </div>
         </div>
     </div>
-    <div id="comments" class="comments-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="comments-title">8 Comments</h3>
-                    <p class="comments-subtitle">Join the discussion and tell us your opinion.</p>
-                    <ol class="comment-list">
-                        <li id="comment-2" class="comment byuser even thread-even depth-1 parent">
-                            <article id="div-comment-2" class="comment-body">
-                                <div class="author-avatar">
-                                    <img src="images/avatar-3.jpg" height="80" width="80" />
+</div>
+<div id="comments" class="comments-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="comments-title">8 Comments</h3>
+                <p class="comments-subtitle">Join the discussion and tell us your opinion.</p>
+                <ol class="comment-list">
+                    <li id="comment-2" class="comment byuser even thread-even depth-1 parent">
+                        <article id="div-comment-2" class="comment-body">
+                            <div class="author-avatar">
+                                <div class="fade-in-image">
+                                    <img src="images/avatar-3.jpg" data-src="images/avatar-3.jpg" height="80"
+                                         width="80">
+                                    <noscript>
+                                        <img src="images/avatar-3.jpg" height="80" width="80">
+                                    </noscript>
                                 </div>
-                                <div class="comment-wrapper">
-                                    <footer class="comment-meta">
-                                        <div class="comment-author vcard">
-                                            Curtis Lee Brown <span class="says">says:</span>
-                                        </div>
-                                        <div class="comment-metadata">
-                                            <a href="#">On October 20, 2016 at 22:00</a>
-                                        </div>
-                                    </footer>
-                                    <div class="comment-content">
-                                        <p>Su cultivars are best when cooked within 30 minutes of harvest. Despite their short storage life, many open pollinated cultivars such as 'Golden Bantam' remain popular for home gardeners and specialty markets, or are marketed as heirloom seeds. Although less sweet, they are often described as more tender and flavorful than hybrids.</p>
+                            </div>
+                            <div class="comment-wrapper">
+                                <footer class="comment-meta">
+                                    <div class="comment-author vcard">
+                                        Curtis Lee Brown <span class="says">says:</span>
                                     </div>
-                                    <div class="reply">
-                                        <a rel="nofollow" class="comment-reply-link" href="#">Reply</a>
+                                    <div class="comment-metadata">
+                                        <a href="#">On October 20, 2016 at 22:00</a>
                                     </div>
+                                </footer>
+                                <div class="comment-content">
+                                    <p>Su cultivars are best when cooked within 30 minutes of harvest. Despite their
+                                        short storage life, many open pollinated cultivars such as 'Golden Bantam'
+                                        remain popular for home gardeners and specialty markets, or are marketed as
+                                        heirloom seeds. Although less sweet, they are often described as more tender and
+                                        flavorful than hybrids.</p>
                                 </div>
-                            </article>
-                            <ol class="children">
-                                <li id="comment-3" class="comment byuser comment-author-admin bypostauthor odd alt depth-2">
-                                    <article id="div-comment-3" class="comment-body">
-                                        <div class="author-avatar">
-                                            <img src="images/avatar-1.jpg" height="80" width="80" />
+                                <div class="reply">
+                                    <a rel="nofollow" class="comment-reply-link" href="#">Reply</a>
+                                </div>
+                            </div>
+                        </article>
+                        <ol class="children">
+                            <li id="comment-3" class="comment byuser comment-author-admin bypostauthor odd alt depth-2">
+                                <article id="div-comment-3" class="comment-body">
+                                    <div class="author-avatar">
+                                        <div class="fade-in-image">
+                                            <img src="images/avatar-1.jpg" data-src="images/avatar-1.jpg" height="80"
+                                                 width="80">
+                                            <noscript>
+                                                <img src="images/avatar-1.jpg" height="80" width="80">
+                                            </noscript>
                                         </div>
-                                        <div class="comment-wrapper">
-                                            <footer class="comment-meta">
-                                                <div class="comment-author vcard">
-                                                    Rice Kellogg <span class="says">says:</span>
-                                                </div>
-                                                <div class="comment-metadata">
-                                                    <a href="#">On October 20, 2016 at 22:09</a>
-                                                </div>
-                                            </footer>
-                                            <div class="comment-content">
-                                                <p>Although less sweet, they are often described as more tender and flavorful than hybrids.</p>
+                                    </div>
+                                    <div class="comment-wrapper">
+                                        <footer class="comment-meta">
+                                            <div class="comment-author vcard">
+                                                Rice Kellogg <span class="says">says:</span>
                                             </div>
-                                            <div class="reply">
-                                                <a rel="nofollow" class="comment-reply-link" href="#">Reply</a>
+                                            <div class="comment-metadata">
+                                                <a href="#">On October 20, 2016 at 22:09</a>
                                             </div>
+                                        </footer>
+                                        <div class="comment-content">
+                                            <p>Although less sweet, they are often described as more tender and
+                                                flavorful than hybrids.</p>
                                         </div>
-                                    </article>
-                                </li>
-                            </ol>
-                        </li>
-                        <li id="comment-4" class="comment byuser comment-author-admin bypostauthor even thread-odd thread-alt depth-1">
-                            <article id="div-comment-4" class="comment-body">
-                                <div class="author-avatar">
-                                    <img src="images/avatar-2.jpg" height="80" width="80" />
-                                </div>
-                                <div class="comment-wrapper">
-                                    <footer class="comment-meta">
-                                        <div class="comment-author vcard">
-                                            Anna Wolzacky <span class="says">says:</span>
+                                        <div class="reply">
+                                            <a rel="nofollow" class="comment-reply-link" href="#">Reply</a>
                                         </div>
-                                        <div class="comment-metadata">
-                                            <a href="#">On October 22, 2016 at 9:20</a>
-                                        </div>
-                                    </footer>
-                                    <div class="comment-content">
-                                        <p>Despite their short storage life, many open pollinated cultivars such as 'Golden Bantam' remain popular for home gardeners and specialty markets, or are marketed as heirloom seeds. Although less sweet, they are often described as more tender and flavorful than hybrids.</p>
                                     </div>
-                                    <div class="reply">
-                                        <a rel="nofollow" class="comment-reply-link" href="#">Reply</a>
-                                    </div>
+                                </article>
+                            </li>
+                        </ol>
+                    </li>
+                    <li id="comment-4"
+                        class="comment byuser comment-author-admin bypostauthor even thread-odd thread-alt depth-1">
+                        <article id="div-comment-4" class="comment-body">
+                            <div class="author-avatar">
+                                <div class="fade-in-image">
+                                    <img src="images/avatar-2.jpg" data-src="images/avatar-2.jpg" height="80"
+                                         width="80">
+                                    <noscript>
+                                        <img src="images/avatar-2.jpg" height="80" width="80">
+                                    </noscript>
                                 </div>
-                            </article>
-                        </li>
-                    </ol>
-                    <div id="respond" class="comment-respond">
-                        <h2 id="reply-title" class="comment-reply-title">Leave A Comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display:none;">Cancel reply</a></small></h2>
-                        <form action="" method="post" id="commentform" class="comment-form" novalidate>
-                            <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p>
-                            <p class="comment-form-comment">
-                                <label for="comment">Comment</label>
-                                <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p>
-                            <p class="comment-form-author">
-                                <label for="author">Name <span class="required">*</span></label>
-                                <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required="true" required="required" />
-                            </p>
-                            <p class="comment-form-email">
-                                <label for="email">Email <span class="required">*</span></label>
-                                <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required="true" required="required" />
-                            </p>
-                            <p class="comment-form-url">
-                                <label for="url">Website</label>
-                                <input id="url" name="url" type="url" value="" size="30" maxlength="200" />
-                            </p>
-                            <p class="form-submit">
-                                <input name="submit" type="submit" id="submit" class="submit" value="Post Comment" />
-                                <input type="hidden" name="comment_post_ID" value="73" id="comment_post_ID" />
-                                <input type="hidden" name="comment_parent" id="comment_parent" value="0" />
-                            </p>
-                            <p class="comment-subscription-form">
-                                <input name="subscribe_comments" id="subscribe_comments" value="subscribe" type="checkbox">
-                                <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label>
-                            </p>
-                            <p class="comment-subscription-form">
-                                <input name="subscribe_blog" id="subscribe_blog" value="subscribe" type="checkbox">
-                                <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts by email.</label>
-                            </p>
-                        </form>
-                    </div>
+                            </div>
+                            <div class="comment-wrapper">
+                                <footer class="comment-meta">
+                                    <div class="comment-author vcard">
+                                        Anna Wolzacky <span class="says">says:</span>
+                                    </div>
+                                    <div class="comment-metadata">
+                                        <a href="#">On October 22, 2016 at 9:20</a>
+                                    </div>
+                                </footer>
+                                <div class="comment-content">
+                                    <p>Despite their short storage life, many open pollinated cultivars such as 'Golden
+                                        Bantam' remain popular for home gardeners and specialty markets, or are marketed
+                                        as heirloom seeds. Although less sweet, they are often described as more tender
+                                        and flavorful than hybrids.</p>
+                                </div>
+                                <div class="reply">
+                                    <a rel="nofollow" class="comment-reply-link" href="#">Reply</a>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                </ol>
+                <div id="respond" class="comment-respond">
+                    <h2 id="reply-title" class="comment-reply-title">Leave A Comment
+                        <small><a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display:none;">Cancel
+                            reply</a></small>
+                    </h2>
+                    <form action="" method="post" id="commentform" class="comment-form" novalidate>
+                        <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span>
+                            Required fields are marked <span class="required">*</span></p>
+                        <p class="comment-form-comment">
+                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525"
+                                      aria-required="true" required="required"></textarea></p>
+                        <p class="comment-form-author">
+                            <label for="author">Name <span class="required">*</span></label>
+                            <input id="author" name="author" type="text" value="" size="30" maxlength="245"
+                                   aria-required="true" required="required"/>
+                        </p>
+                        <p class="comment-form-email">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input id="email" name="email" type="email" value="" size="30" maxlength="100"
+                                   aria-describedby="email-notes" aria-required="true" required="required"/>
+                        </p>
+                        <p class="comment-form-url">
+                            <label for="url">Website</label>
+                            <input id="url" name="url" type="url" value="" size="30" maxlength="200"/>
+                        </p>
+                        <p class="form-submit">
+                            <input name="submit" type="submit" id="submit" class="submit" value="Post Comment"/>
+                            <input type="hidden" name="comment_post_ID" value="73" id="comment_post_ID"/>
+                            <input type="hidden" name="comment_parent" id="comment_parent" value="0"/>
+                        </p>
+                        <p class="comment-subscription-form">
+                            <input name="subscribe_comments" id="subscribe_comments" value="subscribe" type="checkbox">
+                            <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of
+                                follow-up comments by email.</label>
+                        </p>
+                        <p class="comment-subscription-form">
+                            <input name="subscribe_blog" id="subscribe_blog" value="subscribe" type="checkbox">
+                            <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of
+                                new posts by email.</label>
+                        </p>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <footer id="footer">
     <div class="footer-widget-area">
         <div class="container">
@@ -286,7 +372,8 @@
                     <div class="widget">
                         <h3 class="widget-title">About Us</h3>
                         <p>The pear is any of several tree and shrub species of genus Pyrus in the family Rosaceae.</p>
-                        <p>It is also the name of the pomaceous fruit of these trees. Several species of pear are valued for their edible fruit, while others are cultivated as ornamental trees.</p>
+                        <p>It is also the name of the pomaceous fruit of these trees. Several species of pear are valued
+                            for their edible fruit, while others are cultivated as ornamental trees.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -341,7 +428,8 @@
             <div class="footer-left-block">
                 <p class="copyright">
                     <span>Copyright &copy; 2016 Visual Composer. All Rights Reserved.</span>
-                    <span>Proudly powered by <a href="http://visualcomposer.io">Visual Composer</a> and <a href="https://wordpress.org">WordPress</a></span>
+                    <span>Proudly powered by <a href="http://visualcomposer.io">Visual Composer</a> and <a
+                            href="https://wordpress.org">WordPress</a></span>
                 </p>
                 <div class="footer-menu">
                     <ul>
@@ -360,6 +448,7 @@
 <!--/must be deleted for WP-->
 <script src="js/transition.js"></script>
 <script src="js/collapse.js"></script>
+<script src="js/slick.min.js"></script>
 <script src="js/custom.js"></script>
 </body>
 </html>
