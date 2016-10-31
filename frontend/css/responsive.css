@@ -1,4 +1,11 @@
 @media only screen and (min-width: 768px) {
+  body:not(.menu-sandwich) .navbar-header {
+    max-width: 25%;
+  }
+  body:not(.menu-sandwich) .navbar-header img {
+    max-width: 100%;
+    height: auto;
+  }
   body:not(.menu-sandwich) .navbar-toggle {
     display: none !important;
   }
@@ -7,15 +14,29 @@
     width: auto;
     background: none;
     padding: 0;
+    overflow-y: inherit;
+    margin-left: 28%;
   }
   body:not(.menu-sandwich) #main-menu .button-close {
+    display: none;
+  }
+  body:not(.menu-sandwich) #main-menu .dropdown-toggle {
     display: none;
   }
   body:not(.menu-sandwich) #main-menu > ul {
     margin: 7.5px 0;
   }
   body:not(.menu-sandwich) #main-menu > ul > li a {
-    padding: 10px 15px;
+    padding: 0.55em 0.83em;
+  }
+  body:not(.menu-sandwich) #main-menu > ul > li > a {
+    line-height: 1em;
+  }
+  body:not(.menu-sandwich) #main-menu > ul > li.menu-item-has-children > a:before {
+    top: 1.3em !important;
+    transform: rotate(0deg) !important;
+    font-size: 0.55em !important;
+    margin-top: 0 !important;
   }
   body:not(.menu-sandwich) #main-menu > ul > li > ul {
     top: 100% !important;
@@ -25,6 +46,20 @@
   body:not(.menu-sandwich) #main-menu ul li:hover > ul {
     visibility: visible;
     opacity: 1;
+  }
+  body:not(.menu-sandwich) #main-menu ul li.menu-item-has-children > a {
+    padding-right: 2.05em;
+    margin-right: 0;
+  }
+  body:not(.menu-sandwich) #main-menu ul li.menu-item-has-children > a:before {
+    content: '\71';
+    top: 50%;
+    right: 1.5em;
+    margin-top: -10px;
+    font-family: 'Visual Composer Theme Font';
+    font-size: 0.7em;
+    position: absolute;
+    transform: rotate(90deg);
   }
   body:not(.menu-sandwich) #main-menu ul li ul {
     transition: all 0.3s ease;
@@ -42,12 +77,14 @@
   }
   body:not(.menu-sandwich) #main-menu ul li ul li {
     position: relative;
+    padding: 0;
   }
   body:not(.menu-sandwich) #main-menu ul li ul li a {
     padding: 12px 18px;
     display: block;
+    line-height: 1.7;
   }
-  body:not(.menu-sandwich) #main-menu ul li ul li a:hover {
+  body:not(.menu-sandwich) #main-menu ul li ul li:hover > a {
     background-color: #eee;
   }
   body:not(.menu-sandwich) #main-menu ul li ul li ul {

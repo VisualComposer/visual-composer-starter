@@ -1,5 +1,17 @@
+@import "mixins";
+@import "variables";
+
 @media only screen and (min-width: 768px) {
 	body:not(.menu-sandwich) {
+		.navbar-header {
+			max-width: 25%;
+
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+		}
+
 		.navbar-toggle {display: none !important;}
 
 		#main-menu {
@@ -7,8 +19,13 @@
 			width: auto;
 			background: none;
 			padding: 0;
-
+			overflow-y: inherit;
+			margin-left: 28%;
 			.button-close {
+				display: none;
+			}
+
+			.dropdown-toggle {
 				display: none;
 			}
 
@@ -16,7 +33,22 @@
 				margin: 7.5px 0;
 				>li {
 					a {
-						padding: 10px 15px;
+						padding: 0.55em 0.83em;
+					}
+
+					> a {
+						line-height: 1em;
+					}
+
+					&.menu-item-has-children {
+						>a {
+							&:before {
+								top: 1.3em !important;
+								transform: rotate(0deg) !important;
+								font-size: 0.55em !important;
+								margin-top: 0 !important;
+							}
+						}
 					}
 					>ul {
 						top: 100% !important;
@@ -35,6 +67,24 @@
 						}
 					}
 
+					&.menu-item-has-children {
+						> a {
+							padding-right: 2.05em;
+							margin-right: 0;
+
+							&:before {
+								content: '\71';
+								top: 50%;
+								right: 1.5em;
+								margin-top: -10px;
+								font-family: @icon-font-family;
+								font-size: 0.7em;
+								position: absolute;
+								transform: rotate(90deg);
+							}
+						}
+					}
+
 					ul {
 						transition: all 0.3s ease;
 						display: block !important;
@@ -50,13 +100,19 @@
 						box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 						li {
 							position: relative;
+							padding: 0;
 							a {
 								padding: 12px 18px;
 								display: block;
-								&:hover {
+								line-height: 1.7;
+							}
+
+							&:hover {
+								> a {
 									background-color: #eee;
 								}
 							}
+
 							ul {
 								padding: 0;
 							}

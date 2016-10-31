@@ -866,3 +866,31 @@
 @dl-horizontal-breakpoint:    @grid-float-breakpoint;
 //** Horizontal line color.
 @hr-border:                   @gray-lighter;
+
+
+
+
+//**CUSTOM
+//Background colors
+@default-bg-color: #fff;
+@default-navbar-color: #fff;
+@main-footer-background: hsl(0, 0%, 20%);
+@lightness-percentage: lightness(@main-footer-background)/10;
+@secondary-footer-background: lighten(@main-footer-background, @lightness-percentage);
+
+//Icons and text color
+@sandwich-color-light: #fff;
+@sandwich-color-dark: #333;
+@text-color: #555;
+@headers-color: #333;
+@footer-main-color: #777;
+@footer-headers-color: #fff;
+@footer-active-color: #fff;
+
+//Typography
+@default-font-family: 'Roboto';
+@secondary-font-family: 'Playfair Display';
+@icon-font-family: 'Visual Composer Theme Font';
+@default-font-size: 16px;
+@default-line-height: 1.7;
+@active-text-color: #557cbf;
