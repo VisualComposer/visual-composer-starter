@@ -309,12 +309,17 @@ body.menu-sandwich #main-menu ul.nav li {
   height: 30px;
   margin: 0 10px 10px 0;
   background-color: #eee;
-  border-radius: 50%;
+  border-radius: 15px;
   text-align: center;
   line-height: 32px;
   font-size: 14px;
   font-style: italic;
   color: #777;
+}
+.nav-links.archive-navigation .page-numbers.prev,
+.nav-links.archive-navigation .page-numbers.next {
+  width: auto;
+  padding: 0 15px;
 }
 .nav-links.archive-navigation .page-numbers.dots {
   background: none;
@@ -946,7 +951,18 @@ h6 {
   font-weight: 500;
   font-size: 14px;
 }
-.widget_search form input[type="submit"] {
+.widget_search form div input[type="text"] {
+  width: 100%;
+  height: 40px;
+  padding: 0 40px 0 15px;
+  border: 1px solid #d4d4d4;
+  outline: none;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14px;
+}
+.widget_search form input[type="submit"],
+.widget_search form button[type="submit"] {
   position: absolute;
   right: 0;
   top: 0;

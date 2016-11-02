@@ -27,6 +27,35 @@ if ( ! function_exists( 'visualcomposertheme_setup' ) ) :
             'primary'       => __( 'Primary Menu', 'visual-composer-theme' ),
             'secondary'     => __( 'Secondary Menu', 'visual-composer-theme' ),
         ) );
+
+
+        /*
+         * Register sidebars
+         */
+        register_sidebar(
+            array (
+                'name'          => __( 'Sidebar', 'visual-composer-theme' ),
+                'id'            => 'sidebar',
+                'description'   => __( 'Add widgets here to appear in your sidebar.', 'visual-composer-theme' ),
+                'before_widget' => '<section id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</section>',
+                'before_title'  => '<h3 class="widget-title">',
+                'after_title'   => '</h2>',
+                )
+        );
+         register_sidebars(3,
+                    array (
+                        'name'          => __( 'Footer Area %d', 'visual-composer-theme' ),
+                        'id'            => 'footer',
+                        'description'   => __( 'Add widgets here to appear in your footer.', 'visual-composer-theme' ),
+                        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                        'after_widget'  => '</div>',
+                        'before_title'  => '<h3 class="widget-title">',
+                        'after_title'   => '</h2>',
+                        )
+                );
+
+
     }
 endif; // visualcomposertheme_setup
 add_action( 'after_setup_theme', 'visualcomposertheme_setup' );

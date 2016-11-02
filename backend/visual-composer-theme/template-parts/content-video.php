@@ -29,8 +29,8 @@
 		</p>
 
 	</div>
-
-	<a href="<?php echo get_permalink( get_the_ID() ) ?>" class="blue-button read-more"><?php echo __('Read More', 'visual-composer-theme') ?></a>
-
+	<?php if( ! is_singular() ):?>
+		<a href="<?php echo get_permalink( get_the_ID() ) ?>" class="blue-button read-more"><?php echo __('Read More', 'visual-composer-theme') ?></a>
+	<?php endif;?>
 </article>
 
