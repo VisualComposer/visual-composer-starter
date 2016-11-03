@@ -43,17 +43,17 @@ if ( ! function_exists( 'visualcomposertheme_setup' ) ) :
                 'after_title'   => '</h2>',
                 )
         );
-         register_sidebars(3,
-                    array (
-                        'name'          => __( 'Footer Area %d', 'visual-composer-theme' ),
-                        'id'            => 'footer',
-                        'description'   => __( 'Add widgets here to appear in your footer.', 'visual-composer-theme' ),
-                        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-                        'after_widget'  => '</div>',
-                        'before_title'  => '<h3 class="widget-title">',
-                        'after_title'   => '</h2>',
-                        )
-                );
+         register_sidebars( 3,
+             array (
+                 'name'          => __( 'Footer Area %d', 'visual-composer-theme' ),
+                 'id'            => 'footer',
+                 'description'   => __( 'Add widgets here to appear in your footer.', 'visual-composer-theme' ),
+                 'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                 'after_widget'  => '</div>',
+                 'before_title'  => '<h3 class="widget-title">',
+                 'after_title'   => '</h2>',
+                  )
+             );
 
 
     }
