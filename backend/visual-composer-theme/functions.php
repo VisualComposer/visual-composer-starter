@@ -55,6 +55,12 @@ if ( ! function_exists( 'visualcomposertheme_setup' ) ) :
                   )
              );
 
+        /**
+         * Customizer settings.
+         */
+        require get_template_directory() . '/inc/customizer/vc-customizer.class.php';
+        new VC_Customizer();
+
 
     }
 endif; // visualcomposertheme_setup
