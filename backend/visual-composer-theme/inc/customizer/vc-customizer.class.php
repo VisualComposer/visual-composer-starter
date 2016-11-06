@@ -595,7 +595,7 @@ class VC_Customizer {
                     'type'          => 'text',
                     'label'         => __( 'Email', 'visual-composer-theme' ),
                     'section'       => 'vc_footer_area',
-                    'settings'      => 'vc_footer_area_social_link_email',
+                    'settings'      => 'vc_footer_area_social_email',
                 ) )
         );
 
