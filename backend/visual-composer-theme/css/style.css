@@ -220,6 +220,8 @@ body.menu-sandwich #main-menu ul.nav li {
 .entry-full-content .entry-author-data .author-avatar img {
   display: block;
   width: 100%;
+  height: auto;
+  border-radius: 50%;
 }
 .entry-full-content .entry-author-data .author-name {
   color: #333;

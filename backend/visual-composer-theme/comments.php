@@ -36,13 +36,14 @@ if ( post_password_required() ) {
 		<?php the_comments_navigation(); ?>
 
 		<ol class="comment-list">
-			<?php
-				wp_list_comments( array(
-					'style'       => 'ol',
-					'short_ping'  => true,
-					'avatar_size' => 42,
-				) );
-			?>
+			<?php wp_list_comments(
+				array(
+					'callback'    => 'visualcomposertheme_comment',
+					'reply_text'  => __('Reply', 'visual-composer-theme'),
+					'avatar_size' => 80,
+					'style' 	  => 'ol'
+				)
+			); ?>
 		</ol><!-- .comment-list -->
 
 		<?php the_comments_navigation(); ?>
