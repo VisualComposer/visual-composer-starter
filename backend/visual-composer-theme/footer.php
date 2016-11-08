@@ -34,9 +34,7 @@
                 </div>
             </div>
             <div class="footer-left-block">
-                <p class="copyright">Copyright &copy; 2016 Visual Composer. All Rights Reserved. Proudly powered by <a
-                        href="http://visualcomposer.io">Visual Composer</a> and
-                    <a href="https://wordpress.org">WordPress</a></p>
+                <p class="copyright">Copyright &copy; <?php echo date('Y') ?> <?php bloginfo('name') ?>. All Rights Reserved. Proudly powered by <a href="http://visualcomposer.io">Visual Composer</a> and <a href="https://wordpress.org">WordPress</a></p>
                 <?php if ( has_nav_menu( 'secondary' ) ) : ?>
                     <div class="footer-menu">
                         <?php

@@ -77,6 +77,8 @@ add_theme_support( 'post-formats', array( 'gallery', 'video', 'image' ) );
 
 add_theme_support( 'post-thumbnails' );
 
+add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
+
 /**
  * Enqueues styles.
  *
@@ -128,3 +130,48 @@ function visualcomposertheme_script() {
     wp_enqueue_script( 'visual-composer-theme-script', get_template_directory_uri() . '/js/functions.js', array('jquery'), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'visualcomposertheme_script' );
+
+
+/**
+ * Adds custom classes to the array of body classes.
+ */
+function visualcomposertheme_body_classes( $classes ) {
+    // Sandwich color.
+    if ( get_theme_mod( 'vc_header_and_menu_area_sandwich_style' ) == '#FFFFFF' ) {
+        $classes[] = 'sandwich-color-light';
+    }
+
+    // Menu type
+    if ( get_theme_mod( 'vc_header_and_menu_area_position' ) == 'sandwich' ) {
+        $classes[] = 'menu-sandwich';
+    }
+
+    //Menu position
+    if ( get_theme_mod( 'vc_header_and_menu_area_top_header' ) == 'fixed' ) {
+        $classes[] = 'fixed-header';
+    }
+
+    //Navbar background
+    if ( get_theme_mod( 'vc_header_and_menu_area_background_remove' ) == 'yes' ) {
+        $classes[] = 'navbar-no-background';
+    }
+
+    return $classes;
+}
+add_filter( 'body_class', 'visualcomposertheme_body_classes' );
+
+
+function visualcomposertheme_inline_styles () {
+    $css = '';
+
+    $overall_site_bg_color = get_theme_mod('vc_overall_site_bg_color');
+    if ( true ) {
+        $css .= '
+        /*Overall site background color*/
+        body, #header {background-color: '.$overall_site_bg_color.'};}
+        ';
+    }
+
+    wp_add_inline_style( 'visual-composer-theme-style', $css );
+}
+add_action( 'wp_enqueue_scripts', 'visualcomposertheme_inline_styles' );

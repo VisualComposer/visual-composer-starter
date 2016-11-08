@@ -50,6 +50,9 @@ img[data-src] {
   margin: 0 -15px;
   padding: 25px 15px;
 }
+body.fixed-header.admin-bar .navbar {
+  top: 32px;
+}
 body.fixed-header .navbar {
   width: 100%;
   z-index: 999;
@@ -201,6 +204,7 @@ body.menu-sandwich #main-menu ul.nav li {
   padding: 45px 15px 1px 15px;
   margin: 0 -15px;
   overflow-wrap: break-word;
+  background-color: #fff;
 }
 .main-content {
   padding-bottom: 40px;
@@ -920,10 +924,10 @@ h6 {
   margin: 0 0 1rem 0;
   font-size: 22px;
 }
-.widget_search form {
+.search-form {
   position: relative;
 }
-.widget_search form:after {
+.search-form:after {
   content: '\70';
   font-family: 'Visual Composer Theme Font';
   position: absolute;
@@ -936,14 +940,14 @@ h6 {
   text-align: center;
   z-index: 1;
 }
-.widget_search form label {
+.search-form label {
   width: 100%;
   margin-bottom: 0;
 }
-.widget_search form label .screen-reader-text {
+.search-form label .screen-reader-text {
   display: none;
 }
-.widget_search form label .search-field {
+.search-form label .search-field {
   width: 100%;
   height: 40px;
   padding: 0 40px 0 15px;
@@ -953,7 +957,7 @@ h6 {
   font-weight: 500;
   font-size: 14px;
 }
-.widget_search form div input[type="text"] {
+.search-form div input[type="text"] {
   width: 100%;
   height: 40px;
   padding: 0 40px 0 15px;
@@ -963,8 +967,8 @@ h6 {
   font-weight: 500;
   font-size: 14px;
 }
-.widget_search form input[type="submit"],
-.widget_search form button[type="submit"] {
+.search-form input[type="submit"],
+.search-form button[type="submit"] {
   position: absolute;
   right: 0;
   top: 0;

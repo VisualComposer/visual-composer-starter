@@ -36,7 +36,7 @@
                 </div>
                 <?php if ( has_nav_menu( 'primary' ) ) : ?>
                     <div id="main-menu">
-                        <div class="button-close">&times;</div>
+                        <div class="button-close"></div>
                         <?php
                         wp_nav_menu( array(
                             'theme_location' => 'primary',

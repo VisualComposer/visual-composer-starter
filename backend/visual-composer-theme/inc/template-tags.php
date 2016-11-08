@@ -8,7 +8,7 @@ if ( ! function_exists( 'visualcomposertheme_post_thumbnail' ) ) :
             ?>
             <div class="featured-content">
                 <div class="fade-in-img">
-                    <?php the_post_thumbnail(); ?>
+                    <img src="<?php the_post_thumbnail_url(); ?>" data-src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title() ?>">
                     <noscript>
                         <?php the_post_thumbnail(); ?>
                     </noscript>

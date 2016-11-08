@@ -13,20 +13,17 @@ if ( post_password_required() ) {
 			<?php
 				$comments_number = get_comments_number();
 				if ( 1 === $comments_number ) {
-					/* translators: %s: post title */
-					printf( _x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'visual-composer-theme' ), get_the_title() );
+					printf( _x( 'One comment' ), 'Comments' );
 				} else {
 					printf(
-						/* translators: 1: number of comments, 2: post title */
 						_nx(
-							'%1$s thought on &ldquo;%2$s&rdquo;',
-							'%1$s thoughts on &ldquo;%2$s&rdquo;',
+							'%1$s Comment',
+							'%1$s Comments',
 							$comments_number,
 							'comments title',
 							'visual-composer-theme'
 						),
-						number_format_i18n( $comments_number ),
-						get_the_title()
+						number_format_i18n( $comments_number )
 					);
 				}
 			?>
@@ -58,12 +55,24 @@ if ( post_password_required() ) {
 	<?php endif; ?>
 
 	<?php
+	if (get_comments_number()) {
 		comment_form( array(
 			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
 			'title_reply_after'  => '</h2>',
+			'title_reply' => __('Leave A Comment', 'visual-composer-theme')
 		) );
+	}
+	else {
+		comment_form( array(
+			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
+			'title_reply_after'  => '</h2>',
+			'title_reply' => __('Share Your Thoughts', 'visual-composer-theme')
+		) );
+	}
+
 	?>
 
-</div><!-- .comments-area -->
-</div><!-- .comments-area -->
+</div><!-- .col-md-12 -->
+</div><!-- .row -->
+</div><!-- .container -->
 </div><!-- .comments-area -->
