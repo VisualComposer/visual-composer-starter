@@ -39,6 +39,7 @@ img[data-src] {
 .navbar {
   background: #fff;
   border: none;
+  border-radius: 0;
   margin-bottom: 0;
 }
 .navbar.fixed {
@@ -103,7 +104,7 @@ body.menu-sandwich #main-menu ul.nav li {
   background-image: url("../images/icon-close-light.png");
 }
 #main-menu {
-  overflow-y: scroll;
+  overflow-y: auto;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -169,8 +170,9 @@ body.menu-sandwich #main-menu ul.nav li {
 #main-menu ul li a:hover,
 #main-menu ul li a:focus {
   text-decoration: none;
+  color: #333;
 }
-#main-menu ul li:hover a {
+#main-menu ul li.current-menu-item > a {
   color: #333;
 }
 #main-menu ul li.menu-item-has-children > a {

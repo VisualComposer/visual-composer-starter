@@ -13,4 +13,4 @@
         <?php the_content() ?>
     </article>
     <?php visualcomposertheme_entry_tags(); ?>
-</div>
+</div><!--.entry-content-->

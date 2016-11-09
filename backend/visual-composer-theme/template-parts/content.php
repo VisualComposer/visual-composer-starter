@@ -17,11 +17,9 @@
 
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-        <p>
-            <?php the_content( '', TRUE );?>
-        </p>
+		<?php the_content( '', TRUE );?>
 
-	</div>
+	</div><!--.entry-content-->
 
 	<?php if ( comments_open() || get_comments_number() ) {
 		comments_template();
@@ -32,5 +30,5 @@
 	<?php if( ! is_singular() ):?>
 		<a href="<?php echo get_permalink( get_the_ID() ) ?>" class="blue-button read-more"><?php echo __('Read More', 'visual-composer-theme') ?></a>
 	<?php endif;?>
-</article>
+</article><!--.entry-preview-->
 

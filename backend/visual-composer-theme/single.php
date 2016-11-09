@@ -3,7 +3,7 @@
     // Start the loop.
     while ( have_posts() ) : the_post();
 ?>
-<div class="container">
+<div class="<?php echo vc_get_content_container_class(); ?>">
     <div class="content-wrapper">
         <div class="row">
             <div class="col-md-12">
@@ -14,7 +14,7 @@
                                 <?php
                                     get_template_part( 'template-parts/biography' );
                                 ?>
-                            </div>
+                            </div><!--.col-md-2-->
                             <div class="col-md-10">
                                 <?php
                                     visualcomposertheme_single_meta();
@@ -33,8 +33,8 @@
                                                                 <span class="post-title">%title</span>'
                                                             );
                                                         ?>
-                                                    </div>
-                                                </div>
+                                                    </div><!--nav-previous-->
+                                                </div><!--.col-md-5-->
                                                 <div class="col-md-5 col-md-offset-2">
                                                     <div class="nav-next">
                                                         <?php
@@ -45,19 +45,19 @@
                                                                 <span class="post-title">%title</span>'
                                                             );
                                                         ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                    </div><!--.nav-next-->
+                                                </div><!--.col-md-5-->
+                                            </div><!--.row-->
+                                        </div><!--.nav-links post-navigation-->
                                     <?php endif; ?>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                            </div><!--.col-md-10-->
+                        </div><!--.row-->
+                    </article><!--.entry-full-content-->
+                </div><!--.main-content-->
             </div>
-        </div>
-    </div>
-</div>
+        </div><!--.row-->
+    </div><!--.content-wrapper-->
+</div><!--.<?php echo vc_get_content_container_class(); ?>-->
 <?php if ( comments_open() || get_comments_number() ) {
     comments_template();
 }?>

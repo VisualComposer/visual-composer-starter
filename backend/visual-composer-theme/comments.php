@@ -5,7 +5,7 @@ if ( post_password_required() ) {
 ?>
 
 <div id="comments" class="comments-area">
-	<div class="container">
+	<div class="<?php echo vc_get_content_container_class(); ?>">
 		<div class="row">
 			<div class="col-md-12">
 	<?php if ( have_comments() ) : ?>

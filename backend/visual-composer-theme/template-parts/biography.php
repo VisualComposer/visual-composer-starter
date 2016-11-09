@@ -18,7 +18,7 @@
                      alt="<?php the_author(); ?>">
             </noscript>
         </div>
-    </div>
+    </div><!--.author-avatar-->
     <p class="author-name"><?php the_author(); ?></p>
     <p class="author-biography"><?php the_author_meta( 'description' ) ?></p>
-</div>
+</div><!--.entry-author-data-->

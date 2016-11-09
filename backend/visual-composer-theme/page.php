@@ -1,8 +1,8 @@
 <?php get_header(); ?>
-    <div class="container">
+    <div class="<?php echo vc_get_content_container_class(); ?>">
         <div class="content-wrapper">
             <div class="row">
-                <div class="col-md-9">
+                <div class="<?php echo vc_get_maincontent_block_class(); ?>">
                     <div class="main-content">
                         <?php
                         // Start the loop.
@@ -13,12 +13,14 @@
                         // End the loop.
                         endwhile;
                         ?>
-                    </div>
-                </div>
+                    </div><!--.main-content-->
+                </div><!--.<?php echo vc_get_maincontent_block_class(); ?>-->
 
-                <?php get_sidebar(); ?>
+                <?php if ( vc_get_sidebar_class() ): ?>
+                    <?php get_sidebar(); ?>
+                <?php endif; ?>
 
-            </div>
-        </div>
-    </div>
+            </div><!--.row-->
+        </div><!--.content-wrapper-->
+    </div><!--.<?php echo vc_get_content_container_class(); ?>-->
 <?php get_footer(); ?>

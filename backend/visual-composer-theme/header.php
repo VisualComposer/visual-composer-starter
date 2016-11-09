@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i|Roboto:400,400i,700,700i" rel="stylesheet">
+<!--    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i|Roboto:400,400i,700,700i" rel="stylesheet">-->
     <?php wp_head() ?>
 </head>
 <body <?php body_class(); ?>>
 <header id="header">
     <nav class="navbar">
-        <div class="container">
+        <div class="<?php echo vc_get_header_container_class(); ?>">
             <div class="navbar-wrapper clearfix">
                 <div class="navbar-header">
                     <div class="navbar-brand">
@@ -50,11 +50,8 @@
         </div><!--.container-->
     </nav>
     <div class="header-image">
-        <div class="fade-in-img">
-            <img src="<?= get_template_directory_uri() ?>/images/header-image.jpg" data-src="<?= get_template_directory_uri() ?>/images/header-image.jpg" alt="">
-            <noscript>
-                <img src="<?= get_template_directory_uri() ?>/images/header-image.jpg" alt="">
-            </noscript>
-        </div><!--.fade-in-image-->
+        <?php if( is_singular() ): ?>
+        <?php visualcomposertheme_header_featured_content(); ?>
+        <?php endif; ?>
     </div><!--.header-image-->
 </header>

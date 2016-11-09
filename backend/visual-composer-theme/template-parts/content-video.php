@@ -12,7 +12,7 @@
 		<div class="video-wrapper">
 			<?php the_content( '', TRUE );?>
 		</div>
-	</div>
+	</div><!--.featured-content-->
 
 	<?php visualcomposertheme_entry_meta(); ?>
 
@@ -20,17 +20,10 @@
 
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-		<p>
-		<?php
-
-		echo get_the_content( '', FALSE );
-		
-		?>
-		</p>
-
-	</div>
+		<?php echo get_the_content( '', FALSE ); ?>
+	</div><!--.entry-content-->
 	<?php if( ! is_singular() ):?>
 		<a href="<?php echo get_permalink( get_the_ID() ) ?>" class="blue-button read-more"><?php echo __('Read More', 'visual-composer-theme') ?></a>
 	<?php endif;?>
-</article>
+</article><!--.entry-preview-->
 

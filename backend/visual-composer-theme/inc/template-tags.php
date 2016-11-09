@@ -18,6 +18,27 @@ if ( ! function_exists( 'visualcomposertheme_post_thumbnail' ) ) :
     }
 endif;
 
+if ( ! function_exists( 'visualcomposertheme_header_featured_content' ) ) :
+    function visualcomposertheme_header_featured_content() {
+        if( get_post_format() == 'video' ) {
+           ?>
+           <!-- VIDEO HERE -->
+            <?php
+        }
+        elseif( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+            return;
+        }
+            ?>
+                <div class="fade-in-img">
+                    <img src="<?php the_post_thumbnail_url(); ?>" data-src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title() ?>">
+                    <noscript>
+                        <?php the_post_thumbnail(); ?>
+                    </noscript>
+                </div>
+        <?php
+    }
+endif;
+
 if ( ! function_exists( 'visualcomposertheme_entry_date' ) ) :
     function visualcomposertheme_entry_date() {
 

@@ -1,8 +1,8 @@
 <?php get_header(); ?>
-    <div class="container">
+    <div class="<?php echo vc_get_content_container_class(); ?>">
         <div class="content-wrapper">
             <div class="row">
-                <div class="col-md-9">
+                <div class="<?php vc_get_maincontent_block_class(); ?>">
                     <div class="main-content">
                         <div class="search-results-header">
                             <h4><?php printf( __( 'Search Results for <strong>%s</strong>', 'visual-composer-theme' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h4>
@@ -35,8 +35,8 @@
                                             'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'visual-composer-theme' ) . '</span>',
                                         ) );
                                         ?>
-                                    </div>
-                                </div>
+                                    </div><!--.nav-links archive-navigation-->
+                                </div><!--.pagination-->
                                 <?php
 
 
@@ -48,15 +48,15 @@
 
                             ?>
 
-                        </div>
-                    </div>
-                </div>
+                        </div><!--.archive-->
+                    </div><!--.main-content-->
+                </div><!--.<?php vc_get_maincontent_block_class(); ?>-->
 
-                <?php get_sidebar(); ?>
+                <?php if ( vc_get_sidebar_class() ): ?>
+                    <?php get_sidebar(); ?>
+                <?php endif; ?>
 
-
-
-            </div>
-        </div>
-    </div>
+            </div><!--.row-->
+        </div><!--.content-wrapper-->
+    </div><!--.<?php echo vc_get_content_container_class(); ?>-->
 <?php get_footer(); ?>

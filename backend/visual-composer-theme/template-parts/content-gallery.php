@@ -30,13 +30,13 @@
 						<noscript>
 							<img src="<?php echo $attach[0];?>" alt="">
 						</noscript>
-					</div>
-				</div>
+					</div><!--.fade-in-img-->
+				</div><!--.gallery-item-->
 				<?php
 			endforeach;
 			?>
-		</div>
-	</div>
+		</div><!--.gallery-slider-->
+	</div><!--.featured-content-->
 
 	<?php visualcomposertheme_entry_meta(); ?>
 
@@ -44,11 +44,9 @@
 
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-		
-
 	</div>
 	<?php if( ! is_singular() ):?>
 		<a href="<?php echo get_permalink( get_the_ID() ) ?>" class="blue-button read-more"><?php echo __('Read More', 'visual-composer-theme') ?></a>
 	<?php endif;?>
-</article>
+</article><!--.entry-preview-->
 

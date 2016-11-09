@@ -1,15 +1,15 @@
 <?php get_header(); ?>
-    <div class="container">
+    <div class="<?php echo vc_get_content_container_class(); ?>">
         <div class="content-wrapper">
             <div class="row">
-                <div class="col-md-9">
+                <div class="<?php echo vc_get_maincontent_block_class(); ?>">
                     <div class="main-content">
                         <div class="entry-content archive">
                             <?php
                                 the_archive_title( '<h1>', '</h1>' );
                                 the_archive_description( '<p>', '</p>' );
                             ?>
-                        </div>
+                        </div><!--.entry-content-->
                         <div class="archive">
                             <?php if ( have_posts() ) : ?>
 
@@ -38,10 +38,9 @@
                                             'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'visual-composer-theme' ) . '</span>',
                                         ) );
                                         ?>
-                                    </div>
-                                </div>
+                                    </div><!--.nav-links archive-navigation-->
+                                </div><!--.pagination-->
                                 <?php
-
 
                             // If no content, include the "No posts found" template.
                             else :
@@ -51,15 +50,15 @@
 
                             ?>
 
-                        </div>
-                    </div>
-                </div>
+                        </div><!--.archive-->
+                    </div><!--.main-content-->
+                </div><!--.<?php echo vc_get_maincontent_block_class(); ?>-->
 
-                <?php get_sidebar(); ?>
+                <?php if ( vc_get_sidebar_class() ): ?>
+                    <?php get_sidebar(); ?>
+                <?php endif; ?>
 
-
-
-            </div>
-        </div>
-    </div>
+            </div><!--.row-->
+        </div><!--.content-wrapper->
+    </div><!--.<?php echo vc_get_content_container_class(); ?>-->
 <?php get_footer(); ?>

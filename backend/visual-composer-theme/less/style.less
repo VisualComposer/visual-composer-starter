@@ -65,6 +65,7 @@ img[data-src] {
 .navbar {
 	background: @default-bg-color;
 	border: none;
+	border-radius: 0;
 	margin-bottom: 0;
 
 	&.fixed {
@@ -163,7 +164,7 @@ body.menu-sandwich {
 }
 
 #main-menu {
-	overflow-y: scroll;
+	overflow-y: auto;
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -232,11 +233,12 @@ body.menu-sandwich {
 				line-height: 1.2;
 				&:hover, &:focus {
 					text-decoration: none;
+					color: #333;
 				}
 			}
 
-			&:hover {
-				a {
+			&.current-menu-item {
+				> a {
 					color: #333;
 				}
 			}

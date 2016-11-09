@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="<?php echo vc_get_sidebar_class(); ?>">
     <div class="sidebar-widget-area">
 <?php if ( is_active_sidebar( 'sidebar' )  ) : ?>
         <?php dynamic_sidebar( 'sidebar' ); ?>
