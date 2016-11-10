@@ -66,7 +66,7 @@
 
         // Footer social icons vertical align
         if ($(this).width() > 992) {
-            $('.footer-right-block').height($('.footer-left-block').height());
+            $('.footer-right-block').height($('.footer-left-block').outerHeight());
         }
         else {
             $('.footer-right-block').height('auto');

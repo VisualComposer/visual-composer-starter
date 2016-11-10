@@ -2,6 +2,7 @@
 <?php
     // Start the loop.
     while ( have_posts() ) : the_post();
+        
 ?>
 <div class="<?php echo vc_get_content_container_class(); ?>">
     <div class="content-wrapper">

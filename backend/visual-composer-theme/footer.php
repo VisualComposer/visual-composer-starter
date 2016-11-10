@@ -28,16 +28,45 @@
             <div class="footer-right-block">
                 <div class="footer-socials">
                     <ul>
-                        <li><a href="#"><span class="vc-icon-facebook-with-circle"></span></a></li>
-                        <li><a href="#"><span class="vc-icon-twitter-with-circle"></span></a></li>
-                        <li><a href="#"><span class="vc-icon-instagram-with-circle"></span></a></li>
-                        <li><a href="#"><span class="vc-icon-vimeo-with-circle"></span></a></li>
-                        <li><a href="mailto:"><span class="vc-icon-mail-circle"></span></a></li>
+                        <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_facebook', '' ) ) ): ?>
+                            <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_facebook', '' ); ?>"><span class="vc-icon-facebook-with-circle"></span></a></li>
+                        <?php endif; ?>
+                        <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_twitter', '' ) ) ): ?>
+                            <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_twitter', '' ); ?>"><span class="vc-icon-twitter-with-circle"></span></a></li>
+                        <?php endif; ?>
+                        <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_linkedin', '' ) ) ): ?>
+                            <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_linkedin', '' ); ?>"><span class="vc-icon-linkedin-with-circle"></span></a></li>
+                        <?php endif; ?>
+                        <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_github', '' ) ) ): ?>
+                            <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_github', '' ); ?>"><span class="vc-icon-github-with-circle"></span></a></li>
+                        <?php endif; ?>
+                        <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_instagram', '' ) ) ): ?>
+                            <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_instagram', '' ); ?>"><span class="vc-icon-instagram-with-circle"></span></a></li>
+                        <?php endif; ?>
+                        <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_pinterest', '' ) ) ): ?>
+                            <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_pinterest', '' ); ?>"><span class="vc-icon-pinterest-with-circle"></span></a></li>
+                        <?php endif; ?>
+                        <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_flickr', '' ) ) ): ?>
+                            <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_flickr', '' ); ?>"><span class="vc-icon-flickr-with-circle"></span></a></li>
+                        <?php endif; ?>
+                        <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_youtube', '' ) ) ): ?>
+                            <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_youtube', '' ); ?>"><span class="vc-icon-youtube-with-circle"></span></a></li>
+                        <?php endif; ?>
+                        <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_vimeo', '' ) ) ): ?>
+                            <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_vimeo', '' ); ?>"><span class="vc-icon-vimeo-with-circle"></span></a></li>
+                        <?php endif; ?>
+                        <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_email', '' ) ) ): ?>
+                            <li><a href="mailto:<?php echo get_theme_mod( 'vc_footer_area_social_email', '' ); ?>"><span class="vc-icon-mail-circle"></span></a></li>
+                        <?php endif; ?>
+
                     </ul>
                 </div>
             </div>
             <div class="footer-left-block">
-                <p class="copyright">Copyright &copy; <?php echo date('Y') ?> <?php bloginfo('name') ?>. All Rights Reserved. Proudly powered by <a href="http://visualcomposer.io">Visual Composer</a> and <a href="https://wordpress.org">WordPress</a></p>
+                <p class="copyright">
+                    <span>Copyright &copy; <?php echo date('Y') ?> <?php bloginfo('name') ?>. All Rights Reserved.</span>
+                    <span>Proudly powered by <a href="http://visualcomposer.io">Visual Composer</a> and <a href="https://wordpress.org">WordPress</a></span>
+                </p>
                 <?php if ( has_nav_menu( 'secondary' ) ) : ?>
                     <div class="footer-menu">
                         <?php

@@ -123,11 +123,11 @@ class VC_Customizer {
                     'section'       => 'vc_overall_site',
                     'settings'      => 'vc_overall_site_featured_image',
                     'choices'       => array(
-                                            'show' => __( 'Show (default)', 'visual-composer-theme' ),
-                                            'hide' => __( 'Hide', 'visual-composer-theme' ),
-                                    ),
+                        'show' => __( 'Show (default)', 'visual-composer-theme' ),
+                        'hide' => __( 'Hide', 'visual-composer-theme' ),
+                    ),
 
-                    ) )
+                ) )
         );
 
 
@@ -150,6 +150,12 @@ class VC_Customizer {
 
         $wp_customize->add_setting('vc_content_area_size',  array(
             'default'       => 'boxed',
+        ));
+        $wp_customize->add_setting('vc_content_area_background',  array(
+            'default'       => '#ffffff',
+        ));
+        $wp_customize->add_setting('vc_content_area_comments_background',  array(
+            'default'       => '#f4f4f4',
         ));
 
         $wp_customize->add_control(
@@ -190,6 +196,29 @@ class VC_Customizer {
                 ) )
         );
 
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                'vc_content_area_background',
+                array(
+                    'label'         => __( 'Content background color', 'visual-composer-theme' ),
+                    'description'   => __( 'Choose content background color', 'visual-composer-theme' ),
+                    'section'       => 'vc_content_area',
+                    'settings'      => 'vc_content_area_background',
+                ) )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                'vc_content_area_comments_background',
+                array(
+                    'label'         => __( 'Comments background color', 'visual-composer-theme' ),
+                    'description'   => __( 'Choose comments background color', 'visual-composer-theme' ),
+                    'section'       => 'vc_content_area',
+                    'settings'      => 'vc_content_area_comments_background',
+                ) )
+        );
+
     }
 
     /**
@@ -205,6 +234,10 @@ class VC_Customizer {
 
         $wp_customize->add_setting('vc_header_and_menu_area_background',  array(
             'default'       => '#ffffff',
+        ));
+
+        $wp_customize->add_setting('vc_header_and_menu_area_menu_hover_background',  array(
+            'default'       => '#eeeeee',
         ));
 
         $wp_customize->add_setting('vc_header_and_menu_area_text_color',  array(
@@ -263,7 +296,17 @@ class VC_Customizer {
                     ),
                 ) )
         );
-
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                'vc_header_and_menu_area_menu_hover_background',
+                array(
+                    'label'         => __( 'Menu hover background color', 'visual-composer-theme' ),
+                    'description'   => __( 'Choose menu hover background color.', 'visual-composer-theme' ),
+                    'section'       => 'vc_header_and_menu_area',
+                    'settings'      => 'vc_header_and_menu_area_menu_hover_background',
+                ) )
+        );
         $wp_customize->add_control(
             new WP_Customize_Color_Control(
                 $wp_customize,
@@ -275,6 +318,7 @@ class VC_Customizer {
                     'settings'      => 'vc_header_and_menu_area_text_color',
                 ) )
         );
+
 
         $wp_customize->add_control(
             new WP_Customize_Color_Control(
@@ -380,7 +424,7 @@ class VC_Customizer {
         $wp_customize->add_setting('vc_footer_area_text_active_color',  array(
             'default'       => '#ffffff',
         ));
-        
+
 
         $wp_customize->add_setting('vc_footer_area_widgetized_columns',  array(
             'default'       => 0,
@@ -392,7 +436,7 @@ class VC_Customizer {
                 'vc_footer_area_background',
                 array(
                     'label'         => __( 'Background Color', 'visual-composer-theme' ),
-                    'description'   => __( 'Choose a header background color.', 'visual-composer-theme' ),
+                    'description'   => __( 'Choose a footer background color.', 'visual-composer-theme' ),
                     'section'       => 'vc_footer_area',
                     'settings'      => 'vc_footer_area_background',
                 ) )
@@ -424,20 +468,34 @@ class VC_Customizer {
         );
 
         $wp_customize->add_control(
-            new WP_Customize_Control(
+            new VC_Image_Select_Control(
                 $wp_customize,
                 'vc_footer_area_widgetized_columns',
                 array(
-                    'type'          => 'radio',
                     'label'         => __( 'Number of columns where widgets can be placed', 'visual-composer-theme' ),
                     'section'       => 'vc_footer_area',
                     'settings'      => 'vc_footer_area_widgetized_columns',
-                    'choices'       => array(
-                        0           => __( 'Zero', 'visual-composer-theme' ),
-                        1           => __( 'One column', 'visual-composer-theme' ),
-                        2           => __( 'Two columns', 'visual-composer-theme' ),
-                        3           => __( 'Three columns', 'visual-composer-theme' ),
-                        4           => __( 'Four columns', 'visual-composer-theme' ),
+                    'choices'     => array(
+                        0 => array(
+                            'label' => esc_html__( 'Zero column (disabled)', 'amanda' ),
+                            'url'   => '%snone_footer.jpg'
+                        ),
+                        1 => array(
+                            'label' => esc_html__( 'One column', 'amanda' ),
+                            'url'   => '%s1_footer.jpg'
+                        ),
+                        2 => array(
+                            'label' => esc_html__( 'Two columns', 'amanda' ),
+                            'url'   => '%s2_footer.jpg'
+                        ),
+                        3 => array(
+                            'label' => esc_html__( 'Three columns', 'amanda' ),
+                            'url'   => '%s3_footer.jpg'
+                        ),
+                        4 => array(
+                            'label' => esc_html__( 'Four columns', 'amanda' ),
+                            'url'   => '%s4_footer.jpg'
+                        ),
 
                     ),
                 ) )
@@ -453,22 +511,22 @@ class VC_Customizer {
         $wp_customize->add_setting('vc_footer_area_social_link_linkedin',  array(
             'default'       => '',
         ));
+        $wp_customize->add_setting('vc_footer_area_social_link_github',  array(
+            'default'       => '',
+        ));
         $wp_customize->add_setting('vc_footer_area_social_link_instagram',  array(
             'default'       => '',
         ));
         $wp_customize->add_setting('vc_footer_area_social_link_pinterest',  array(
             'default'       => '',
         ));
+        $wp_customize->add_setting('vc_footer_area_social_link_flickr',  array(
+            'default'       => '',
+        ));
         $wp_customize->add_setting('vc_footer_area_social_link_youtube',  array(
             'default'       => '',
         ));
         $wp_customize->add_setting('vc_footer_area_social_link_vimeo',  array(
-            'default'       => '',
-        ));
-        $wp_customize->add_setting('vc_footer_area_social_link_flickr',  array(
-            'default'       => '',
-        ));
-        $wp_customize->add_setting('vc_footer_area_social_link_github',  array(
             'default'       => '',
         ));
         $wp_customize->add_setting('vc_footer_area_social_email',  array(
@@ -598,28 +656,25 @@ class VC_Customizer {
      * @return void
      */
     private function fonts_and_style_section( $wp_customize ) {
-        
+
 
         $wp_customize->add_setting( 'vc_fonts_and_style', array(
             'default'        => '',
         ) );
 
         $wp_customize->add_setting( 'vc_fonts_and_style_text_color', array(
-            'default'        => '#000000',
+            'default'        => '#555555',
         ) );
 
-        $wp_customize->add_setting( 'vc_fonts_and_style_link_color', array(
-            'default'        => '#000000',
+        $wp_customize->add_setting( 'vc_fonts_and_style_secondary_text_color', array(
+            'default'        => '#777777',
         ) );
 
         $wp_customize->add_setting( 'vc_fonts_and_style_active_color', array(
-            'default'        => '#ffffff',
+            'default'        => '#557cbf',
         ) );
 
         $wp_customize->add_setting( 'vc_fonts_and_style_first_font_family', array(
-            'default'        => 'Playfair Display',
-        ) );
-        $wp_customize->add_setting( 'vc_fonts_and_style_second_font_family', array(
             'default'        => 'Roboto',
         ) );
 
@@ -628,18 +683,16 @@ class VC_Customizer {
         ) );
 
         $wp_customize->add_setting( 'vc_fonts_and_style_font_size', array(
-            'default'        => '13px',
+            'default'        => '16px',
         ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_line_height', array(
-            'default'        => '1.5',
+            'default'        => '1.7',
         ) );
 
         $wp_customize->add_setting( 'vc_fonts_and_style_letter_spacing', array(
-            'default'        => '0',
+            'default'        => '0.01rem',
         ) );
-        $wp_customize->add_setting( 'vc_fonts_and_style_weight', array(
-                'default'        => '400',
-        ) );
+
 
 
 
@@ -658,12 +711,12 @@ class VC_Customizer {
         $wp_customize->add_control(
             new WP_Customize_Color_Control(
                 $wp_customize,
-                'vc_fonts_and_style_link_color',
+                'vc_fonts_and_style_secondary_text_color',
                 array(
-                    'label'         => __( 'Link color', 'visual-composer-theme' ),
-                    'description'   => __( 'Choose link color', 'visual-composer-theme' ),
+                    'label'         => __( 'Secondary text color', 'visual-composer-theme' ),
+                    'description'   => __( 'Secondary text color will be applied to block quotes, image captions, etc.', 'visual-composer-theme' ),
                     'section'       => 'vc_fonts_and_style',
-                    'settings'      => 'vc_fonts_and_style_link_color',
+                    'settings'      => 'vc_fonts_and_style_secondary_text_color',
                 ) )
         );
 
@@ -690,15 +743,6 @@ class VC_Customizer {
             'choices'     => VC_Fonts::vc_theme_font_choices(),
             'priority' => 12
         ) );
-        $wp_customize->add_control(  'vc_fonts_and_style_second_font_family', array(
-            'label'   => __( 'Second font', 'visual-composer-theme' ),
-            'description'   => __( 'Second theme font', 'visual-composer-theme' ),
-            'section' => 'vc_fonts_and_style',
-            'settings'   => 'vc_fonts_and_style_second_font_family',
-            'type'    => 'select',
-            'choices'     => VC_Fonts::vc_theme_font_choices(),
-            'priority' => 13
-        ) );
 
         $wp_customize->add_control( 'vc_fonts_and_style_subsets', array(
             'label'   => __( 'Font subsets', 'visual-composer-theme' ),
@@ -709,24 +753,6 @@ class VC_Customizer {
             'choices'     => VC_Fonts::vc_theme_font_subsets(),
             'priority' => 14
         ) );
-        $wp_customize->add_control(  'vc_fonts_and_style_weight', array(
-            'label'   => __( 'Font Weight & Style', 'visual-composer-theme' ),
-            'section' => 'vc_fonts_and_style',
-            'settings'   => 'vc_fonts_and_style_weight',
-            'type'    => 'select',
-            'choices'  => array(
-                '300' => __( 'Light', 'visual-composer-theme' ),
-                'italic 300' => __( 'Light Italic', 'visual-composer-theme' ),
-                '400' => __( 'Normal (default)', 'visual-composer-theme' ),
-                'italic 400' => __( 'Normal Italic', 'visual-composer-theme' ),
-                '600' => __( 'Semi-Bold', 'visual-composer-theme' ),
-                'italic 600' => __( 'Semi-Bold Italic', 'visual-composer-theme' ),
-                '700' => __( 'Bold', 'visual-composer-theme' ),
-                'italic 700' => __( 'Bold Italic', 'visual-composer-theme' ),
-            ),
-            'priority' => 17
-        ) );
-
         $wp_customize->add_control(  'vc_fonts_and_style_font_size', array(
             'label'   => __( 'Font size', 'visual-composer-theme' ),
             'description'   => __( 'Site main font size', 'visual-composer-theme' ),
@@ -770,7 +796,7 @@ class VC_Customizer {
             'default'        => '',
         ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_headers_text_color', array(
-            'default'        => '#000000',
+            'default'        => '#333333',
         ) );
 
         $wp_customize->add_setting( 'vc_fonts_and_style_headers_font_family', array(
@@ -782,41 +808,44 @@ class VC_Customizer {
         ) );
 
         $wp_customize->add_setting( 'vc_fonts_and_style_headers_h1_font_size', array(
-            'default'        => '25px',
+            'default'        => '42px',
         ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_headers_h2_font_size', array(
-            'default'        => '23px',
+            'default'        => '36px',
         ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_headers_h3_font_size', array(
-            'default'        => '20px',
+            'default'        => '30px',
         ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_headers_h4_font_size', array(
-            'default'        => '18px',
+            'default'        => '22px',
         ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_headers_h5_font_size', array(
-            'default'        => '15px',
+            'default'        => '18px',
         ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_headers_h6_font_size', array(
-            'default'        => '14px',
+            'default'        => '16px',
         ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_headers_line_height', array(
-            'default'        => '1.5',
+            'default'        => '1.1',
         ) );
 
         $wp_customize->add_setting( 'vc_fonts_and_style_headers_letter_spacing', array(
-            'default'        => '0',
+            'default'        => '0.01rem',
         ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_headers_weight', array(
             'default'        => '400',
         ) );
+        $wp_customize->add_setting( 'vc_fonts_and_style_headers_font_style', array(
+            'default'        => 'normal',
+        ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_headers_margin_top', array(
-            'default'        => '0.67em',
+            'default'        => '0',
         ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_headers_margin_bottom', array(
-            'default'        => '0.67em',
+            'default'        => '0.625rem',
         ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_headers_capitalization', array(
-            'default'        => 'capitalize',
+            'default'        => 'none',
         ) );
 
 
@@ -852,20 +881,29 @@ class VC_Customizer {
             'type'    => 'select',
             'choices'     => VC_Fonts::vc_theme_font_subsets(),
         ) );
+
         $wp_customize->add_control(  'vc_fonts_and_style_headers_weight', array(
-            'label'   => __( 'Font Weight & Style', 'visual-composer-theme' ),
+            'label'   => __( 'Font Weight', 'visual-composer-theme' ),
             'section' => 'vc_fonts_and_style_headers',
             'settings'   => 'vc_fonts_and_style_headers_weight',
             'type'    => 'select',
             'choices'  => array(
                 '300' => __( 'Light', 'visual-composer-theme' ),
-                'italic 300' => __( 'Light Italic', 'visual-composer-theme' ),
                 '400' => __( 'Normal (default)', 'visual-composer-theme' ),
-                'italic 400' => __( 'Normal Italic', 'visual-composer-theme' ),
                 '600' => __( 'Semi-Bold', 'visual-composer-theme' ),
-                'italic 600' => __( 'Semi-Bold Italic', 'visual-composer-theme' ),
                 '700' => __( 'Bold', 'visual-composer-theme' ),
-                'italic 700' => __( 'Bold Italic', 'visual-composer-theme' ),
+            ),
+        ) );
+        $wp_customize->add_control(  'vc_fonts_and_style_headers_font_style', array(
+            'label'   => __( 'Font Style', 'visual-composer-theme' ),
+            'section' => 'vc_fonts_and_style_headers',
+            'settings'   => 'vc_fonts_and_style_headers_font_style',
+            'type'    => 'select',
+            'choices'  => array(
+                'normal' => __( 'Normal (default)', 'visual-composer-theme' ),
+                'italic' => __( 'Italic', 'visual-composer-theme' ),
+                'oblique' => __( 'Oblique', 'visual-composer-theme' ),
+                'inherit' => __( 'Inherit', 'visual-composer-theme' ),
             ),
         ) );
 
@@ -878,7 +916,7 @@ class VC_Customizer {
         $wp_customize->add_control(  'vc_fonts_and_style_headers_h2_font_size', array(
             'label'   => __( 'H2 Font size', 'visual-composer-theme' ),
             'section' => 'vc_fonts_and_style_headers',
-            'settings'   => 'vc_fonts_and_style_headers_h1_font_size',
+            'settings'   => 'vc_fonts_and_style_headers_h2_font_size',
             'type'    => 'text',
         ) );
         $wp_customize->add_control(  'vc_fonts_and_style_headers_h3_font_size', array(
@@ -937,9 +975,10 @@ class VC_Customizer {
             'settings'   => 'vc_fonts_and_style_headers_capitalization',
             'type'    => 'select',
             'choices'  => array(
+                'none'  => __( 'None (default)', 'visual-composer-theme' ),
                 'uppercase' => __( 'Uppercase', 'visual-composer-theme' ),
                 'lowercase' => __( 'Lowercase', 'visual-composer-theme' ),
-                'capitalize' => __( 'Capitalize (default)', 'visual-composer-theme' ),
+                'capitalize' => __( 'Capitalize', 'visual-composer-theme' ),
             ),
         ) );
 

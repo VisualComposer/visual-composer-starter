@@ -32,7 +32,6 @@
                             <span class="icon-bar"></span>
                         </button>
                     <?php endif; ?>
-
                 </div>
                 <?php if ( has_nav_menu( 'primary' ) ) : ?>
                     <div id="main-menu">
@@ -40,18 +39,23 @@
                         <?php
                         wp_nav_menu( array(
                             'theme_location' => 'primary',
-                            'menu_class'     => 'nav navbar-nav navbar-right',
+                            'menu_class'     => 'nav navbar-nav navbar-left',
                             'container'      => '',
                         ) );
                         ?>
+                        <div class="header-widgetised-area">
+                        <?php if ( is_active_sidebar( 'menu' )  ) : ?>
+                            <?php dynamic_sidebar( 'menu' ); ?>
+                        <?php endif; ?>
+                        </div>
                     </div><!--#main-menu-->
                 <?php endif; ?>
             </div><!--.navbar-wrapper-->
         </div><!--.container-->
     </nav>
-    <div class="header-image">
         <?php if( is_singular() ): ?>
-        <?php visualcomposertheme_header_featured_content(); ?>
+        <div class="header-image">
+            <?php visualcomposertheme_header_featured_content(); ?>
+        </div>
         <?php endif; ?>
-    </div><!--.header-image-->
 </header>

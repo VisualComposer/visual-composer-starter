@@ -21,21 +21,51 @@ endif;
 if ( ! function_exists( 'visualcomposertheme_header_featured_content' ) ) :
     function visualcomposertheme_header_featured_content() {
         if( get_post_format() == 'video' ) {
+            $post = get_post( get_the_ID() );
+            remove_filter( 'the_content', 'wpautop' );
            ?>
-           <!-- VIDEO HERE -->
+                <div class="video-wrapper">
+                    <?php echo apply_filters( 'the_content', $post->post_content ); ?>
+                </div>
+            <?php
+        }
+        elseif( get_post_format() == 'gallery' ) {
+            ?>
+            <div class="gallery-slider">
+                <?php
+                $gallery = get_post_gallery_images( get_the_ID() );
+
+                foreach ( $gallery as $key => $src ):
+                    ?>
+                    <div class="gallery-item">
+                        <div class="fade-in-img">
+                            <img src="<?php echo $src;?>" data-src="<?php echo $src;?>" alt="">
+                            <noscript>
+                                <img src="<?php echo $src;?>" alt="">
+                            </noscript>
+                        </div><!--.fade-in-img-->
+                    </div><!--.gallery-item-->
+                    <?php
+                endforeach;
+                ?>
+            </div><!--.gallery-slider-->
             <?php
         }
         elseif( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
             return;
         }
+        else {
             ?>
-                <div class="fade-in-img">
-                    <img src="<?php the_post_thumbnail_url(); ?>" data-src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title() ?>">
-                    <noscript>
-                        <?php the_post_thumbnail(); ?>
-                    </noscript>
-                </div>
-        <?php
+            <div class="fade-in-img">
+                <img src="<?php the_post_thumbnail_url(); ?>" data-src="<?php the_post_thumbnail_url() ?>"
+                     alt="<?php the_title() ?>">
+                <noscript>
+                    <?php the_post_thumbnail(); ?>
+                </noscript>
+            </div>
+
+            <?php
+        }
     }
 endif;
 

@@ -11,24 +11,15 @@
 	<div class="featured-content">
 		<div class="gallery-slider">
 			<?php
-			$attachments = get_children( array(
-					'post_parent' => get_the_ID(),
-					'post_status' => 'inherit',
-					'post_type' => 'attachment',
-					'post_mime_type' => 'image',
-					'order' => 'ASC',
-					'orderby' => 'menu_order ID',
-					'numberposts' => 3)
-			);
-			foreach ( $attachments as $thumb_id => $attachment ):
+			$gallery = get_post_gallery_images( get_the_ID() );
 
-				$attach = wp_get_attachment_image_src($thumb_id, 'full')
-			?>
+			foreach ( $gallery as $key => $src ):
+				?>
 				<div class="gallery-item">
 					<div class="fade-in-img">
-						<img src="<?php echo $attach[0];?>" data-src="<?php echo $attach[0];?>" alt="">
+						<img src="<?php echo $src;?>" data-src="<?php echo $src;?>" alt="">
 						<noscript>
-							<img src="<?php echo $attach[0];?>" alt="">
+							<img src="<?php echo $src;?>" alt="">
 						</noscript>
 					</div><!--.fade-in-img-->
 				</div><!--.gallery-item-->

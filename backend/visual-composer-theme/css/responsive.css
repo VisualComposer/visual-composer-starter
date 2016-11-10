@@ -10,12 +10,17 @@
     display: none !important;
   }
   body:not(.menu-sandwich) #main-menu {
+    float: right;
     position: static;
     width: auto;
     background: none;
     padding: 0;
     overflow-y: inherit;
     margin-left: 28%;
+  }
+  body:not(.menu-sandwich) #main-menu .header-widgetised-area {
+    float: left;
+    margin: 7.5px 0 7.5px 20px;
   }
   body:not(.menu-sandwich) #main-menu .button-close {
     display: none;
