@@ -63,26 +63,27 @@ add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list'
  */
 function visualcomposertheme_style() {
     // Bootstrap stylesheet
-    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), '3.3.7' );
+    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.7' );
 
     // Add Visual Composer Theme Font
-    wp_enqueue_style( 'visual-composer-theme-font', get_template_directory_uri() . '/css/visual-composer-theme-font.css', array(), '1.0' );
+    wp_enqueue_style( 'visual-composer-theme-font', get_template_directory_uri() . '/css/visual-composer-theme-font.min.css', array(), '1.0' );
 
     //Slick slider stylesheet
-    wp_enqueue_style( 'slick-style', get_template_directory_uri() . '/css/slick.css', array(), '1.6.0' );
+    wp_enqueue_style( 'slick-style', get_template_directory_uri() . '/css/slick.min.css', array(), '1.6.0' );
 
     // General theme stylesheet
-    wp_enqueue_style( 'visual-composer-theme-general', get_template_directory_uri() . '/css/style.css', array(), '1.0' );
+    wp_enqueue_style( 'visual-composer-theme-general', get_template_directory_uri() . '/css/style.min.css', array(), '1.0' );
 
     // Stylesheet with additional responsive style
-    wp_enqueue_style( 'visual-composer-theme-responsive', get_template_directory_uri() . '/css/responsive.css', array(), '1.0' );
+    wp_enqueue_style( 'visual-composer-theme-responsive', get_template_directory_uri() . '/css/responsive.min.css', array(), '1.0' );
 
     // Theme stylesheet.
     wp_enqueue_style( 'visual-composer-theme-style', get_stylesheet_uri() );
 
     // Font options
     $fonts = array(
-        get_theme_mod( 'vc_fonts_and_style_first_font_family', 'Playfair Display' ),
+        get_theme_mod( 'vc_fonts_and_style_first_font_family', 'Roboto' ),
+        get_theme_mod( 'vc_fonts_and_style_headers_font_family', 'Playfair Display' ),
     );
 
     $font_uri = VC_Fonts::vc_theme_get_google_font_uri( $fonts );
@@ -102,19 +103,16 @@ add_action( 'wp_enqueue_scripts', 'visualcomposertheme_style' );
 
 function visualcomposertheme_script() {
     // Bootstrap Transition JS
-    wp_enqueue_script( 'bootstrap-transition', get_template_directory_uri() . '/js/transition.js', array('jquery'), '3.3.7', true );
+    wp_enqueue_script( 'bootstrap-transition', get_template_directory_uri() . '/js/transition.min.js', array('jquery'), '3.3.7', true );
 
     // Bootstrap Transition JS
-    wp_enqueue_script( 'bootstrap-collapser', get_template_directory_uri() . '/js/collapse.js', array('jquery'), '3.3.7', true );
-
-    // Slick Slider JS
-    wp_enqueue_script( 'bootstrap-transition', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1.6.0', true );
+    wp_enqueue_script( 'bootstrap-collapser', get_template_directory_uri() . '/js/collapse.min.js', array('jquery'), '3.3.7', true );
 
     // Slick Slider JS
     wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '1.6.0', true );
 
     // Main theme JS functions
-    wp_enqueue_script( 'visual-composer-theme-script', get_template_directory_uri() . '/js/functions.js', array('jquery'), '1.0', true );
+    wp_enqueue_script( 'visual-composer-theme-script', get_template_directory_uri() . '/js/functions.min.js', array('jquery'), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'visualcomposertheme_script' );
 
@@ -271,11 +269,14 @@ function visualcomposertheme_inline_styles () {
     /*Body fonts and style*/
     body,
     #main-menu ul li ul li,
-    .entry-content cite { font-family: '.get_theme_mod('vc_fonts_and_style_first_font_family').'; }
+    .comment-content cite,
+    .entry-content cite { font-family: '.get_theme_mod('vc_fonts_and_style_first_font_family', 'Roboto').'; }
      body,
+     .comment-content ul > li ul li:before,
      .entry-content ul > li ul li:before,
      .sidebar-widget-area a:hover, .sidebar-widget-area a:focus,
      .sidebar-widget-area .widget_recent_entries ul li:hover, .sidebar-widget-area .widget_archive ul li:hover, .sidebar-widget-area .widget_categories ul li:hover, .sidebar-widget-area .widget_meta ul li:hover, .sidebar-widget-area .widget_recent_entries ul li:focus, .sidebar-widget-area .widget_archive ul li:focus, .sidebar-widget-area .widget_categories ul li:focus, .sidebar-widget-area .widget_meta ul li:focus { color: '. get_theme_mod( 'vc_fonts_and_style_text_color', '#555555' ) .'; }
+      .comment-content table,
       .entry-content table { border-color: '. get_theme_mod( 'vc_fonts_and_style_text_color', '#555555' ) .'; }
       .entry-full-content .entry-author-data .author-biography,
       .entry-full-content .entry-meta,
@@ -284,6 +285,7 @@ function visualcomposertheme_inline_styles () {
       .entry-preview .entry-meta li,
       .entry-preview .entry-meta li a,
       .entry-content .gallery-caption,
+      .comment-content blockquote,
       .entry-content blockquote,
       .wp-caption .wp-caption-text,
       .comments-area .comment-list .comment-metadata a { color: '.get_theme_mod ( 'vc_fonts_and_style_secondary_text_color', '#777777' ).'; }
@@ -312,12 +314,37 @@ function visualcomposertheme_inline_styles () {
       .entry-content dl a:focus,
       .entry-content address a:focus,
       .entry-content ul > li:before,
+      .comment-content p a:hover,
+      .comment-content ol a:hover,
+      .comment-content ul a:hover,
+      .comment-content table a:hover,
+      .comment-content datalist a:hover,
+      .comment-content blockquote a:hover,
+      .comment-content dl a:hover,
+      .comment-content address a:hover,
+      .comment-content p a:focus,
+      .comment-content ol a:focus,
+      .comment-content ul a:focus,
+      .comment-content table a:focus,
+      .comment-content datalist a:focus,
+      .comment-content blockquote a:focus,
+      .comment-content dl a:focus,
+      .comment-content address a:focus,
+      .comment-content ul > li:before,
       .sidebar-widget-area .widget_recent_entries ul li,
       .sidebar-widget-area .widget_archive ul li,
       .sidebar-widget-area .widget_categories ul li,
       .sidebar-widget-area .widget_meta ul li { color: '.get_theme_mod( 'vc_fonts_and_style_active_color', '#557cbf' ).'; }     
       .comments-area .comment-list .reply a:hover,
       .comments-area .comment-list .reply a:focus,
+      .comment-content p a,
+      .comment-content ol a,
+      .comment-content ul a,
+      .comment-content table a,
+      .comment-content datalist a,
+      .comment-content blockquote a,
+      .comment-content dl a,
+      .comment-content address a,
       .entry-content p a,
       .entry-content ol a,
       .entry-content ul a,
@@ -326,7 +353,7 @@ function visualcomposertheme_inline_styles () {
       .entry-content blockquote a,
       .entry-content dl a,
       .entry-content address a { border-bottom-color: '.get_theme_mod( 'vc_fonts_and_style_active_color', '#557cbf' ).'; }    
-      .entry-content blockquote { border-left-color: '.get_theme_mod( 'vc_fonts_and_style_active_color', '#557cbf' ).'; }
+      .entry-content blockquote, .comment-content { border-left-color: '.get_theme_mod( 'vc_fonts_and_style_active_color', '#557cbf' ).'; }
       html, #main-menu ul li ul li { font-size: '.get_theme_mod( 'vc_fonts_and_style_font_size', '16px' ).' }
       body, #footer, .footer-widget-area .widget-title { line-height: '.get_theme_mod( 'vc_fonts_and_style_line_height', '1.7' ).'; }
       body { letter-spacing: '.get_theme_mod( 'vc_fonts_and_style_letter_spacing', '0.01rem' ).' }
@@ -335,6 +362,7 @@ function visualcomposertheme_inline_styles () {
     //Headers font and style
     $css .= '
     /*Headers fonts and style*/
+    .header-widgetised-area .widget_text,
     .blue-button,
      #main-menu > ul > li > a, 
      .entry-full-content .entry-author-data .author-name, 
@@ -346,6 +374,7 @@ function visualcomposertheme_inline_styles () {
      .comments-area .comment-form-url label,
      .comments-area .form-submit input[type="submit"],
      h1, h2, h3, h4, h5, h6,
+     .comment-content blockquote,
      .entry-content blockquote { font-family: '.get_theme_mod( 'vc_fonts_and_style_headers_font_family', 'Playfair Display' ).'; }
     .entry-full-content .entry-author-data .author-name,
     .entry-full-content .entry-meta a,
@@ -401,7 +430,7 @@ function visualcomposertheme_inline_styles () {
         $css .= "
         /*Header and menu area background color*/
         #header .navbar .navbar-wrapper,
-        #header .navbar.fixed.scroll,
+        body.navbar-no-background #header .navbar.fixed.scroll,
         body.header-full-width-boxed #header .navbar,
         body.header-full-width #header .navbar,
         #main-menu {background-color: {$header_and_menu_area_background};}

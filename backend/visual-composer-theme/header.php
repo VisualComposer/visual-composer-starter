@@ -39,7 +39,7 @@
                         <?php
                         wp_nav_menu( array(
                             'theme_location' => 'primary',
-                            'menu_class'     => 'nav navbar-nav navbar-left',
+                            'menu_class'     => 'nav navbar-nav',
                             'container'      => '',
                         ) );
                         ?>

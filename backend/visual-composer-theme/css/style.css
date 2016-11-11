@@ -36,8 +36,8 @@ img {
 img[data-src] {
   opacity: 0;
 }
-.header-widgetised-area {
-  float: right;
+#wpadminbar {
+  position: fixed;
 }
 .navbar {
   background: #fff;
@@ -54,8 +54,14 @@ img[data-src] {
   margin: 0 -15px;
   padding: 25px 15px;
 }
+body.admin-bar #main-menu {
+  padding-top: 86px;
+}
 body.fixed-header.admin-bar .navbar {
-  top: 32px;
+  top: 46px;
+}
+body.fixed-header.admin-bar .navbar.scroll-admin-bar {
+  top: 0;
 }
 body.fixed-header .navbar {
   width: 100%;
@@ -78,6 +84,9 @@ body.navbar-no-background #header .navbar.fixed {
 body.navbar-no-background #header .navbar.fixed.scroll {
   background-color: #fff;
 }
+body.navbar-no-background #header .navbar .navbar-wrapper {
+  background-color: transparent;
+}
 body.menu-sandwich .navbar-header {
   float: none;
 }
@@ -94,6 +103,9 @@ body.menu-sandwich #main-menu ul.nav li {
 .navbar-brand {
   height: auto;
   padding: 0 15px;
+}
+.navbar-toggle {
+  margin-bottom: 0;
 }
 .navbar-toggle .icon-bar {
   width: 20px;
@@ -121,6 +133,16 @@ body.menu-sandwich #main-menu ul.nav li {
 }
 #main-menu .header-widgetised-area {
   margin: 30px 0;
+}
+#main-menu .header-widgetised-area .widget {
+  margin-bottom: 20px;
+}
+#main-menu .header-widgetised-area .widget-title {
+  font-size: 18px;
+}
+#main-menu .header-widgetised-area .widget_text {
+  font-size: 18px;
+  line-height: 1em;
 }
 #main-menu.open {
   margin-left: -270px;
@@ -151,6 +173,7 @@ body.menu-sandwich #main-menu ul.nav li {
 }
 #main-menu > ul {
   margin: 0;
+  float: none;
 }
 #main-menu > ul > li {
   font-size: 18px;
@@ -361,18 +384,18 @@ body.menu-sandwich #main-menu ul.nav li {
   list-style: none;
   padding: 0;
 }
-.comments-area .comment-list li {
+.comments-area .comment-list li.comment {
   padding-top: 25px;
   border-top: 1px solid #ddd;
 }
-.comments-area .comment-list li .comment-body {
+.comments-area .comment-list li.comment .comment-body {
   margin-bottom: 25px;
 }
-.comments-area .comment-list li:first-child {
+.comments-area .comment-list li.comment:first-child {
   padding-top: 0;
   border-top: 0;
 }
-.comments-area .comment-list ol {
+.comments-area .comment-list ol.children {
   list-style: none;
   padding: 0;
   margin-left: 30px;
@@ -749,23 +772,39 @@ h6 {
   font-size: 16px;
 }
 .entry-content p,
+.comment-content p,
 .entry-content ol,
+.comment-content ol,
 .entry-content ul,
+.comment-content ul,
 .entry-content table,
+.comment-content table,
 .entry-content datalist,
+.comment-content datalist,
 .entry-content blockquote,
+.comment-content blockquote,
 .entry-content dl,
-.entry-content address {
+.comment-content dl,
+.entry-content address,
+.comment-content address {
   margin: 0 0 1.625rem 0;
 }
 .entry-content p a,
+.comment-content p a,
 .entry-content ol a,
+.comment-content ol a,
 .entry-content ul a,
+.comment-content ul a,
 .entry-content table a,
+.comment-content table a,
 .entry-content datalist a,
+.comment-content datalist a,
 .entry-content blockquote a,
+.comment-content blockquote a,
 .entry-content dl a,
-.entry-content address a {
+.comment-content dl a,
+.entry-content address a,
+.comment-content address a {
   border-bottom-width: 1px;
   border-bottom-color: #557cbf;
   border-bottom-style: solid;
@@ -773,46 +812,73 @@ h6 {
   line-height: 1.2;
 }
 .entry-content p a:hover,
+.comment-content p a:hover,
 .entry-content ol a:hover,
+.comment-content ol a:hover,
 .entry-content ul a:hover,
+.comment-content ul a:hover,
 .entry-content table a:hover,
+.comment-content table a:hover,
 .entry-content datalist a:hover,
+.comment-content datalist a:hover,
 .entry-content blockquote a:hover,
+.comment-content blockquote a:hover,
 .entry-content dl a:hover,
+.comment-content dl a:hover,
 .entry-content address a:hover,
+.comment-content address a:hover,
 .entry-content p a:focus,
+.comment-content p a:focus,
 .entry-content ol a:focus,
+.comment-content ol a:focus,
 .entry-content ul a:focus,
+.comment-content ul a:focus,
 .entry-content table a:focus,
+.comment-content table a:focus,
 .entry-content datalist a:focus,
+.comment-content datalist a:focus,
 .entry-content blockquote a:focus,
+.comment-content blockquote a:focus,
 .entry-content dl a:focus,
-.entry-content address a:focus {
+.comment-content dl a:focus,
+.entry-content address a:focus,
+.comment-content address a:focus {
   text-decoration: none;
   border-bottom-color: transparent;
   color: #557cbf;
 }
 .entry-content ol ol,
+.comment-content ol ol,
 .entry-content ul ul,
+.comment-content ul ul,
 .entry-content ul ol,
-.entry-content ol ul {
+.comment-content ul ol,
+.entry-content ol ul,
+.comment-content ol ul {
   margin-bottom: 0;
 }
 .entry-content embed,
+.comment-content embed,
 .entry-content iframe,
+.comment-content iframe,
 .entry-content object,
-.entry-content video {
+.comment-content object,
+.entry-content video,
+.comment-content video {
   max-width: 100%;
 }
-.entry-content ul {
+.entry-content ul,
+.comment-content ul {
   padding: 0;
 }
-.entry-content ul > li {
+.entry-content ul > li,
+.comment-content ul > li {
   list-style: none;
   padding-left: 35px;
   position: relative;
 }
-.entry-content ul > li:before {
+.entry-content ul > li:before,
+.comment-content ul > li:before {
   content: '\2022';
   font-size: 1.5em;
   position: absolute;
@@ -820,17 +886,21 @@ h6 {
   line-height: 1.3;
   color: #557cbf;
 }
-.entry-content ul > li ul li:before {
+.entry-content ul > li ul li:before,
+.comment-content ul > li ul li:before {
   color: #555;
 }
-.entry-content .wp-caption {
+.entry-content .wp-caption,
+.comment-content .wp-caption {
   margin-bottom: 1.625rem;
 }
-.entry-content .gallery {
+.entry-content .gallery,
+.comment-content .gallery {
   font-size: 0;
   margin: 0 -1.16667% 1.625rem -1.16667%;
 }
-.entry-content .gallery-item {
+.entry-content .gallery-item,
+.comment-content .gallery-item {
   display: inline-block;
   width: 100%;
   max-width: 33.3%;
@@ -838,27 +908,32 @@ h6 {
   padding: 0 1.14007%;
   margin-bottom: 1rem;
 }
-.entry-content .gallery-icon {
+.entry-content .gallery-icon,
+.comment-content .gallery-icon {
   display: block;
 }
-.entry-content .gallery-icon img {
+.entry-content .gallery-icon img,
+.comment-content .gallery-icon img {
   margin: 0 auto;
   display: block;
   max-width: 100%;
   height: auto;
 }
-.entry-content .gallery-caption {
+.entry-content .gallery-caption,
+.comment-content .gallery-caption {
   color: #777;
   font-size: 14px;
   font-style: italic;
   margin-top: 10px;
   text-align: center;
 }
-.entry-content img {
+.entry-content img,
+.comment-content img {
   max-width: 100%;
   height: auto;
 }
-.entry-content blockquote {
+.entry-content blockquote,
+.comment-content blockquote {
   border-left: 4px solid #557cbf;
   padding: 10px 0 10px 23px;
   color: #777;
@@ -866,30 +941,38 @@ h6 {
   font-family: 'Playfair Display';
   font-style: italic;
 }
-.entry-content blockquote cite {
+.entry-content blockquote cite,
+.comment-content blockquote cite {
   display: block;
   margin-top: 10px;
 }
-.entry-content cite {
+.entry-content cite,
+.comment-content cite {
   font-family: 'Roboto';
   font-size: 14px;
 }
-.entry-content table {
+.entry-content table,
+.comment-content table {
   table-layout: fixed;
   width: 100%;
 }
 .entry-content table tr th,
-.entry-content table tr td {
+.comment-content table tr th,
+.entry-content table tr td,
+.comment-content table tr td {
   padding: 0.4375rem;
   border: 1px solid #555;
 }
-.entry-content dl dd {
+.entry-content dl dd,
+.comment-content dl dd {
   margin-bottom: 1rem;
 }
-.entry-content address {
+.entry-content address,
+.comment-content address {
   font-style: italic;
 }
-.entry-content acronym {
+.entry-content acronym,
+.comment-content acronym {
   border-bottom: 1px dotted #d1d1d1;
 }
 .wp-caption {

@@ -2,7 +2,29 @@
 @import "variables";
 
 @media only screen and (min-width: 768px) {
+	body.menu-sandwich.admin-bar {
+		#main-menu {
+			padding-top: 86px;
+		}
+	}
 	body:not(.menu-sandwich) {
+		.header-widgetised-area {
+			float: right;
+
+			.widget {
+				float: left;
+				margin-bottom: 0;
+			}
+
+			.widget-title, .textwidget {
+				display: inline-block;
+				margin-bottom: 0;
+			}
+
+			.widget_text {
+				padding: 0.55em 0.83em;
+			}
+		}
 		.navbar-header {
 			max-width: 25%;
 
@@ -15,7 +37,7 @@
 		.navbar-toggle {display: none !important;}
 
 		#main-menu {
-			float: right;
+			text-align: right;
 			position: static;
 			width: auto;
 			background: none;
@@ -24,8 +46,9 @@
 			margin-left: 28%;
 
 			.header-widgetised-area {
-				float: left;
+				float: right;
 				margin: 7.5px 0 7.5px 20px;
+				text-align: left;
 			}
 
 			.button-close {
@@ -37,7 +60,9 @@
 			}
 
 			>ul {
+				display: inline-block;
 				margin: 7.5px 0;
+				text-align: left;
 				>li {
 					a {
 						padding: 0.55em 0.83em;
@@ -182,6 +207,16 @@
 		}
 	}
 }/*min-width: 768px*/
+
+@media only screen and (min-width: 783px) {
+	body.fixed-header {
+		&.admin-bar {
+			.navbar {
+				top:32px;
+			}
+		}
+	}
+}
 
 @media only screen and (min-width: 992px) {
 	.nav-next {

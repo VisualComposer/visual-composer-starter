@@ -7,7 +7,7 @@
  * @since Visual Composer Theme 1.0
  */
 ?>
-<article class="entry-preview" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('entry-preview'); ?>>
 
 	<?php visualcomposertheme_post_thumbnail(); ?>
 
