@@ -160,7 +160,7 @@ Class VC_Fonts {
         );
     }
 
-    function vc_theme_google_font_variants( $font, $variants = array() ) {
+    public static function vc_theme_google_font_variants( $font, $variants = array() ) {
         $chosen_variants = array();
         if ( empty( $variants ) ) {
             $fonts = self::vc_theme_google_fonts();

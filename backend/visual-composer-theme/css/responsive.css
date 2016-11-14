@@ -129,7 +129,7 @@
   .comments-area .comment-list .comment-wrapper {
     margin-left: 100px;
   }
-  .comments-area .comment-list ol {
+  .comments-area .comment-list ol.children {
     margin-left: 100px;
   }
   .comment-form-author,

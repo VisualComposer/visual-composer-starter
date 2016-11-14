@@ -13,12 +13,17 @@
             <div class="navbar-wrapper clearfix">
                 <div class="navbar-header">
                     <div class="navbar-brand">
-
-                        <?php if (has_custom_logo()): ?>
-                            <?php the_custom_logo() ?>
+                        <?php
+                            if (has_custom_logo()):
+                                $custom_logo = wp_get_attachment_image_src(get_theme_mod('custom_logo'), 'full');
+                        ?>
+                            <a href="<?php echo home_url(); ?>"
+                               title="<?php bloginfo('name') ?>">
+                                <img src="<? echo $custom_logo[0] ?>" alt="<?php bloginfo('name') ?>">
+                            </a>
                         <?php else: ?>
-                            <a href="http://visualcomposer.io">
-                                <img width="50" height="49" src="<?= get_template_directory_uri() ?>/images/vc-logo.svg" alt="<?= __('Visual Composer Theme', 'visual-composer-theme') ?>">
+                            <a href="http://visualcomposer.io" title="alt="<?php _e('Visual Composer Theme', 'visual-composer-theme') ?>">
+                                <img width="50" height="49" src="<?= get_template_directory_uri() ?>/images/vc-logo.svg" alt="<?php _e('Visual Composer Theme', 'visual-composer-theme') ?>">
                             </a>
                         <?php endif; ?>
                         

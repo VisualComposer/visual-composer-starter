@@ -25,8 +25,13 @@ if ( ! function_exists( 'visualcomposertheme_setup' ) ) :
          */
         register_nav_menus( array(
             'primary'       => __( 'Primary Menu', 'visual-composer-theme' ),
-            'secondary'     => __( 'Secondary Menu', 'visual-composer-theme' ),
+            'secondary'     => __( 'Footer Menu', 'visual-composer-theme' ),
         ) );
+
+        /*
+         * Comment reply
+         */
+        add_action( 'comment_form_before', 'visualcomposertheme_enqueue_comments_reply' );
 
         /**
          * Customizer settings.
@@ -40,6 +45,13 @@ if ( ! function_exists( 'visualcomposertheme_setup' ) ) :
     }
 endif; // visualcomposertheme_setup
 add_action( 'after_setup_theme', 'visualcomposertheme_setup' );
+
+/*AJAX Comment reply*/
+function visualcomposertheme_enqueue_comments_reply() {
+    if( get_option( 'thread_comments' ) )  {
+        wp_enqueue_script( 'comment-reply' );
+    }
+}
 
 
 /**
@@ -272,8 +284,6 @@ function visualcomposertheme_inline_styles () {
     .comment-content cite,
     .entry-content cite { font-family: '.get_theme_mod('vc_fonts_and_style_first_font_family', 'Roboto').'; }
      body,
-     .comment-content ul > li ul li:before,
-     .entry-content ul > li ul li:before,
      .sidebar-widget-area a:hover, .sidebar-widget-area a:focus,
      .sidebar-widget-area .widget_recent_entries ul li:hover, .sidebar-widget-area .widget_archive ul li:hover, .sidebar-widget-area .widget_categories ul li:hover, .sidebar-widget-area .widget_meta ul li:hover, .sidebar-widget-area .widget_recent_entries ul li:focus, .sidebar-widget-area .widget_archive ul li:focus, .sidebar-widget-area .widget_categories ul li:focus, .sidebar-widget-area .widget_meta ul li:focus { color: '. get_theme_mod( 'vc_fonts_and_style_text_color', '#555555' ) .'; }
       .comment-content table,

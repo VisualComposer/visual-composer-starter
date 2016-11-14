@@ -6,7 +6,6 @@
 	border-bottom-width: 1px;
 	border-bottom-color: @active-text-color;
 	border-bottom-style: solid;
-	transition: border-bottom 0.3s ease;
 	line-height: 1.2;
 
 	&:hover, &:focus {
@@ -31,6 +30,12 @@ body {
 
 a {
 	color: @active-text-color;
+}
+
+*, :before, :after {
+	transition: border-bottom 0.4s ease,
+				color 0.4s ease,
+				background-color 0.4s ease;
 }
 
 .blue-button {
@@ -118,7 +123,6 @@ body.navbar-no-background {
 
 			&.fixed {
 				position: fixed;
-				transition: background-color 0.3s ease;
 
 				&.scroll {
 					background-color: #fff;
@@ -375,7 +379,6 @@ body.menu-sandwich {
 		a {
 			color: @headers-color;
 			border-bottom: 1px solid transparent;
-			transition: border-bottom 0.3s ease;
 
 			&:hover, &:focus {
 				border-bottom-color: @headers-color;
@@ -396,7 +399,6 @@ body.menu-sandwich {
 		color: #777;
 		background-color: #eee;
 		border-radius: 20px;
-		transition: all 0.3s ease;
 
 		&:hover, &:before {
 			text-decoration: none;
@@ -430,7 +432,6 @@ body.menu-sandwich {
 			font-weight: 700;
 			color: @headers-color;
 			border-bottom: 1px solid transparent;
-			transition: border-bottom 0.3s ease;
 		}
 
 		&:hover {
@@ -549,7 +550,6 @@ body.menu-sandwich {
 			a {
 				color: #777;
 				border-bottom: 1px solid transparent;
-				transition: border-bottom 0.3s ease;
 
 				&:hover, &:focus {
 					text-decoration: none;
@@ -562,7 +562,6 @@ body.menu-sandwich {
 			a {
 				color: @active-text-color;
 				border-bottom: 1px solid transparent;
-				transition: border-bottom 0.3s ease;
 
 				&:hover, &:focus {
 					text-decoration: none;
@@ -848,7 +847,7 @@ body.menu-sandwich {
 
 			a {
 				color: #777;
-				transition: color 0.3s ease;
+				vertical-align: bottom;
 
 				&:hover, &:focus {
 					color: @headers-color;
@@ -894,7 +893,6 @@ h1, h2, h3, h4, h5, h6 {
 	a {
 		color: @headers-color;
 		border-bottom: 1px solid transparent;
-		transition: border-bottom 0.3s ease;
 
 		&:hover, &:focus {
 			color: @headers-color;
@@ -966,13 +964,6 @@ h6 {
 				left: 20px;
 				line-height: 1.3;
 				color: @active-text-color;
-			}
-			ul {
-				li {
-					&:before {
-						color: @text-color;
-					}
-				}
 			}
 		}
 	}
@@ -1186,7 +1177,6 @@ h6 {
 		border-top: 1px solid #eee;
 		margin-bottom: 25px;
 		font-size: 14px;
-		transition: color 0.3s ease;
 	}
 
 	.widget_recent_entries, .widget_archive, .widget_categories, .widget_meta {
@@ -1236,7 +1226,6 @@ h6 {
 		border-bottom-width: 1px;
 		border-bottom-color: transparent;
 		border-bottom-style: solid;
-		transition: border-bottom 0.3s ease;
 		line-height: 1.2;
 		color: @footer-active-color;
 
@@ -1282,7 +1271,7 @@ h6 {
 					span {
 						display: block;
 						opacity: 0.25;
-						transition: opacity 0.3s ease;
+						transition: opacity 0.4s ease;
 					}
 				}
 			}
