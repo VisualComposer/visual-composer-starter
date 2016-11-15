@@ -68,6 +68,23 @@ if( get_theme_mod( 'vc_overall_site_featured_image', 'show' ) == 'show' ) {
 
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 
+/*
+ * Add Next Page Button to WYSIWYG editor
+ */
+
+add_filter('mce_buttons', 'mce_page_break');
+function mce_page_break( $mce_buttons ){
+    $pos = array_search('wp_more', $mce_buttons, true);
+
+    if( $pos !== false ) {
+        $buttons = array_slice( $mce_buttons, 0, $pos );
+        $buttons[] = 'wp_page';
+        $mce_buttons = array_merge( $buttons, array_slice($mce_buttons, $pos) );
+    }
+
+    return $mce_buttons;
+}
+
 /**
  * Enqueues styles.
  *
@@ -307,6 +324,7 @@ function visualcomposertheme_inline_styles () {
       .comments-area .comment-subscription-form label:before,
       .entry-preview .entry-meta li a:hover:before,
       .entry-preview .entry-meta li a:focus:before,
+      .entry-preview .entry-meta li.entry-meta-category:hover:before,
       .entry-content p a:hover,
       .entry-content ol a:hover,
       .entry-content ul a:hover,
@@ -364,6 +382,18 @@ function visualcomposertheme_inline_styles () {
       .entry-content dl a,
       .entry-content address a { border-bottom-color: '.get_theme_mod( 'vc_fonts_and_style_active_color', '#557cbf' ).'; }    
       .entry-content blockquote, .comment-content { border-left-color: '.get_theme_mod( 'vc_fonts_and_style_active_color', '#557cbf' ).'; }
+      .comments-area .form-submit input[type=submit],
+      .blue-button { 
+            background-color: '.get_theme_mod( 'vc_fonts_and_style_active_color', '#557cbf' ).'; 
+            color: '.get_theme_mod( 'vc_fonts_and_style_button_text_color', '#f4f4f4' ).'; 
+      }
+      
+      .comments-area .form-submit input[type=submit]:hover, .comments-area .form-submit input[type=submit]:focus,
+      .blue-button:hover, .blue-button:focus {
+        background-color: '.get_theme_mod( 'vc_fonts_and_style_hover_background', '#3c63a6' ).';
+        color: '.get_theme_mod( 'vc_fonts_and_style_button_text_color', '#f4f4f4' ).';
+      }
+      
       html, #main-menu ul li ul li { font-size: '.get_theme_mod( 'vc_fonts_and_style_font_size', '16px' ).' }
       body, #footer, .footer-widget-area .widget-title { line-height: '.get_theme_mod( 'vc_fonts_and_style_line_height', '1.7' ).'; }
       body { letter-spacing: '.get_theme_mod( 'vc_fonts_and_style_letter_spacing', '0.01rem' ).' }
@@ -378,6 +408,7 @@ function visualcomposertheme_inline_styles () {
      .entry-full-content .entry-author-data .author-name, 
      .nav-links.post-navigation a .post-title, 
      .comments-area .comment-list .comment-author,
+     .comments-area .comment-list .reply a,
      .comments-area .comment-form-comment label,
      .comments-area .comment-form-author label,
      .comments-area .comment-form-email label,
@@ -390,6 +421,7 @@ function visualcomposertheme_inline_styles () {
     .entry-full-content .entry-meta a,
     .nav-links.post-navigation a .post-title,
     .comments-area .comment-list .comment-author,
+    .comments-area .comment-list .comment-author a,
     .search-results-header h4 strong,
     .entry-preview .entry-meta li a:hover,
     .entry-preview .entry-meta li a:focus,
@@ -400,6 +432,8 @@ function visualcomposertheme_inline_styles () {
     
     .entry-full-content .entry-meta a:hover,
     .entry-full-content .entry-meta a:focus,
+    .comments-area .comment-list .comment-author a:hover,
+    .comments-area .comment-list .comment-author a:focus,
     .nav-links.post-navigation a:hover .post-title,
     h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover,
     h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { border-bottom-color: '.get_theme_mod( 'vc_fonts_and_style_headers_text_color', '#333333' ).'; }

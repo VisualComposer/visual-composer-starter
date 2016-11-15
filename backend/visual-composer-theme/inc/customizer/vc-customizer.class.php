@@ -151,6 +151,7 @@ class VC_Customizer {
         $wp_customize->add_setting('vc_content_area_size',  array(
             'default'       => 'boxed',
         ));
+
         $wp_customize->add_setting('vc_content_area_background',  array(
             'default'       => '#ffffff',
         ));
@@ -665,6 +666,12 @@ class VC_Customizer {
         $wp_customize->add_setting( 'vc_fonts_and_style_text_color', array(
             'default'        => '#555555',
         ) );
+        $wp_customize->add_setting('vc_fonts_and_style_hover_background',  array(
+            'default'       => '#3c63a6',
+        ));
+        $wp_customize->add_setting('vc_fonts_and_style_button_text_color',  array(
+            'default'       => '#f4f4f4',
+        ));
 
         $wp_customize->add_setting( 'vc_fonts_and_style_secondary_text_color', array(
             'default'        => '#777777',
@@ -720,13 +727,37 @@ class VC_Customizer {
                 ) )
         );
 
+
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                'vc_fonts_and_style_hover_background',
+                array(
+                    'label'         => __( 'Hover background color', 'visual-composer-theme' ),
+                    'description'   => __( 'Choose hover background color (for buttons)', 'visual-composer-theme' ),
+                    'section'       => 'vc_fonts_and_style',
+                    'settings'      => 'vc_fonts_and_style_hover_background',
+                ) )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                'vc_fonts_and_style_button_text_color',
+                array(
+                    'label'         => __( 'Buttons text color', 'visual-composer-theme' ),
+                    'description'   => __( 'Choose buttons text color', 'visual-composer-theme' ),
+                    'section'       => 'vc_fonts_and_style',
+                    'settings'      => 'vc_fonts_and_style_button_text_color',
+                ) )
+        );
+
         $wp_customize->add_control(
             new WP_Customize_Color_Control(
                 $wp_customize,
                 'vc_fonts_and_style_active_color',
                 array(
                     'label'         => __( 'Active color', 'visual-composer-theme' ),
-                    'description'   => __( 'Active color that will be applied to links and bullets.', 'visual-composer-theme' ),
+                    'description'   => __( 'Active color that will be applied to links, bullets and buttons.', 'visual-composer-theme' ),
                     'section'       => 'vc_fonts_and_style',
                     'settings'      => 'vc_fonts_and_style_active_color',
                 ) )

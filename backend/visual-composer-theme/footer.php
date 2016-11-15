@@ -37,23 +37,23 @@
                         <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_linkedin', '' ) ) ): ?>
                             <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_linkedin', '' ); ?>"><span class="vc-icon-linkedin-with-circle"></span></a></li>
                         <?php endif; ?>
-                        <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_github', '' ) ) ): ?>
-                            <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_github', '' ); ?>"><span class="vc-icon-github-with-circle"></span></a></li>
-                        <?php endif; ?>
                         <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_instagram', '' ) ) ): ?>
                             <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_instagram', '' ); ?>"><span class="vc-icon-instagram-with-circle"></span></a></li>
                         <?php endif; ?>
                         <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_pinterest', '' ) ) ): ?>
                             <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_pinterest', '' ); ?>"><span class="vc-icon-pinterest-with-circle"></span></a></li>
                         <?php endif; ?>
-                        <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_flickr', '' ) ) ): ?>
-                            <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_flickr', '' ); ?>"><span class="vc-icon-flickr-with-circle"></span></a></li>
-                        <?php endif; ?>
                         <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_youtube', '' ) ) ): ?>
                             <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_youtube', '' ); ?>"><span class="vc-icon-youtube-with-circle"></span></a></li>
                         <?php endif; ?>
                         <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_vimeo', '' ) ) ): ?>
                             <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_vimeo', '' ); ?>"><span class="vc-icon-vimeo-with-circle"></span></a></li>
+                        <?php endif; ?>
+                        <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_flickr', '' ) ) ): ?>
+                            <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_flickr', '' ); ?>"><span class="vc-icon-flickr-with-circle"></span></a></li>
+                        <?php endif; ?>
+                        <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_link_github', '' ) ) ): ?>
+                            <li><a target="_blank" href="<?php echo get_theme_mod( 'vc_footer_area_social_link_github', '' ); ?>"><span class="vc-icon-github-with-circle"></span></a></li>
                         <?php endif; ?>
                         <?php if ( strlen( get_theme_mod( 'vc_footer_area_social_email', '' ) ) ): ?>
                             <li><a href="mailto:<?php echo get_theme_mod( 'vc_footer_area_social_email', '' ); ?>"><span class="vc-icon-mail-circle"></span></a></li>

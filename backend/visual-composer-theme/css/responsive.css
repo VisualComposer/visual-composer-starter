@@ -52,6 +52,9 @@
     margin: 7.5px 0;
     text-align: left;
   }
+  body:not(.menu-sandwich) #main-menu > ul > li {
+    font-size: 18px;
+  }
   body:not(.menu-sandwich) #main-menu > ul > li a {
     padding: 0.55em 0.83em;
   }

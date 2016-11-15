@@ -248,7 +248,7 @@ body.menu-sandwich {
 		margin: 0;
 		float: none;
 		>li {
-			font-size: 18px;
+			font-size: 22px;
 			>a {
 				padding: 12px 0;
 				font-family: @secondary-font-family;
@@ -450,34 +450,77 @@ body.menu-sandwich {
 	border-radius: 0;
 }
 
-.nav-links.archive-navigation {
-	.page-numbers {
-		display: inline-block;
-		width: 30px;
-		height: 30px;
-		margin: 0 10px 10px 0;
-		background-color: #eee;
-		border-radius: 15px;
-		text-align: center;
-		line-height: 32px;
-		font-size: 14px;
-		font-style: italic;
-		color: #777;
-
-		&.prev, &.next {
-			width: auto;
-			padding: 0 15px;
+.nav-links {
+	&.post-inner-navigation {
+		margin-bottom: 20px;
+		a, > span {
+			display: inline-block;
+			min-width: 30px;
+			background-color: #eee;
+			border-radius: 15px;
+			text-align: center;
+			height: 30px;
+			margin: 0 10px 10px 0;
+			line-height: 32px;
+			font-size: 14px;
+			font-style: italic;
+			color: #777;
 		}
 
-		&.dots {
-			background: none;
+		a {
+			&:hover, &:focus {
+				text-decoration: none;
+				background-color: @active-text-color;
+				span {
+					color: #fff;
+				}
+
+			}
+
+			&.prev, &.next {
+				width: auto;
+				padding: 0 15px;
+			}
 		}
+
+		> span {
+			background-color: @active-text-color;
+			color: #fff;
+		}
+
+
+
 	}
 
-	a.page-numbers:hover, a.page-numbers:focus, .page-numbers.current {
-		text-decoration: none;
-		background-color: @active-text-color;
-		color: #fff;
+	&.archive-navigation {
+		.page-numbers {
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			margin: 0 10px 10px 0;
+			background-color: #eee;
+			border-radius: 15px;
+			text-align: center;
+			line-height: 32px;
+			font-size: 14px;
+			font-style: italic;
+			color: #777;
+
+			&.prev, &.next {
+				width: auto;
+				padding: 0 15px;
+			}
+
+			&.dots {
+				background: none;
+			}
+		}
+
+		a.page-numbers:hover, a.page-numbers:focus, .page-numbers.current {
+			text-decoration: none;
+			background-color: @active-text-color;
+			color: #fff;
+		}
 	}
 }
 
@@ -498,6 +541,7 @@ body.menu-sandwich {
 	.comment-list {
 		list-style: none;
 		padding: 0;
+		margin-bottom: 55px;
 
 		li.comment {
 			padding-top: 25px;
@@ -539,8 +583,18 @@ body.menu-sandwich {
 		.comment-author {
 			font-family: @secondary-font-family;
 			font-size: 22px;
-			font-weight: 700;
 			color: @headers-color;
+			line-height: 1.4;
+
+			a {
+				color: @headers-color;
+				border-bottom: 1px solid transparent;
+
+				&:hover, &:focus {
+					border-bottom-color: @headers-color;
+					text-decoration: none;
+				}
+			}
 		}
 
 		.comment-metadata {
@@ -560,6 +614,7 @@ body.menu-sandwich {
 
 		.reply {
 			a {
+				font-family: @secondary-font-family;
 				color: @active-text-color;
 				border-bottom: 1px solid transparent;
 
@@ -579,19 +634,22 @@ body.menu-sandwich {
 	}
 
 	.comment-notes {
+		font-size: 14px;
 		margin-bottom: 25px;
 	}
 
 	span.required {
 		color: @active-text-color;
+		margin-left: -4px;
 	}
 
 	.comment-form-comment {
 		margin-bottom: 20px;
 
 		label {
+			font-weight: normal;
 			display: block;
-			margin-bottom: 8px;
+			margin-bottom: 10px;
 			font-family: @secondary-font-family;
 		}
 
@@ -620,8 +678,9 @@ body.menu-sandwich {
 		margin-bottom: 30px;
 
 		label {
+			font-weight: normal;
 			display: block;
-			margin-bottom: 8px;
+			margin-bottom: 10px;
 			font-family: @secondary-font-family;
 		}
 
@@ -631,7 +690,7 @@ body.menu-sandwich {
 	}
 
 	.form-submit, .comment-subscription-form {
-		margin-bottom: 30px;
+		margin-bottom: 15px;
 	}
 
 	.comment-subscription-form {
@@ -675,7 +734,21 @@ body.menu-sandwich {
 
 	.form-submit {
 		input[type="submit"] {
-			.blue-button();
+			display: inline-block;
+			background-color: @active-text-color;
+			border-radius: 0;
+			border: none;
+			color: #f4f4f4;
+			font-family: @secondary-font-family;
+			padding: 15px 40px;
+			line-height: 1;
+
+			&:hover, &:focus {
+				color: #f4f4f4;
+				text-decoration: none;
+				background-color: #3c63a6;
+				outline: none;
+			}
 		}
 	}
 }
@@ -829,9 +902,19 @@ body.menu-sandwich {
 			}
 
 			&.entry-meta-category {
-				a {
+				&:before {
+					content: '\65';
+					font-family: @icon-font-family;
+					font-size: 22px;
+					color: #d4d4d4;
+					margin-right: 5px;
+					display: inline;
+					vertical-align: text-bottom;
+				}
+
+				&:hover {
 					&:before {
-						content: '\65';
+						color: @active-text-color;
 					}
 				}
 			}
@@ -932,6 +1015,24 @@ h6 {
 }
 
 .entry-content, .comment-content {
+	&:after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+
+	article {
+		&:after {
+			content: " ";
+			display: table;
+			clear: both;
+		}
+
+		> div {
+			margin: 0 0 1.625rem 0;
+		}
+	}
+
 	p, ol, ul, table, datalist, blockquote, dl, address {
 		margin: 0 0 1.625rem 0;
 
@@ -946,6 +1047,8 @@ h6 {
 
 	embed, iframe, object, video {
 		max-width: 100%;
+		display: block;
+		margin: 0 0 1.625rem 0;
 	}
 
 	ul {
@@ -1053,6 +1156,12 @@ h6 {
 
 	acronym {
 		border-bottom: 1px dotted #d1d1d1;
+	}
+}
+
+.comment-content {
+	p, ol, ul, table, datalist, blockquote, dl, address {
+		margin: 0 0 10px 0;
 	}
 }
 

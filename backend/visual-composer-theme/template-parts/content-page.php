@@ -10,5 +10,5 @@
 
 <div class="entry-content">
     <h1><?php the_title(); ?></h1>
-    <?php the_content(); ?>
+    <?php the_content('', true); ?>
 </div><!--.entry-content-->
