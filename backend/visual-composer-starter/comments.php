@@ -35,7 +35,7 @@ if ( post_password_required() ) {
 		<ol class="comment-list">
 			<?php wp_list_comments(
 				array(
-					'callback'    => 'visualcomposertheme_comment',
+					'callback'    => 'visualcomposerstarter_comment',
 					'reply_text'  => __('Reply', 'visual-composer-starter'),
 					'avatar_size' => 80,
 					'style' 	  => 'ol'
