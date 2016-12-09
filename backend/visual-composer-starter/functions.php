@@ -400,7 +400,7 @@ function visualcomposerstarter_inline_styles () {
       body {
         letter-spacing: '.get_theme_mod( 'vc_fonts_and_style_body_letter_spacing', '0.01rem' ).';
         font-weight: '.get_theme_mod( 'vc_fonts_and_style_body_weight', '400' ).';
-        font-style: '.get_theme_mod( 'vc_fonts_and_style_body_font_style', '400' ).';
+        font-style: '.get_theme_mod( 'vc_fonts_and_style_body_font_style', 'normal' ).';
         text-transform: '.get_theme_mod( 'vc_fonts_and_style_body_capitalization', 'none' ).';
       }
       
@@ -581,8 +581,9 @@ function visualcomposerstarter_inline_styles () {
         body.navbar-no-background #header .navbar.fixed.scroll,
         body.header-full-width-boxed #header .navbar,
         body.header-full-width #header .navbar,
-        #main-menu {background-color: {$header_and_menu_area_background};}
+        
         @media only screen and (min-width: 768px) {
+            #main-menu {background-color: {$header_and_menu_area_background};}
             body:not(.menu-sandwich) #main-menu ul li ul { background-color: {$header_and_menu_area_background}; }
         }
         body.navbar-no-background #header .navbar {background-color: transparent;}
@@ -593,9 +594,13 @@ function visualcomposerstarter_inline_styles () {
     if ( $header_and_menu_area_text_color != '#555555' ) {
         $css .= "
         /*Header and menu area text color*/
-        #header,
-        #main-menu ul li,
-        #main-menu ul li a { color: {$header_and_menu_area_text_color} }
+        #header { color: {$header_and_menu_area_text_color} }
+        
+        @media only screen and (min-width: 768px) {
+            body:not(.menu-sandwich) #main-menu ul li,
+            body:not(.menu-sandwich) #main-menu ul li a,
+            body:not(.menu-sandwich) #main-menu ul li ul li a { color: {$header_and_menu_area_text_color} }
+        }
         ";
     }
 
@@ -603,13 +608,29 @@ function visualcomposerstarter_inline_styles () {
     if ( $header_and_menu_area_text_active_color != '#333333' ) {
         $css .= "
         /*Header and menu area active text color*/
-        #header a:hover,
-        #main-menu ul li a:hover,
-        #main-menu ul li.current-menu-item > a {
+        #header a:hover {
             color: {$header_and_menu_area_text_active_color};
             border-bottom-color: {$header_and_menu_area_text_active_color};
         }
+        
+        @media only screen and (min-width: 768px) {
+            body:not(.menu-sandwich) #main-menu ul li a:hover,
+            body:not(.menu-sandwich) #main-menu ul li.current-menu-item > a
+            body:not(.menu-sandwich) #main-menu ul li ul li a:focus, body:not(.menu-sandwich) #main-menu ul li ul li a:hover,
+            body:not(.menu-sandwich) .sandwich-color-light #main-menu>ul>li.current_page_item>a,
+            body:not(.menu-sandwich) .sandwich-color-light #main-menu>ul ul li.current_page_item>a {
+                color: {$header_and_menu_area_text_active_color};
+                border-bottom-color: {$header_and_menu_area_text_active_color};
+            }
+        }
         ";
+    }
+
+    $header_sandwich_icon_color = get_theme_mod( 'vc_header_sandwich_icon_color', '#ffffff' );
+    if ( $header_sandwich_icon_color != '#ffffff' ) {
+        $css .= '
+            .navbar-toggle .icon-bar {background-color: '.$header_sandwich_icon_color.';}
+        ';
     }
 
     $header_and_menu_area_menu_hover_background = get_theme_mod ( 'vc_header_menu_hover_background', '#eeeeee' );

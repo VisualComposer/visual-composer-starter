@@ -166,20 +166,57 @@ body.menu-sandwich {
 	.icon-bar {
 		width: 20px;
 		border-radius: 0;
-		background-color: @sandwich-color-dark;
+		background-color: #fff;
 	}
 }
 
 .sandwich-color-light {
-	.navbar-toggle {
-		.icon-bar {
-			background-color: @sandwich-color-light;
-		}
-	}
-
 	#main-menu {
+		background-color: #fff;
+		> ul {
+			> li {
+				> a {
+					color: #555;
+					&:hover, &:focus {
+						color: #333;
+					}
+				}
+
+				&.current_page_item {
+					> a {
+						color: #333;
+					}
+				}
+			}
+
+			ul {
+				li {
+					a {
+						color: #333;
+
+						&:hover, &:focus {
+							color: #555;
+						}
+					}
+
+					&.current_page_item {
+						> a {
+							color: #555;
+						}
+					}
+
+					.dropdown-toggle {
+						color: #333;
+					}
+				}
+			}
+		}
 		.button-close {
-			background-image: url("../images/icon-close-light.png");
+			background-image: url("../images/icon-close-dark.png");
+		}
+
+		.dropdown-toggle {
+			color: #555;
 		}
 	}
 }
@@ -192,7 +229,7 @@ body.menu-sandwich {
 	left: 100%;
 	z-index: 9999;
 	height: 100%;
-	background-color: #fff;
+	background-color: #333;
 	padding: 40px 30px 0 30px;
 	width: 270px;
 	transition: margin 0.8s ease;
@@ -220,7 +257,7 @@ body.menu-sandwich {
 	.button-close {
 		width: 16px;
 		height: 16px;
-		background: url("../images/icon-close-dark.png") 50% 50% no-repeat;
+		background: url("../images/icon-close-light.png") 50% 50% no-repeat;
 		cursor: pointer;
 		margin-bottom: 25px;
 	}
@@ -238,28 +275,10 @@ body.menu-sandwich {
 		font-family: @icon-font-family;
 		font-size: 0.8em;
 		transition: transform 0.3s ease;
+		color: #fff;
 
 		&.open {
 			transform: rotate(180deg);
-		}
-	}
-
-	>ul {
-		margin: 0;
-		float: none;
-		>li {
-			font-size: 22px;
-			>a {
-				padding: 12px 0;
-				font-family: @secondary-font-family;
-				&:hover, &:focus {
-					background: none;
-				}
-			}
-
-			> .dropdown-toggle {
-				padding: 14px 0 10px 0
-			}
 		}
 	}
 
@@ -267,17 +286,17 @@ body.menu-sandwich {
 		li {
 			position: relative;
 			a {
-				color: #555;
+				color: #ccc;
 				line-height: 1.2;
 				&:hover, &:focus {
 					text-decoration: none;
-					color: #333;
+					color: #fff;
 				}
 			}
 
 			&.current-menu-item {
 				> a {
-					color: #333;
+					color: #fff;
 				}
 			}
 
@@ -303,11 +322,33 @@ body.menu-sandwich {
 
 					.dropdown-toggle {
 						padding: 7px 0 3px 0;
+						color: #ccc;
 					}
 					ul {
 						padding-left: 10px;
 					}
 				}
+			}
+		}
+	}
+
+	>ul {
+		margin: 0;
+		float: none;
+		>li {
+			font-size: 22px;
+			>a {
+				padding: 12px 0;
+				font-family: @secondary-font-family;
+				color: #fff;
+				&:hover, &:focus {
+					color: #ccc;
+					background: none;
+				}
+			}
+
+			> .dropdown-toggle {
+				padding: 14px 0 10px 0
 			}
 		}
 	}

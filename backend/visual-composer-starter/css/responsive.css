@@ -60,6 +60,11 @@
   }
   body:not(.menu-sandwich) #main-menu > ul > li > a {
     line-height: 1em;
+    color: #555;
+  }
+  body:not(.menu-sandwich) #main-menu > ul > li > a:hover,
+  body:not(.menu-sandwich) #main-menu > ul > li > a:focus {
+    color: #333;
   }
   body:not(.menu-sandwich) #main-menu > ul > li.menu-item-has-children > a:before {
     top: 1.3em !important;
@@ -112,6 +117,11 @@
     padding: 12px 18px;
     display: block;
     line-height: 1.7;
+    color: #555;
+  }
+  body:not(.menu-sandwich) #main-menu ul li ul li a:hover,
+  body:not(.menu-sandwich) #main-menu ul li ul li a:focus {
+    color: #333;
   }
   body:not(.menu-sandwich) #main-menu ul li ul li:hover > a {
     background-color: #eee;

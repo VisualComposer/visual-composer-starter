@@ -128,24 +128,8 @@ class VC_Customizer {
                 'vc_overall_site_featured_image',
                 array(
                     'type'          => 'toggle-switch',
-                    'label'         => __( 'Featured image', 'visual-composer-starter' ),
-                    'description'   => __( 'Show or hide featured image for posts and pages.', 'visual-composer-starter' ),
-                    'section'       => 'vc_overall_site',
-                    'settings'      => 'vc_overall_site_featured_image',
-
-
-                ) )
-        );
-
-
-        $wp_customize->add_control(
-            new VC_Toggle_Switch_Control(
-                $wp_customize,
-                'vc_overall_site_featured_image',
-                array(
-                    'type'          => 'toggle-switch',
-                    'label'         => __( 'Featured image', 'visual-composer-starter' ),
-                    'description'   => __( 'Show or hide featured image for posts and pages.', 'visual-composer-starter' ),
+                    'label'         => __( 'Featured Image', 'visual-composer-starter' ),
+                    'description'   => __( 'Show featured image for posts and pages.', 'visual-composer-starter' ),
                     'section'       => 'vc_overall_site',
                     'settings'      => 'vc_overall_site_featured_image',
 
@@ -461,7 +445,7 @@ class VC_Customizer {
                 array(
                     'type'          => 'select',
                     'label'         => __( 'Sandwich Style', 'visual-composer-starter' ),
-                    'description'   => __( 'Default sandwich style of theme is defined as Dark and Light.', 'visual-composer-starter' ),
+                    'description'   => __( 'Define sandwich background and control style.', 'visual-composer-starter' ),
                     'section'       => 'vc_header_and_menu_area',
                     'settings'      => 'vc_header_sandwich_style',
                     'choices'       => array(
@@ -639,7 +623,7 @@ class VC_Customizer {
                 'vc_footer_area_social_link_facebook',
                 array(
                     'type'          => 'text',
-                    'label'         => __( 'Facebook link', 'visual-composer-starter' ),
+                    'label'         => __( 'Facebook', 'visual-composer-starter' ),
                     'section'       => 'vc_footer_area',
                     'settings'      => 'vc_footer_area_social_link_facebook',
                 ) )
@@ -650,7 +634,7 @@ class VC_Customizer {
                 'vc_footer_area_social_link_twitter',
                 array(
                     'type'          => 'text',
-                    'label'         => __( 'Twitter link', 'visual-composer-starter' ),
+                    'label'         => __( 'Twitter', 'visual-composer-starter' ),
                     'section'       => 'vc_footer_area',
                     'settings'      => 'vc_footer_area_social_link_twitter',
                 ) )
@@ -661,7 +645,7 @@ class VC_Customizer {
                 'vc_footer_area_social_link_linkedin',
                 array(
                     'type'          => 'text',
-                    'label'         => __( 'LinkedIn link', 'visual-composer-starter' ),
+                    'label'         => __( 'LinkedIn', 'visual-composer-starter' ),
                     'section'       => 'vc_footer_area',
                     'settings'      => 'vc_footer_area_social_link_linkedin',
                 ) )
@@ -672,7 +656,7 @@ class VC_Customizer {
                 'vc_footer_area_social_link_instagram',
                 array(
                     'type'          => 'text',
-                    'label'         => __( 'Instagram link', 'visual-composer-starter' ),
+                    'label'         => __( 'Instagram', 'visual-composer-starter' ),
                     'section'       => 'vc_footer_area',
                     'settings'      => 'vc_footer_area_social_link_instagram',
                 ) )
@@ -683,7 +667,7 @@ class VC_Customizer {
                 'vc_footer_area_social_link_pinterest',
                 array(
                     'type'          => 'text',
-                    'label'         => __( 'Pinterest link', 'visual-composer-starter' ),
+                    'label'         => __( 'Pinterest', 'visual-composer-starter' ),
                     'section'       => 'vc_footer_area',
                     'settings'      => 'vc_footer_area_social_link_pinterest',
                 ) )
@@ -694,7 +678,7 @@ class VC_Customizer {
                 'vc_footer_area_social_link_youtube',
                 array(
                     'type'          => 'text',
-                    'label'         => __( 'YouTube link', 'visual-composer-starter' ),
+                    'label'         => __( 'YouTube', 'visual-composer-starter' ),
                     'section'       => 'vc_footer_area',
                     'settings'      => 'vc_footer_area_social_link_youtube',
                 ) )
@@ -705,7 +689,7 @@ class VC_Customizer {
                 'vc_footer_area_social_link_vimeo',
                 array(
                     'type'          => 'text',
-                    'label'         => __( 'Vimeo link', 'visual-composer-starter' ),
+                    'label'         => __( 'Vimeo', 'visual-composer-starter' ),
                     'section'       => 'vc_footer_area',
                     'settings'      => 'vc_footer_area_social_link_vimeo',
                 ) )
@@ -716,7 +700,7 @@ class VC_Customizer {
                 'vc_footer_area_social_link_flickr',
                 array(
                     'type'          => 'text',
-                    'label'         => __( 'Flickr link', 'visual-composer-starter' ),
+                    'label'         => __( 'Flickr', 'visual-composer-starter' ),
                     'section'       => 'vc_footer_area',
                     'settings'      => 'vc_footer_area_social_link_flickr',
                 ) )
@@ -727,7 +711,7 @@ class VC_Customizer {
                 'vc_footer_area_social_link_github',
                 array(
                     'type'          => 'text',
-                    'label'         => __( 'Github link', 'visual-composer-starter' ),
+                    'label'         => __( 'Github', 'visual-composer-starter' ),
                     'section'       => 'vc_footer_area',
                     'settings'      => 'vc_footer_area_social_link_github',
                 ) )
@@ -1756,7 +1740,7 @@ class VC_Customizer {
                 'vc_fonts_and_style_body_active_color',
                 array(
                     'label'         => __( 'Active Color', 'visual-composer-starter' ),
-                    'description'   => __( 'Active Color that will be applied to links, bullets.', 'visual-composer-starter' ),
+                    'description'   => __( 'Active color that will be applied to links and bullets.', 'visual-composer-starter' ),
                     'section'       => 'vc_fonts_and_style_body',
                     'settings'      => 'vc_fonts_and_style_body_active_color',
                 ) )
