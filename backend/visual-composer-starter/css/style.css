@@ -195,7 +195,7 @@ body.menu-sandwich #main-menu ul.nav li {
   box-shadow: none;
   outline: none;
   font-family: 'Visual Composer Starter Font';
-  font-size: 0.8em;
+  font-size: 0.64em;
   transition: transform 0.3s ease;
   color: #fff;
 }
@@ -238,6 +238,9 @@ body.menu-sandwich #main-menu ul.nav li {
   padding: 7px 0 3px 0;
   color: #ccc;
 }
+#main-menu ul li ul li .dropdown-toggle.open {
+  padding: 3px 0 7px 0;
+}
 #main-menu ul li ul li ul {
   padding-left: 10px;
 }
@@ -259,7 +262,10 @@ body.menu-sandwich #main-menu ul.nav li {
   background: none;
 }
 #main-menu > ul > li > .dropdown-toggle {
-  padding: 14px 0 10px 0;
+  padding: 17px 0 10px 0;
+}
+#main-menu > ul > li > .dropdown-toggle.open {
+  padding: 10px 0 17px 0;
 }
 .header-image img {
   width: 100%;
@@ -1268,20 +1274,16 @@ h6 {
 #footer .footer-socials ul li a {
   line-height: 1;
   font-size: 32px;
-  color: #fff;
+  color: #777;
   border-bottom: none;
 }
 #footer .footer-socials ul li a:hover,
 #footer .footer-socials ul li a:focus {
   text-decoration: none;
-}
-#footer .footer-socials ul li a:hover span,
-#footer .footer-socials ul li a:focus span {
-  opacity: 1;
+  color: #fff;
 }
 #footer .footer-socials ul li a span {
   display: block;
-  opacity: 0.25;
   transition: opacity 0.4s ease;
 }
 #footer .copyright {

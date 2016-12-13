@@ -220,33 +220,103 @@ register_sidebar(
     )
 );
 
-$footer_columns = intval( get_theme_mod( 'vc_footer_area_widgetized_columns', 1 ) );
-if ( $footer_columns !== 0 && $footer_columns > 1 ) {
-    register_sidebars( $footer_columns,
-        array(
-            'name' => __('Footer Widget Column %d', 'visual-composer-starter'),
-            'id' => 'footer',
-            'description' => __('Add widgets here to appear in your footer.', 'visual-composer-starter'),
-            'before_widget' => '<div id="%1$s" class="widget %2$s">',
-            'after_widget' => '</div>',
-            'before_title' => '<h3 class="widget-title">',
-            'after_title' => '</h2>',
-        )
+function footer_1() {
+    return array(
+        'name' => __('Footer Widget Column 1', 'visual-composer-starter'),
+        'id' => 'footer',
+        'description' => __('Add widgets here to appear in your footer.', 'visual-composer-starter'),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h2>',
     );
 }
-elseif( $footer_columns )
-{
-    register_sidebar(
-        array(
-            'name' => __('Footer Widget', 'visual-composer-starter'),
-            'id' => 'footer',
-            'description' => __('Add widgets here to appear in your footer.', 'visual-composer-starter'),
-            'before_widget' => '<div id="%1$s" class="widget %2$s">',
-            'after_widget' => '</div>',
-            'before_title' => '<h3 class="widget-title">',
-            'after_title' => '</h2>',
-        )
+function footer_2() {
+    return array(
+        'name' => __('Footer Widget Column 2', 'visual-composer-starter'),
+        'id' => 'footer-2',
+        'description' => __('Add widgets here to appear in your footer.', 'visual-composer-starter'),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h2>',
     );
+}
+function footer_3() {
+    return array(
+        'name' => __('Footer Widget Column 3', 'visual-composer-starter'),
+        'id' => 'footer-3',
+        'description' => __('Add widgets here to appear in your footer.', 'visual-composer-starter'),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h2>',
+    );
+}
+function footer_4() {
+    return array(
+        'name' => __('Footer Widget Column 4', 'visual-composer-starter'),
+        'id' => 'footer-4',
+        'description' => __('Add widgets here to appear in your footer.', 'visual-composer-starter'),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h2>',
+    );
+}
+
+add_action( 'widgets_init',             'visual_composer_starter_all_widgets' );
+add_action( 'admin_bar_init',           'visual_composer_starter_widgets' );
+
+
+function visual_composer_starter_all_widgets() {
+    /**
+     * Register all zones for availability in customizer
+     */
+        register_sidebar(
+            footer_1()
+        );
+        register_sidebar(
+            footer_2()
+        );
+        register_sidebar(
+            footer_3()
+        );
+        register_sidebar(
+            footer_4()
+        );
+}
+function visual_composer_starter_widgets() {
+    unregister_sidebar('footer');
+    unregister_sidebar('footer-2');
+    unregister_sidebar('footer-3');
+    unregister_sidebar('footer-4');
+    if (get_theme_mod('vc_footer_area_widget_area', false)) {
+        $footer_columns = intval(get_theme_mod('vc_footer_area_widgetized_columns', 1));
+        if ($footer_columns >= 1) {
+            register_sidebar(
+                footer_1()
+            );
+        }
+
+        if ($footer_columns >= 2) {
+            register_sidebar(
+                footer_2()
+            );
+        }
+
+        if ($footer_columns >= 3) {
+            register_sidebar(
+                footer_3()
+            );
+        }
+        if ($footer_columns == 4) {
+            register_sidebar(
+                footer_4()
+            );
+        }
+    }
+
 }
 
 function vc_get_header_container_class () {
@@ -580,10 +650,11 @@ function visualcomposerstarter_inline_styles () {
         #header .navbar .navbar-wrapper,
         body.navbar-no-background #header .navbar.fixed.scroll,
         body.header-full-width-boxed #header .navbar,
-        body.header-full-width #header .navbar,
+        body.header-full-width #header .navbar {
+            background-color: {$header_and_menu_area_background};
+        }
         
         @media only screen and (min-width: 768px) {
-            #main-menu {background-color: {$header_and_menu_area_background};}
             body:not(.menu-sandwich) #main-menu ul li ul { background-color: {$header_and_menu_area_background}; }
         }
         body.navbar-no-background #header .navbar {background-color: transparent;}
@@ -697,7 +768,8 @@ function visualcomposerstarter_inline_styles () {
     if ( $footer_area_text_color != '#777777' ) {
         $css .= "
         /*Footer area text color*/
-        #footer {color: {$footer_area_text_color}; }
+        #footer,
+        #footer .footer-socials ul li a span {color: {$footer_area_text_color}; }
         ";
     }
 
@@ -705,9 +777,8 @@ function visualcomposerstarter_inline_styles () {
     if ( $footer_area_text_active_color != '#ffffff' ) {
         $css .= "
         /*Footer area text active color*/
-        .footer-widget-area .widget-title,
         #footer a,
-        #footer .footer-socials ul li a { color: {$footer_area_text_active_color}; }
+        #footer .footer-socials ul li a:hover span { color: {$footer_area_text_active_color}; }
         #footer a:hover { border-bottom-color: {$footer_area_text_active_color}; }
         ";
     }

@@ -273,7 +273,7 @@ body.menu-sandwich {
 		box-shadow: none;
 		outline: none;
 		font-family: @icon-font-family;
-		font-size: 0.8em;
+		font-size: 0.64em;
 		transition: transform 0.3s ease;
 		color: #fff;
 
@@ -323,6 +323,10 @@ body.menu-sandwich {
 					.dropdown-toggle {
 						padding: 7px 0 3px 0;
 						color: #ccc;
+
+						&.open {
+							padding: 3px 0 7px 0;
+						}
 					}
 					ul {
 						padding-left: 10px;
@@ -348,7 +352,11 @@ body.menu-sandwich {
 			}
 
 			> .dropdown-toggle {
-				padding: 14px 0 10px 0
+				padding: 17px 0 10px 0;
+
+				&.open {
+					padding: 10px 0 17px 0;
+				}
 			}
 		}
 	}
@@ -1417,20 +1425,17 @@ h6 {
 				a {
 					line-height: 1;
 					font-size: 32px;
-					color: @footer-active-color;
+					color: @footer-main-color;
 					border-bottom: none;
 
 
 					&:hover, &:focus {
 						text-decoration: none;
-						span {
-							opacity: 1;
-						}
+						color: @footer-active-color;
 					}
 
 					span {
 						display: block;
-						opacity: 0.25;
 						transition: opacity 0.4s ease;
 					}
 				}
