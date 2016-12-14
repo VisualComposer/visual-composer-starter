@@ -87,6 +87,21 @@ class VC_Customizer {
         return ( $input === true ) ? true : false;
     }
 
+    public function sanitize_url( $input ) {
+        $url = parse_url( $input );
+        if ( ! empty( $url['scheme'] ) ) {
+            if ( $url['scheme'] !== 'http' && $url['scheme'] !== 'https' ) {
+                return '//' . $input;
+            }
+            else {
+                return $input;
+            }
+        }
+        else {
+            return $input;
+        }
+    }
+
 
     /**
      * Section: Overall Site
@@ -104,7 +119,7 @@ class VC_Customizer {
         ));
 
         $wp_customize->add_setting('vc_overall_site_featured_image',  array(
-            'default' => false,
+            'default' => true,
             'sanitize_callback' => array( $this, 'sanitize_checkbox' )
         ));
 
@@ -589,30 +604,39 @@ class VC_Customizer {
 
         $wp_customize->add_setting('vc_footer_area_social_link_facebook',  array(
             'default'       => '',
+            'sanitize_callback' => 'sanitize_url'
         ));
         $wp_customize->add_setting('vc_footer_area_social_link_twitter',  array(
             'default'       => '',
+            'sanitize_callback' => 'sanitize_url'
         ));
         $wp_customize->add_setting('vc_footer_area_social_link_linkedin',  array(
             'default'       => '',
+            'sanitize_callback' => 'sanitize_url'
         ));
         $wp_customize->add_setting('vc_footer_area_social_link_github',  array(
             'default'       => '',
+            'sanitize_callback' => 'sanitize_url'
         ));
         $wp_customize->add_setting('vc_footer_area_social_link_instagram',  array(
             'default'       => '',
+            'sanitize_callback' => 'sanitize_url'
         ));
         $wp_customize->add_setting('vc_footer_area_social_link_pinterest',  array(
             'default'       => '',
+            'sanitize_callback' => 'sanitize_url'
         ));
         $wp_customize->add_setting('vc_footer_area_social_link_flickr',  array(
             'default'       => '',
+            'sanitize_callback' => 'sanitize_url'
         ));
         $wp_customize->add_setting('vc_footer_area_social_link_youtube',  array(
             'default'       => '',
+            'sanitize_callback' => 'sanitize_url'
         ));
         $wp_customize->add_setting('vc_footer_area_social_link_vimeo',  array(
             'default'       => '',
+            'sanitize_callback' => 'sanitize_url'
         ));
         $wp_customize->add_setting('vc_footer_area_social_link_email',  array(
             'default'       => '',
@@ -801,6 +825,9 @@ class VC_Customizer {
         $wp_customize->add_setting( 'vc_fonts_and_style_h1_text_color', array(
             'default'        => '#333333',
         ) );
+        $wp_customize->add_setting( 'vc_fonts_and_style_h1_active_color', array(
+            'default'        => '#557cbf',
+        ) );
 
         $wp_customize->add_setting( 'vc_fonts_and_style_h1_font_family', array(
             'default'        => 'Playfair Display',
@@ -848,7 +875,16 @@ class VC_Customizer {
                     'settings'      => 'vc_fonts_and_style_h1_text_color',
                 ) )
         );
-
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                'vc_fonts_and_style_h1_active_color',
+                array(
+                    'label'         => __( 'Active Сolor', 'visual-composer-starter' ),
+                    'section'       => 'vc_fonts_and_style_h1',
+                    'settings'      => 'vc_fonts_and_style_h1_active_color',
+                ) )
+        );
 
         $wp_customize->add_control(  'vc_fonts_and_style_h1_font_family', array(
             'label'   => __( 'Font-family', 'visual-composer-starter' ),
@@ -945,6 +981,9 @@ class VC_Customizer {
         $wp_customize->add_setting( 'vc_fonts_and_style_h2_text_color', array(
             'default'        => '#333333',
         ) );
+        $wp_customize->add_setting( 'vc_fonts_and_style_h2_active_color', array(
+            'default'        => '#557cbf',
+        ) );
 
         $wp_customize->add_setting( 'vc_fonts_and_style_h2_font_family', array(
             'default'        => 'Playfair Display',
@@ -993,6 +1032,16 @@ class VC_Customizer {
                 ) )
         );
 
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                'vc_fonts_and_style_h2_active_color',
+                array(
+                    'label'         => __( 'Active Сolor', 'visual-composer-starter' ),
+                    'section'       => 'vc_fonts_and_style_h2',
+                    'settings'      => 'vc_fonts_and_style_h2_active_color',
+                ) )
+        );
 
         $wp_customize->add_control(  'vc_fonts_and_style_h2_font_family', array(
             'label'   => __( 'Font-family', 'visual-composer-starter' ),
@@ -1089,7 +1138,9 @@ class VC_Customizer {
         $wp_customize->add_setting( 'vc_fonts_and_style_h3_text_color', array(
             'default'        => '#333333',
         ) );
-
+        $wp_customize->add_setting( 'vc_fonts_and_style_h3_active_color', array(
+            'default'        => '#557cbf',
+        ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_h3_font_family', array(
             'default'        => 'Playfair Display',
         ) );
@@ -1134,6 +1185,17 @@ class VC_Customizer {
                     'label'         => __( 'Сolor', 'visual-composer-starter' ),
                     'section'       => 'vc_fonts_and_style_h3',
                     'settings'      => 'vc_fonts_and_style_h3_text_color',
+                ) )
+        );
+
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                'vc_fonts_and_style_h3_active_color',
+                array(
+                    'label'         => __( 'Active Сolor', 'visual-composer-starter' ),
+                    'section'       => 'vc_fonts_and_style_h3',
+                    'settings'      => 'vc_fonts_and_style_h3_active_color',
                 ) )
         );
 
@@ -1233,7 +1295,9 @@ class VC_Customizer {
         $wp_customize->add_setting( 'vc_fonts_and_style_h4_text_color', array(
             'default'        => '#333333',
         ) );
-
+        $wp_customize->add_setting( 'vc_fonts_and_style_h4_active_color', array(
+            'default'        => '#557cbf',
+        ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_h4_font_family', array(
             'default'        => 'Playfair Display',
         ) );
@@ -1281,6 +1345,16 @@ class VC_Customizer {
                 ) )
         );
 
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                'vc_fonts_and_style_h4_active_color',
+                array(
+                    'label'         => __( 'Active Сolor', 'visual-composer-starter' ),
+                    'section'       => 'vc_fonts_and_style_h4',
+                    'settings'      => 'vc_fonts_and_style_h4_active_color',
+                ) )
+        );
 
         $wp_customize->add_control(  'vc_fonts_and_style_h4_font_family', array(
             'label'   => __( 'Font-family', 'visual-composer-starter' ),
@@ -1377,7 +1451,9 @@ class VC_Customizer {
         $wp_customize->add_setting( 'vc_fonts_and_style_h5_text_color', array(
             'default'        => '#333333',
         ) );
-
+        $wp_customize->add_setting( 'vc_fonts_and_style_h5_active_color', array(
+            'default'        => '#557cbf',
+        ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_h5_font_family', array(
             'default'        => 'Playfair Display',
         ) );
@@ -1422,6 +1498,17 @@ class VC_Customizer {
                     'label'         => __( 'Сolor', 'visual-composer-starter' ),
                     'section'       => 'vc_fonts_and_style_h5',
                     'settings'      => 'vc_fonts_and_style_h5_text_color',
+                ) )
+        );
+
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                'vc_fonts_and_style_h5_active_color',
+                array(
+                    'label'         => __( 'Active Сolor', 'visual-composer-starter' ),
+                    'section'       => 'vc_fonts_and_style_h5',
+                    'settings'      => 'vc_fonts_and_style_h5_active_color',
                 ) )
         );
 
@@ -1521,7 +1608,9 @@ class VC_Customizer {
         $wp_customize->add_setting( 'vc_fonts_and_style_h6_text_color', array(
             'default'        => '#333333',
         ) );
-
+        $wp_customize->add_setting( 'vc_fonts_and_style_h6_active_color', array(
+            'default'        => '#557cbf',
+        ) );
         $wp_customize->add_setting( 'vc_fonts_and_style_h6_font_family', array(
             'default'        => 'Playfair Display',
         ) );
@@ -1569,6 +1658,16 @@ class VC_Customizer {
                 ) )
         );
 
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize,
+                'vc_fonts_and_style_h6_active_color',
+                array(
+                    'label'         => __( 'Active Сolor', 'visual-composer-starter' ),
+                    'section'       => 'vc_fonts_and_style_h6',
+                    'settings'      => 'vc_fonts_and_style_h6_active_color',
+                ) )
+        );
 
         $wp_customize->add_control(  'vc_fonts_and_style_h6_font_family', array(
             'label'   => __( 'Font-family', 'visual-composer-starter' ),

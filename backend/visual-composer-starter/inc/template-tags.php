@@ -2,7 +2,7 @@
 
 if ( ! function_exists( 'visualcomposerstarter_post_thumbnail' ) ) :
     function visualcomposerstarter_post_thumbnail() {
-        if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+        if ( post_password_required() || is_attachment() || ! has_post_thumbnail() || ! get_theme_mod( 'vc_overall_site_featured_image', true ) ) {
             return;
         }
             ?>
@@ -51,7 +51,7 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
             </div><!--.gallery-slider-->
             <?php
         }
-        elseif( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+        elseif( post_password_required() || is_attachment() || ! has_post_thumbnail() || ! get_theme_mod( 'vc_overall_site_featured_image', true ) ) {
             return;
         }
         else {

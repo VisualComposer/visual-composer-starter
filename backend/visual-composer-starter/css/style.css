@@ -302,18 +302,18 @@ body.menu-sandwich #main-menu ul.nav li {
   color: #333;
   font-family: 'Playfair Display';
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 7px;
 }
 .entry-full-content .entry-author-data .author-biography {
   font-size: 14px;
   font-style: italic;
-  font-weight: 700;
+  font-weight: 500;
   color: #777;
 }
 .entry-full-content .entry-meta {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   color: #777;
   margin-bottom: 5px;
 }
@@ -828,8 +828,8 @@ h3 a,
 h4 a,
 h5 a,
 h6 a {
-  color: #333;
-  border-bottom: 1px solid transparent;
+  color: #557cbf;
+  border-bottom: none;
 }
 h1 a:hover,
 h2 a:hover,
@@ -843,8 +843,7 @@ h3 a:focus,
 h4 a:focus,
 h5 a:focus,
 h6 a:focus {
-  color: #333;
-  border-bottom-color: #333;
+  color: #557cbf;
   text-decoration: none;
 }
 h2,

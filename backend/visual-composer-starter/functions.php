@@ -62,7 +62,7 @@ require get_template_directory() . '/inc/template-tags.php';
 
 add_theme_support( 'post-formats', array( 'gallery', 'video', 'image' ) );
 
-if( get_theme_mod( 'vc_overall_site_featured_image', 'show' ) == 'show' ) {
+if( get_theme_mod( 'vc_overall_site_featured_image', true ) == true ) {
     add_theme_support('post-thumbnails');
 }
 
@@ -559,8 +559,8 @@ function visualcomposerstarter_inline_styles () {
         margin-bottom: '.get_theme_mod('vc_fonts_and_style_h1_margin_bottom', '2.125rem').';
         text-transform: '.get_theme_mod('vc_fonts_and_style_h1_capitalization', 'none').';  
      }
-     h1 a, h1 a:hover, h1 a:focus {color: '.get_theme_mod('vc_fonts_and_style_h1_text_color', '#333333').';}
-     h1 a:hover, h1 a:focus {border-bottom-color: '.get_theme_mod( 'vc_fonts_and_style_h1_text_color', '#333333' ).'; }
+     h1 a {color: '.get_theme_mod('vc_fonts_and_style_h1_active_color', '#557cbf').';}
+     h1 a:hover, h1 a:focus {color: '.get_theme_mod('vc_fonts_and_style_h1_active_color', '#557cbf').';}
      h2 {
         color: '.get_theme_mod('vc_fonts_and_style_h2_text_color', '#333333').';
         font-family: '.get_theme_mod('vc_fonts_and_style_h2_font_family', 'Playfair Display').';
@@ -573,8 +573,8 @@ function visualcomposerstarter_inline_styles () {
         margin-bottom: '.get_theme_mod('vc_fonts_and_style_h2_margin_bottom', '0.625rem').';
         text-transform: '.get_theme_mod('vc_fonts_and_style_h2_capitalization', 'none').';  
      }
-     h2 a, h2 a:hover, h2 a:focus {color: '.get_theme_mod('vc_fonts_and_style_h2_text_color', '#333333').';}
-     h2 a:hover, h2 a:focus {border-bottom-color: '.get_theme_mod( 'vc_fonts_and_style_h2_text_color', '#333333' ).'; }
+     h2 a {color: '.get_theme_mod('vc_fonts_and_style_h2_active_color', '#557cbf').';}
+     h2 a:hover, h2 a:focus {color: '.get_theme_mod('vc_fonts_and_style_h2_active_color', '#557cbf').';}
      h3 {
         color: '.get_theme_mod('vc_fonts_and_style_h3_text_color', '#333333').';
         font-family: '.get_theme_mod('vc_fonts_and_style_h3_font_family', 'Playfair Display').';
@@ -587,8 +587,8 @@ function visualcomposerstarter_inline_styles () {
         margin-bottom: '.get_theme_mod('vc_fonts_and_style_h3_margin_bottom', '0.625rem').';
         text-transform: '.get_theme_mod('vc_fonts_and_style_h3_capitalization', 'none').';  
      }
-     h3 a, h3 a:hover, h3 a:focus {color: '.get_theme_mod('vc_fonts_and_style_h3_text_color', '#333333').';}
-     h3 a:hover, h3 a:focus {border-bottom-color: '.get_theme_mod( 'vc_fonts_and_style_h3_text_color', '#333333' ).'; }
+     h3 a {color: '.get_theme_mod('vc_fonts_and_style_h3_active_color', '#557cbf').';}
+     h3 a:hover, h3 a:focus {color: '.get_theme_mod('vc_fonts_and_style_h3_active_color', '#557cbf').';}
      h4 {
         color: '.get_theme_mod('vc_fonts_and_style_h4_text_color', '#333333').';
         font-family: '.get_theme_mod('vc_fonts_and_style_h4_font_family', 'Playfair Display').';
@@ -601,8 +601,8 @@ function visualcomposerstarter_inline_styles () {
         margin-bottom: '.get_theme_mod('vc_fonts_and_style_h4_margin_bottom', '0.625rem').';
         text-transform: '.get_theme_mod('vc_fonts_and_style_h4_capitalization', 'none').';  
      }
-     h4 a, h4 a:hover, h4 a:focus {color: '.get_theme_mod('vc_fonts_and_style_h4_text_color', '#333333').';}
-     h4 a:hover, h4 a:focus {border-bottom-color: '.get_theme_mod( 'vc_fonts_and_style_h4_text_color', '#333333' ).'; }
+     h4 a {color: '.get_theme_mod('vc_fonts_and_style_h4_active_color', '#557cbf').';}
+     h4 a:hover, h4 a:focus {color: '.get_theme_mod('vc_fonts_and_style_h4_active_color', '#557cbf').';}
      h5 {
         color: '.get_theme_mod('vc_fonts_and_style_h5_text_color', '#333333').';
         font-family: '.get_theme_mod('vc_fonts_and_style_h5_font_family', 'Playfair Display').';
@@ -615,8 +615,8 @@ function visualcomposerstarter_inline_styles () {
         margin-bottom: '.get_theme_mod('vc_fonts_and_style_h5_margin_bottom', '0.625rem').';
         text-transform: '.get_theme_mod('vc_fonts_and_style_h5_capitalization', 'none').';  
      }
-     h5 a, h5 a:hover, h5 a:focus {color: '.get_theme_mod('vc_fonts_and_style_h5_text_color', '#333333').';}
-     h5 a:hover, h5 a:focus {border-bottom-color: '.get_theme_mod( 'vc_fonts_and_style_h5_text_color', '#333333' ).'; }
+     h5 a {color: '.get_theme_mod('vc_fonts_and_style_h5_active_color', '#557cbf').';}
+     h5 a:hover, h5 a:focus {color: '.get_theme_mod('vc_fonts_and_style_h5_active_color', '#557cbf').';}
      h6 {
         color: '.get_theme_mod('vc_fonts_and_style_h6_text_color', '#333333').';
         font-family: '.get_theme_mod('vc_fonts_and_style_h6_font_family', 'Playfair Display').';
@@ -629,8 +629,8 @@ function visualcomposerstarter_inline_styles () {
         margin-bottom: '.get_theme_mod('vc_fonts_and_style_h6_margin_bottom', '0.625rem').';
         text-transform: '.get_theme_mod('vc_fonts_and_style_h6_capitalization', 'none').';  
      }
-     h6 a, h6 a:hover, h6 a:focus {color: '.get_theme_mod('vc_fonts_and_style_h6_text_color', '#333333').';}
-     h6 a:hover, h6 a:focus {border-bottom-color: '.get_theme_mod( 'vc_fonts_and_style_h6_text_color', '#333333' ).'; }
+     h6 a {color: '.get_theme_mod('vc_fonts_and_style_h6_active_color', '#557cbf').';}
+     h6 a:hover, h6 a:focus {color: '.get_theme_mod('vc_fonts_and_style_h6_active_color', '#557cbf').';}
     ';
 
     $overall_site_bg_color = get_theme_mod('vc_overall_site_bg_color', '#ffffff');
