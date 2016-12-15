@@ -5,14 +5,14 @@ if ( post_password_required() ) {
 ?>
 
 <div id="comments" class="comments-area">
-	<div class="<?php echo vc_get_content_container_class(); ?>">
+	<div class="<?php echo vct_get_content_container_class(); ?>">
 		<div class="row">
 			<div class="col-md-12">
 	<?php if ( have_comments() ) : ?>
 		<h3 class="comments-title">
 			<?php
 				$comments_number = get_comments_number();
-				if ( 1 === $comments_number ) {
+				if ( $comments_number === 1 ) {
 					printf( _x( 'One comment' ), 'Comments' );
 				} else {
 					printf(
@@ -36,7 +36,7 @@ if ( post_password_required() ) {
 			<?php wp_list_comments(
 				array(
 					'callback'    => 'visualcomposerstarter_comment',
-					'reply_text'  => __('Reply', 'visual-composer-starter'),
+					'reply_text'  => __( 'Reply', 'visual-composer-starter' ),
 					'avatar_size' => 80,
 					'style' 	  => 'ol'
 				)
@@ -59,14 +59,14 @@ if ( post_password_required() ) {
 		comment_form( array(
 			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
 			'title_reply_after'  => '</h2>',
-			'title_reply' => __('Leave A Comment', 'visual-composer-starter')
+			'title_reply' => __( 'Leave A Comment', 'visual-composer-starter' )
 		) );
 	}
 	else {
 		comment_form( array(
 			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
 			'title_reply_after'  => '</h2>',
-			'title_reply' => __('Share Your Thoughts', 'visual-composer-starter')
+			'title_reply' => __( 'Share Your Thoughts', 'visual-composer-starter' )
 		) );
 	}
 

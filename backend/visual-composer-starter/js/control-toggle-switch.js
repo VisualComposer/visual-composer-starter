@@ -8,8 +8,7 @@ var social_icons = [
     'vimeo',
     'flickr',
     'github',
-    'email'
-]; // available social icons
+    'email' ]; // available social icons
 
 function isToggleTrue(_this) {
     return jQuery( _this ).prop( 'checked' );
@@ -17,28 +16,28 @@ function isToggleTrue(_this) {
 
 function hideSocialIcons() {
     jQuery.each( social_icons, function( key, icon ) {
-        jQuery( '#customize-control-vc_footer_area_social_link_' + icon ).hide();
+        jQuery( '#customize-control-vct_footer_area_social_link_' + icon ).hide();
     });
 }
 
 function showSocialIcons() {
     jQuery.each( social_icons, function( key, icon ) {
-        jQuery( '#customize-control-vc_footer_area_social_link_' + icon ).show();
+        jQuery( '#customize-control-vct_footer_area_social_link_' + icon ).show();
     });
 }
 
 function hideNumberOfColumns() {
-    jQuery( '#customize-control-vc_footer_area_widgetized_columns' ).hide();
+    jQuery( '#customize-control-vct_footer_area_widgetized_columns' ).hide();
 }
 
 function showNumberOfColumns() {
-    jQuery( '#customize-control-vc_footer_area_widgetized_columns' ).show();
+    jQuery( '#customize-control-vct_footer_area_widgetized_columns' ).show();
 }
 
-wp.customize.controlConstructor['toggle-switch'] = wp.customize.Control.extend({
+wp.customize.controlConstructor['toggle-switch'] = wp.customize.Control.extend( {
     ready: function() {
         var control = this;
-        var value = (undefined !== control.setting._value) ? control.setting._value : '';
+        var value = ( undefined !== control.setting._value ) ? control.setting._value : '';
 
         /**
          * Social Icons
@@ -47,7 +46,7 @@ wp.customize.controlConstructor['toggle-switch'] = wp.customize.Control.extend({
         this.container.on( 'change', 'input:checkbox', function() {
 
             value = isToggleTrue( this );
-            if( jQuery( this ).attr('id') == 'vc_footer_area_social_icons' ) {
+            if( jQuery( this ).attr( 'id' ) === 'vct_footer_area_social_icons' ) {
                 if( ! value ) {
                     hideSocialIcons();
                 }
@@ -56,7 +55,7 @@ wp.customize.controlConstructor['toggle-switch'] = wp.customize.Control.extend({
                     showSocialIcons();
                 }
             }
-            if( jQuery( this ).attr('id') == 'vc_footer_area_widget_area' ) {
+            if( jQuery( this ).attr( 'id' ) === 'vct_footer_area_widget_area' ) {
                 if( ! value ) {
                     hideNumberOfColumns();
                 }
@@ -69,16 +68,16 @@ wp.customize.controlConstructor['toggle-switch'] = wp.customize.Control.extend({
             control.setting.set( value );
             // refresh the preview
             wp.customize.previewer.refresh();
-        });
+        } );
     }
 
 });
 
 jQuery( document ).ready(function() {
-    if( !isToggleTrue( '#vc_footer_area_social_icons' ) ) {
+    if( !isToggleTrue( '#vct_footer_area_social_icons' ) ) {
         hideSocialIcons();
     }
-    if( !isToggleTrue( '#vc_footer_area_widget_area' ) ) {
+    if( !isToggleTrue( '#vct_footer_area_widget_area' ) ) {
         hideNumberOfColumns();
     }
 });

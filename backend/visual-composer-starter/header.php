@@ -8,21 +8,21 @@
 <body <?php body_class(); ?>>
 <header id="header">
     <nav class="navbar">
-        <div class="<?php echo vc_get_header_container_class(); ?>">
+        <div class="<?php echo vct_get_header_container_class(); ?>">
             <div class="navbar-wrapper clearfix">
                 <div class="navbar-header">
                     <div class="navbar-brand">
                         <?php
-                            if (has_custom_logo()):
-                                $custom_logo = wp_get_attachment_image_src(get_theme_mod('custom_logo'), 'full');
+                            if ( has_custom_logo() ):
+                                $custom_logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
                         ?>
                             <a href="<?php echo home_url(); ?>"
-                               title="<?php bloginfo('name') ?>">
-                                <img src="<? echo $custom_logo[0] ?>" alt="<?php bloginfo('name') ?>">
+                               title="<?php bloginfo( 'name' ) ?>">
+                                <img src="<? echo $custom_logo[0] ?>" alt="<?php bloginfo( 'name' ) ?>">
                             </a>
                         <?php else: ?>
-                            <a href="http://visualcomposer.io" title="alt="<?php _e('Visual Composer Starter', 'visual-composer-starter') ?>">
-                                <img width="50" height="49" src="<?= get_template_directory_uri() ?>/images/vc-logo.svg" alt="<?php _e('Visual Composer Starter', 'visual-composer-starter') ?>">
+                            <a href="http://visualcomposer.io" title="alt="<?php _e( 'Visual Composer Starter', 'visual-composer-starter' ) ?>">
+                                <img width="50" height="49" src="<?= get_template_directory_uri() ?>/images/vct-logo.svg" alt="<?php _e( 'Visual Composer Starter', 'visual-composer-starter' ) ?>">
                             </a>
                         <?php endif; ?>
                         
@@ -30,7 +30,7 @@
 
                     <?php if ( has_nav_menu( 'primary' ) ) : ?>
                         <button type="button" class="navbar-toggle">
-                            <span class="sr-only"><?= __('Toggle navigation', 'visual-composer-starter') ?></span>
+                            <span class="sr-only"><?= __( 'Toggle navigation', 'visual-composer-starter' ) ?></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -39,7 +39,7 @@
                 </div>
                 <?php if ( has_nav_menu( 'primary' ) ) : ?>
                     <div id="main-menu">
-                        <div class="button-close"></div>
+                        <div class="button-close"><span class="vct-icon-close"></span></div>
                         <?php
                         wp_nav_menu( array(
                             'theme_location' => 'primary',

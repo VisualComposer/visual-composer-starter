@@ -2,7 +2,7 @@
 
 if ( ! function_exists( 'visualcomposerstarter_post_thumbnail' ) ) :
     function visualcomposerstarter_post_thumbnail() {
-        if ( post_password_required() || is_attachment() || ! has_post_thumbnail() || ! get_theme_mod( 'vc_overall_site_featured_image', true ) ) {
+        if ( post_password_required() || is_attachment() || ! has_post_thumbnail() || ! get_theme_mod( 'vct_overall_site_featured_image', true ) ) {
             return;
         }
             ?>
@@ -20,7 +20,7 @@ endif;
 
 if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
     function visualcomposerstarter_header_featured_content() {
-        if( get_post_format() == 'video' ) {
+        if( get_post_format() === 'video' ) {
             $post = get_post( get_the_ID() );
             remove_filter( 'the_content', 'wpautop' );
            ?>
@@ -29,7 +29,7 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
                 </div>
             <?php
         }
-        elseif( get_post_format() == 'gallery' ) {
+        elseif( get_post_format() === 'gallery' ) {
             ?>
             <div class="gallery-slider">
                 <?php
@@ -51,7 +51,7 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
             </div><!--.gallery-slider-->
             <?php
         }
-        elseif( post_password_required() || is_attachment() || ! has_post_thumbnail() || ! get_theme_mod( 'vc_overall_site_featured_image', true ) ) {
+        elseif( post_password_required() || is_attachment() || ! has_post_thumbnail() || ! get_theme_mod( 'vct_overall_site_featured_image', true ) ) {
             return;
         }
         else {
@@ -95,7 +95,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_meta' ) ) :
                     <?php visualcomposerstarter_entry_date(); ?>
                 </li>
             <?php endif;?>
-            <?php if ( 'post' === get_post_type() ): ?>
+            <?php if ( get_post_type() === 'post' ): ?>
                 <li class="entry-meta-author"><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author(); ?></a></li>
             <?php endif; ?>
 
@@ -120,7 +120,7 @@ if ( ! function_exists( 'visualcomposerstarter_single_meta' ) ) :
                 <?php visualcomposerstarter_entry_date(); ?>
             <?php endif;?>
             <?php echo _x( 'by', 'Post meta' ); ?>
-            <?php if ( 'post' === get_post_type() ): ?>
+            <?php if ( get_post_type() === 'post' ): ?>
                 <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_the_author(); ?></a>
             <?php endif; ?>
             <?php echo _x( 'to', 'Post meta' ); ?>
@@ -145,8 +145,8 @@ endif;
 
 if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
 
-    function visualcomposerstarter_comment($comment, $args, $depth) {
-        if ( 'div' === $args['style'] ) {
+    function visualcomposerstarter_comment( $comment, $args, $depth ) {
+        if ( $args['style'] === 'div' ) {
             $tag       = 'div';
             $add_below = 'comment';
         } else {
@@ -155,12 +155,12 @@ if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
         }
         ?>
         <<?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
-        <?php if ( 'div' != $args['style'] ) : ?>
+        <?php if ( $args['style'] !== 'div' ) : ?>
             <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
         <?php endif; ?>
         <div class="author-avatar">
             <div class="fade-in-image">
-                <?php if ( $args['avatar_size'] != 0 ): ?>
+                <?php if ( $args['avatar_size'] !== 0 ): ?>
                     <img src="<?php echo get_avatar_url( $comment, array( 'size' => $args['avatar_size'] ) ); ?>"
                          data-src="<?php echo get_avatar_url( $comment, array( 'size' => $args['avatar_size'] ) ); ?>">
                     <noscript>
@@ -181,7 +181,7 @@ if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
                         printf( __('On %1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?>
                     </a>
                     <?php edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
-                    <?php if ( $comment->comment_approved == '0' ) : ?>
+                    <?php if ( $comment->comment_approved === '0' ) : ?>
                         <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
                     <?php endif; ?>
                 </div>
@@ -195,7 +195,7 @@ if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
         </div>
 
 
-        <?php if ( 'div' != $args['style'] ) : ?>
+        <?php if ( $args['style'] !== 'div' ) : ?>
             </div>
         <?php endif; ?>
         <?php

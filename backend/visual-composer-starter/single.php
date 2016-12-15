@@ -4,7 +4,7 @@
     while ( have_posts() ) : the_post();
         
 ?>
-<div class="<?php echo vc_get_content_container_class(); ?>">
+<div class="<?php echo vct_get_content_container_class(); ?>">
     <div class="content-wrapper">
         <div class="row">
             <div class="col-md-12">
@@ -58,7 +58,7 @@
             </div>
         </div><!--.row-->
     </div><!--.content-wrapper-->
-</div><!--.<?php echo vc_get_content_container_class(); ?>-->
+</div><!--.<?php echo vct_get_content_container_class(); ?>-->
 <?php if ( comments_open() || get_comments_number() ) {
     comments_template();
 }?>

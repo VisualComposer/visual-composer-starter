@@ -11,7 +11,7 @@
 
     // Add dropdown toggle that displays child menu items.
     var dropdownToggle = $( '<button />', {
-        'class': 'dropdown-toggle vc-icon-dropdown-icon',
+        'class': 'dropdown-toggle vct-icon-dropdown',
     } );
 
     menu_container.find( '.menu-item-has-children > a' ).after( dropdownToggle );

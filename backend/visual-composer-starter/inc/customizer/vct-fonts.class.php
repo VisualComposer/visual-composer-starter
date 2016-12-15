@@ -1,18 +1,18 @@
 <?php
-Class VC_Fonts {
+Class VCT_Fonts {
 
-    protected static function vc_get_fonts_list()
+    protected static function vct_get_fonts_list()
     {
         $heading1       = array( 1 => array( 'label' => sprintf( '--- %s ---', __( 'Standard Fonts', 'visual-composer-starter' ) ) ) );
-        $standard_fonts = self::vc_theme_standard_fonts();
+        $standard_fonts = self::vct_theme_standard_fonts();
         $heading2       = array( 2 => array( 'label' => sprintf( '--- %s ---', __( 'Google Fonts', 'visual-composer-starter' ) ) ) );
-        $google_fonts   = self::vc_theme_google_fonts();
+        $google_fonts   = self::vct_theme_google_fonts();
 
         return array_merge( $heading1, $standard_fonts, $heading2, $google_fonts );
     }
 
 
-    protected static function vc_theme_standard_fonts() {
+    protected static function vct_theme_standard_fonts() {
         return array(
             'Arial, Helvetica, sans-serif' => array(
                 'label' => _x( 'Arial, Helvetica, sans-serif', 'font style', 'visual-composer-starter' ),
@@ -86,8 +86,8 @@ Class VC_Fonts {
         );
     }
 
-    public static function vc_theme_font_choices() {
-        $fonts   = self::vc_get_fonts_list();
+    public static function vct_theme_font_choices() {
+        $fonts   = self::vct_get_fonts_list();
         $choices = array();
 
         foreach ( $fonts as $key => $font ) {
@@ -96,11 +96,11 @@ Class VC_Fonts {
 
         return $choices;
     }
-    public static function vc_theme_get_google_font_uri( $fonts ) {
+    public static function vct_theme_get_google_font_uri( $fonts ) {
 
         // De-dupe the fonts
         $fonts         = array_unique( $fonts );
-        $allowed_fonts = self::vc_theme_google_fonts();
+        $allowed_fonts = self::vct_theme_google_fonts();
         $family        = array();
 
         // Validate each font and convert to URL format
@@ -110,7 +110,7 @@ Class VC_Fonts {
             // Verify that the font exists
             if ( array_key_exists( $font, $allowed_fonts ) ) {
                 // Build the family name and variant string (e.g., "Open+Sans:regular,italic,700")
-                $family[] = urlencode( $font . ':' . join( ',', self::vc_theme_google_font_variants( $font, $allowed_fonts[ $font ]['variants'] ) ) );
+                $family[] = urlencode( $font . ':' . join( ',', self::vct_theme_google_font_variants( $font, $allowed_fonts[ $font ]['variants'] ) ) );
             }
         }
 
@@ -122,10 +122,10 @@ Class VC_Fonts {
         }
 
         // Load the font subset
-        $subset = get_theme_mod( 'vc_fonts_and_style_subsets', 'all' );
+        $subset = get_theme_mod( 'vct_fonts_and_style_subsets', 'all' );
 
-        if ( 'all' === $subset ) {
-            $subsets_available = self::vc_theme_font_subsets();
+        if ( $subset === 'all' ) {
+            $subsets_available = self::vct_theme_font_subsets();
 
             unset( $subsets_available['all'] );
 
@@ -145,7 +145,7 @@ Class VC_Fonts {
         return esc_url( $request );
     }
 
-    public static function vc_theme_font_subsets() {
+    public static function vct_theme_font_subsets() {
         return array(
             'all'          => __( 'All', 'visual-composer-starter' ),
             'cyrillic'     => __( 'Cyrillic', 'visual-composer-starter' ),
@@ -160,10 +160,10 @@ Class VC_Fonts {
         );
     }
 
-    public static function vc_theme_google_font_variants( $font, $variants = array() ) {
+    public static function vct_theme_google_font_variants( $font, $variants = array() ) {
         $chosen_variants = array();
         if ( empty( $variants ) ) {
-            $fonts = self::vc_theme_google_fonts();
+            $fonts = self::vct_theme_google_fonts();
 
             if ( array_key_exists( $font, $fonts ) ) {
                 $variants = $fonts[ $font ]['variants'];
@@ -182,16 +182,17 @@ Class VC_Fonts {
             $chosen_variants[] = 'italic';
         }
 
-        // Only add "700" if it exists
-        if ( in_array( '700', $variants ) ) {
-            $chosen_variants[] = '700';
+        // Font weight
+        $font_weight = get_theme_mod( 'vct_fonts_and_style_body_weight', '400' );
+        if ( in_array( $font_weight, $variants ) ) {
+            $chosen_variants[] = $font_weight;
         }
 
         return array_unique( $chosen_variants );
     }
 
-    protected static function vc_theme_google_fonts() {
-        return apply_filters( 'vc_theme_google_fonts_list', array(
+    protected static function vct_theme_google_fonts() {
+        return apply_filters( 'vct_theme_google_fonts_list', array(
             'ABeeZee' => array(
                 'label'    => 'ABeeZee',
                 'variants' => array(

@@ -15,8 +15,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-[class^="vc-icon-"]:before,
-[class*=" vc-icon-"]:before {
+[class^="vct-icon-"]:before,
+[class*=" vct-icon-"]:before {
   font-family: "Visual Composer Starter Font" !important;
   font-style: normal !important;
   font-weight: normal !important;
@@ -27,54 +27,57 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.vc-icon-chat-bubble-outline:before {
+.vct-icon-chat-bubble-outline:before {
   content: "\61";
 }
-.vc-icon-event-note:before {
+.vct-icon-event-note:before {
   content: "\62";
 }
-.vc-icon-facebook-with-circle:before {
+.vct-icon-facebook-with-circle:before {
   content: "\63";
 }
-.vc-icon-flickr-with-circle:before {
+.vct-icon-flickr-with-circle:before {
   content: "\64";
 }
-.vc-icon-folder-open:before {
+.vct-icon-folder-open:before {
   content: "\65";
 }
-.vc-icon-github-with-circle:before {
+.vct-icon-github-with-circle:before {
   content: "\66";
 }
-.vc-icon-twitter-with-circle:before {
+.vct-icon-twitter-with-circle:before {
   content: "\67";
 }
-.vc-icon-vimeo-with-circle:before {
+.vct-icon-vimeo-with-circle:before {
   content: "\68";
 }
-.vc-icon-youtube-with-circle:before {
+.vct-icon-youtube-with-circle:before {
   content: "\69";
 }
-.vc-icon-instagram-with-circle:before {
+.vct-icon-instagram-with-circle:before {
   content: "\6a";
 }
-.vc-icon-linkedin-with-circle:before {
+.vct-icon-linkedin-with-circle:before {
   content: "\6b";
 }
-.vc-icon-mail:before {
+.vct-icon-mail:before {
   content: "\6c";
 }
-.vc-icon-mail-circle:before {
+.vct-icon-mail-circle:before {
   content: "\6d";
 }
-.vc-icon-person-outline:before {
+.vct-icon-person-outline:before {
   content: "\6e";
 }
-.vc-icon-pinterest-with-circle:before {
+.vct-icon-pinterest-with-circle:before {
   content: "\6f";
 }
-.vc-icon-search:before {
+.vct-icon-search:before {
   content: "\70";
 }
-.vc-icon-dropdown-icon:before {
+.vct-icon-dropdown:before {
   content: "\71";
+}
+.vct-icon-close:before {
+  content: "\72";
 }

@@ -7,10 +7,10 @@
  * @since Visual Composer Theme 1.0
  */
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class('entry-preview'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry-preview' ); ?>>
 	<div class="featured-content">
 		<div class="video-wrapper">
-			<?php the_content( '', TRUE );?>
+			<?php the_content( '', true );?>
 		</div>
 	</div><!--.featured-content-->
 
@@ -20,10 +20,10 @@
 
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-		<?php echo get_the_content( '', FALSE ); ?>
+		<?php echo get_the_content( '', false ); ?>
 	</div><!--.entry-content-->
 	<?php if( ! is_singular() ):?>
-		<a href="<?php echo get_permalink( get_the_ID() ) ?>" class="blue-button read-more"><?php echo __('Read More', 'visual-composer-starter') ?></a>
+		<a href="<?php echo get_permalink( get_the_ID() ) ?>" class="blue-button read-more"><?php echo __( 'Read More', 'visual-composer-starter' ) ?></a>
 	<?php endif;?>
 </article><!--.entry-preview-->
 

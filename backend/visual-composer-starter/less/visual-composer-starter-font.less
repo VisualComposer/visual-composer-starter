@@ -4,24 +4,24 @@
 // thus automatically sized to match the surrounding child. To use, create an
 // inline element with the appropriate class, like so:
 //
-// <a href="#"><span class="vc-icon-event-note"></span> Note</a>
+// <a href="#"><span class="vct-icon-event-note"></span> Note</a>
 
 //** Load fonts from this directory.
-@vc-icon-font-path:          "../fonts/";
+@vct-icon-font-path:          "../fonts/";
 //** File name for all font files.
-@vc-icon-font-name:          "visual-composer-starter-font";
+@vct-icon-font-name:          "visual-composer-starter-font";
 //** Element ID within SVG icon file.
-@vc-icon-font-svg-id:        "visual-composer-starter-font";
+@vct-icon-font-svg-id:        "visual-composer-starter-font";
 
 
 // Import the fonts
 @font-face {
 	font-family: 'Visual Composer Starter Font';
-	src: url('@{vc-icon-font-path}@{vc-icon-font-name}.eot');
-	src: url('@{vc-icon-font-path}@{vc-icon-font-name}.eot?#iefix') format('embedded-opentype'),
-	url('@{vc-icon-font-path}@{vc-icon-font-name}.woff') format('woff'),
-	url('@{vc-icon-font-path}@{vc-icon-font-name}.ttf') format('truetype'),
-	url('@{vc-icon-font-path}@{vc-icon-font-name}.svg#@{vc-icon-font-svg-id}') format('svg');
+	src: url('@{vct-icon-font-path}@{vct-icon-font-name}.eot');
+	src: url('@{vct-icon-font-path}@{vct-icon-font-name}.eot?#iefix') format('embedded-opentype'),
+	url('@{vct-icon-font-path}@{vct-icon-font-name}.woff') format('woff'),
+	url('@{vct-icon-font-path}@{vct-icon-font-name}.ttf') format('truetype'),
+	url('@{vct-icon-font-path}@{vct-icon-font-name}.svg#@{vct-icon-font-svg-id}') format('svg');
 }
 
 //Base styles
@@ -40,8 +40,8 @@
 	}
 }
 
-[class^="vc-icon-"],
-[class*=" vc-icon-"] {
+[class^="vct-icon-"],
+[class*=" vct-icon-"] {
 	&:before {
 		font-family: "Visual Composer Starter Font" !important;
 		font-style: normal !important;
@@ -56,88 +56,93 @@
 }
 
 // Individual icons
-.vc-icon-chat-bubble-outline {
+.vct-icon-chat-bubble-outline {
 	&:before {
 		content: "\61";
 	}
 }
-.vc-icon-event-note {
+.vct-icon-event-note {
 	&:before {
 		content: "\62";
 	}
 }
-.vc-icon-facebook-with-circle {
+.vct-icon-facebook-with-circle {
 	&:before {
 		content: "\63";
 	}
 }
-.vc-icon-flickr-with-circle {
+.vct-icon-flickr-with-circle {
 	&:before {
 		content: "\64";
 	}
 }
-.vc-icon-folder-open {
+.vct-icon-folder-open {
 	&:before {
 		content: "\65";
 	}
 }
-.vc-icon-github-with-circle {
+.vct-icon-github-with-circle {
 	&:before {
 		content: "\66";
 	}
 }
-.vc-icon-twitter-with-circle {
+.vct-icon-twitter-with-circle {
 	&:before {
 		content: "\67";
 	}
 }
-.vc-icon-vimeo-with-circle {
+.vct-icon-vimeo-with-circle {
 	&:before {
 		content: "\68";
 	}
 }
-.vc-icon-youtube-with-circle {
+.vct-icon-youtube-with-circle {
 	&:before {
 		content: "\69";
 	}
 }
-.vc-icon-instagram-with-circle {
+.vct-icon-instagram-with-circle {
 	&:before {
 		content: "\6a";
 	}
 }
-.vc-icon-linkedin-with-circle {
+.vct-icon-linkedin-with-circle {
 	&:before {
 		content: "\6b";
 	}
 }
-.vc-icon-mail {
+.vct-icon-mail {
 	&:before {
 		content: "\6c";
 	}
 }
-.vc-icon-mail-circle {
+.vct-icon-mail-circle {
 	&:before {
 		content: "\6d";
 	}
 }
-.vc-icon-person-outline {
+.vct-icon-person-outline {
 	&:before {
 		content: "\6e";
 	}
 }
-.vc-icon-pinterest-with-circle {
+.vct-icon-pinterest-with-circle {
 	&:before {
 		content: "\6f";
 	}
 }
-.vc-icon-search {
+.vct-icon-search {
 	&:before {
 		content: "\70";
 	}
 }
-.vc-icon-dropdown-icon {
+.vct-icon-dropdown {
 	&:before {
 		content: "\71";
+	}
+}
+.vct-icon-close {
+	&:before {
+		content: "\72";
 	}
 }

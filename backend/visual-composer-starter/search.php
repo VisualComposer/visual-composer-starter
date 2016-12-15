@@ -1,8 +1,8 @@
 <?php get_header(); ?>
-    <div class="<?php echo vc_get_content_container_class(); ?>">
+    <div class="<?php echo vct_get_content_container_class(); ?>">
         <div class="content-wrapper">
             <div class="row">
-                <div class="<?php echo vc_get_maincontent_block_class(); ?>">
+                <div class="<?php echo vct_get_maincontent_block_class(); ?>">
                     <div class="main-content">
                         <div class="search-results-header">
                             <h4><?php printf( __( 'Search Results for <strong>%s</strong>', 'visual-composer-starter' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h4>
@@ -50,13 +50,13 @@
 
                         </div><!--.archive-->
                     </div><!--.main-content-->
-                </div><!--.<?php vc_get_maincontent_block_class(); ?>-->
+                </div><!--.<?php vct_get_maincontent_block_class(); ?>-->
 
-                <?php if ( vc_get_sidebar_class() ): ?>
+                <?php if ( vct_get_sidebar_class() ): ?>
                     <?php get_sidebar(); ?>
                 <?php endif; ?>
 
             </div><!--.row-->
         </div><!--.content-wrapper-->
-    </div><!--.<?php echo vc_get_content_container_class(); ?>-->
+    </div><!--.<?php echo vct_get_content_container_class(); ?>-->
 <?php get_footer(); ?>
