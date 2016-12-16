@@ -7,9 +7,10 @@
  * @since Visual Composer Theme 1.0
  */
 ?>
+<h1 class="entry-title"><?php the_title(); ?></h1>
 <div class="entry-content">
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <h1 class="entry-title"><?php the_title(); ?></h1>
+
         <?php the_content( '', true ); ?>
         <?php
             wp_link_pages(
