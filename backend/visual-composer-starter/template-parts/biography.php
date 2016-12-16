@@ -19,6 +19,6 @@
             </noscript>
         </div>
     </div><!--.author-avatar-->
-    <p class="author-name"><?php the_author(); ?></p>
+    <p class="author-name"><span class="author vcard"><?php the_author(); ?></span></p>
     <p class="author-biography"><?php the_author_meta( 'description' ) ?></p>
 </div><!--.entry-author-data-->
