@@ -92,7 +92,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_meta' ) ) :
         <ul class="entry-meta">
             <?php if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ): ?>
                 <li class="entry-meta-date">
-                    <span class="updated"><?php visualcomposerstarter_entry_date(); ?></span>
+                    <span class="date updated"><?php visualcomposerstarter_entry_date(); ?></span>
                 </li>
             <?php endif;?>
             <?php if ( get_post_type() === 'post' ): ?>
@@ -117,7 +117,7 @@ if ( ! function_exists( 'visualcomposerstarter_single_meta' ) ) :
         <div class="entry-meta">
             <?php echo _x( 'On', 'Post meta' ); ?>
             <?php if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ): ?>
-                <span class="updated"><?php visualcomposerstarter_entry_date(); ?></span>
+                <span class="date updated"><?php visualcomposerstarter_entry_date(); ?></span>
             <?php endif;?>
             <?php echo _x( 'by', 'Post meta' ); ?>
             <?php if ( get_post_type() === 'post' ): ?>
