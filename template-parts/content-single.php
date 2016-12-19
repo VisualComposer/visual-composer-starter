@@ -3,8 +3,8 @@
  * The template part for displaying single posts
  *
  * @package WordPress
- * @subpackage Visual_Composer_Theme
- * @since Visual Composer Theme 1.0
+ * @subpackage Visual Composer Starter
+ * @since Visual Composer Starter 1.0
  */
 ?>
 <h1 class="entry-title"><?php the_title(); ?></h1>
