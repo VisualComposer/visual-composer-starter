@@ -12,7 +12,7 @@ A starter theme for Visual Composer.
 
 == Description ==
 
-Greatest and easy-to-use simple Wordpress theme by wpbakery.
+Visual Composer Starter theme designed to be a perfect companion for a simple and good looking website. Theme developed by WPBakery and is available for free to the community. Bugs, ideas? Please open issue here on github.
 
 == Installation ==
 	
@@ -21,8 +21,8 @@ Greatest and easy-to-use simple Wordpress theme by wpbakery.
 3. Click Activate to use your new theme right away.
 
 = License =
-Visual Composer WordPress theme, Copyright (C) 2016 wpbakery.com
-Visual Composer WordPress theme is licensed under the GPL3.
+Visual Composer Starter WordPress theme, Copyright (C) 2016 wpbakery.com
+Visual Composer Starter WordPress theme is licensed under the GPL3.
 
 Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License.
 The exceptions to this license are as follows:

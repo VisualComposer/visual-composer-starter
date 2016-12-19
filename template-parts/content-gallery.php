@@ -3,8 +3,8 @@
  * The template part for displaying gallery
  *
  * @package WordPress
- * @subpackage Visual_Composer_Theme
- * @since Visual Composer Theme 1.0
+ * @subpackage Visual Composer Starter
+ * @since Visual Composer Starter 1.0
  */
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'entry-preview' ); ?>>

@@ -3,8 +3,8 @@
  * The template part for displaying an Author biography
  *
  * @package WordPress
- * @subpackage Visual_Composer_Theme
- * @since Visual Composer Theme 1.0
+ * @subpackage Visual Composer Starter
+ * @since Visual Composer Starter 1.0
  */
 ?>
 <div class="entry-author-data">
