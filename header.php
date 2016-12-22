@@ -18,7 +18,7 @@
                         ?>
                             <a href="<?php echo home_url(); ?>"
                                title="<?php bloginfo( 'name' ) ?>">
-                                <img src="<? echo $custom_logo[0] ?>" alt="<?php bloginfo( 'name' ) ?>">
+                                <img src="<?php echo $custom_logo[0] ?>" alt="<?php bloginfo( 'name' ) ?>">
                             </a>
                         <?php else: ?>
                             <a href="http://visualcomposer.io" title="alt="<?php _e( 'Visual Composer Starter', 'visual-composer-starter' ) ?>">
