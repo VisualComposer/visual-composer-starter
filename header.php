@@ -22,7 +22,7 @@
                             </a>
                         <?php else: ?>
                             <a href="http://visualcomposer.io" title="alt="<?php _e( 'Visual Composer Starter', 'visual-composer-starter' ) ?>">
-                                <img width="50" height="49" src="<?= get_template_directory_uri() ?>/images/vct-logo.svg" alt="<?php _e( 'Visual Composer Starter', 'visual-composer-starter' ) ?>">
+                                <img width="50" height="49" src="<?php echo get_template_directory_uri() ?>/images/vct-logo.svg" alt="<?php _e( 'Visual Composer Starter', 'visual-composer-starter' ) ?>">
                             </a>
                         <?php endif; ?>
                         
@@ -30,7 +30,7 @@
 
                     <?php if ( has_nav_menu( 'primary' ) ) : ?>
                         <button type="button" class="navbar-toggle">
-                            <span class="sr-only"><?= __( 'Toggle navigation', 'visual-composer-starter' ) ?></span>
+                            <span class="sr-only"><?php _e( 'Toggle navigation', 'visual-composer-starter' ) ?></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
