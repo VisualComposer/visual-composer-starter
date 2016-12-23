@@ -53,22 +53,25 @@ class VCT_Customizer {
 
         // Create sections
         $wp_customize->add_section( 'vct_overall_site', array(
-            'title'    => __( 'Theme Options', 'visual-composer-starter' ),
-            'priority' => 101
+            'title'             => __( 'Theme Options', 'visual-composer-starter' ),
+            'priority'          => 101,
+            'capability'        => 'edit_theme_options',
         ) );
         $wp_customize->add_section( 'vct_header_and_menu_area', array(
-            'title'    => __( 'Header', 'visual-composer-starter' ),
-            'priority' => 103
+            'title'             => __( 'Header', 'visual-composer-starter' ),
+            'priority'          => 103,
+            'capability'        => 'edit_theme_options',
         ) );
         $wp_customize->add_section( 'vct_footer_area', array(
-            'title'    => __( 'Footer', 'visual-composer-starter' ),
-            'priority' => 103
+            'title'             => __( 'Footer', 'visual-composer-starter' ),
+            'priority'          => 103,
+            'capability'        => 'edit_theme_options',
         ) );
         $wp_customize->add_panel( 'vct_fonts_and_style', array(
-            'priority'       => 106,
-            'capability'     => 'edit_theme_options',
-            'theme_supports' => '',
-            'title'          => __( 'Fonts & Style', 'visual-composer-starter' ),
+            'priority'          => 106,
+            'capability'        => 'edit_theme_options',
+            'theme_supports'    => '',
+            'title'             => __( 'Fonts & Style', 'visual-composer-starter' ),
         ) );
 
 
@@ -121,15 +124,14 @@ class VCT_Customizer {
             'sanitize_callback' => array( $this, 'sanitize_checkbox' )
         ) );
 
-
         $wp_customize->add_setting( 'vct_overall_site_sidebar',  array(
             'default'       => 'none',
         ) );
 
-
         $wp_customize->add_setting( 'vct_overall_site_content_background',  array(
             'default'       => '#ffffff',
         ) );
+
         $wp_customize->add_setting( 'vct_overall_site_comments_background',  array(
             'default'       => '#f4f4f4',
         ) );
@@ -769,44 +771,52 @@ class VCT_Customizer {
      */
     private function fonts_and_style_panel( $wp_customize ) {
         $wp_customize->add_section( 'vct_fonts_and_style_h1', array(
-            'title'    => __( 'H1', 'visual-composer-starter' ),
-            'priority' => 100,
-            'panel' => 'vct_fonts_and_style'
+            'title'         => __( 'H1', 'visual-composer-starter' ),
+            'priority'      => 100,
+            'capability'    => 'edit_theme_options',
+            'panel'         => 'vct_fonts_and_style'
         ) );
         $wp_customize->add_section( 'vct_fonts_and_style_h2', array(
-            'title'    => __( 'H2', 'visual-composer-starter' ),
-            'priority' => 101,
-            'panel' => 'vct_fonts_and_style'
+            'title'         => __( 'H2', 'visual-composer-starter' ),
+            'priority'      => 101,
+            'capability'    => 'edit_theme_options',
+            'panel'         => 'vct_fonts_and_style'
         ) );
         $wp_customize->add_section( 'vct_fonts_and_style_h3', array(
-            'title'    => __( 'H3', 'visual-composer-starter' ),
-            'priority' => 102,
-            'panel' => 'vct_fonts_and_style'
+            'title'         => __( 'H3', 'visual-composer-starter' ),
+            'priority'      => 102,
+            'capability'    => 'edit_theme_options',
+            'panel'         => 'vct_fonts_and_style'
         ) );
         $wp_customize->add_section( 'vct_fonts_and_style_h4', array(
-            'title'    => __( 'H4', 'visual-composer-starter' ),
-            'priority' => 103,
-            'panel' => 'vct_fonts_and_style'
+            'title'         => __( 'H4', 'visual-composer-starter' ),
+            'priority'      => 103,
+            'capability'    => 'edit_theme_options',
+            'panel'         => 'vct_fonts_and_style'
         ) );
         $wp_customize->add_section( 'vct_fonts_and_style_h5', array(
-            'title'    => __( 'H5', 'visual-composer-starter' ),
-            'priority' => 104,
-            'panel' => 'vct_fonts_and_style'
+            'title'         => __( 'H5', 'visual-composer-starter' ),
+            'priority'      => 104,
+            'capability'    => 'edit_theme_options',
+            'panel'         => 'vct_fonts_and_style'
         ) );
         $wp_customize->add_section( 'vct_fonts_and_style_h6', array(
-            'title'    => __( 'H6', 'visual-composer-starter' ),
-            'priority' => 105,
-            'panel' => 'vct_fonts_and_style'
+            'title'         => __( 'H6', 'visual-composer-starter' ),
+            'priority'      => 105,
+            'capability'    => 'edit_theme_options',
+            'panel'         => 'vct_fonts_and_style'
         ) );
         $wp_customize->add_section( 'vct_fonts_and_style_body', array(
-            'title'    => __( 'Body', 'visual-composer-starter' ),
-            'priority' => 106,
-            'panel' => 'vct_fonts_and_style'
+            'title'         => __( 'Body', 'visual-composer-starter' ),
+            'priority'      => 106,
+            'capability'    => 'edit_theme_options',
+            'panel'         => 'vct_fonts_and_style'
         ) );
         $wp_customize->add_section( 'vct_fonts_and_style_buttons', array(
-            'title'    => __( 'Buttons', 'visual-composer-starter' ),
-            'priority' => 107,
-            'panel' => 'vct_fonts_and_style'
+            'title'         => __( 'Buttons', 'visual-composer-starter' ),
+            'priority'      => 107,
+            'capability'    => 'edit_theme_options',
+            'panel'         => 'vct_fonts_and_style'
         ) );
 
         $this->fonts_and_style_section_h1( $wp_customize );
