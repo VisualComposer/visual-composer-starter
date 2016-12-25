@@ -238,7 +238,7 @@ register_sidebar(
     )
 );
 
-function footer_1() {
+function vct_footer_1() {
     return array(
         'name' => __( 'Footer Widget Column 1', 'visual-composer-starter' ),
         'id' => 'footer',
@@ -249,7 +249,7 @@ function footer_1() {
         'after_title' => '</h2>',
     );
 }
-function footer_2() {
+function vct_footer_2() {
     return array(
         'name' => __( 'Footer Widget Column 2', 'visual-composer-starter' ),
         'id' => 'footer-2',
@@ -260,7 +260,7 @@ function footer_2() {
         'after_title' => '</h2>',
     );
 }
-function footer_3() {
+function vct_footer_3() {
     return array(
         'name' => __( 'Footer Widget Column 3', 'visual-composer-starter' ),
         'id' => 'footer-3',
@@ -271,7 +271,7 @@ function footer_3() {
         'after_title' => '</h2>',
     );
 }
-function footer_4() {
+function vct_footer_4() {
     return array(
         'name' => __( 'Footer Widget Column 4', 'visual-composer-starter' ),
         'id' => 'footer-4',
@@ -292,16 +292,16 @@ function visual_composer_starter_all_widgets() {
      * Register all zones for availability in customizer
      */
         register_sidebar(
-            footer_1()
+            vct_footer_1()
         );
         register_sidebar(
-            footer_2()
+            vct_footer_2()
         );
         register_sidebar(
-            footer_3()
+            vct_footer_3()
         );
         register_sidebar(
-            footer_4()
+            vct_footer_4()
         );
 }
 function visual_composer_starter_widgets() {
@@ -313,24 +313,24 @@ function visual_composer_starter_widgets() {
         $footer_columns = intval( get_theme_mod( 'vct_footer_area_widgetized_columns', 1 ) );
         if ( $footer_columns >= 1 ) {
             register_sidebar(
-                footer_1()
+                vct_footer_1()
             );
         }
 
         if ( $footer_columns >= 2 ) {
             register_sidebar(
-                footer_2()
+                vct_footer_2()
             );
         }
 
         if ( $footer_columns >= 3 ) {
             register_sidebar(
-                footer_3()
+                vct_footer_3()
             );
         }
         if ( $footer_columns === 4 ) {
             register_sidebar(
-                footer_4()
+                vct_footer_4()
             );
         }
     }
