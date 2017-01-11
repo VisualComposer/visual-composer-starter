@@ -1,4 +1,4 @@
-var social_icons = [
+var vct_social_icons = [
     'facebook',
     'twitter',
     'linkedin',
@@ -15,13 +15,13 @@ function isToggleTrue(_this) {
 }
 
 function hideSocialIcons() {
-    jQuery.each( social_icons, function( key, icon ) {
+    jQuery.each( vct_social_icons, function( key, icon ) {
         jQuery( '#customize-control-vct_footer_area_social_link_' + icon ).hide();
     });
 }
 
 function showSocialIcons() {
-    jQuery.each( social_icons, function( key, icon ) {
+    jQuery.each( vct_social_icons, function( key, icon ) {
         jQuery( '#customize-control-vct_footer_area_social_link_' + icon ).show();
     });
 }
