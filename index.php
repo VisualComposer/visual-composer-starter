@@ -5,9 +5,8 @@
                 <div class="<?php echo vct_get_maincontent_block_class() ?>">
                     <div class="main-content">
                         <div class="archive">
-                            <?php if ( have_posts() ) : ?>
-                                
-                                <?php
+                            <?php if ( have_posts() ) :
+
                                 // Start the loop.
                                 while ( have_posts() ) : the_post();
 
@@ -41,18 +40,17 @@
                                 get_template_part( 'template-parts/content', 'none' );
 
                             endif;
-
                             ?>
 
                         </div><!--.archive-->
                     </div><!--.main-content-->
                 </div><!--.<?php echo vct_get_maincontent_block_class() ?>-->
 
-                <?php if ( vct_get_sidebar_class() ): ?>
-                    <?php get_sidebar(); ?>
-                <?php endif; ?>
+                <?php if ( vct_get_sidebar_class() ):
+                    get_sidebar();
+                endif; ?>
 
             </div><!--.row-->
         </div><!--.content-wrapper-->
     </div><!--.<?php echo vct_get_content_container_class(); ?>-->
-<?php get_footer(); ?>
+<?php get_footer();
