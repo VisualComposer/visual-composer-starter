@@ -69,9 +69,6 @@ class VCT_Toggle_Switch_Control extends WP_Customize_Control {
                 <span class="onoffswitch-switch"></span>
             </label>
         </div>
-
-
         <?php
     }
-
 }

@@ -19,4 +19,4 @@
             </div><!--.row-->
         </div><!--.content-wrapper-->
     </div><!--.<?php echo vct_get_content_container_class(); ?>-->
-<?php get_footer(); ?>
+<?php get_footer();
