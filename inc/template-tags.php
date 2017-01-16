@@ -28,6 +28,7 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
                     <?php echo apply_filters( 'the_content', $post->post_content ); ?>
                 </div>
             <?php
+	        add_filter( 'the_content', 'wpautop' );
         }
         elseif( get_post_format() === 'gallery' ) {
             ?>

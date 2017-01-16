@@ -25,4 +25,3 @@
 		<a href="<?php echo get_permalink( get_the_ID() ) ?>" class="blue-button read-more"><?php echo __( 'Read More', 'visual-composer-starter' ) ?></a>
 	<?php endif;?>
 </article><!--.entry-preview-->
-
