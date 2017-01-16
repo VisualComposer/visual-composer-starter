@@ -28,6 +28,7 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
                     <?php echo apply_filters( 'the_content', $post->post_content ); ?>
                 </div>
             <?php
+	        add_filter( 'the_content', 'wpautop' );
         }
         elseif( get_post_format() === 'gallery' ) {
             ?>
@@ -154,9 +155,9 @@ if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
             $add_below = 'div-comment';
         }
         ?>
-        <<?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+        <<?php echo $tag; ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID(); ?>">
         <?php if ( $args['style'] !== 'div' ) : ?>
-            <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
+            <div id="div-comment-<?php comment_ID(); ?>" class="comment-body">
         <?php endif; ?>
         <div class="author-avatar">
             <div class="fade-in-image">
@@ -198,7 +199,7 @@ if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
         <?php if ( $args['style'] !== 'div' ) : ?>
             </div>
         <?php endif; ?>
+        </<?php echo $tag; ?>>
         <?php
     }
-
 endif;
