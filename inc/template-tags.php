@@ -127,7 +127,7 @@ if ( ! function_exists( 'visualcomposerstarter_single_meta' ) ) :
             <?php echo _x( 'to', 'Post meta' ); ?>
             <?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?>
         </div>
-        <?
+        <?php
     }
 endif;
 
