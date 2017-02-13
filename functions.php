@@ -8,6 +8,13 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
         load_theme_textdomain( 'visual-composer-starter' );
 
         /*
+         * Define sidebars
+         */
+        define( 'vct_page_sidebar',                     'vct_overall_site_page_sidebar' );
+        define( 'vct_post_sidebar',                     'vct_overall_site_post_sidebar' );
+        define( 'vct_archive_and_category_sidebar',     'vct_overall_site_aac_sidebar' );
+
+        /*
          * Let WordPress manage the document title.
          * By adding theme support, we declare that this theme does not use a
          * hard-coded <title> tag in the document head, and expect WordPress to
@@ -33,6 +40,122 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
          */
         add_action( 'comment_form_before', 'visualcomposerstarter_enqueue_comments_reply' );
 
+
+        /*
+         * ACF Integration
+         */
+        if( class_exists('acf') ) {
+
+            if( function_exists( 'register_field_group') )
+            {
+                register_field_group(array (
+                    'id' => 'acf_page-options',
+                    'title' => __( 'Page Options' ),
+                    'fields' => array (
+                        array (
+                            'key' => 'field_589f5a321f0bc',
+                            'label' => __( 'Sidebar Position' ),
+                            'name' => 'sidebar_position',
+                            'type' => 'select',
+                            'instructions' => __(  'Select specific sidebar position.' ),
+                            'choices' => array (
+                                'none' => __( 'None' ),
+                                'left' =>  __( 'Left' ),
+                                'right' => __( 'Right' ),
+                            ),
+                            'default_value' => get_theme_mod( vct_page_sidebar, 'none' ),
+                            'allow_null' => 0,
+                            'multiple' => 0,
+                        ),
+                        array (
+                            'key' => 'field_589f55db2faa9',
+                            'label' => __( 'Hide Page title' ),
+                            'name' => 'hide_page_title',
+                            'type' => 'checkbox',
+                            'choices' => array (
+                                1 => __( 'Yes' ),
+                            ),
+                            'default_value' => '',
+                            'layout' => 'vertical',
+                        ),
+                    ),
+                    'location' => array (
+                        array (
+                            array (
+                                'param' => 'post_type',
+                                'operator' => '==',
+                                'value' => 'page',
+                                'order_no' => 0,
+                                'group_no' => 0,
+                            ),
+                        ),
+                    ),
+                    'options' => array (
+                        'position' => 'side',
+                        'layout' => 'default',
+                        'hide_on_screen' => array (
+                        ),
+                    ),
+                    'menu_order' => 0,
+                ));
+                register_field_group(array (
+                    'id' => 'acf_post-options',
+                    'title' => __( 'Post Options' ),
+                    'fields' => array (
+                        array (
+                            'key' => 'field_589f5b1d656ca',
+                            'label' => __( 'Sidebar Position' ),
+                            'name' => 'sidebar_position',
+                            'type' => 'select',
+                            'instructions' => __( 'Select specific sidebar position.' ),
+                            'choices' => array (
+                                'none' => __( 'None' ),
+                                'left' =>  __( 'Left' ),
+                                'right' => __( 'Right' ),
+                            ),
+                            'default_value' => get_theme_mod( vct_post_sidebar, 'none' ),
+                            'allow_null' => 0,
+                            'multiple' => 0,
+                        ),
+                        array (
+                            'key' => 'field_589f5b9a56207',
+                            'label' => __( 'Hide Post title' ),
+                            'name' => 'hide_page_title',
+                            'type' => 'checkbox',
+                            'choices' => array (
+                                1 => __( 'Yes' ),
+                            ),
+                            'default_value' => '',
+                            'layout' => 'vertical',
+                        ),
+                    ),
+                    'location' => array (
+                        array (
+                            array (
+                                'param' => 'post_type',
+                                'operator' => '==',
+                                'value' => 'post',
+                                'order_no' => 0,
+                                'group_no' => 0,
+                            ),
+                        ),
+                    ),
+                    'options' => array (
+                        'position' => 'side',
+                        'layout' => 'default',
+                        'hide_on_screen' => array (
+                        ),
+                    ),
+                    'menu_order' => 0,
+                ));
+            }
+
+        }
+        else
+        {
+
+            add_action( 'admin_notices', 'sample_admin_notice__success' );
+        }
         /**
          * Customizer settings.
          */
@@ -53,6 +176,14 @@ function visualcomposerstarter_enqueue_comments_reply() {
     }
 }
 
+
+function sample_admin_notice__success() {
+    ?>
+    <div class="notice notice-success">
+        <p><?php _e( 'You need to install the <a href="https://wordpress.org/plugins/advanced-custom-fields/">Advanced Custom Fields</a> plugin to enable additional functionality.', 'sample-text-domain' ); ?></p>
+    </div>
+    <?php
+}
 
 /**
  * Custom template tags for this theme.
@@ -355,8 +486,68 @@ function vct_get_content_container_class () {
     }
 }
 
+
+if( get_theme_mod( 'vct_overall_site_sidebar' ) ) {
+    set_theme_mod( vct_page_sidebar, get_theme_mod( 'vct_overall_site_sidebar' ) );
+    set_theme_mod( vct_post_sidebar, get_theme_mod( 'vct_overall_site_sidebar' ) );
+    remove_theme_mod( 'vct_overall_site_sidebar' );
+}
+
+
+function vct_check_needed_sidebar() {
+    if( is_page() ) {
+        return vct_page_sidebar;
+    }
+    elseif( is_singular() ) {
+        return vct_post_sidebar;
+    }
+    elseif( is_archive() || is_category() || is_front_page() ) {
+        return vct_archive_and_category_sidebar;
+    }
+    else
+    {
+        return 'none';
+    }
+}
+
+function vct_specify_sidebar() {
+
+    if( is_page() ) {
+        $value = get_field( 'field_589f5a321f0bc' );
+    }
+    elseif( is_singular() ) {
+        $value = get_field( 'field_589f5b1d656ca' );
+    }
+    else {
+        $value = null;
+    }
+
+    $specify_setting = function_exists( 'get_field') ? $value : null;
+
+    if( $specify_setting ) {
+        return $specify_setting;
+    }
+    else
+    {
+        return get_theme_mod( vct_check_needed_sidebar(), 'none' );
+    }
+}
+
+function vct_is_the_title_displayed() {
+    if( is_page() ) {
+        return (bool) ! get_field( 'field_589f55db2faa9' );
+    }
+    elseif( is_singular() ) {
+        return (bool) ! get_field( 'field_589f5b9a56207' );
+    }
+    else {
+        return true;
+    }
+
+}
+
 function vct_get_maincontent_block_class () {
-    switch ( get_theme_mod( 'vct_overall_site_sidebar', 'none' ) ) {
+    switch ( vct_specify_sidebar() ) {
         case 'none':
             return 'col-md-12';
         case 'left':
@@ -370,7 +561,7 @@ function vct_get_maincontent_block_class () {
 
 
 function vct_get_sidebar_class () {
-    switch ( get_theme_mod( 'vct_overall_site_sidebar', 'none' ) ) {
+    switch ( vct_specify_sidebar() ) {
         case 'none':
             return false;
         case 'left':

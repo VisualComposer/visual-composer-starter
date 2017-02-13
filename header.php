@@ -4,6 +4,7 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php wp_head() ?>
+    <?php echo get_theme_mod( 'vct_scripts_header', '' );?>
 </head>
 <body <?php body_class(); ?>>
 <header id="header">

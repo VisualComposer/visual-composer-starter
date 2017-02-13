@@ -82,6 +82,7 @@
             </div>
         </div>
     </div>
+    <?php echo get_theme_mod( 'vct_scripts_footer', '' );?>
 </footer>
 <?php wp_footer(); ?>
 </body>

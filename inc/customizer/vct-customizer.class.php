@@ -59,7 +59,7 @@ class VCT_Customizer {
         ) );
         $wp_customize->add_section( 'vct_header_and_menu_area', array(
             'title'             => __( 'Header', 'visual-composer-starter' ),
-            'priority'          => 103,
+            'priority'          => 102,
             'capability'        => 'edit_theme_options',
         ) );
         $wp_customize->add_section( 'vct_footer_area', array(
@@ -68,10 +68,16 @@ class VCT_Customizer {
             'capability'        => 'edit_theme_options',
         ) );
         $wp_customize->add_panel( 'vct_fonts_and_style', array(
-            'priority'          => 106,
+            'priority'          => 104,
             'capability'        => 'edit_theme_options',
             'theme_supports'    => '',
             'title'             => __( 'Fonts & Style', 'visual-composer-starter' ),
+        ) );
+        $wp_customize->add_section( 'vct_scripts', array(
+            'priority'          => 105,
+            'capability'        => 'edit_theme_options',
+            'theme_supports'    => '',
+            'title'             => __( 'Scripts', 'visual-composer-starter' ),
         ) );
 
 
@@ -81,13 +87,16 @@ class VCT_Customizer {
         $this->header_and_menu_section( $wp_customize );
         $this->footer_section( $wp_customize );
         $this->fonts_and_style_panel( $wp_customize );
+        $this->scripts( $wp_customize );
 
     }
 
     public function sanitize_checkbox( $input ) {
         return ( $input === true ) ? true : false;
     }
-
+    function sanitize_textarea( $text ) {
+        return esc_textarea( $text );
+    }
     public function sanitize_url( $input ) {
         $url = parse_url( $input );
         if ( ! empty( $url['scheme'] ) ) {
@@ -124,7 +133,15 @@ class VCT_Customizer {
             'sanitize_callback' => array( $this, 'sanitize_checkbox' )
         ) );
 
-        $wp_customize->add_setting( 'vct_overall_site_sidebar',  array(
+        $wp_customize->add_setting( vct_page_sidebar,  array(
+            'default'       => 'none',
+        ) );
+        
+        $wp_customize->add_setting( vct_post_sidebar,  array(
+            'default'       => 'none',
+        ) );
+
+        $wp_customize->add_setting( vct_archive_and_category_sidebar,  array(
             'default'       => 'none',
         ) );
 
@@ -149,16 +166,50 @@ class VCT_Customizer {
                     'settings'      => 'vct_overall_site_featured_image',
                 ) )
         );
+        
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                vct_page_sidebar,
+                array(
+                    'type'          => 'select',
+                    'label'         => __( 'Page Sidebar Position', 'visual-composer-starter' ),
+                    'section'       => 'vct_overall_site',
+                    'settings'      => vct_page_sidebar,
+                    'choices'       => array(
+                        'none'  => __( 'None (default)', 'visual-composer-starter' ),
+                        'left'  => __( 'Left', 'visual-composer-starter' ),
+                        'right' => __( 'Right', 'visual-composer-starter' ),
+                    ),
+                ) )
+        );
 
         $wp_customize->add_control(
             new WP_Customize_Control(
                 $wp_customize,
-                'vct_overall_site_sidebar',
+                vct_post_sidebar,
                 array(
                     'type'          => 'select',
-                    'label'         => __( 'Sidebar Position', 'visual-composer-starter' ),
+                    'label'         => __( 'Post Sidebar Position', 'visual-composer-starter' ),
                     'section'       => 'vct_overall_site',
-                    'settings'      => 'vct_overall_site_sidebar',
+                    'settings'      => vct_post_sidebar,
+                    'choices'       => array(
+                        'none'  => __( 'None (default)', 'visual-composer-starter' ),
+                        'left'  => __( 'Left', 'visual-composer-starter' ),
+                        'right' => __( 'Right', 'visual-composer-starter' ),
+                    ),
+                ) )
+        );
+
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                vct_archive_and_category_sidebar,
+                array(
+                    'type'          => 'select',
+                    'label'         => __( 'Archive/Category Sidebar Position', 'visual-composer-starter' ),
+                    'section'       => 'vct_overall_site',
+                    'settings'      => vct_archive_and_category_sidebar,
                     'choices'       => array(
                         'none'  => __( 'None (default)', 'visual-composer-starter' ),
                         'left'  => __( 'Left', 'visual-composer-starter' ),
@@ -830,6 +881,51 @@ class VCT_Customizer {
 
     }
 
+
+
+    /**
+     * Section: Scripts Section
+     *
+     * @param WP_Customize_Manager $wp_customize
+     *
+     * @access private
+     * @since  1.0
+     * @return void
+     */
+    private function scripts( $wp_customize ) {
+        $wp_customize->add_setting( 'vct_scripts_header', array(
+            'default'        => '',
+        ) );
+        $wp_customize->add_setting( 'vct_scripts_footer', array(
+            'default'        => '',
+        ) );
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                'vct_scripts_header',
+                array(
+                    'label'             => __( 'Header Scripts', 'visual-composer-starter' ),
+                    'description'       => __( 'Add scripts to your theme header (ex. Google Analytics tracking code).', 'visual-composer-starter' ),
+                    'section'           => 'vct_scripts',
+                    'settings'          => 'vct_scripts_header',
+                    'type'              => 'textarea',
+                    'sanitize_callback' => array( $this, 'sanitize_textarea' )
+                ) )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                'vct_scripts_footer',
+                array(
+                    'label'             => __( 'Footer Scripts', 'visual-composer-starter' ),
+                    'description'       => __( 'Add scripts to your theme footer.', 'visual-composer-starter' ),
+                    'section'           => 'vct_scripts',
+                    'settings'          => 'vct_scripts_footer',
+                    'type'              => 'textarea',
+                    'sanitize_callback' => array( $this, 'sanitize_textarea' )
+                ) )
+        );
+    }
 
     private function fonts_and_style_section_h1( $wp_customize ) {
         $wp_customize->add_setting( 'vct_fonts_and_style_h1', array(

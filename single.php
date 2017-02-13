@@ -11,47 +11,52 @@ while ( have_posts() ) :
                 <div class="main-content">
                     <article class="entry-full-content">
                         <div class="row">
-                            <div class="col-md-2">
-                                <?php
-                                    get_template_part( 'template-parts/biography' );
-                                ?>
-                            </div><!--.col-md-2-->
-                            <div class="col-md-10">
-                                <?php
-                                    visualcomposerstarter_single_meta();
-                                    get_template_part( 'template-parts/content', 'single' );
+                            <div class="<?php echo vct_get_maincontent_block_class(); ?>">
+                                <div class="col-md-2">
+                                    <?php
+                                        get_template_part( 'template-parts/biography' );
+                                    ?>
+                                </div><!--.col-md-2-->
+                                <div class="col-md-10">
+                                    <?php
+                                        visualcomposerstarter_single_meta();
+                                        get_template_part( 'template-parts/content', 'single' );
 
-                                    if ( is_singular( 'post' ) ): ?>
-                                        <div class="nav-links post-navigation">
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <div class="nav-previous">
-                                                        <?php
-                                                            echo get_previous_post_link(
-                                                                '%link',
-                                                                '<span class="meta-nav">' . __( 'Previous', 'visual-composer-starter' ) . '</span>
-                                                                <span class="screen-reader-text">' . __( 'Previous post:', 'visual-composer-starter' ) . '</span>
-                                                                <span class="post-title">%title</span>'
-                                                            );
-                                                        ?>
-                                                    </div><!--nav-previous-->
-                                                </div><!--.col-md-5-->
-                                                <div class="col-md-5 col-md-offset-2">
-                                                    <div class="nav-next">
-                                                        <?php
-                                                            echo get_next_post_link(
-                                                                '%link',
-                                                                '<span class="meta-nav">' . __( 'Next', 'visual-composer-starter' ) . '</span>
-                                                                <span class="screen-reader-text">' . __( 'Next post:', 'visual-composer-starter' ) . '</span>
-                                                                <span class="post-title">%title</span>'
-                                                            );
-                                                        ?>
-                                                    </div><!--.nav-next-->
-                                                </div><!--.col-md-5-->
-                                            </div><!--.row-->
-                                        </div><!--.nav-links post-navigation-->
-                                    <?php endif; ?>
-                            </div><!--.col-md-10-->
+                                        if ( is_singular( 'post' ) ): ?>
+                                            <div class="nav-links post-navigation">
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                        <div class="nav-previous">
+                                                            <?php
+                                                                echo get_previous_post_link(
+                                                                    '%link',
+                                                                    '<span class="meta-nav">' . __( 'Previous', 'visual-composer-starter' ) . '</span>
+                                                                    <span class="screen-reader-text">' . __( 'Previous post:', 'visual-composer-starter' ) . '</span>
+                                                                    <span class="post-title">%title</span>'
+                                                                );
+                                                            ?>
+                                                        </div><!--nav-previous-->
+                                                    </div><!--.col-md-5-->
+                                                    <div class="col-md-5 col-md-offset-2">
+                                                        <div class="nav-next">
+                                                            <?php
+                                                                echo get_next_post_link(
+                                                                    '%link',
+                                                                    '<span class="meta-nav">' . __( 'Next', 'visual-composer-starter' ) . '</span>
+                                                                    <span class="screen-reader-text">' . __( 'Next post:', 'visual-composer-starter' ) . '</span>
+                                                                    <span class="post-title">%title</span>'
+                                                                );
+                                                            ?>
+                                                        </div><!--.nav-next-->
+                                                    </div><!--.col-md-5-->
+                                                </div><!--.row-->
+                                            </div><!--.nav-links post-navigation-->
+                                        <?php endif; ?>
+                                </div><!--.col-md-10-->
+                            </div><!--.<?php echo vct_get_maincontent_block_class(); ?>-->
+                            <?php if ( vct_get_sidebar_class() ): ?>
+                                <?php get_sidebar(); ?>
+                            <?php endif; ?>
                         </div><!--.row-->
                     </article><!--.entry-full-content-->
                 </div><!--.main-content-->
