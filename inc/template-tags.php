@@ -125,6 +125,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_meta' ) ) :
 
             </li>
         </ul>
+        <?php
     }
 endif;
 
