@@ -14,6 +14,7 @@
     var $header = $('#header');
     var $footerRightBlock = $('.footer-right-block');
     var $footerLeftBlock = $('.footer-left-block');
+    var windowHeight, featuredImageHeight, navbarHeight;
 
     // Add dropdown toggle that displays child menu items.
     var $dropdownToggle = $('<button />', {
@@ -63,6 +64,22 @@
         $footerRightBlock.height($footerLeftBlock.height());
     }
 
+    $(window).on('load', function() {
+        //Full height featured images
+        if ($body.hasClass('featured-image-full-height')) {
+            windowHeight = $(window).height();
+            navbarHeight = $navBar.height();
+            if ($body.hasClass('navbar-no-background')) {
+                featuredImageHeight = windowHeight;
+            }
+            else {
+                featuredImageHeight = windowHeight - navbarHeight;
+            }
+            $('.header-image .fade-in-img').css({height: featuredImageHeight + 'px'})
+            $('.header-image .fade-in-img').addClass('cover-image');
+        }
+    });
+
     $(window).on('resize', function () {
         var $this = $(this);
         //Fixed header
@@ -79,6 +96,19 @@
         }
         else {
             $body.removeClass('mobile');
+        }
+
+        //Full height featured images
+        if ($body.hasClass('featured-image-full-height')) {
+            windowHeight = $(window).height();
+            navbarHeight = $navBar.height();
+            if ($body.hasClass('navbar-no-background')) {
+                featuredImageHeight = windowHeight;
+            }
+            else {
+                featuredImageHeight = windowHeight - navbarHeight;
+            }
+            $('.header-image').css({height: featuredImageHeight + 'px'})
         }
 
         // Footer social icons vertical align

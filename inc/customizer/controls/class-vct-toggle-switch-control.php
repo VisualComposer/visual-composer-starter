@@ -19,7 +19,9 @@ class VCT_Toggle_Switch_Control extends WP_Customize_Control {
      */
     public function enqueue() {
         wp_register_script( 'vct-toggle-switch-control', get_template_directory_uri() . '/js/control-toggle-switch.js', array( 'jquery' ), false, true );
+        wp_register_script( 'vct-select-control', get_template_directory_uri() . '/js/control-select.js', array( 'jquery' ), false, true );
         wp_enqueue_script( 'vct-toggle-switch-control' );
+        wp_enqueue_script( 'vct-select-control' );
         wp_register_style( 'vct-toggle-switch', get_template_directory_uri() . '/css/toggle-switch.css' );
         wp_enqueue_style( 'vct-toggle-switch' );
     }

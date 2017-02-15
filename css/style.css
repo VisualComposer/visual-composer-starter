@@ -267,9 +267,81 @@ body.menu-sandwich #main-menu ul.nav li {
 #main-menu > ul > li > .dropdown-toggle.open {
   padding: 10px 0 17px 0;
 }
+.cover-image {
+  position: relative;
+}
+.cover-image .fade-in-img-inner-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+.cover-image .fade-in-img-inner-wrap img {
+  position: absolute;
+  left: 50%;
+  width: auto;
+  height: auto;
+  max-height: none;
+  max-width: none;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+}
 .header-image img {
   width: 100%;
   height: auto;
+}
+.header-image .fade-in-img.cover-image {
+  position: relative;
+}
+.header-image .fade-in-img.cover-image .fade-in-img-inner-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+.header-image .fade-in-img.cover-image .fade-in-img-inner-wrap img {
+  position: absolute;
+  left: 50%;
+  width: auto;
+  height: auto;
+  max-height: none;
+  max-width: none;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+}
+body.featured-image-custom-height .header-image .fade-in-img {
+  position: relative;
+}
+body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-wrap img {
+  position: absolute;
+  left: 50%;
+  width: auto;
+  height: auto;
+  max-height: none;
+  max-width: none;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
 }
 .content-wrapper {
   padding: 45px 15px 1px 15px;

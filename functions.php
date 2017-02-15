@@ -10,9 +10,9 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
         /*
          * Define sidebars
          */
-        define( 'vct_page_sidebar',                     'vct_overall_site_page_sidebar' );
-        define( 'vct_post_sidebar',                     'vct_overall_site_post_sidebar' );
-        define( 'vct_archive_and_category_sidebar',     'vct_overall_site_aac_sidebar' );
+        define( 'VCT_PAGE_SIDEBAR',                     'vct_overall_site_page_sidebar' );
+        define( 'VCT_POST_SIDEBAR',                     'vct_overall_site_post_sidebar' );
+        define( 'VCT_ARCHIVE_AND_CATEGORY_SIDEBAR',     'vct_overall_site_aac_sidebar' );
 
         /*
          * Let WordPress manage the document title.
@@ -63,7 +63,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
                                 'left' =>  __( 'Left' ),
                                 'right' => __( 'Right' ),
                             ),
-                            'default_value' => get_theme_mod( vct_page_sidebar, 'none' ),
+                            'default_value' => get_theme_mod( VCT_PAGE_SIDEBAR, 'none' ),
                             'allow_null' => 0,
                             'multiple' => 0,
                         ),
@@ -113,7 +113,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
                                 'left' =>  __( 'Left' ),
                                 'right' => __( 'Right' ),
                             ),
-                            'default_value' => get_theme_mod( vct_post_sidebar, 'none' ),
+                            'default_value' => get_theme_mod( VCT_POST_SIDEBAR, 'none' ),
                             'allow_null' => 0,
                             'multiple' => 0,
                         ),
@@ -154,7 +154,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
         else
         {
 
-            add_action( 'admin_notices', 'sample_admin_notice__success' );
+            add_action( 'admin_notices', 'vct_admin_notice__success' );
         }
         /**
          * Customizer settings.
@@ -177,7 +177,7 @@ function visualcomposerstarter_enqueue_comments_reply() {
 }
 
 
-function sample_admin_notice__success() {
+function vct_admin_notice__success() {
     ?>
     <div class="notice notice-success">
         <p><?php _e( 'You need to install the <a href="https://wordpress.org/plugins/advanced-custom-fields/">Advanced Custom Fields</a> plugin to enable additional functionality.', 'sample-text-domain' ); ?></p>
@@ -338,6 +338,15 @@ function visualcomposerstarter_body_classes( $classes ) {
         $classes[] = 'content-full-width';
     }
 
+    //Height of featured image
+    if ( get_theme_mod( 'vct_overall_site_featured_image_height', 'auto' ) === 'full_height' ) {
+        $classes[] = 'featured-image-full-height';
+    }
+
+    if ( get_theme_mod( 'vct_overall_site_featured_image_height', 'auto' ) === 'custom' ) {
+        $classes[] = 'featured-image-custom-height';
+    }
+
     return $classes;
 }
 add_filter( 'body_class', 'visualcomposerstarter_body_classes' );
@@ -477,6 +486,15 @@ function vct_get_header_container_class () {
     }
 }
 
+function vct_get_header_image_container_class () {
+    if ( get_theme_mod( 'vct_overall_site_featured_image_width', 'full_width' ) === 'full_width' ) {
+        return 'container-fluid';
+    }
+    else {
+        return 'container';
+    }
+}
+
 function vct_get_content_container_class () {
     if( get_theme_mod( 'vct_content_area_size', 'boxed' ) === 'full_width' ) {
         return 'container-fluid';
@@ -488,21 +506,21 @@ function vct_get_content_container_class () {
 
 
 if( get_theme_mod( 'vct_overall_site_sidebar' ) ) {
-    set_theme_mod( vct_page_sidebar, get_theme_mod( 'vct_overall_site_sidebar' ) );
-    set_theme_mod( vct_post_sidebar, get_theme_mod( 'vct_overall_site_sidebar' ) );
+    set_theme_mod( VCT_PAGE_SIDEBAR, get_theme_mod( 'vct_overall_site_sidebar' ) );
+    set_theme_mod( VCT_POST_SIDEBAR, get_theme_mod( 'vct_overall_site_sidebar' ) );
     remove_theme_mod( 'vct_overall_site_sidebar' );
 }
 
 
 function vct_check_needed_sidebar() {
     if( is_page() ) {
-        return vct_page_sidebar;
+        return VCT_PAGE_SIDEBAR;
     }
     elseif( is_singular() ) {
-        return vct_post_sidebar;
+        return VCT_POST_SIDEBAR;
     }
     elseif( is_archive() || is_category() || is_front_page() ) {
-        return vct_archive_and_category_sidebar;
+        return VCT_ARCHIVE_AND_CATEGORY_SIDEBAR;
     }
     else
     {
@@ -513,16 +531,16 @@ function vct_check_needed_sidebar() {
 function vct_specify_sidebar() {
 
     if( is_page() ) {
-        $value = get_field( 'field_589f5a321f0bc' );
+        $value = function_exists( 'get_field' ) ? get_field( 'field_589f5a321f0bc' ) : null;
     }
     elseif( is_singular() ) {
-        $value = get_field( 'field_589f5b1d656ca' );
+        $value = function_exists( 'get_field' ) ? get_field( 'field_589f5b1d656ca' ) : null;
     }
     else {
         $value = null;
     }
 
-    $specify_setting = function_exists( 'get_field') ? $value : null;
+    $specify_setting = function_exists( 'get_field' ) ? $value : null;
 
     if( $specify_setting ) {
         return $specify_setting;
@@ -534,15 +552,21 @@ function vct_specify_sidebar() {
 }
 
 function vct_is_the_title_displayed() {
-    if( is_page() ) {
-        return (bool) ! get_field( 'field_589f55db2faa9' );
-    }
-    elseif( is_singular() ) {
-        return (bool) ! get_field( 'field_589f5b9a56207' );
+    if( function_exists( 'get_field' ) ) {
+        if( is_page() ) {
+            return (bool) ! get_field( 'field_589f55db2faa9' );
+        }
+        elseif( is_singular() ) {
+            return (bool) ! get_field( 'field_589f5b9a56207' );
+        }
+        else {
+            return true;
+        }
     }
     else {
         return true;
     }
+
 
 }
 
@@ -920,6 +944,20 @@ function visualcomposerstarter_inline_styles () {
         /*Header and menu area menu hover background color*/
         @media only screen and (min-width: 768px) { body:not(.menu-sandwich) #main-menu ul li ul li:hover > a { background-color: {$header_and_menu_area_menu_hover_background}; } }
         ";
+    }
+
+    // Featured image custom height
+
+    $vct_featured_image_custom_height = get_theme_mod ( 'vct_overall_site_featured_image_custom_height', '400px' );
+    if ( is_numeric( $vct_featured_image_custom_height ) ) {
+        $vct_featured_image_custom_height .= 'px';
+    }
+    if ( get_theme_mod ( 'vct_overall_site_featured_image_height', 'auto' ) === 'custom' ) {
+        $css .= '
+        /*Featured image custom height*/
+        .header-image .fade-in-img { height: ' . $vct_featured_image_custom_height . '; }
+        ';
+
     }
 
     $content_area_background = get_theme_mod( 'vct_overall_site_content_background', '#ffffff' );

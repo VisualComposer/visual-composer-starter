@@ -24,32 +24,43 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
             $post = get_post( get_the_ID() );
             remove_filter( 'the_content', 'wpautop' );
            ?>
-                <div class="video-wrapper">
-                    <?php echo apply_filters( 'the_content', $post->post_content ); ?>
+                <div class="<?php echo vct_get_header_image_container_class(); ?>">
+                    <div class="row">
+                        <div class="video-wrapper">
+                            <?php echo apply_filters( 'the_content', $post->post_content ); ?>
+                        </div>
+                    </div>
                 </div>
             <?php
 	        add_filter( 'the_content', 'wpautop' );
         }
         elseif( get_post_format() === 'gallery' ) {
             ?>
-            <div class="gallery-slider">
-                <?php
-                $gallery = get_post_gallery_images( get_the_ID() );
+            <div class="<?php echo vct_get_header_image_container_class(); ?>">
+                <div class="row">
+                    <div class="gallery-slider">
+                        <?php
+                        $gallery = get_post_gallery_images( get_the_ID() );
 
-                foreach ( $gallery as $key => $src ):
-                    ?>
-                    <div class="gallery-item">
-                        <div class="fade-in-img">
-                            <img src="<?php echo $src;?>" data-src="<?php echo $src;?>" alt="">
-                            <noscript>
-                                <img src="<?php echo $src;?>" alt="">
-                            </noscript>
-                        </div><!--.fade-in-img-->
-                    </div><!--.gallery-item-->
-                    <?php
-                endforeach;
-                ?>
-            </div><!--.gallery-slider-->
+                        foreach ( $gallery as $key => $src ):
+                            ?>
+                            <div class="gallery-item">
+                                <div class="fade-in-img">
+                                    <div class="fade-in-img-inner-wrap">
+                                        <img src="<?php echo $src;?>" data-src="<?php echo $src;?>" alt="">
+                                        <noscript>
+                                            <img src="<?php echo $src;?>" alt="">
+                                        </noscript>
+                                    </div>
+                                </div><!--.fade-in-img-->
+                            </div><!--.gallery-item-->
+                            <?php
+                        endforeach;
+                        ?>
+                    </div><!--.gallery-slider-->
+                </div>
+            </div>
+
             <?php
         }
         elseif( post_password_required() || is_attachment() || ! has_post_thumbnail() || ! get_theme_mod( 'vct_overall_site_featured_image', true ) ) {
@@ -57,12 +68,18 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
         }
         else {
             ?>
-            <div class="fade-in-img">
-                <img src="<?php the_post_thumbnail_url(); ?>" data-src="<?php the_post_thumbnail_url() ?>"
-                     alt="<?php the_title() ?>">
-                <noscript>
-                    <?php the_post_thumbnail(); ?>
-                </noscript>
+            <div class="<?php echo vct_get_header_image_container_class(); ?>">
+                <div class="row">
+                    <div class="fade-in-img">
+                        <div class="fade-in-img-inner-wrap">
+                            <img src="<?php the_post_thumbnail_url(); ?>" data-src="<?php the_post_thumbnail_url() ?>"
+                                 alt="<?php the_title() ?>">
+                            <noscript>
+                                <?php the_post_thumbnail(); ?>
+                            </noscript>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <?php
@@ -108,7 +125,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_meta' ) ) :
 
             </li>
         </ul>
-        <?php
+        <?
     }
 endif;
 
@@ -127,7 +144,7 @@ if ( ! function_exists( 'visualcomposerstarter_single_meta' ) ) :
             <?php echo _x( 'to', 'Post meta' ); ?>
             <?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?>
         </div>
-        <?php
+        <?
     }
 endif;
 

@@ -90,11 +90,20 @@ class VCT_Customizer {
         $this->scripts( $wp_customize );
 
     }
+    public function sanitize_custom_height( $height ) {
+        $matches = null;
+        preg_match('/^(([0-9]+)px|[0-9]+)$/', $height, $matches);
 
+        if( (bool) $matches ) {
+            return $height;
+        }
+       
+        return null;
+    }
     public function sanitize_checkbox( $input ) {
         return ( $input === true ) ? true : false;
     }
-    function sanitize_textarea( $text ) {
+    public function sanitize_textarea( $text ) {
         return esc_textarea( $text );
     }
     public function sanitize_url( $input ) {
@@ -133,15 +142,28 @@ class VCT_Customizer {
             'sanitize_callback' => array( $this, 'sanitize_checkbox' )
         ) );
 
-        $wp_customize->add_setting( vct_page_sidebar,  array(
+        $wp_customize->add_setting( 'vct_overall_site_featured_image_width',  array(
+            'default' => 'full_width',
+        ) );
+
+        $wp_customize->add_setting( 'vct_overall_site_featured_image_height',  array(
+            'default' => 'auto',
+        ) );
+
+        $wp_customize->add_setting( 'vct_overall_site_featured_image_custom_height', array(
+            'default'                   => '400px',
+            'sanitize_callback'         =>  array( $this, 'sanitize_custom_height' ),
+        ) );
+
+        $wp_customize->add_setting( VCT_PAGE_SIDEBAR,  array(
             'default'       => 'none',
         ) );
         
-        $wp_customize->add_setting( vct_post_sidebar,  array(
+        $wp_customize->add_setting( VCT_POST_SIDEBAR,  array(
             'default'       => 'none',
         ) );
 
-        $wp_customize->add_setting( vct_archive_and_category_sidebar,  array(
+        $wp_customize->add_setting( VCT_ARCHIVE_AND_CATEGORY_SIDEBAR,  array(
             'default'       => 'none',
         ) );
 
@@ -166,16 +188,61 @@ class VCT_Customizer {
                     'settings'      => 'vct_overall_site_featured_image',
                 ) )
         );
-        
+
         $wp_customize->add_control(
             new WP_Customize_Control(
                 $wp_customize,
-                vct_page_sidebar,
+                'vct_overall_site_featured_image_width',
+                array(
+                    'type'          => 'select',
+                    'label'         => __( 'Featured Image Width', 'visual-composer-starter' ),
+                    'section'       => 'vct_overall_site',
+                    'settings'      => 'vct_overall_site_featured_image_width',
+                    'choices'       => array(
+                        'full_width'    => __( 'Full width (default)', 'visual-composer-starter' ),
+                        'boxed'         => __( 'Boxed', 'visual-composer-starter' ),
+                    )
+                ) )
+        );
+
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                'vct_overall_site_featured_image_height',
+                array(
+                    'type'          => 'select',
+                    'label'         => __( 'Featured Image Height', 'visual-composer-starter' ),
+                    'section'       => 'vct_overall_site',
+                    'settings'      => 'vct_overall_site_featured_image_height',
+                    'choices'       => array(
+                        'auto'              => __( 'Auto (default)', 'visual-composer-starter' ),
+                        'full_height'       => __( 'Full height', 'visual-composer-starter' ),
+                        'custom'            => __( 'Custom', 'visual-composer-starter' ),
+                    )
+                ) )
+        );
+
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                'vct_overall_site_featured_image_custom_height',
+                array(
+                    'label'                     => __( 'Custom Height', 'visual-composer-starter' ),
+                    'description'               => __( 'Please specify featured image height in pixels (ex. 400px).', 'visual-composer-starter' ),
+                    'section'                   => 'vct_overall_site',
+                    'settings'                  => 'vct_overall_site_featured_image_custom_height',
+                ) )
+        );
+
+        $wp_customize->add_control(
+            new WP_Customize_Control(
+                $wp_customize,
+                VCT_PAGE_SIDEBAR,
                 array(
                     'type'          => 'select',
                     'label'         => __( 'Page Sidebar Position', 'visual-composer-starter' ),
                     'section'       => 'vct_overall_site',
-                    'settings'      => vct_page_sidebar,
+                    'settings'      => VCT_PAGE_SIDEBAR,
                     'choices'       => array(
                         'none'  => __( 'None (default)', 'visual-composer-starter' ),
                         'left'  => __( 'Left', 'visual-composer-starter' ),
@@ -187,12 +254,12 @@ class VCT_Customizer {
         $wp_customize->add_control(
             new WP_Customize_Control(
                 $wp_customize,
-                vct_post_sidebar,
+                VCT_POST_SIDEBAR,
                 array(
                     'type'          => 'select',
                     'label'         => __( 'Post Sidebar Position', 'visual-composer-starter' ),
                     'section'       => 'vct_overall_site',
-                    'settings'      => vct_post_sidebar,
+                    'settings'      => VCT_POST_SIDEBAR,
                     'choices'       => array(
                         'none'  => __( 'None (default)', 'visual-composer-starter' ),
                         'left'  => __( 'Left', 'visual-composer-starter' ),
@@ -204,12 +271,12 @@ class VCT_Customizer {
         $wp_customize->add_control(
             new WP_Customize_Control(
                 $wp_customize,
-                vct_archive_and_category_sidebar,
+                VCT_ARCHIVE_AND_CATEGORY_SIDEBAR,
                 array(
                     'type'          => 'select',
                     'label'         => __( 'Archive/Category Sidebar Position', 'visual-composer-starter' ),
                     'section'       => 'vct_overall_site',
-                    'settings'      => vct_archive_and_category_sidebar,
+                    'settings'      => VCT_ARCHIVE_AND_CATEGORY_SIDEBAR,
                     'choices'       => array(
                         'none'  => __( 'None (default)', 'visual-composer-starter' ),
                         'left'  => __( 'Left', 'visual-composer-starter' ),

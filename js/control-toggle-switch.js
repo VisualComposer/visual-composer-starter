@@ -37,6 +37,20 @@
         $('#customize-control-vct_footer_area_widgetized_columns').show();
     }
 
+    function hideFeaturedImageSettings() {
+        $('#customize-control-vct_overall_site_featured_image_width').hide();
+        $('#customize-control-vct_overall_site_featured_image_height').hide();
+        $('#customize-control-vct_overall_site_featured_image_custom_height').hide();
+    }
+
+    function showFeaturedImageSettings() {
+        $('#customize-control-vct_overall_site_featured_image_width').show();
+        $('#customize-control-vct_overall_site_featured_image_height').show();
+        if ($('select[data-customize-setting-link="vct_overall_site_featured_image_height"]').val() === 'custom') {
+            $('#customize-control-vct_overall_site_featured_image_custom_height').show();
+        }
+    }
+
     wp.customize.controlConstructor['toggle-switch'] = wp.customize.Control.extend({
         ready: function () {
             var control = this;
@@ -64,7 +78,22 @@
                         showNumberOfColumns();
                     }
                 }
-
+                if ($this.attr('id') === 'vct_overall_site_featured_image') {
+                    if (!value) {
+                        hideFeaturedImageSettings();
+                    }
+                    else {
+                        showFeaturedImageSettings();
+                    }
+                }
+                if ($this.attr('id') === 'vct_overall_site_featured_image_height') {
+                    if (!value) {
+                        hideFeaturedImageSettings();
+                    }
+                    else {
+                        showFeaturedImageSettings();
+                    }
+                }
                 control.setting.set(value);
                 // refresh the preview
                 wp.customize.previewer.refresh();
@@ -79,6 +108,9 @@
         }
         if (!isToggleTrue('#vct_footer_area_widget_area')) {
             hideNumberOfColumns();
+        }
+        if (!isToggleTrue('#vct_overall_site_featured_image')) {
+            hideFeaturedImageSettings();
         }
     });
 })(window.jQuery);
