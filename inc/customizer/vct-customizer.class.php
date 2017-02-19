@@ -74,7 +74,7 @@ class VCT_Customizer {
             'title'             => __( 'Fonts & Style', 'visual-composer-starter' ),
         ) );
         $wp_customize->add_section( 'vct_scripts', array(
-            'priority'          => 105,
+            'priority'          => 999,
             'capability'        => 'edit_theme_options',
             'theme_supports'    => '',
             'title'             => __( 'Scripts', 'visual-composer-starter' ),

@@ -41,121 +41,135 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
         add_action( 'comment_form_before', 'visualcomposerstarter_enqueue_comments_reply' );
 
 
+
         /*
          * ACF Integration
          */
-        if( class_exists('acf') ) {
 
-            if( function_exists( 'register_field_group') )
-            {
-                register_field_group(array (
-                    'id' => 'acf_page-options',
-                    'title' => __( 'Page Options' ),
-                    'fields' => array (
-                        array (
-                            'key' => 'field_589f5a321f0bc',
-                            'label' => __( 'Sidebar Position' ),
-                            'name' => 'sidebar_position',
-                            'type' => 'select',
-                            'instructions' => __(  'Select specific sidebar position.' ),
-                            'choices' => array (
-                                'none' => __( 'None' ),
-                                'left' =>  __( 'Left' ),
-                                'right' => __( 'Right' ),
-                            ),
-                            'default_value' => get_theme_mod( VCT_PAGE_SIDEBAR, 'none' ),
-                            'allow_null' => 0,
-                            'multiple' => 0,
-                        ),
-                        array (
-                            'key' => 'field_589f55db2faa9',
-                            'label' => __( 'Hide Page title' ),
-                            'name' => 'hide_page_title',
-                            'type' => 'checkbox',
-                            'choices' => array (
-                                1 => __( 'Yes' ),
-                            ),
-                            'default_value' => '',
-                            'layout' => 'vertical',
-                        ),
-                    ),
-                    'location' => array (
-                        array (
-                            array (
-                                'param' => 'post_type',
-                                'operator' => '==',
-                                'value' => 'page',
-                                'order_no' => 0,
-                                'group_no' => 0,
-                            ),
-                        ),
-                    ),
-                    'options' => array (
-                        'position' => 'side',
-                        'layout' => 'default',
-                        'hide_on_screen' => array (
-                        ),
-                    ),
-                    'menu_order' => 0,
-                ));
-                register_field_group(array (
-                    'id' => 'acf_post-options',
-                    'title' => __( 'Post Options' ),
-                    'fields' => array (
-                        array (
-                            'key' => 'field_589f5b1d656ca',
-                            'label' => __( 'Sidebar Position' ),
-                            'name' => 'sidebar_position',
-                            'type' => 'select',
-                            'instructions' => __( 'Select specific sidebar position.' ),
-                            'choices' => array (
-                                'none' => __( 'None' ),
-                                'left' =>  __( 'Left' ),
-                                'right' => __( 'Right' ),
-                            ),
-                            'default_value' => get_theme_mod( VCT_POST_SIDEBAR, 'none' ),
-                            'allow_null' => 0,
-                            'multiple' => 0,
-                        ),
-                        array (
-                            'key' => 'field_589f5b9a56207',
-                            'label' => __( 'Hide Post title' ),
-                            'name' => 'hide_page_title',
-                            'type' => 'checkbox',
-                            'choices' => array (
-                                1 => __( 'Yes' ),
-                            ),
-                            'default_value' => '',
-                            'layout' => 'vertical',
-                        ),
-                    ),
-                    'location' => array (
-                        array (
-                            array (
-                                'param' => 'post_type',
-                                'operator' => '==',
-                                'value' => 'post',
-                                'order_no' => 0,
-                                'group_no' => 0,
-                            ),
-                        ),
-                    ),
-                    'options' => array (
-                        'position' => 'side',
-                        'layout' => 'default',
-                        'hide_on_screen' => array (
-                        ),
-                    ),
-                    'menu_order' => 0,
-                ));
-            }
+        include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
+        if( ! array_key_exists( 'advanced-custom-fields/acf.php', get_plugins() ) ) {
+            add_action( 'admin_notices', 'vct_acf_admin_notice__install' );
         }
         else
         {
-
-            add_action( 'admin_notices', 'vct_admin_notice__success' );
+            if( is_plugin_inactive( 'advanced-custom-fields/acf.php' ) ) {
+                add_action( 'admin_notices', 'vct_acf_admin_notice__activate' );
+            }
+            else
+            {
+                $acf_info = get_plugin_data( ABSPATH . 'wp-content/plugins/advanced-custom-fields/acf.php' );
+                if ( version_compare( $acf_info['Version'], '4.1.0', '<' ) ) {
+                    add_action( 'admin_notices', 'vct_acf_admin_notice__update' );
+                }
+                else
+                {
+                    if ( function_exists( 'register_field_group' ) ) {
+                        register_field_group(array(
+                            'id' => 'acf_page-options',
+                            'title' => __('Page Options'),
+                            'fields' => array(
+                                array(
+                                    'key' => 'field_589f5a321f0bc',
+                                    'label' => __('Sidebar Position'),
+                                    'name' => 'sidebar_position',
+                                    'type' => 'select',
+                                    'instructions' => __('Select specific sidebar position.'),
+                                    'choices' => array(
+                                        'none' => __('None'),
+                                        'left' => __('Left'),
+                                        'right' => __('Right'),
+                                    ),
+                                    'default_value' => get_theme_mod(VCT_PAGE_SIDEBAR, 'none'),
+                                    'allow_null' => 0,
+                                    'multiple' => 0,
+                                ),
+                                array(
+                                    'key' => 'field_589f55db2faa9',
+                                    'label' => __('Hide Page Title'),
+                                    'name' => 'hide_page_title',
+                                    'type' => 'checkbox',
+                                    'choices' => array(
+                                        1 => __('Yes'),
+                                    ),
+                                    'default_value' => '',
+                                    'layout' => 'vertical',
+                                ),
+                            ),
+                            'location' => array(
+                                array(
+                                    array(
+                                        'param' => 'post_type',
+                                        'operator' => '==',
+                                        'value' => 'page',
+                                        'order_no' => 0,
+                                        'group_no' => 0,
+                                    ),
+                                ),
+                            ),
+                            'options' => array(
+                                'position' => 'side',
+                                'layout' => 'default',
+                                'hide_on_screen' => array(),
+                            ),
+                            'menu_order' => 0,
+                        ));
+                        register_field_group(array(
+                            'id' => 'acf_post-options',
+                            'title' => __('Post Options'),
+                            'fields' => array(
+                                array(
+                                    'key' => 'field_589f5b1d656ca',
+                                    'label' => __('Sidebar Position'),
+                                    'name' => 'sidebar_position',
+                                    'type' => 'select',
+                                    'instructions' => __('Select specific sidebar position.'),
+                                    'choices' => array(
+                                        'none' => __('None'),
+                                        'left' => __('Left'),
+                                        'right' => __('Right'),
+                                    ),
+                                    'default_value' => get_theme_mod(VCT_POST_SIDEBAR, 'none'),
+                                    'allow_null' => 0,
+                                    'multiple' => 0,
+                                ),
+                                array(
+                                    'key' => 'field_589f5b9a56207',
+                                    'label' => __('Hide Post Title'),
+                                    'name' => 'hide_page_title',
+                                    'type' => 'checkbox',
+                                    'choices' => array(
+                                        1 => __('Yes'),
+                                    ),
+                                    'default_value' => '',
+                                    'layout' => 'vertical',
+                                ),
+                            ),
+                            'location' => array(
+                                array(
+                                    array(
+                                        'param' => 'post_type',
+                                        'operator' => '==',
+                                        'value' => 'post',
+                                        'order_no' => 0,
+                                        'group_no' => 0,
+                                    ),
+                                ),
+                            ),
+                            'options' => array(
+                                'position' => 'side',
+                                'layout' => 'default',
+                                'hide_on_screen' => array(),
+                            ),
+                            'menu_order' => 0,
+                        ));
+                    }
+                }
+            }
         }
+
+
+
         /**
          * Customizer settings.
          */
@@ -177,10 +191,24 @@ function visualcomposerstarter_enqueue_comments_reply() {
 }
 
 
-function vct_admin_notice__success() {
+function vct_acf_admin_notice__install() {
     ?>
     <div class="notice notice-success">
-        <p><?php _e( 'You need to install the <a href="https://wordpress.org/plugins/advanced-custom-fields/">Advanced Custom Fields</a> plugin to enable additional functionality.', 'sample-text-domain' ); ?></p>
+        <p><?php _e( 'In order to access full theme options, please make sure to install <a href="https://wordpress.org/plugins/advanced-custom-fields/" target="_blank">Advanced Custom Fields</a>', 'visual-composer-starter' ); ?></p>
+    </div>
+    <?php
+}
+function vct_acf_admin_notice__activate() {
+    ?>
+    <div class="notice notice-success">
+        <p><?php _e( 'In order to access full theme options, please make sure to activate <a href="' . admin_url( 'plugins.php' ) . '">Advanced Custom Fields</a>', 'visual-composer-starter' ); ?></p>
+    </div>
+    <?php
+}
+function vct_acf_admin_notice__update() {
+    ?>
+    <div class="notice notice-success">
+        <p><?php _e( 'In order to access full theme options, please make sure to update <a href="' . admin_url( 'plugins.php' ) . '">Advanced Custom Fields</a>', 'visual-composer-starter' ); ?></p>
     </div>
     <?php
 }
@@ -431,18 +459,18 @@ function visual_composer_starter_all_widgets() {
     /**
      * Register all zones for availability in customizer
      */
-        register_sidebar(
-            vct_footer_1()
-        );
-        register_sidebar(
-            vct_footer_2()
-        );
-        register_sidebar(
-            vct_footer_3()
-        );
-        register_sidebar(
-            vct_footer_4()
-        );
+    register_sidebar(
+        vct_footer_1()
+    );
+    register_sidebar(
+        vct_footer_2()
+    );
+    register_sidebar(
+        vct_footer_3()
+    );
+    register_sidebar(
+        vct_footer_4()
+    );
 }
 function visual_composer_starter_widgets() {
     unregister_sidebar( 'footer' );
@@ -519,7 +547,7 @@ function vct_check_needed_sidebar() {
     elseif( is_singular() ) {
         return VCT_POST_SIDEBAR;
     }
-    elseif( is_archive() || is_category() || is_front_page() ) {
+    elseif( is_archive() || is_category() || is_search() || is_front_page() ) {
         return VCT_ARCHIVE_AND_CATEGORY_SIDEBAR;
     }
     else
