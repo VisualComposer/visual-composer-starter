@@ -67,7 +67,7 @@
             <div class="footer-left-block">
                 <p class="copyright">
                     <span>Copyright &copy; <?php echo date( 'Y' ) ?> <?php bloginfo( 'name' ) ?>. All Rights Reserved.</span>
-                    <span>Proudly powered by <a href="http://visualcomposer.io">Visual Composer</a> and <a href="https://wordpress.org">WordPress</a></span>
+                    <span>Proudly powered by <a href="http://visualcomposer.io/?utm_campaign=vc-theme&utm_source=vc-theme-front&utm_medium=vc-theme-footer">Visual Composer</a> and <a href="https://wordpress.org">WordPress</a></span>
                 </p>
                 <?php if ( has_nav_menu( 'secondary' ) ) : ?>
                     <div class="footer-menu">

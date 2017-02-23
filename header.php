@@ -22,7 +22,7 @@
                                 <img src="<?php echo $custom_logo[0] ?>" alt="<?php bloginfo( 'name' ) ?>">
                             </a>
                         <?php else: ?>
-                            <a href="http://visualcomposer.io" title="alt="<?php _e( 'Visual Composer Starter', 'visual-composer-starter' ) ?>">
+                            <a href="http://visualcomposer.io/?utm_campaign=vc-theme&utm_source=vc-theme-front&utm_medium=vc-theme-header" title="alt="<?php _e( 'Visual Composer Starter', 'visual-composer-starter' ) ?>">
                                 <img width="50" height="49" src="<?php echo get_template_directory_uri() ?>/images/vct-logo.svg" alt="<?php _e( 'Visual Composer Starter', 'visual-composer-starter' ) ?>">
                             </a>
                         <?php endif; ?>
