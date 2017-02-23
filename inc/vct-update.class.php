@@ -14,8 +14,6 @@ class VCT_Update {
 	}
 
 	public function checkForUpdates( $transient ) {
-
-		// return $transient;
 		// Extra check for 3rd plugins
 		if ( isset( $transient->response[ VCT_SLUG ] ) ) {
 			return $transient;
