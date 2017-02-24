@@ -1,7 +1,7 @@
 <?php
 /** Slug used in update mechanism */
 define( 'VCT_SLUG', basename( get_template_directory() ) );
-define( 'VCT_VERSION', '1.0' );
+define( 'VCT_VERSION', '1.1' );
 
 if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 
