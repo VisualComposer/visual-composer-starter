@@ -1,4 +1,8 @@
 <?php
+/** Slug used in update mechanism */
+define( 'VCT_SLUG', basename( get_template_directory() ) );
+define( 'VCT_VERSION', '1.1' );
+
 if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 
     function visualcomposerstarter_setup() {
@@ -175,8 +179,10 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
          */
         require get_template_directory() . '/inc/customizer/vct-fonts.class.php';
         require get_template_directory() . '/inc/customizer/vct-customizer.class.php';
+        require get_template_directory() . '/inc/vct-update.class.php';
         new VCT_Fonts();
         new VCT_Customizer();
+        new VCT_Update();
 
 
     }
