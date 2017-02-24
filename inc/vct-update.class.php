@@ -1,7 +1,7 @@
 <?php
 
 class VCT_Update {
-	protected $updatePath = '';
+	protected $updatePath = 'http://updates.wpbakery.com/theme/index.html';
 
 	public function __construct() {
 		/** @see \VCT_Update::checkForUpdates */
@@ -25,8 +25,8 @@ class VCT_Update {
 			$theme                           = array();
 			$theme['theme']                  = VCT_SLUG;
 			$theme['new_version']            = $version;
-			$theme['url']                    = 'url-to-theme-description';
-			$theme['package']                = 'url-to-zip';
+			$theme['url']                    = 'http://updates.wpbakery.com/theme/changes.html';
+			$theme['package']                = 'http://updates.wpbakery.com/theme/visual-composer-theme.zip';
 			$transient->response[ VCT_SLUG ] = $theme;
 
 		}
