@@ -382,6 +382,14 @@ function visualcomposerstarter_body_classes( $classes ) {
         $classes[] = 'content-full-width';
     }
 
+    // Width of footer-area
+    if ( get_theme_mod( 'vct_footer_width', 'boxed' ) === 'full_width' ) {
+        $classes[] = 'footer-full-width';
+    }
+	elseif ( get_theme_mod( 'vct_footer_width', 'boxed' ) === 'full_width_boxed' ) {
+        $classes[] = 'footer-full-width-boxed';
+    }
+
     //Height of featured image
     if ( get_theme_mod( 'vct_overall_site_featured_image_height', 'auto' ) === 'full_height' ) {
         $classes[] = 'featured-image-full-height';
@@ -518,7 +526,6 @@ function visual_composer_starter_widgets() {
             );
         }
     }
-
 }
 
 function vct_get_header_container_class () {
@@ -548,6 +555,15 @@ function vct_get_content_container_class () {
     }
 }
 
+
+function vct_get_footer_container_class () {
+    if ( get_theme_mod( 'vct_footer_width', 'boxed' ) === 'full_width' ) {
+        return 'container-fluid';
+    }
+    else {
+        return 'container';
+    }
+}
 
 if( get_theme_mod( 'vct_overall_site_sidebar' ) ) {
     set_theme_mod( VCT_PAGE_SIDEBAR, get_theme_mod( 'vct_overall_site_sidebar' ) );

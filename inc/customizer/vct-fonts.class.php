@@ -5877,6 +5877,16 @@ Class VCT_Fonts {
                     'latin-ext',
                 ),
             ),
+            'Rubik' => array(
+                'label'    => 'Rubik',
+                'variants' => array(
+                    '400',
+                ),
+                'subsets' => array(
+                    'latin',
+                    'latin-ext',
+                ),
+            ),
             'Rubik One' => array(
                 'label'    => 'Rubik One',
                 'variants' => array(
