@@ -52,17 +52,27 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 
         include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-        if( ! array_key_exists( 'advanced-custom-fields/acf.php', get_plugins() ) ) {
+        if( ! array_key_exists( 'advanced-custom-fields/acf.php', get_plugins() ) and ! array_key_exists( 'advanced-custom-fields-pro/acf.php', get_plugins() ) ) {
             add_action( 'admin_notices', 'vct_acf_admin_notice__install' );
         }
         else
         {
-            if( is_plugin_inactive( 'advanced-custom-fields/acf.php' ) ) {
+            if (array_key_exists( 'advanced-custom-fields/acf.php', get_plugins())) {
+                $acf_installed_version = 'advanced-custom-fields';
+            }
+
+            if (array_key_exists( 'advanced-custom-fields-pro/acf.php', get_plugins())) {
+                $acf_installed_version = 'advanced-custom-fields-pro';
+            }
+
+
+            if( is_plugin_inactive($acf_installed_version . '/acf.php' ) ) {
                 add_action( 'admin_notices', 'vct_acf_admin_notice__activate' );
             }
             else
             {
-                $acf_info = get_plugin_data( ABSPATH . 'wp-content/plugins/advanced-custom-fields/acf.php' );
+                $acf_info = get_plugin_data(WP_PLUGIN_DIR . '/' . $acf_installed_version . '/acf.php' );
+
                 if ( version_compare( $acf_info['Version'], '4.1.0', '<' ) ) {
                     add_action( 'admin_notices', 'vct_acf_admin_notice__update' );
                 }
