@@ -57,18 +57,23 @@ class VCT_Customizer {
             'priority'          => 101,
             'capability'        => 'edit_theme_options',
         ) );
+        $wp_customize->add_section( 'vct_content_area', array(
+            'title'             => __( 'Content', 'visual-composer-starter' ),
+            'priority'          => 102,
+            'capability'        => 'edit_theme_options',
+        ) );
         $wp_customize->add_section( 'vct_header_and_menu_area', array(
             'title'             => __( 'Header', 'visual-composer-starter' ),
-            'priority'          => 102,
+            'priority'          => 103,
             'capability'        => 'edit_theme_options',
         ) );
         $wp_customize->add_section( 'vct_footer_area', array(
             'title'             => __( 'Footer', 'visual-composer-starter' ),
-            'priority'          => 103,
+            'priority'          => 104,
             'capability'        => 'edit_theme_options',
         ) );
         $wp_customize->add_panel( 'vct_fonts_and_style', array(
-            'priority'          => 104,
+            'priority'          => 105,
             'capability'        => 'edit_theme_options',
             'theme_supports'    => '',
             'title'             => __( 'Fonts & Style', 'visual-composer-starter' ),
