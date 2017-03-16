@@ -180,6 +180,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
         require get_template_directory() . '/inc/customizer/vct-fonts.class.php';
         require get_template_directory() . '/inc/customizer/vct-customizer.class.php';
         require get_template_directory() . '/inc/vct-update.class.php';
+        require get_template_directory() . '/inc/hooks.php';
         new VCT_Fonts();
         new VCT_Customizer();
         new VCT_Update();
