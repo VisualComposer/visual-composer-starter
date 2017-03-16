@@ -344,13 +344,13 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   -webkit-transform: translate(-50%, 0);
 }
 .content-wrapper {
-  padding: 45px 15px 1px 15px;
+  padding: 0;
   margin: 0 -15px;
   overflow-wrap: break-word;
   background-color: #fff;
 }
 .main-content {
-  padding-bottom: 40px;
+  padding-bottom: 0;
 }
 .entry-full-content .entry-author-data {
   text-align: center;

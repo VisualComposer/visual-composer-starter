@@ -6,7 +6,7 @@
         $footer_columns_width = 12 / $footer_columns;
     ?>
             <div class="footer-widget-area">
-                <div class="<?php echo vct_get_content_container_class(); ?>">
+                <div class="<?php echo vct_get_footer_container_class(); ?>">
                     <div class="row">
                         <div class="col-md-<?php echo $footer_columns_width; ?>">
                             <?php if ( is_active_sidebar( 'footer' )  ) : ?>
@@ -25,7 +25,7 @@
         </div>
     <?php endif; ?>
     <div class="footer-bottom">
-        <div class="<?php echo vct_get_content_container_class(); ?>">
+        <div class="<?php echo vct_get_footer_container_class(); ?>">
             <?php if( get_theme_mod( 'vct_footer_area_social_icons', false ) ): ?>
                 <div class="footer-right-block">
                     <div class="footer-socials">
@@ -68,7 +68,6 @@
             <div class="footer-left-block">
                 <p class="copyright">
                     <span>Copyright &copy; <?php echo date( 'Y' ) ?> <?php bloginfo( 'name' ) ?>. All Rights Reserved.</span>
-                    <span>Proudly powered by <a href="http://visualcomposer.io/?utm_campaign=vc-theme&utm_source=vc-theme-front&utm_medium=vc-theme-footer">Visual Composer</a> and <a href="https://wordpress.org">WordPress</a></span>
                 </p>
                 <?php if ( has_nav_menu( 'secondary' ) ) : ?>
                     <div class="footer-menu">
