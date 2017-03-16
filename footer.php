@@ -1,3 +1,4 @@
+<?php vct_hook_before_footer(); ?>
 <footer id="footer">
     <?php
     if ( get_theme_mod( 'vct_footer_area_widget_area', false ) ):
@@ -84,6 +85,7 @@
     </div>
     <?php echo get_theme_mod( 'vct_scripts_footer', '' );?>
 </footer>
+<?php vct_hook_after_footer(); ?>
 <?php wp_footer(); ?>
 </body>
 </html>
