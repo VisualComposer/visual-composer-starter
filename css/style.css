@@ -1073,6 +1073,24 @@ h6 {
   border-bottom-color: transparent;
   color: #557cbf;
 }
+.entry-content p a.image-link,
+.comment-content p a.image-link,
+.entry-content ol a.image-link,
+.comment-content ol a.image-link,
+.entry-content ul a.image-link,
+.comment-content ul a.image-link,
+.entry-content table a.image-link,
+.comment-content table a.image-link,
+.entry-content datalist a.image-link,
+.comment-content datalist a.image-link,
+.entry-content blockquote a.image-link,
+.comment-content blockquote a.image-link,
+.entry-content dl a.image-link,
+.comment-content dl a.image-link,
+.entry-content address a.image-link,
+.comment-content address a.image-link {
+  border-bottom: none;
+}
 .entry-content ol ol,
 .comment-content ol ol,
 .entry-content ul ul,

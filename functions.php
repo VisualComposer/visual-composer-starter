@@ -44,8 +44,6 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
          */
         add_action( 'comment_form_before', 'visualcomposerstarter_enqueue_comments_reply' );
 
-
-
         /*
          * ACF Integration
          */
@@ -385,6 +383,24 @@ function visualcomposerstarter_body_classes( $classes ) {
     return $classes;
 }
 add_filter( 'body_class', 'visualcomposerstarter_body_classes' );
+
+/**
+ * Give linked images class
+ *
+ * @since Visual Composer Starter 1.2
+ */
+function visualcomposerstarter_give_linked_images_class( $html, $id, $caption, $title, $align, $url, $size, $alt = '' ) {
+    $classes = 'image-link'; // separated by spaces, e.g. 'img image-link'
+
+    // check if there are already classes assigned to the anchor
+    if ( preg_match('/<a.*? class=".*?">/', $html) ) {
+        $html = preg_replace('/(<a.*? class=".*?)(".*?>)/', '$1 ' . $classes . '$2', $html);
+    } else {
+        $html = preg_replace('/(<a.*?)>/', '$1 class="' . $classes . '" >', $html);
+    }
+    return $html;
+}
+add_filter( 'the_content', 'visualcomposerstarter_give_linked_images_class' );
 
 /*
  * Register sidebars
