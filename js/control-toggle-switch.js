@@ -1,6 +1,7 @@
 (function( $ ) {
+    
     // Available social icons
-    var vct_social_icons = [
+    var vctSocialIcons = [
         'facebook',
         'twitter',
         'linkedin',
@@ -13,17 +14,17 @@
         'email'
     ];
     function isToggleTrue( el ) {
-        return $(el).prop('checked');
+        return $( el ).prop( 'checked' );
     }
 
     function hideSocialIcons() {
-        $.each( vct_social_icons, function( key, icon ) {
+        $.each( vctSocialIcons, function( key, icon ) {
             $( '#customize-control-vct_footer_area_social_link_' + icon ).hide();
         });
     }
 
     function showSocialIcons() {
-        $.each( vct_social_icons, function( key, icon ) {
+        $.each( vctSocialIcons, function( key, icon ) {
             $( '#customize-control-vct_footer_area_social_link_' + icon ).show();
         });
     }
@@ -59,38 +60,39 @@
              * Social Icons
              */
             this.container.on( 'change', 'input:checkbox', function() {
-                value = isToggleTrue( this );
                 var $this = $( this );
+                value = isToggleTrue( this );
                 if ( $this.attr( 'id' ) === 'vct_footer_area_social_icons' ) {
-                    if ( !value ) {
+                    if ( ! value ) {
                         hideSocialIcons();
                     } else {
                         showSocialIcons();
                     }
                 }
                 if ( $this.attr( 'id' ) === 'vct_footer_area_widget_area' ) {
-                    if ( !value ) {
+                    if ( ! value ) {
                         hideNumberOfColumns();
                     } else {
                         showNumberOfColumns();
                     }
                 }
                 if ( $this.attr( 'id' ) === 'vct_overall_site_featured_image' ) {
-                    if ( !value ) {
+                    if ( ! value ) {
                         hideFeaturedImageSettings();
                     } else {
                         showFeaturedImageSettings();
                     }
                 }
                 if ( $this.attr( 'id' ) === 'vct_overall_site_featured_image_height' ) {
-                    if ( !value ) {
+                    if ( ! value ) {
                         hideFeaturedImageSettings();
                     } else {
                         showFeaturedImageSettings();
                     }
                 }
                 control.setting.set( value );
-                // refresh the preview
+
+                // Refresh the preview
                 wp.customize.previewer.refresh();
             });
         }
@@ -98,13 +100,13 @@
     });
 
     $( document ).ready( function() {
-        if ( !isToggleTrue( '#vct_footer_area_social_icons' ) ) {
+        if ( ! isToggleTrue( '#vct_footer_area_social_icons' ) ) {
             hideSocialIcons();
         }
-        if ( !isToggleTrue('#vct_footer_area_widget_area') ) {
+        if ( ! isToggleTrue( '#vct_footer_area_widget_area' ) ) {
             hideNumberOfColumns();
         }
-        if ( !isToggleTrue('#vct_overall_site_featured_image') ) {
+        if ( ! isToggleTrue( '#vct_overall_site_featured_image' ) ) {
             hideFeaturedImageSettings();
         }
     });

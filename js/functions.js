@@ -1,12 +1,4 @@
 (function( $ ) {
-    $( 'img[data-src]' ).each(function() {
-        var $this = $( this );
-        $this.attr( 'src', $this.attr( 'data-src' ) );
-        $this.load( function() {
-            $this.removeAttr( 'data-src' );
-        });
-    });
-
     var $body = $( 'body' );
     var $mainMenu = $( '#main-menu' );
     var $navBar = $( 'nav.navbar' );
@@ -20,18 +12,26 @@
         'class': 'dropdown-toggle vct-icon-dropdown'
     });
 
+    $( 'img[data-src]' ).each(function() {
+        var $this = $( this );
+        $this.attr( 'src', $this.attr( 'data-src' ) );
+        $this.load( function() {
+            $this.removeAttr( 'data-src' );
+        });
+    });
+
     $mainMenu.find( '.menu-item-has-children > a' ).after( $dropdownToggle );
 
     // Header without background
     if ( $body.hasClass( 'navbar-no-background' ) ) {
-        $header.css( {minHeight: $navBar.outerHeight()} );
+        $header.css( { minHeight: $navBar.outerHeight() } );
     }
 
     // Fixed header
     if ( $body.hasClass( 'fixed-header' ) ) {
         $navBar.addClass( 'fixed' );
-        if ( !$body.hasClass( 'navbar-no-background' ) ) {
-            $body.css( {paddingTop: $navBar.outerHeight()} );
+        if ( ! $body.hasClass( 'navbar-no-background' ) ) {
+            $body.css( { paddingTop: $navBar.outerHeight() } );
         } else {
             if ( $( window ).scrollTop() > 0 ) {
                 $navBar.addClass( 'scroll' );
@@ -72,17 +72,17 @@
             } else {
                 featuredImageHeight = windowHeight - navbarHeight;
             }
-            $( '.header-image .fade-in-img' ).css( {height: featuredImageHeight + 'px'} );
+            $( '.header-image .fade-in-img' ).css( { height: featuredImageHeight + 'px' } );
             $( '.header-image .fade-in-img' ).addClass( 'cover-image' );
         }
     });
 
-    $( window ).on( 'resize', function () {
+    $( window ).on( 'resize', function() {
         var $this = $( this );
 
         //Fixed header
-        if ( $body.hasClass( 'fixed-header' ) && !$body.hasClass( 'navbar-no-background' ) ) {
-            $body.css( {paddingTop: $navBar.outerHeight()} );
+        if ( $body.hasClass( 'fixed-header' ) && ! $body.hasClass( 'navbar-no-background' ) ) {
+            $body.css( { paddingTop: $navBar.outerHeight() } );
         }
 
         //Header no-background

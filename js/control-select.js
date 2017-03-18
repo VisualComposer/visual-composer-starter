@@ -20,7 +20,6 @@
                         hideFeaturedImageCustomHeight();
                     }
                 }
-                
                 // Refresh the preview
                 wp.customize.previewer.refresh();
             });
