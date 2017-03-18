@@ -1,0 +1,9 @@
+{
+    "preset": "wordpress",
+    "fileExtensions": [ ".js" ],
+    "excludeFiles": [
+        "js/**.min.js",
+        "js/bootstrap/*",
+        "js/slick/*"
+    ]
+}
