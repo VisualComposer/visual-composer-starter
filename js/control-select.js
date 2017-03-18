@@ -13,13 +13,14 @@
             this.container.on( 'change', 'select', function() {
 
                 var $this = $( this );
-                if ( $this.attr( 'data-customize-setting-link' ) === 'vct_overall_site_featured_image_height' ) {
-                    if ( $this.val() === 'custom' ) {
+                if ( 'vct_overall_site_featured_image_height' === $this.attr( 'data-customize-setting-link' ) ) {
+                    if ( 'custom' === $this.val() ) {
                         showFeaturedImageCustomHeight();
                     } else {
                         hideFeaturedImageCustomHeight();
                     }
                 }
+
                 // Refresh the preview
                 wp.customize.previewer.refresh();
             });
@@ -28,7 +29,7 @@
     });
 
     $( document ).ready(function() {
-        if ( $( 'select[data-customize-setting-link="vct_overall_site_featured_image_height"]' ).val() != 'custom' ) {
+        if ( 'custom' != $( 'select[data-customize-setting-link="vct_overall_site_featured_image_height"]' ).val() ) {
             hideFeaturedImageCustomHeight();
         }
     });

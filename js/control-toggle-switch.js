@@ -1,5 +1,4 @@
-(function( $ ) {
-    
+(function( $ ) {    
     // Available social icons
     var vctSocialIcons = [
         'facebook',
@@ -46,7 +45,7 @@
     function showFeaturedImageSettings() {
         $( '#customize-control-vct_overall_site_featured_image_width' ).show();
         $( '#customize-control-vct_overall_site_featured_image_height' ).show();
-        if ( $( 'select[data-customize-setting-link="vct_overall_site_featured_image_height"]' ).val() === 'custom' ) {
+        if ( 'custom' === $( 'select[data-customize-setting-link="vct_overall_site_featured_image_height"]' ).val() ) {
             $( '#customize-control-vct_overall_site_featured_image_custom_height' ).show();
         }
     }
@@ -62,28 +61,28 @@
             this.container.on( 'change', 'input:checkbox', function() {
                 var $this = $( this );
                 value = isToggleTrue( this );
-                if ( $this.attr( 'id' ) === 'vct_footer_area_social_icons' ) {
+                if ( 'vct_footer_area_social_icons' === $this.attr( 'id' ) ) {
                     if ( ! value ) {
                         hideSocialIcons();
                     } else {
                         showSocialIcons();
                     }
                 }
-                if ( $this.attr( 'id' ) === 'vct_footer_area_widget_area' ) {
+                if ( 'vct_footer_area_widget_area' === $this.attr( 'id' ) ) {
                     if ( ! value ) {
                         hideNumberOfColumns();
                     } else {
                         showNumberOfColumns();
                     }
                 }
-                if ( $this.attr( 'id' ) === 'vct_overall_site_featured_image' ) {
+                if ( 'vct_overall_site_featured_image' === $this.attr( 'id' ) ) {
                     if ( ! value ) {
                         hideFeaturedImageSettings();
                     } else {
                         showFeaturedImageSettings();
                     }
                 }
-                if ( $this.attr( 'id' ) === 'vct_overall_site_featured_image_height' ) {
+                if ( 'vct_overall_site_featured_image_height' === $this.attr( 'id' ) ) {
                     if ( ! value ) {
                         hideFeaturedImageSettings();
                     } else {

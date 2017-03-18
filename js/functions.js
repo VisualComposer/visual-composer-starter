@@ -87,8 +87,9 @@
 
         //Header no-background
         if ( $body.hasClass( 'navbar-no-background' ) ) {
-            $header.css( {minHeight: $navBar.outerHeight()} );
+            $header.css( { minHeight: $navBar.outerHeight() } );
         }
+
         //Sandwich menu
         if ( $this.width() < 768 ) {
             $body.addClass( 'mobile' );
@@ -105,7 +106,7 @@
             } else {
                 featuredImageHeight = windowHeight - navbarHeight;
             }
-            $( '.header-image' ).css( {height: featuredImageHeight + 'px'} );
+            $( '.header-image' ).css( { height: featuredImageHeight + 'px' } );
         }
 
         // Footer social icons vertical align
@@ -118,7 +119,7 @@
 
     // Sandwich menu
     $( document ).on( 'click', '.dropdown-toggle', function() {
-        var $this = $(this);
+        var $this = $( this );
         $this.siblings( 'ul' ).slideToggle( 600 );
         $this.toggleClass( 'open' );
         return false;
