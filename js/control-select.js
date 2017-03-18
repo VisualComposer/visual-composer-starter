@@ -29,7 +29,7 @@
     });
 
     $( document ).ready(function() {
-        if ( 'custom' != $( 'select[data-customize-setting-link="vct_overall_site_featured_image_height"]' ).val() ) {
+        if ( 'custom' !== $( 'select[data-customize-setting-link="vct_overall_site_featured_image_height"]' ).val() ) {
             hideFeaturedImageCustomHeight();
         }
     });

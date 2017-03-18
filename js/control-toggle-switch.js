@@ -1,4 +1,5 @@
-(function( $ ) {    
+(function( $ ) {
+    
     // Available social icons
     var vctSocialIcons = [
         'facebook',
