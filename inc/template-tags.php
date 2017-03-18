@@ -114,7 +114,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_meta' ) ) :
                 </li>
             <?php endif;?>
             <?php if ( get_post_type() === 'post' ): ?>
-                <li class="entry-meta-author"><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php get_the_author(); ?></span></a></li>
+                <li class="entry-meta-author"><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php the_author(); ?></span></a></li>
             <?php endif; ?>
 
             <li class="entry-meta-category"><?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?></li>
