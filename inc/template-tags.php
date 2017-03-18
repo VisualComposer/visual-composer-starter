@@ -89,17 +89,23 @@ endif;
 
 if ( ! function_exists( 'visualcomposerstarter_entry_date' ) ) :
     function visualcomposerstarter_entry_date() {
-
+        $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
         if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-            $time_string = get_the_modified_date();
-        }
-        else {
-            $time_string = get_the_date();
+            $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
         }
 
-         printf( '<a href="%1$s">%2$s</a>',
-            esc_url( get_permalink() ),
-            $time_string
+        $time_string = sprintf( $time_string,
+            get_the_date( DATE_W3C ),
+            get_the_date(),
+            get_the_modified_date( DATE_W3C ),
+            get_the_modified_date()
+        );
+
+        // Wrap the time string in a link, and preface it with 'Posted on'.
+        echo sprintf(
+            /* translators: %s: post date */
+            __( '<span class="screen-reader-text">Posted on</span> %s', 'visual-composer-starter' ),
+            '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
         );
     }
 endif;
@@ -110,7 +116,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_meta' ) ) :
         <ul class="entry-meta">
             <?php if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ): ?>
                 <li class="entry-meta-date">
-                    <span class="date updated"><?php visualcomposerstarter_entry_date(); ?></span>
+                    <span class="date"><?php visualcomposerstarter_entry_date(); ?></span>
                 </li>
             <?php endif;?>
             <?php if ( get_post_type() === 'post' ): ?>
@@ -135,7 +141,7 @@ if ( ! function_exists( 'visualcomposerstarter_single_meta' ) ) :
         <div class="entry-meta">
             <?php echo _x( 'On', 'Post meta' ); ?>
             <?php if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ): ?>
-                <span class="date updated"><?php visualcomposerstarter_entry_date(); ?></span>
+                <span class="date"><?php visualcomposerstarter_entry_date(); ?></span>
             <?php endif;?>
             <?php echo _x( 'by', 'Post meta' ); ?>
             <?php if ( get_post_type() === 'post' ): ?>
