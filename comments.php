@@ -11,21 +11,21 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) : ?>
 		<h3 class="comments-title">
 			<?php
-				$comments_number = get_comments_number();
-				if ( $comments_number === 1 ) {
-					printf( _x( 'One comment' ), 'Comments' );
-				} else {
-					printf(
-						_nx(
-							'%1$s Comment',
-							'%1$s Comments',
-							$comments_number,
-							'comments title',
-							'visual-composer-starter'
-						),
-						number_format_i18n( $comments_number )
-					);
-				}
+			$comments_number = get_comments_number();
+			if ( 1 === $comments_number ) {
+				printf( _x( 'One comment' ), 'Comments' );
+			} else {
+				printf(
+					_nx(
+						'%1$s Comment',
+						'%1$s Comments',
+						$comments_number,
+						'comments title',
+						'visual-composer-starter'
+					),
+					number_format_i18n( $comments_number )
+				);
+			}
 			?>
 		</h3>
 		<p class="comments-subtitle"><?php echo __( 'Join the discussion and tell us your opinion.', 'visual-composer-starter' ); ?></p>
@@ -38,7 +38,7 @@ if ( post_password_required() ) {
 					'callback'    => 'visualcomposerstarter_comment',
 					'reply_text'  => __( 'Reply', 'visual-composer-starter' ),
 					'avatar_size' => 80,
-					'style' 	  => 'ol'
+					'style' 	  => 'ol',
 				)
 			); ?>
 		</ol><!-- .comment-list -->
@@ -48,31 +48,30 @@ if ( post_password_required() ) {
 	<?php endif; // Check for have_comments(). ?>
 
 	<?php
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+	// If comments are closed and there are comments, let's leave a little note, shall we?
+	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
 		<p class="no-comments"><?php _e( 'Comments are closed.', 'twentysixteen' ); ?></p>
 	<?php endif; ?>
 
 	<?php
-	if (get_comments_number()) {
+	if ( get_comments_number() ) {
 		comment_form( array(
 			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
 			'title_reply_after'  => '</h2>',
-			'title_reply' => __( 'Leave A Comment', 'visual-composer-starter' )
+			'title_reply' => __( 'Leave A Comment', 'visual-composer-starter' ),
 		) );
-	}
-	else {
+	} else {
 		comment_form( array(
 			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
 			'title_reply_after'  => '</h2>',
-			'title_reply' => __( 'Share Your Thoughts', 'visual-composer-starter' )
+			'title_reply' => __( 'Share Your Thoughts', 'visual-composer-starter' ),
 		) );
 	}
 
 	?>
 
-</div><!-- .col-md-12 -->
-</div><!-- .row -->
-</div><!-- .container -->
+			</div><!-- .col-md-12 -->
+		</div><!-- .row -->
+	</div><!-- .container -->
 </div><!-- .comments-area -->
