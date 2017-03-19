@@ -1,25 +1,24 @@
 <?php
 
 class VCT_Update {
-	protected $updatePath = 'http://updates.wpbakery.com/visual-composer-theme/index.html';
+	protected $update_path = 'http://updates.wpbakery.com/visual-composer-theme/index.html';
 
 	public function __construct() {
-		/** @see \VCT_Update::checkForUpdates */
-		add_filter( 'pre_set_site_transient_update_themes',
-		            array(
-			            $this,
-			            'checkForUpdates',
-		            )
+		/** @see \VCT_Update::check_for_updates */
+		add_filter( 'pre_set_site_transient_update_themes', array(
+			$this,
+			'check_for_updates',
+			)
 		);
 	}
 
-	public function checkForUpdates( $transient ) {
+	public function check_for_updates( $transient ) {
 		// Extra check for 3rd plugins
 		if ( isset( $transient->response[ VCT_SLUG ] ) ) {
 			return $transient;
 		}
 		// Get the remote version
-		$version = $this->getRemoteVersion();
+		$version = $this->get_remote_version();
 		// If a newer version is available, add the update
 		if ( version_compare( VCT_VERSION, $version, '<' ) ) {
 			$theme                           = array();
@@ -34,8 +33,8 @@ class VCT_Update {
 		return $transient;
 	}
 
-	protected function getRemoteVersion() {
-		$request = wp_remote_get( $this->updatePath );
+	protected function get_remote_version() {
+		$request = wp_remote_get( $this->update_path );
 		if ( ! is_wp_error( $request ) || wp_remote_retrieve_response_code( $request ) === 200 ) {
 			return $request['body'];
 		}
