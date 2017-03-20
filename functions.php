@@ -4,7 +4,6 @@ define( 'VCT_SLUG', basename( get_template_directory() ) );
 define( 'VCT_VERSION', '1.1.1' );
 
 if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
-
 	function visualcomposerstarter_setup() {
 		/*
 		 * Make theme available for translation.
@@ -17,6 +16,8 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		define( 'VCT_PAGE_SIDEBAR',                     'vct_overall_site_page_sidebar' );
 		define( 'VCT_POST_SIDEBAR',                     'vct_overall_site_post_sidebar' );
 		define( 'VCT_ARCHIVE_AND_CATEGORY_SIDEBAR',     'vct_overall_site_aac_sidebar' );
+		define( 'VCT_DISABLE_HEADER',                   'vct_overall_site_disable_header' );
+        define( 'VCT_DISABLE_FOOTER',                   'vct_overall_site_disable_footer' );
 
 		/*
 		 * Let WordPress manage the document title.
@@ -61,7 +62,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 					add_action( 'admin_notices', 'vct_acf_admin_notice__update' );
 				} else {
 					if ( function_exists( 'register_field_group' ) ) {
-						register_field_group(array(
+						$vct_acf_page_options = array(
 							'id' => 'acf_page-options',
 							'title' => __( 'Page Options' ),
 							'fields' => array(
@@ -109,8 +110,9 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 								'hide_on_screen' => array(),
 							),
 							'menu_order' => 0,
-						));
-						register_field_group(array(
+						);
+
+						$vct_acf_post_options = array(
 							'id' => 'acf_post-options',
 							'title' => __( 'Post Options' ),
 							'fields' => array(
@@ -158,7 +160,62 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 								'hide_on_screen' => array(),
 							),
 							'menu_order' => 0,
-						));
+						);
+
+						if ( ! get_theme_mod( VCT_DISABLE_HEADER, false ) ) {
+							$vct_acf_page_options['fields'][] = array (
+								'key' => 'field_58c800e5a7722',
+								'label' => 'Disable Header',
+								'name' => 'disable_page_header',
+								'type' => 'checkbox',
+								'choices' => array (
+									1 => __('Yes'),
+								),
+								'default_value' => '',
+								'layout' => 'vertical',
+							);
+
+							$vct_acf_post_options['fields'][] = array (
+								'key' => 'field_58c7e3f0b7dfb',
+								'label' => 'Disable Header',
+								'name' => 'disable_post_header',
+								'type' => 'checkbox',
+								'choices' => array (
+									1 => __('Yes'),
+								),
+								'default_value' => '',
+								'layout' => 'vertical',
+							);
+						}
+
+						if ( ! get_theme_mod( VCT_DISABLE_FOOTER, false ) ) {
+							$vct_acf_page_options['fields'][] = array (
+								'key' => 'field_58c800faa7723',
+								'label' => 'Disable Footer',
+								'name' => 'disable_page_footer',
+								'type' => 'checkbox',
+								'choices' => array (
+									1 => __('Yes'),
+								),
+								'default_value' => '',
+								'layout' => 'vertical',
+							);
+
+							$vct_acf_post_options['fields'][] = array (
+								'key' => 'field_58c7e40db7dfc',
+								'label' => 'Disable Footer',
+								'name' => 'disable_post_footer',
+								'type' => 'checkbox',
+								'choices' => array (
+									1 => __('Yes'),
+								),
+								'default_value' => '',
+								'layout' => 'vertical',
+							);
+						}
+
+						register_field_group( $vct_acf_page_options );
+						register_field_group( $vct_acf_post_options );
 					} // End if().
 				} // End if().
 			} // End if().
@@ -178,6 +235,19 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 	}
 endif; // visualcomposerstarter_setup
 add_action( 'after_setup_theme', 'visualcomposerstarter_setup' );
+
+
+function vct_style_switch_toggle_acf(){
+    wp_register_style( 'toggle-acf-style', get_template_directory_uri() . '/css/toggle-switch.css', array(), false );
+    wp_enqueue_style( 'toggle-acf-style' );
+}
+add_action( 'admin_enqueue_scripts', 'vct_style_switch_toggle_acf' );
+
+function vct_script_switch_toggle_acf(){
+    wp_register_script( 'toggle-acf-script', get_template_directory_uri() . '/js/toggle-switch-acf.js',  array('jquery'), false, true);
+    wp_enqueue_script( 'toggle-acf-script' );
+}
+add_action( 'admin_enqueue_scripts', 'vct_script_switch_toggle_acf' );
 
 /*AJAX Comment reply*/
 function visualcomposerstarter_enqueue_comments_reply() {
@@ -300,7 +370,6 @@ add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_style' );
  *
  * @since Visual Composer Starter 1.0
  */
-
 function visualcomposerstarter_script() {
 	//Register scripts
 	// Bootstrap Transition JS
@@ -517,6 +586,38 @@ function visual_composer_starter_widgets() {
 
 }
 
+function vct_is_the_header_displayed () {
+	if ( get_theme_mod( VCT_DISABLE_HEADER, false ) ) {
+		return false;
+	} elseif ( function_exists( 'get_field' ) ) {
+		if( is_page() ) {
+			return ! get_field( 'field_58c800e5a7722' );
+		}  elseif( is_singular() ) {
+			return ! get_field( 'field_58c7e3f0b7dfb' );
+		} else {
+			return true;
+		}
+	} else {
+		return true;
+	}
+}
+
+function vct_is_the_footer_displayed () {
+	if ( get_theme_mod( VCT_DISABLE_FOOTER, false ) ) {
+		return false;
+	} elseif ( function_exists( 'get_field' ) ) {
+		if( is_page() ) {
+			return ! get_field( 'field_58c800faa7723' );
+		}  elseif( is_singular() ) {
+			return ! get_field( 'field_58c7e40db7dfc' );
+		} else {
+			return true;
+		}
+	} else {
+		return true;
+	}
+}
+
 function vct_get_header_container_class() {
 	if ( get_theme_mod( 'vct_header_top_header_width', 'boxed' ) === 'full_width' ) {
 		return 'container-fluid';
@@ -619,7 +720,6 @@ function vct_get_sidebar_class() {
 			return false;
 	}
 }
-
 
 function visualcomposerstarter_inline_styles() {
 	wp_register_style( 'custom-style', get_template_directory_uri() . '/css/customizer-custom.css', array(), false );
@@ -894,11 +994,29 @@ function visualcomposerstarter_inline_styles() {
 	if ( '#ffffff' !== $overall_site_bg_color ) {
 		$css .= "
 		/*Overall site background color*/
-		body,
-		#header,
-		nav.navbar  {background-color: {$overall_site_bg_color};}
+		body {background-color: {$overall_site_bg_color};}
 		";
 	}
+
+	if ( get_theme_mod( 'vct_overall_site_enable_bg_image', false ) ) {
+        $overall_site_bg_image = get_theme_mod( 'vct_overall_site_bg_image', '' );
+        if ( 'repeat' === get_theme_mod( 'vct_overall_site_bg_image_style', 'cover' ) ) {
+            $overall_site_bg_image_style = 'background-repeat: repeat;';
+        } else {
+            $overall_site_bg_image_style = '
+            background-size: ' . get_theme_mod( 'vct_overall_site_bg_image_style', 'cover' ) . ';
+            background-repeat: no-repeat;';
+        }
+
+        if ( '' !== $overall_site_bg_image ) {
+            $css .= "
+            body {
+                background-image: url('{$overall_site_bg_image}');
+                {$overall_site_bg_image_style}
+            }
+            ";
+        }
+    }
 
 	$header_and_menu_area_background = get_theme_mod( 'vct_header_background', '#ffffff' );
 	if ( '#ffffff' !== $header_and_menu_area_background ) {

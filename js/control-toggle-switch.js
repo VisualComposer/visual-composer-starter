@@ -17,6 +17,22 @@
         return $( el ).prop( 'checked' );
     }
 
+    function hideHeaderSection () {
+        $( '#accordion-section-vct_header_and_menu_area' ).addClass( 'hiddenSection' );
+    }
+
+    function showHeaderSection () {
+        $( '#accordion-section-vct_header_and_menu_area' ).removeClass( 'hiddenSection' );
+    }
+
+    function hideFooterSection () {
+        $( '#accordion-section-vct_footer_area' ).addClass( 'hiddenSection' );
+    }
+
+    function showFooterSection () {
+        $( '#accordion-section-vct_footer_area' ).removeClass( 'hiddenSection' );
+    }
+
     function hideSocialIcons() {
         $.each( vctSocialIcons, function( key, icon ) {
             $( '#customize-control-vct_footer_area_social_link_' + icon ).hide();
@@ -51,6 +67,16 @@
         }
     }
 
+    function hideBackgroundImageSettings () {
+        $('#customize-control-vct_overall_site_bg_image').hide();
+        $('#customize-control-vct_overall_site_bg_image_style').hide();
+    }
+
+    function showBackgroundImageSettings () {
+        $('#customize-control-vct_overall_site_bg_image').show();
+        $('#customize-control-vct_overall_site_bg_image_style').show();
+    }
+
     wp.customize.controlConstructor['toggle-switch'] = wp.customize.Control.extend( {
         ready: function() {
             var control = this;
@@ -62,6 +88,20 @@
             this.container.on( 'change', 'input:checkbox', function() {
                 var $this = $( this );
                 value = isToggleTrue( this );
+                if ( 'vct_overall_site_disable_header' === $this.attr( 'id' ) ) {
+                    if ( ! value ) {
+                        showHeaderSection();
+                    } else {
+                        hideHeaderSection();
+                    }
+                }
+                if ( 'vct_overall_site_disable_footer' === $this.attr( 'id' ) ) {
+                    if ( ! value ) {
+                        showFooterSection();
+                    } else {
+                        hideFooterSection();
+                    }
+                }
                 if ( 'vct_footer_area_social_icons' === $this.attr( 'id' ) ) {
                     if ( ! value ) {
                         hideSocialIcons();
@@ -90,6 +130,14 @@
                         showFeaturedImageSettings();
                     }
                 }
+
+                if ( 'vct_overall_site_enable_bg_image' === $this.attr( 'id' ) ) {
+                    if ( ! value ) {
+                        hideBackgroundImageSettings();
+                    } else {
+                        showBackgroundImageSettings();
+                    }
+                }
                 control.setting.set( value );
 
                 // Refresh the preview
@@ -100,6 +148,12 @@
     });
 
     $( document ).ready( function() {
+        if ( isToggleTrue( '#vct_overall_site_disable_header' ) ) {
+            hideHeaderSection();
+        }
+        if ( isToggleTrue( '#vct_overall_site_disable_footer' ) ) {
+            hideFooterSection();
+        }
         if ( ! isToggleTrue( '#vct_footer_area_social_icons' ) ) {
             hideSocialIcons();
         }
@@ -108,6 +162,9 @@
         }
         if ( ! isToggleTrue( '#vct_overall_site_featured_image' ) ) {
             hideFeaturedImageSettings();
+        }
+        if ( ! isToggleTrue( '#vct_overall_site_enable_bg_image' ) ) {
+            hideBackgroundImageSettings();
         }
     });
 })( window.jQuery );
