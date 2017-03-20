@@ -8,7 +8,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		/*
 		 * Make theme available for translation.
 		 */
-		load_theme_textdomain( 'visual-composer-starter' );
+		load_theme_textdomain( 'visual-composer-starter', get_template_directory() . '/languages' );
 
 		/*
 		 * Define sidebars
