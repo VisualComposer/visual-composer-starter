@@ -508,10 +508,10 @@ body.featured-image-custom-height {
 
 		a {
 			color: @headers-color;
-			border-bottom: 1px solid transparent;
+			border-bottom: 1px solid @headers-color;
 
 			&:hover, &:focus {
-				border-bottom-color: @headers-color;
+				border-bottom-color: transparent;
 				text-decoration: none;
 			}
 		}
@@ -562,14 +562,14 @@ body.featured-image-custom-height {
 			font-size: 22px;
 			font-weight: 700;
 			color: @headers-color;
-			border-bottom: 1px solid transparent;
+			border-bottom: 1px solid @headers-color;
 		}
 
 		&:hover {
 			text-decoration: none;
 
 			.post-title {
-				border-bottom-color: @headers-color;
+				border-bottom-color: transparent;
 			}
 		}
 	}

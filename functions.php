@@ -459,12 +459,23 @@ add_filter( 'body_class', 'visualcomposerstarter_body_classes' );
 function visualcomposerstarter_give_linked_images_class( $html, $id, $caption, $title, $align, $url, $size, $alt = '' ) {
 	$classes = 'image-link'; // separated by spaces, e.g. 'img image-link'
 
-	// check if there are already classes assigned to the anchor
-	if ( preg_match( '/<a.*? class=".*?">/', $html ) ) {
-		$html = preg_replace( '/(<a.*? class=".*?)(".*?>)/', '$1 ' . $classes . '$2', $html );
-	} else {
-		$html = preg_replace( '/(<a.*?)>/', '$1 class="' . $classes . '" >', $html );
-	}
+	$patterns = array();
+	$replacements = array();
+
+	// Matches img tag wrapped in anchor tag where anchor has existing classes contained in double quotes
+	$patterns[0] = '/<a([^>]*)class="([^"]*)"([^>]*)>\s*<img([^>]*)>\s*<\/a>/';
+	$replacements[0] = '<a\1class="' . $classes . ' \2"\3><img\4></a>';
+
+	// Matches img tag wrapped in anchor tag where anchor has existing classes contained in single quotes
+	$patterns[1] = '/<a([^>]*)class=\'([^\']*)\'([^>]*)>\s*<img([^>]*)>\s*<\/a>/';
+	$replacements[1] = '<a\1class="' . $classes . ' \2"\3><img\4></a>';
+
+	// Matches img tag wrapped in anchor tag where anchor tag has no existing classes
+	$patterns[2] = '/<a(?![^>]*class)([^>]*)>\s*<img([^>]*)>\s*<\/a>/';
+	$replacements[2] = '<a\1 class="' . $classes . '"><img\2></a>';
+
+	$html = preg_replace( $patterns, $replacements, $html );
+
 	return $html;
 }
 add_filter( 'the_content', 'visualcomposerstarter_give_linked_images_class' );
@@ -906,11 +917,10 @@ function visualcomposerstarter_inline_styles() {
 	.entry-preview .entry-meta li a:hover,
 	.entry-preview .entry-meta li a:focus { color: ' . get_theme_mod( 'vct_fonts_and_style_h1_text_color', '#333333' ) . '; }
 	
-	.entry-full-content .entry-meta a:hover,
-	.entry-full-content .entry-meta a:focus,
+	.entry-full-content .entry-meta a,
 	.comments-area .comment-list .comment-author a:hover,
 	.comments-area .comment-list .comment-author a:focus,
-	.nav-links.post-navigation a:hover .post-title { border-bottom-color: ' . get_theme_mod( 'vct_fonts_and_style_h1_text_color', '#333333' ) . '; }
+	.nav-links.post-navigation a .post-title { border-bottom-color: ' . get_theme_mod( 'vct_fonts_and_style_h1_text_color', '#333333' ) . '; }
 
 	 
 	 h1 {

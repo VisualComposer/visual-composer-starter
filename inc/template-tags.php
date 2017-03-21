@@ -142,7 +142,7 @@ if ( ! function_exists( 'visualcomposerstarter_single_meta' ) ) :
 			<?php endif;?>
 			<?php echo _x( 'by', 'Post meta' ); ?>
 			<?php if ( 'post' === get_post_type() ) : ?>
-				<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php get_the_author(); ?></span></a>
+				<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php echo get_the_author(); ?></span></a>
 			<?php endif; ?>
 			<?php echo _x( 'to', 'Post meta' ); ?>
 			<?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?>
