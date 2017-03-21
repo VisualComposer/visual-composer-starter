@@ -322,16 +322,16 @@ function visualcomposerstarter_style() {
 	wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.7' );
 
 	// Add Visual Composer Starter Font
-	wp_register_style( 'visual-composer-starter-font', get_template_directory_uri() . '/css/visual-composer-starter-font.min.css', array(), '1.0' );
+	wp_register_style( 'visual-composer-starter-font', get_template_directory_uri() . '/css/visual-composer-starter-font.min.css', array(), VCT_VERSION );
 
 	//Slick slider stylesheet
 	wp_register_style( 'slick-style', get_template_directory_uri() . '/css/slick.min.css', array(), '1.6.0' );
 
 	// General theme stylesheet
-	wp_register_style( 'visual-composer-starter-general', get_template_directory_uri() . '/css/style.min.css', array(), '1.0' );
+	wp_register_style( 'visual-composer-starter-general', get_template_directory_uri() . '/css/style.min.css', array(), VCT_VERSION );
 
 	// Stylesheet with additional responsive style
-	wp_register_style( 'visual-composer-starter-responsive', get_template_directory_uri() . '/css/responsive.min.css', array(), '1.0' );
+	wp_register_style( 'visual-composer-starter-responsive', get_template_directory_uri() . '/css/responsive.min.css', array(), VCT_VERSION );
 
 	// Theme stylesheet.
 	wp_register_style( 'visual-composer-starter-style', get_stylesheet_uri() );
@@ -382,7 +382,7 @@ function visualcomposerstarter_script() {
 	wp_register_script( 'slick-js', get_template_directory_uri() . '/js/slick/slick.min.js', array( 'jquery' ), '1.6.0', true );
 
 	// Main theme JS functions
-	wp_register_script( 'visual-composer-starter-script', get_template_directory_uri() . '/js/functions.min.js', array( 'jquery' ), '1.0', true );
+	wp_register_script( 'visual-composer-starter-script', get_template_directory_uri() . '/js/functions.min.js', array( 'jquery' ), VCT_VERSION, true );
 
 	//Enqueue scripts
 	wp_enqueue_script( 'bootstrap-transition' );
