@@ -1,0 +1,956 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-20 21:48+0200\n"
+"PO-Revision-Date: 2017-03-20 21:48+0200\n"
+"Last-Translator: WPBakery <hello@wpbakery.com>\n"
+"Language-Team: WPBakery <hello@wpbakery.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: 404.php:8
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:9
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: archive.php:32 index.php:25 search.php:29
+msgid "Post navigation"
+msgstr ""
+
+#: archive.php:38 index.php:31 search.php:35
+msgid "Page"
+msgstr ""
+
+#: comments.php:16
+msgid "One comment"
+msgstr ""
+
+#: comments.php:20
+#, php-format
+msgctxt "comments title"
+msgid "%1$s Comment"
+msgid_plural "%1$s Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:31
+msgid "Join the discussion and tell us your opinion."
+msgstr ""
+
+#: comments.php:39
+msgid "Reply"
+msgstr ""
+
+#: comments.php:54
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:62
+msgid "Leave A Comment"
+msgstr ""
+
+#: comments.php:68
+msgid "Share Your Thoughts"
+msgstr ""
+
+#: functions.php:39
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:40
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:67
+msgid "Page Options"
+msgstr ""
+
+#: functions.php:71 functions.php:121
+msgid "Sidebar Position"
+msgstr ""
+
+#: functions.php:74 functions.php:124
+msgid "Select specific sidebar position."
+msgstr ""
+
+#: functions.php:76 functions.php:126
+msgid "None"
+msgstr ""
+
+#: functions.php:77 functions.php:127
+#: inc/customizer/class-vct-customizer.php:288
+#: inc/customizer/class-vct-customizer.php:306
+#: inc/customizer/class-vct-customizer.php:324
+msgid "Left"
+msgstr ""
+
+#: functions.php:78 functions.php:128
+#: inc/customizer/class-vct-customizer.php:289
+#: inc/customizer/class-vct-customizer.php:307
+#: inc/customizer/class-vct-customizer.php:325
+msgid "Right"
+msgstr ""
+
+#: functions.php:86
+msgid "Hide Page Title"
+msgstr ""
+
+#: functions.php:90 functions.php:140 functions.php:172 functions.php:184
+#: functions.php:198 functions.php:210
+msgid "Yes"
+msgstr ""
+
+#: functions.php:117
+msgid "Post Options"
+msgstr ""
+
+#: functions.php:136
+msgid "Hide Post Title"
+msgstr ""
+
+#: functions.php:263
+msgid ""
+"In order to access full theme options, please make sure to install <a href="
+"\"https://wordpress.org/plugins/advanced-custom-fields/\" target=\"_blank"
+"\">Advanced Custom Fields</a>"
+msgstr ""
+
+#: functions.php:270
+#, php-format
+msgid ""
+"In order to access full theme options, please make sure to activate <a href="
+"\"%s\">Advanced Custom Fields</a>"
+msgstr ""
+
+#: functions.php:277
+#, php-format
+msgid ""
+"In order to access full theme options, please make sure to update <a href="
+"\"%s\">Advanced Custom Fields</a>"
+msgstr ""
+
+#: functions.php:468
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:470
+msgid "Add widgets here to appear in your sidebar."
+msgstr ""
+
+#: functions.php:480
+msgid "Menu Area"
+msgstr ""
+
+#: functions.php:482
+msgid "Add widgets here to appear in menu area."
+msgstr ""
+
+#: functions.php:492
+msgid "Footer Widget Column 1"
+msgstr ""
+
+#: functions.php:494 functions.php:505 functions.php:516 functions.php:527
+msgid "Add widgets here to appear in your footer."
+msgstr ""
+
+#: functions.php:503
+msgid "Footer Widget Column 2"
+msgstr ""
+
+#: functions.php:514
+msgid "Footer Widget Column 3"
+msgstr ""
+
+#: functions.php:525
+msgid "Footer Widget Column 4"
+msgstr ""
+
+#: header.php:28 header.php:29
+msgid "Visual Composer Starter"
+msgstr ""
+
+#: header.php:37
+msgid "Toggle navigation"
+msgstr ""
+
+#: search.php:8
+#, php-format
+msgid "Search Results for <strong>%s</strong>"
+msgstr ""
+
+#: searchform.php:3
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:4
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr ""
+
+#: searchform.php:6
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#: single.php:33
+msgid "Previous"
+msgstr ""
+
+#: single.php:34
+msgid "Previous post:"
+msgstr ""
+
+#: single.php:45
+msgid "Next"
+msgstr ""
+
+#: single.php:46
+msgid "Next post:"
+msgstr ""
+
+#: inc/template-tags.php:104
+#, php-format
+msgid "<span class=\"screen-reader-text\">Posted on</span> %s"
+msgstr ""
+
+#: inc/template-tags.php:123 inc/template-tags.php:148
+msgctxt "Used between list items, there is a space after the comma."
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:126
+msgid "Leave a comment"
+msgstr ""
+
+#: inc/template-tags.php:126
+msgid "1 Comment"
+msgstr ""
+
+#: inc/template-tags.php:126
+msgid "% Comments"
+msgstr ""
+
+#: inc/template-tags.php:139
+msgctxt "Post meta"
+msgid "On"
+msgstr ""
+
+#: inc/template-tags.php:143
+msgctxt "Post meta"
+msgid "by"
+msgstr ""
+
+#: inc/template-tags.php:147
+msgctxt "Post meta"
+msgid "to"
+msgstr ""
+
+#: inc/template-tags.php:157
+msgctxt "Used between list items, there is a space after the comma."
+msgid ""
+msgstr ""
+
+#: inc/template-tags.php:160
+msgctxt "Used before tag names."
+msgid "Tags"
+msgstr ""
+
+#: inc/template-tags.php:202
+#, php-format
+msgid "%s</cite> <span class=\"says\">says:</span>"
+msgstr ""
+
+#: inc/template-tags.php:208
+#, php-format
+msgid "On %1$s at %2$s"
+msgstr ""
+
+#: inc/template-tags.php:210
+msgid "(Edit)"
+msgstr ""
+
+#: inc/template-tags.php:212
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:49
+msgid "Theme Options"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:54
+msgid "Header"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:59
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:67
+msgid "Fonts & Style"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:73
+msgid "Scripts"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:197
+msgid "Disable Theme Header"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:209
+msgid "Disable Theme Footer"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:221
+msgid "Featured Image"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:222
+msgid "Show featured image for posts and pages."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:235
+msgid "Featured Image Width"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:239
+msgid "Full width (default)"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:240
+msgid "Boxed"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:252
+msgid "Featured Image Height"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:256
+msgid "Auto (default)"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:257
+msgid "Full height"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:258
+msgid "Custom"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:269
+msgid "Custom Height"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:270
+msgid "Please specify featured image height in pixels (ex. 400px)."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:283
+msgid "Page Sidebar Position"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:287
+#: inc/customizer/class-vct-customizer.php:305
+#: inc/customizer/class-vct-customizer.php:323
+#: inc/customizer/class-vct-customizer.php:442
+#: inc/customizer/class-vct-customizer.php:1242
+#: inc/customizer/class-vct-customizer.php:1399
+#: inc/customizer/class-vct-customizer.php:1547
+#: inc/customizer/class-vct-customizer.php:1702
+#: inc/customizer/class-vct-customizer.php:1856
+#: inc/customizer/class-vct-customizer.php:2014
+#: inc/customizer/class-vct-customizer.php:2189
+#: inc/customizer/class-vct-customizer.php:2376
+msgid "None (default)"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:301
+msgid "Post Sidebar Position"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:319
+msgid "Archive/Category Sidebar Position"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:336
+msgid "Site Background"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:348
+msgid "Background Image"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:358
+msgid "Image Upload"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:370
+msgid "Image Style"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:374
+msgid "Cover"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:375
+msgid "Contain"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:376
+msgid "Repeat"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:386
+msgid "Content Background"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:398
+msgid "Comments Background"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:437
+msgid "Sidebar Customization"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:438
+msgid "Default content area of theme is defined as Boxed and No Sidebar."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:443
+msgid "Position left"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:444
+msgid "Position right"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:456
+msgid "Content Area Size Customization"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:457
+msgid "Default content area size is defined as Boxed and Full width."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:461
+#: inc/customizer/class-vct-customizer.php:575
+msgid "Boxed (default)"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:462
+#: inc/customizer/class-vct-customizer.php:577
+msgid "Full width"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:473
+msgid "Content background color"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:474
+msgid "Choose content background color"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:485
+msgid "Comments background color"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:486
+msgid "Choose comments background color"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:554
+msgid "Header Style"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:558
+msgid "Top (default)"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:559
+msgid "Sandwich"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:571
+msgid "Header Width"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:576
+msgid "Full width boxed"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:588
+#: inc/customizer/class-vct-customizer.php:2254
+msgid "Background Color"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:589
+msgid "Define header and submenu background color."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:601
+msgid "Submenu Background Hover Color"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:613
+#: inc/customizer/class-vct-customizer.php:743
+#: inc/customizer/class-vct-customizer.php:2266
+msgid "Text Color"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:625
+msgid "Active Text Color"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:638
+msgid "Reserve Space For Header"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:639
+msgid "By default header will be placed on the top of featured image."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:652
+msgid "Sticky Header"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:653
+msgid "If set to 'On' header will stay fixed on the top when scrolling."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:666
+msgid "Sandwich Style"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:667
+msgid "Define sandwich background and control style."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:671
+msgid "Dark (default)"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:672
+#: inc/customizer/class-vct-customizer.php:1188
+#: inc/customizer/class-vct-customizer.php:1341
+#: inc/customizer/class-vct-customizer.php:1490
+#: inc/customizer/class-vct-customizer.php:1645
+#: inc/customizer/class-vct-customizer.php:1799
+#: inc/customizer/class-vct-customizer.php:1953
+#: inc/customizer/class-vct-customizer.php:2132
+#: inc/customizer/class-vct-customizer.php:2319
+msgid "Light"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:683
+msgid "Sandwich Icon Color"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:731
+msgid "Footer Background Color"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:755
+#: inc/customizer/class-vct-customizer.php:2102
+msgid "Active Color"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:768
+msgid "Widget Area"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:769
+msgid "Theme footer allows inserting widget area at the top of the footer."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:781
+msgid "Number of Columns"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:782
+msgid "Widget area can be divided into up to four columns."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:787
+msgid "One"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:788
+msgid "Two"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:789
+msgid "Three"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:790
+msgid "Four"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:802
+msgid "Social Icons"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:803
+msgid "Add url to your social network profiles."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:865
+msgid "Facebook"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:877
+msgid "Twitter"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:889
+msgid "LinkedIn"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:901
+msgid "Instagram"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:913
+msgid "Pinterest"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:925
+msgid "YouTube"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:937
+msgid "Vimeo"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:949
+msgid "Flickr"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:961
+msgid "Github"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:973
+msgid "Email"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:992
+msgid "H1"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:998
+msgid "H2"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1004
+msgid "H3"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1010
+msgid "H4"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1016
+msgid "H5"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1022
+msgid "H6"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1028
+msgid "Body"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1034
+msgid "Buttons"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1071
+msgid "Header Scripts"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1072
+msgid "Add scripts to your theme header (ex. Google Analytics tracking code)."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1085
+msgid "Footer Scripts"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1086
+msgid "Add scripts to your theme footer."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1151
+#: inc/customizer/class-vct-customizer.php:1300
+#: inc/customizer/class-vct-customizer.php:1453
+#: inc/customizer/class-vct-customizer.php:1604
+#: inc/customizer/class-vct-customizer.php:1758
+#: inc/customizer/class-vct-customizer.php:1912
+msgid "Сolor"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1162
+#: inc/customizer/class-vct-customizer.php:1312
+#: inc/customizer/class-vct-customizer.php:1464
+#: inc/customizer/class-vct-customizer.php:1616
+#: inc/customizer/class-vct-customizer.php:1770
+#: inc/customizer/class-vct-customizer.php:1924
+msgid "Active Сolor"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1169
+#: inc/customizer/class-vct-customizer.php:1320
+#: inc/customizer/class-vct-customizer.php:1471
+#: inc/customizer/class-vct-customizer.php:1624
+#: inc/customizer/class-vct-customizer.php:1778
+#: inc/customizer/class-vct-customizer.php:1932
+#: inc/customizer/class-vct-customizer.php:2111
+#: inc/customizer/class-vct-customizer.php:2298
+msgid "Font-family"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1176
+#: inc/customizer/class-vct-customizer.php:1328
+#: inc/customizer/class-vct-customizer.php:1478
+#: inc/customizer/class-vct-customizer.php:1632
+#: inc/customizer/class-vct-customizer.php:1786
+#: inc/customizer/class-vct-customizer.php:1940
+#: inc/customizer/class-vct-customizer.php:2119
+#: inc/customizer/class-vct-customizer.php:2306
+msgid "Google Fonts Subsets"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1183
+#: inc/customizer/class-vct-customizer.php:1336
+#: inc/customizer/class-vct-customizer.php:1485
+#: inc/customizer/class-vct-customizer.php:1640
+#: inc/customizer/class-vct-customizer.php:1794
+#: inc/customizer/class-vct-customizer.php:1948
+#: inc/customizer/class-vct-customizer.php:2127
+#: inc/customizer/class-vct-customizer.php:2314
+msgid "Font Weight"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1189
+#: inc/customizer/class-vct-customizer.php:1200
+#: inc/customizer/class-vct-customizer.php:1342
+#: inc/customizer/class-vct-customizer.php:1354
+#: inc/customizer/class-vct-customizer.php:1491
+#: inc/customizer/class-vct-customizer.php:1502
+#: inc/customizer/class-vct-customizer.php:1646
+#: inc/customizer/class-vct-customizer.php:1657
+#: inc/customizer/class-vct-customizer.php:1800
+#: inc/customizer/class-vct-customizer.php:1811
+#: inc/customizer/class-vct-customizer.php:1954
+#: inc/customizer/class-vct-customizer.php:1966
+#: inc/customizer/class-vct-customizer.php:2133
+#: inc/customizer/class-vct-customizer.php:2144
+#: inc/customizer/class-vct-customizer.php:2320
+#: inc/customizer/class-vct-customizer.php:2331
+msgid "Normal (default)"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1190
+#: inc/customizer/class-vct-customizer.php:1343
+#: inc/customizer/class-vct-customizer.php:1492
+#: inc/customizer/class-vct-customizer.php:1647
+#: inc/customizer/class-vct-customizer.php:1801
+#: inc/customizer/class-vct-customizer.php:1955
+#: inc/customizer/class-vct-customizer.php:2134
+#: inc/customizer/class-vct-customizer.php:2321
+msgid "Semi-Bold"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1191
+#: inc/customizer/class-vct-customizer.php:1344
+#: inc/customizer/class-vct-customizer.php:1493
+#: inc/customizer/class-vct-customizer.php:1648
+#: inc/customizer/class-vct-customizer.php:1802
+#: inc/customizer/class-vct-customizer.php:1956
+#: inc/customizer/class-vct-customizer.php:2135
+#: inc/customizer/class-vct-customizer.php:2322
+msgid "Bold"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1195
+#: inc/customizer/class-vct-customizer.php:1349
+#: inc/customizer/class-vct-customizer.php:1497
+#: inc/customizer/class-vct-customizer.php:1652
+#: inc/customizer/class-vct-customizer.php:1806
+#: inc/customizer/class-vct-customizer.php:1961
+#: inc/customizer/class-vct-customizer.php:2139
+#: inc/customizer/class-vct-customizer.php:2326
+msgid "Font Style"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1201
+#: inc/customizer/class-vct-customizer.php:1355
+#: inc/customizer/class-vct-customizer.php:1503
+#: inc/customizer/class-vct-customizer.php:1658
+#: inc/customizer/class-vct-customizer.php:1812
+#: inc/customizer/class-vct-customizer.php:1967
+#: inc/customizer/class-vct-customizer.php:2145
+#: inc/customizer/class-vct-customizer.php:2332
+msgid "Italic"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1202
+#: inc/customizer/class-vct-customizer.php:1356
+#: inc/customizer/class-vct-customizer.php:1504
+#: inc/customizer/class-vct-customizer.php:1659
+#: inc/customizer/class-vct-customizer.php:1813
+#: inc/customizer/class-vct-customizer.php:1968
+#: inc/customizer/class-vct-customizer.php:2146
+#: inc/customizer/class-vct-customizer.php:2333
+msgid "Oblique"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1203
+#: inc/customizer/class-vct-customizer.php:1357
+#: inc/customizer/class-vct-customizer.php:1505
+#: inc/customizer/class-vct-customizer.php:1660
+#: inc/customizer/class-vct-customizer.php:1814
+#: inc/customizer/class-vct-customizer.php:1969
+#: inc/customizer/class-vct-customizer.php:2147
+#: inc/customizer/class-vct-customizer.php:2334
+msgid "Inherit"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1207
+#: inc/customizer/class-vct-customizer.php:1362
+#: inc/customizer/class-vct-customizer.php:1510
+#: inc/customizer/class-vct-customizer.php:1665
+#: inc/customizer/class-vct-customizer.php:1819
+#: inc/customizer/class-vct-customizer.php:1974
+#: inc/customizer/class-vct-customizer.php:2152
+#: inc/customizer/class-vct-customizer.php:2339
+msgid "Size"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1213
+#: inc/customizer/class-vct-customizer.php:1369
+#: inc/customizer/class-vct-customizer.php:1517
+#: inc/customizer/class-vct-customizer.php:1672
+#: inc/customizer/class-vct-customizer.php:1826
+#: inc/customizer/class-vct-customizer.php:1981
+#: inc/customizer/class-vct-customizer.php:2159
+#: inc/customizer/class-vct-customizer.php:2346
+msgid "Line Height"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1219
+#: inc/customizer/class-vct-customizer.php:1376
+#: inc/customizer/class-vct-customizer.php:1524
+#: inc/customizer/class-vct-customizer.php:1679
+#: inc/customizer/class-vct-customizer.php:1833
+#: inc/customizer/class-vct-customizer.php:1988
+#: inc/customizer/class-vct-customizer.php:2166
+#: inc/customizer/class-vct-customizer.php:2353
+msgid "Letter Spacing"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1225
+#: inc/customizer/class-vct-customizer.php:1382
+#: inc/customizer/class-vct-customizer.php:1530
+#: inc/customizer/class-vct-customizer.php:1685
+#: inc/customizer/class-vct-customizer.php:1839
+#: inc/customizer/class-vct-customizer.php:1995
+#: inc/customizer/class-vct-customizer.php:2172
+#: inc/customizer/class-vct-customizer.php:2359
+msgid "Margin Top"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1231
+#: inc/customizer/class-vct-customizer.php:1388
+#: inc/customizer/class-vct-customizer.php:1536
+#: inc/customizer/class-vct-customizer.php:1691
+#: inc/customizer/class-vct-customizer.php:1845
+#: inc/customizer/class-vct-customizer.php:2002
+#: inc/customizer/class-vct-customizer.php:2178
+#: inc/customizer/class-vct-customizer.php:2365
+msgid "Margin Bottom"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1237
+#: inc/customizer/class-vct-customizer.php:1394
+#: inc/customizer/class-vct-customizer.php:1542
+#: inc/customizer/class-vct-customizer.php:1697
+#: inc/customizer/class-vct-customizer.php:1851
+#: inc/customizer/class-vct-customizer.php:2009
+#: inc/customizer/class-vct-customizer.php:2184
+#: inc/customizer/class-vct-customizer.php:2371
+msgid "Capitalization"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1243
+#: inc/customizer/class-vct-customizer.php:1400
+#: inc/customizer/class-vct-customizer.php:1548
+#: inc/customizer/class-vct-customizer.php:1703
+#: inc/customizer/class-vct-customizer.php:1857
+#: inc/customizer/class-vct-customizer.php:2015
+#: inc/customizer/class-vct-customizer.php:2190
+#: inc/customizer/class-vct-customizer.php:2377
+msgid "Uppercase"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1244
+#: inc/customizer/class-vct-customizer.php:1401
+#: inc/customizer/class-vct-customizer.php:1549
+#: inc/customizer/class-vct-customizer.php:1704
+#: inc/customizer/class-vct-customizer.php:1858
+#: inc/customizer/class-vct-customizer.php:2016
+#: inc/customizer/class-vct-customizer.php:2191
+#: inc/customizer/class-vct-customizer.php:2378
+msgid "Lowercase"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:1245
+#: inc/customizer/class-vct-customizer.php:1402
+#: inc/customizer/class-vct-customizer.php:1550
+#: inc/customizer/class-vct-customizer.php:1705
+#: inc/customizer/class-vct-customizer.php:1859
+#: inc/customizer/class-vct-customizer.php:2017
+#: inc/customizer/class-vct-customizer.php:2192
+#: inc/customizer/class-vct-customizer.php:2379
+msgid "Capitalize"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:2077
+msgid "Primary Color"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:2089
+msgid "Secondary Color"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:2090
+msgid ""
+"Secondary text color will be applied to block quotes, image captions, etc."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:2103
+msgid "Active color that will be applied to links and bullets."
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:2278
+msgid "Background Hover Color"
+msgstr ""
+
+#: inc/customizer/class-vct-customizer.php:2290
+msgid "Text Hover Color"
+msgstr ""
+
+#: template-parts/content-gallery.php:40 template-parts/content-video.php:26
+#: template-parts/content.php:25
+msgid "Read More"
+msgstr ""

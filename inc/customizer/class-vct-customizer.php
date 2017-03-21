@@ -123,11 +123,33 @@ class VCT_Customizer {
 	 * @return void
 	 */
 	private function overall_site_section( $wp_customize ) {
+		$wp_customize->add_setting( VCT_DISABLE_HEADER,  array(
+			'default'           => false,
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+
+		$wp_customize->add_setting( VCT_DISABLE_FOOTER,  array(
+			'default'           => false,
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
 
 		$wp_customize->add_setting( 'vct_overall_site_bg_color',  array(
 			'default'       => '#ffffff',
 		) );
 
+		$wp_customize->add_setting( 'vct_overall_site_enable_bg_image',  array(
+			'default'           => false,
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+
+		$wp_customize->add_setting( 'vct_overall_site_bg_image',  array(
+			'default' => ''
+		) );
+		
+		$wp_customize->add_setting( 'vct_overall_site_bg_image_style',  array(
+			'default' => 'cover'
+		) );
+		
 		$wp_customize->add_setting( 'vct_overall_site_featured_image',  array(
 			'default' => true,
 			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
@@ -165,6 +187,30 @@ class VCT_Customizer {
 		$wp_customize->add_setting( 'vct_overall_site_comments_background',  array(
 			'default'       => '#f4f4f4',
 		) );
+
+		$wp_customize->add_control(
+			new VCT_Toggle_Switch_Control(
+				$wp_customize,
+				VCT_DISABLE_HEADER,
+				array(
+					'type'          => 'toggle-switch',
+					'label'         => __( 'Disable Theme Header', 'visual-composer-starter' ),
+					'section'       => 'vct_overall_site',
+					'settings'      => VCT_DISABLE_HEADER,
+				) )
+		);
+
+		$wp_customize->add_control(
+			new VCT_Toggle_Switch_Control(
+				$wp_customize,
+				VCT_DISABLE_FOOTER,
+				array(
+					'type'          => 'toggle-switch',
+					'label'         => __( 'Disable Theme Footer', 'visual-composer-starter' ),
+					'section'       => 'vct_overall_site',
+					'settings'      => VCT_DISABLE_FOOTER,
+				) )
+		);
 
 		$wp_customize->add_control(
 			new VCT_Toggle_Switch_Control(
@@ -290,6 +336,45 @@ class VCT_Customizer {
 					'label'         => __( 'Site Background', 'visual-composer-starter' ),
 					'section'       => 'vct_overall_site',
 					'settings'      => 'vct_overall_site_bg_color',
+				)
+			)
+		);
+		$wp_customize->add_control(
+			new VCT_Toggle_Switch_Control(
+				$wp_customize,
+				'vct_overall_site_enable_bg_image',
+				array(
+					'type'          => 'toggle-switch',
+					'label'         => __( 'Background Image', 'visual-composer-starter' ),
+					'section'       => 'vct_overall_site',
+					'settings'      => 'vct_overall_site_enable_bg_image',
+				) )
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'vct_overall_site_bg_image',
+					array(
+						'label'      => __( 'Image Upload', 'visual-composer-starter' ),
+						'section'    => 'vct_overall_site',
+						'settings'   => 'vct_overall_site_bg_image',
+					)
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'vct_overall_site_bg_image_style',
+				array(
+					'type'          => 'select',
+					'label'         => __( 'Image Style', 'visual-composer-starter' ),
+					'section'       => 'vct_overall_site',
+					'settings'      => 'vct_overall_site_bg_image_style',
+					'choices'       => array(
+						'cover'     => __( 'Cover', 'visual-composer-starter' ),
+						'contain'   => __( 'Contain', 'visual-composer-starter' ),
+						'repeat'    => __( 'Repeat', 'visual-composer-starter' ),
+					),
 				)
 			)
 		);
