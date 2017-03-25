@@ -1,4 +1,5 @@
-(function( $ ) {    
+(function( $ ) {
+
     // Available social icons
     var vctSocialIcons = [
         'facebook',
@@ -67,13 +68,13 @@
     }
 
     function hideBackgroundImageSettings () {
-        $('#customize-control-vct_overall_site_bg_image').hide();
-        $('#customize-control-vct_overall_site_bg_image_style').hide();
+        $( '#customize-control-vct_overall_site_bg_image' ).hide();
+        $( '#customize-control-vct_overall_site_bg_image_style').hide();
     }
 
     function showBackgroundImageSettings () {
-        $('#customize-control-vct_overall_site_bg_image').show();
-        $('#customize-control-vct_overall_site_bg_image_style').show();
+        $( '#customize-control-vct_overall_site_bg_image' ).show();
+        $( '#customize-control-vct_overall_site_bg_image_style' ).show();
     }
 
     wp.customize.controlConstructor['toggle-switch'] = wp.customize.Control.extend( {

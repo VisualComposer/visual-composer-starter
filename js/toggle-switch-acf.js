@@ -1,13 +1,10 @@
-(function ( $ ) {
-    $( document ).ready( function () {
+(function( $ ) {
+    $( document ).ready( function() {
         $( '#acf-hide_page_title, #acf-hide_post_title, #acf-disable_page_header, #acf-disable_page_footer, #acf-disable_post_header, #acf-disable_post_footer' ).addClass( 'acf-toggle-wrap' );
 
-        $( '.acf-toggle-wrap .acf-checkbox-list' ).each( function () {
+        $( '.acf-toggle-wrap .acf-checkbox-list' ).each( function() {
             var currentObject = $( this );
             var checkboxID = currentObject.find( 'input[type=checkbox]' ).attr( 'id' );
-
-            $( '#' + checkboxID ).addClass( 'onoffswitch-checkbox' );
-
             var checkboxClone = $( '#' + checkboxID ).clone();
             var toggleSwitchHTML = '<div class="onoffswitch">' +
                 checkboxClone[0].outerHTML +
@@ -15,6 +12,7 @@
                     '<span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span>' +
                 '</label>' +
                 '</div>';
+            $( '#' + checkboxID ).addClass( 'onoffswitch-checkbox' );
 
             currentObject.find( 'li' ).html( toggleSwitchHTML );
         });
