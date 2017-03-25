@@ -69,7 +69,7 @@
 
     function hideBackgroundImageSettings () {
         $( '#customize-control-vct_overall_site_bg_image' ).hide();
-        $( '#customize-control-vct_overall_site_bg_image_style').hide();
+        $( '#customize-control-vct_overall_site_bg_image_style' ).hide();
     }
 
     function showBackgroundImageSettings () {
