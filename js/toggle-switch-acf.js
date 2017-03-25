@@ -10,7 +10,7 @@
 
             var checkboxClone = $( '#' + checkboxID ).clone();
             var toggleSwitchHTML = '<div class="onoffswitch">' +
-                checkboxClone[0]['outerHTML'] +
+                checkboxClone[0].outerHTML +
                 '<label class="onoffswitch-label" for="' + checkboxID + '">' +
                     '<span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span>' +
                 '</label>' +

@@ -7,7 +7,7 @@
         $( '#customize-control-vct_overall_site_featured_image_custom_height' ).hide();
     }
 
-    wp.customize.controlConstructor['select'] = wp.customize.Control.extend({
+    wp.customize.controlConstructor.select = wp.customize.Control.extend({
         ready: function() {
 
             this.container.on( 'change', 'select', function() {
