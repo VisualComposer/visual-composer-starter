@@ -1,8 +1,17 @@
-<?php get_header(); ?>
-	<div class="<?php echo vct_get_content_container_class(); ?>">
+<?php
+/**
+ * The template part for displaying archive
+ *
+ * @package WordPress
+ * @subpackage Visual Composer Starter
+ * @since Visual Composer Starter 1.0
+ */
+
+get_header(); ?>
+	<div class="<?php echo esc_attr( vct_get_content_container_class() ); ?>">
 		<div class="content-wrapper">
 			<div class="row">
-				<div class="<?php echo vct_get_maincontent_block_class(); ?>">
+				<div class="<?php echo esc_attr( vct_get_maincontent_block_class() ); ?>">
 					<div class="main-content">
 						<div class="entry-content archive">
 							<?php
@@ -29,13 +38,13 @@
 
 								?>
 								<div class="pagination">
-									<h2 class="screen-reader-text"><?php __( 'Post navigation', 'visual-composer-starter' ); ?></h2>
+									<h2 class="screen-reader-text"><?php esc_html__( 'Post navigation', 'visual-composer-starter' ); ?></h2>
 									<div class="nav-links archive-navigation">
 										<?php
 										// Previous/next page navigation.
 										the_posts_pagination( array(
 											'screen_reader_text' => '',
-											'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'visual-composer-starter' ) . '</span>',
+											'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'visual-composer-starter' ) . '</span>',
 										) );
 										?>
 									</div><!--.nav-links archive-navigation-->
@@ -52,7 +61,7 @@
 
 						</div><!--.archive-->
 					</div><!--.main-content-->
-				</div><!--.<?php echo vct_get_maincontent_block_class(); ?>-->
+				</div><!--.<?php echo esc_html( vct_get_maincontent_block_class() ); ?>-->
 
 				<?php if ( vct_get_sidebar_class() ) : ?>
 					<?php get_sidebar(); ?>
@@ -60,5 +69,5 @@
 
 			</div><!--.row-->
 		</div><!--.content-wrapper-->
-	</div><!--.<?php echo vct_get_content_container_class(); ?>-->
+	</div><!--.<?php echo esc_html( vct_get_content_container_class() ); ?>-->
 <?php get_footer();

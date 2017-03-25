@@ -1,9 +1,20 @@
 <?php
+/**
+ * Functions
+ *
+ * @package WordPress
+ * @subpackage Visual Composer Starter
+ * @since Visual Composer Starter 1.0
+ */
+
 /** Slug used in update mechanism */
 define( 'VCT_SLUG', basename( get_template_directory() ) );
 define( 'VCT_VERSION', '1.1.1' );
 
 if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
+	/**
+	 * Theme setup
+	 */
 	function visualcomposerstarter_setup() {
 		/*
 		 * Make theme available for translation.
@@ -17,7 +28,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		define( 'VCT_POST_SIDEBAR',                     'vct_overall_site_post_sidebar' );
 		define( 'VCT_ARCHIVE_AND_CATEGORY_SIDEBAR',     'vct_overall_site_aac_sidebar' );
 		define( 'VCT_DISABLE_HEADER',                   'vct_overall_site_disable_header' );
-        define( 'VCT_DISABLE_FOOTER',                   'vct_overall_site_disable_footer' );
+		define( 'VCT_DISABLE_FOOTER',                   'vct_overall_site_disable_footer' );
 
 		/*
 		 * Let WordPress manage the document title.
@@ -60,8 +71,8 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 			$activated_pro   = $pro_acf && is_plugin_active( 'advanced-custom-fields-pro/acf.php' );
 			$activated_basic = $basic_acf && is_plugin_active( 'advanced-custom-fields/acf.php' );
 			if ( ( ! $activated_pro && ! $activated_basic )
-			     || ( ! $activated_pro && ! $basic_acf )
-			     || ( ! $activated_basic && ! $pro_acf )
+				 || ( ! $activated_pro && ! $basic_acf )
+				 || ( ! $activated_basic && ! $pro_acf )
 			) {
 				add_action( 'admin_notices', 'vct_acf_admin_notice__activate' );
 			} else {
@@ -172,25 +183,25 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 						);
 
 						if ( ! get_theme_mod( VCT_DISABLE_HEADER, false ) ) {
-							$vct_acf_page_options['fields'][] = array (
+							$vct_acf_page_options['fields'][] = array(
 								'key' => 'field_58c800e5a7722',
 								'label' => 'Disable Header',
 								'name' => 'disable_page_header',
 								'type' => 'checkbox',
-								'choices' => array (
-									1 => __('Yes'),
+								'choices' => array(
+									1 => __( 'Yes' ),
 								),
 								'default_value' => '',
 								'layout' => 'vertical',
 							);
 
-							$vct_acf_post_options['fields'][] = array (
+							$vct_acf_post_options['fields'][] = array(
 								'key' => 'field_58c7e3f0b7dfb',
 								'label' => 'Disable Header',
 								'name' => 'disable_post_header',
 								'type' => 'checkbox',
-								'choices' => array (
-									1 => __('Yes'),
+								'choices' => array(
+									1 => __( 'Yes' ),
 								),
 								'default_value' => '',
 								'layout' => 'vertical',
@@ -198,25 +209,25 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 						}
 
 						if ( ! get_theme_mod( VCT_DISABLE_FOOTER, false ) ) {
-							$vct_acf_page_options['fields'][] = array (
+							$vct_acf_page_options['fields'][] = array(
 								'key' => 'field_58c800faa7723',
 								'label' => 'Disable Footer',
 								'name' => 'disable_page_footer',
 								'type' => 'checkbox',
-								'choices' => array (
-									1 => __('Yes'),
+								'choices' => array(
+									1 => __( 'Yes' ),
 								),
 								'default_value' => '',
 								'layout' => 'vertical',
 							);
 
-							$vct_acf_post_options['fields'][] = array (
+							$vct_acf_post_options['fields'][] = array(
 								'key' => 'field_58c7e40db7dfc',
 								'label' => 'Disable Footer',
 								'name' => 'disable_post_footer',
 								'type' => 'checkbox',
-								'choices' => array (
-									1 => __('Yes'),
+								'choices' => array(
+									1 => __( 'Yes' ),
 								),
 								'default_value' => '',
 								'layout' => 'vertical',
@@ -242,48 +253,68 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		new VCT_Update();
 
 	}
-endif; // visualcomposerstarter_setup
+endif; /* visualcomposerstarter_setup */
+
 add_action( 'after_setup_theme', 'visualcomposerstarter_setup' );
 
-
-function vct_style_switch_toggle_acf(){
-    wp_register_style( 'toggle-acf-style', get_template_directory_uri() . '/css/toggle-switch.css', array(), false );
-    wp_enqueue_style( 'toggle-acf-style' );
+/**
+ *  Style Switch Toggle function
+ */
+function vct_style_switch_toggle_acf() {
+	wp_register_style( 'toggle-acf-style', get_template_directory_uri() . '/css/toggle-switch.css', array(), false );
+	wp_enqueue_style( 'toggle-acf-style' );
 }
 add_action( 'admin_enqueue_scripts', 'vct_style_switch_toggle_acf' );
 
-function vct_script_switch_toggle_acf(){
-    wp_register_script( 'toggle-acf-script', get_template_directory_uri() . '/js/toggle-switch-acf.js',  array('jquery'), false, true);
-    wp_enqueue_script( 'toggle-acf-script' );
+/**
+ *  Script Switch Toggle function
+ */
+function vct_script_switch_toggle_acf() {
+	wp_register_script( 'toggle-acf-script', get_template_directory_uri() . '/js/toggle-switch-acf.js',  array( 'jquery' ), false, true );
+	wp_enqueue_script( 'toggle-acf-script' );
 }
 add_action( 'admin_enqueue_scripts', 'vct_script_switch_toggle_acf' );
 
-/*AJAX Comment reply*/
+/**
+ * Ajax Comment Reply
+ */
 function visualcomposerstarter_enqueue_comments_reply() {
 	if ( get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 
-
+/**
+ * ACF install admin notice
+ */
 function vct_acf_admin_notice__install() {
 	?>
 	<div class="notice notice-success">
-		<p><?php _e( 'In order to access full theme options, please make sure to install <a href="https://wordpress.org/plugins/advanced-custom-fields/" target="_blank">Advanced Custom Fields</a>', 'visual-composer-starter' ); ?></p>
+		<p><?php esc_html_e( 'In order to access full theme options, please make sure to install <a href="https://wordpress.org/plugins/advanced-custom-fields/" target="_blank">Advanced Custom Fields</a>', 'visual-composer-starter' ); ?></p>
 	</div>
 	<?php
 }
+/**
+ * ACF activate admin notice
+ */
 function vct_acf_admin_notice__activate() {
 	?>
 	<div class="notice notice-success">
-		<p><?php echo sprintf( __( 'In order to access full theme options, please make sure to activate <a href="%s">Advanced Custom Fields</a>', 'visual-composer-starter' ), admin_url( 'plugins.php' ) ); ?></p>
+		<p><?php
+			/* translators: %s: link to Advanced Custom Fields */
+			echo sprintf( esc_html__( 'In order to access full theme options, please make sure to activate <a href="%s">Advanced Custom Fields</a>', 'visual-composer-starter' ), esc_url( admin_url( 'plugins.php' ) ) ); ?></p>
 	</div>
 	<?php
 }
+/**
+ * ACF update admin notice
+ */
 function vct_acf_admin_notice__update() {
 	?>
 	<div class="notice notice-success">
-		<p><?php echo sprintf( __( 'In order to access full theme options, please make sure to update <a href="%s">Advanced Custom Fields</a>', 'visual-composer-starter' ), admin_url( 'plugins.php' ) ); ?></p>
+		<p><?php
+			/* translators: %s: link to Advanced Custom Fields */
+			echo sprintf( esc_html__( 'In order to access full theme options, please make sure to update <a href="%s">Advanced Custom Fields</a>', 'visual-composer-starter' ), esc_url( admin_url( 'plugins.php' ) ) ); ?></p>
 	</div>
 	<?php
 }
@@ -308,6 +339,14 @@ add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list'
  */
 
 add_filter( 'mce_buttons', 'mce_page_break' );
+
+/**
+ * Add page break
+ *
+ * @param VCT_Customizer $mce_buttons Add page break.
+ *
+ * @return array
+ */
 function mce_page_break( $mce_buttons ) {
 	$pos = array_search( 'wp_more', $mce_buttons, true );
 
@@ -326,26 +365,26 @@ function mce_page_break( $mce_buttons ) {
  * @since Visual Composer Starter 1.0
  */
 function visualcomposerstarter_style() {
-	//Register styles
-	// Bootstrap stylesheet
+
+	/* Bootstrap stylesheet */
 	wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.7' );
 
-	// Add Visual Composer Starter Font
+	/* Add Visual Composer Starter Font */
 	wp_register_style( 'visual-composer-starter-font', get_template_directory_uri() . '/css/visual-composer-starter-font.min.css', array(), VCT_VERSION );
 
-	//Slick slider stylesheet
+	/* Slick slider stylesheet */
 	wp_register_style( 'slick-style', get_template_directory_uri() . '/css/slick.min.css', array(), '1.6.0' );
 
-	// General theme stylesheet
+	/* General theme stylesheet */
 	wp_register_style( 'visual-composer-starter-general', get_template_directory_uri() . '/css/style.min.css', array(), VCT_VERSION );
 
-	// Stylesheet with additional responsive style
+	/* Stylesheet with additional responsive style */
 	wp_register_style( 'visual-composer-starter-responsive', get_template_directory_uri() . '/css/responsive.min.css', array(), VCT_VERSION );
 
-	// Theme stylesheet.
+	/* Theme stylesheet */
 	wp_register_style( 'visual-composer-starter-style', get_stylesheet_uri() );
 
-	// Font options
+	/* Font options */
 	$fonts = array(
 		get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto' ),
 		get_theme_mod( 'vct_fonts_and_style_h1_font_family', 'Playfair Display' ),
@@ -359,10 +398,10 @@ function visualcomposerstarter_style() {
 
 	$font_uri = VCT_Fonts::vct_theme_get_google_font_uri( $fonts );
 
-	// Load Google Fonts
+	/* Load Google Fonts */
 	wp_register_style( 'vct-theme-fonts', $font_uri, array(), null, 'screen' );
 
-	//Enqueue styles
+	/* Enqueue styles */
 	wp_enqueue_style( 'bootstrap' );
 	wp_enqueue_style( 'visual-composer-starter-font' );
 	wp_enqueue_style( 'slick-style' );
@@ -380,20 +419,19 @@ add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_style' );
  * @since Visual Composer Starter 1.0
  */
 function visualcomposerstarter_script() {
-	//Register scripts
-	// Bootstrap Transition JS
+	/* Bootstrap Transition JS */
 	wp_register_script( 'bootstrap-transition', get_template_directory_uri() . '/js/bootstrap/transition.min.js', array( 'jquery' ), '3.3.7', true );
 
-	// Bootstrap Transition JS
+	/* Bootstrap Transition JS */
 	wp_register_script( 'bootstrap-collapser', get_template_directory_uri() . '/js/bootstrap/collapse.min.js', array( 'jquery' ), '3.3.7', true );
 
-	// Slick Slider JS
+	/* Slick Slider JS */
 	wp_register_script( 'slick-js', get_template_directory_uri() . '/js/slick/slick.min.js', array( 'jquery' ), '1.6.0', true );
 
-	// Main theme JS functions
+	/* Main theme JS functions */
 	wp_register_script( 'visual-composer-starter-script', get_template_directory_uri() . '/js/functions.min.js', array( 'jquery' ), VCT_VERSION, true );
 
-	//Enqueue scripts
+	/* Enqueue scripts */
 	wp_enqueue_script( 'bootstrap-transition' );
 	wp_enqueue_script( 'bootstrap-collapser' );
 	wp_enqueue_script( 'slick-js' );
@@ -404,41 +442,45 @@ add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_script' );
 
 /**
  * Adds custom classes to the array of body classes.
+ *
+ * @param Classes $classes Classes list.
+ *
+ * @return array
  */
 function visualcomposerstarter_body_classes( $classes ) {
-	// Sandwich color.
+	/* Sandwich color */
 	if ( get_theme_mod( 'vct_header_sandwich_style', '#333333' ) === '#FFFFFF' ) {
 		$classes[] = 'sandwich-color-light';
 	}
 
-	// Header Style
+	/* Header Style */
 	if ( get_theme_mod( 'vct_header_position', 'top' ) === 'sandwich' ) {
 		$classes[] = 'menu-sandwich';
 	}
 
-	// Menu position
+	/* Menu position */
 	if ( get_theme_mod( 'vct_header_sticky_header', false ) === true ) {
 		$classes[] = 'fixed-header';
 	}
 
-	// Navbar background
+	/* Navbar background */
 	if ( get_theme_mod( 'vct_header_reserve_space_for_header', true ) === false ) {
 		$classes[] = 'navbar-no-background';
 	}
 
-	// Width of header-area
+	/* Width of header-area */
 	if ( get_theme_mod( 'vct_header_top_header_width', 'boxed' ) === 'full_width' ) {
 		$classes[] = 'header-full-width';
 	} elseif ( get_theme_mod( 'vct_header_top_header_width', 'boxed' ) === 'full_width_boxed' ) {
 		$classes[] = 'header-full-width-boxed';
 	}
 
-	// Width of content-area
+	/* Width of content-area */
 	if ( get_theme_mod( 'vct_content_area_size', 'boxed' ) === 'full_width' ) {
 		$classes[] = 'content-full-width';
 	}
 
-	// Height of featured image
+	/* Height of featured image */
 	if ( get_theme_mod( 'vct_overall_site_featured_image_height', 'auto' ) === 'full_height' ) {
 		$classes[] = 'featured-image-full-height';
 	}
@@ -452,25 +494,34 @@ function visualcomposerstarter_body_classes( $classes ) {
 add_filter( 'body_class', 'visualcomposerstarter_body_classes' );
 
 /**
- * Give linked images class
+ *  Give linked images class
  *
+ * @param string  $html Html.
+ * @param integer $id Id.
+ * @param string  $caption Caption.
+ * @param string  $title Title.
+ * @param string  $align Align.
+ * @param string  $url Url.
+ * @param string  $size Size.
+ * @param string  $alt Alt.
  * @since Visual Composer Starter 1.2
+ * @return mixed
  */
 function visualcomposerstarter_give_linked_images_class( $html, $id, $caption, $title, $align, $url, $size, $alt = '' ) {
-	$classes = 'image-link'; // separated by spaces, e.g. 'img image-link'
+	$classes = 'image-link'; // separated by spaces, e.g. 'img image-link'.
 
 	$patterns = array();
 	$replacements = array();
 
-	// Matches img tag wrapped in anchor tag where anchor has existing classes contained in double quotes
+	// Matches img tag wrapped in anchor tag where anchor has existing classes contained in double quotes.
 	$patterns[0] = '/<a([^>]*)class="([^"]*)"([^>]*)>\s*<img([^>]*)>\s*<\/a>/';
 	$replacements[0] = '<a\1class="' . $classes . ' \2"\3><img\4></a>';
 
-	// Matches img tag wrapped in anchor tag where anchor has existing classes contained in single quotes
+	// Matches img tag wrapped in anchor tag where anchor has existing classes contained in single quotes.
 	$patterns[1] = '/<a([^>]*)class=\'([^\']*)\'([^>]*)>\s*<img([^>]*)>\s*<\/a>/';
 	$replacements[1] = '<a\1class="' . $classes . ' \2"\3><img\4></a>';
 
-	// Matches img tag wrapped in anchor tag where anchor tag has no existing classes
+	// Matches img tag wrapped in anchor tag where anchor tag has no existing classes.
 	$patterns[2] = '/<a(?![^>]*class)([^>]*)>\s*<img([^>]*)>\s*<\/a>/';
 	$replacements[2] = '<a\1 class="' . $classes . '"><img\2></a>';
 
@@ -506,7 +557,11 @@ register_sidebar(
 		'after_title'   => '</h2>',
 	)
 );
-
+/**
+ * Footer area 1.
+ *
+ * @return array
+ */
 function vct_footer_1() {
 	return array(
 		'name' => __( 'Footer Widget Column 1', 'visual-composer-starter' ),
@@ -518,6 +573,11 @@ function vct_footer_1() {
 		'after_title' => '</h2>',
 	);
 }
+/**
+ * Footer area 2.
+ *
+ * @return array
+ */
 function vct_footer_2() {
 	return array(
 		'name' => __( 'Footer Widget Column 2', 'visual-composer-starter' ),
@@ -529,6 +589,11 @@ function vct_footer_2() {
 		'after_title' => '</h2>',
 	);
 }
+/**
+ * Footer area 3.
+ *
+ * @return array
+ */
 function vct_footer_3() {
 	return array(
 		'name' => __( 'Footer Widget Column 3', 'visual-composer-starter' ),
@@ -540,6 +605,11 @@ function vct_footer_3() {
 		'after_title' => '</h2>',
 	);
 }
+/**
+ * Footer area 4.
+ *
+ * @return array
+ */
 function vct_footer_4() {
 	return array(
 		'name' => __( 'Footer Widget Column 4', 'visual-composer-starter' ),
@@ -555,7 +625,9 @@ function vct_footer_4() {
 add_action( 'widgets_init',             'visual_composer_starter_all_widgets' );
 add_action( 'admin_bar_init',           'visual_composer_starter_widgets' );
 
-
+/**
+ * All widgets.
+ */
 function visual_composer_starter_all_widgets() {
 	/**
 	 * Register all zones for availability in customizer
@@ -573,6 +645,10 @@ function visual_composer_starter_all_widgets() {
 		vct_footer_4()
 	);
 }
+
+/**
+ * Widgets handler
+ */
 function visual_composer_starter_widgets() {
 	unregister_sidebar( 'footer' );
 	unregister_sidebar( 'footer-2' );
@@ -606,13 +682,18 @@ function visual_composer_starter_widgets() {
 
 }
 
-function vct_is_the_header_displayed () {
+/**
+ * Is header displayed
+ *
+ * @return bool
+ */
+function vct_is_the_header_displayed() {
 	if ( get_theme_mod( VCT_DISABLE_HEADER, false ) ) {
 		return false;
 	} elseif ( function_exists( 'get_field' ) ) {
-		if( is_page() ) {
+		if ( is_page() ) {
 			return ! get_field( 'field_58c800e5a7722' );
-		}  elseif( is_singular() ) {
+		} elseif ( is_singular() ) {
 			return ! get_field( 'field_58c7e3f0b7dfb' );
 		} else {
 			return true;
@@ -622,13 +703,18 @@ function vct_is_the_header_displayed () {
 	}
 }
 
-function vct_is_the_footer_displayed () {
+/**
+ * Is footer displayed.
+ *
+ * @return bool
+ */
+function vct_is_the_footer_displayed() {
 	if ( get_theme_mod( VCT_DISABLE_FOOTER, false ) ) {
 		return false;
 	} elseif ( function_exists( 'get_field' ) ) {
-		if( is_page() ) {
+		if ( is_page() ) {
 			return ! get_field( 'field_58c800faa7723' );
-		}  elseif( is_singular() ) {
+		} elseif ( is_singular() ) {
 			return ! get_field( 'field_58c7e40db7dfc' );
 		} else {
 			return true;
@@ -638,6 +724,11 @@ function vct_is_the_footer_displayed () {
 	}
 }
 
+/**
+ * Get header container class.
+ *
+ * @return string
+ */
 function vct_get_header_container_class() {
 	if ( get_theme_mod( 'vct_header_top_header_width', 'boxed' ) === 'full_width' ) {
 		return 'container-fluid';
@@ -646,6 +737,11 @@ function vct_get_header_container_class() {
 	}
 }
 
+/**
+ * Get header image container class.
+ *
+ * @return string
+ */
 function vct_get_header_image_container_class() {
 	if ( get_theme_mod( 'vct_overall_site_featured_image_width', 'full_width' ) === 'full_width' ) {
 		return 'container-fluid';
@@ -654,6 +750,11 @@ function vct_get_header_image_container_class() {
 	}
 }
 
+/**
+ * Get contant container class
+ *
+ * @return string
+ */
 function vct_get_content_container_class() {
 	if ( 'full_width' === get_theme_mod( 'vct_content_area_size', 'boxed' ) ) {
 		return 'container-fluid';
@@ -669,7 +770,11 @@ if ( get_theme_mod( 'vct_overall_site_sidebar' ) ) {
 	remove_theme_mod( 'vct_overall_site_sidebar' );
 }
 
-
+/**
+ * Check needed sidebar
+ *
+ * @return string
+ */
 function vct_check_needed_sidebar() {
 	if ( is_page() ) {
 		return VCT_PAGE_SIDEBAR;
@@ -682,6 +787,11 @@ function vct_check_needed_sidebar() {
 	}
 }
 
+/**
+ * Specify sidebar
+ *
+ * @return null
+ */
 function vct_specify_sidebar() {
 	if ( is_page() ) {
 		$value = function_exists( 'get_field' ) ? get_field( 'field_589f5a321f0bc' ) : null;
@@ -700,6 +810,11 @@ function vct_specify_sidebar() {
 	}
 }
 
+/**
+ * Is the title displayed
+ *
+ * @return bool
+ */
 function vct_is_the_title_displayed() {
 	if ( function_exists( 'get_field' ) ) {
 		if ( is_page() ) {
@@ -714,6 +829,11 @@ function vct_is_the_title_displayed() {
 	}
 }
 
+/**
+ * Get main content block class
+ *
+ * @return string
+ */
 function vct_get_maincontent_block_class() {
 	switch ( vct_specify_sidebar() ) {
 		case 'none':
@@ -727,7 +847,11 @@ function vct_get_maincontent_block_class() {
 	}
 }
 
-
+/**
+ * Get sidebar class
+ *
+ * @return bool|string
+ */
 function vct_get_sidebar_class() {
 	switch ( vct_specify_sidebar() ) {
 		case 'none':
@@ -741,12 +865,15 @@ function vct_get_sidebar_class() {
 	}
 }
 
+/**
+ * Inline styles.
+ */
 function visualcomposerstarter_inline_styles() {
 	wp_register_style( 'custom-style', get_template_directory_uri() . '/css/customizer-custom.css', array(), false );
 	wp_enqueue_style( 'custom-style' );
 	$css = '';
 
-	//Fonts and style
+	// Fonts and style.
 	$css .= '
 	/*Body fonts and style*/
 	body,
@@ -893,7 +1020,7 @@ function visualcomposerstarter_inline_styles() {
 	  }
 	';
 
-	//Headers font and style
+	// Headers font and style.
 	$css .= '
 	/*Headers fonts and style*/
 	.header-widgetised-area .widget_text,
@@ -1018,24 +1145,24 @@ function visualcomposerstarter_inline_styles() {
 	}
 
 	if ( get_theme_mod( 'vct_overall_site_enable_bg_image', false ) ) {
-        $overall_site_bg_image = get_theme_mod( 'vct_overall_site_bg_image', '' );
-        if ( 'repeat' === get_theme_mod( 'vct_overall_site_bg_image_style', 'cover' ) ) {
-            $overall_site_bg_image_style = 'background-repeat: repeat;';
-        } else {
-            $overall_site_bg_image_style = '
-            background-size: ' . get_theme_mod( 'vct_overall_site_bg_image_style', 'cover' ) . ';
-            background-repeat: no-repeat;';
-        }
+		$overall_site_bg_image = get_theme_mod( 'vct_overall_site_bg_image', '' );
+		if ( 'repeat' === get_theme_mod( 'vct_overall_site_bg_image_style', 'cover' ) ) {
+			$overall_site_bg_image_style = 'background-repeat: repeat;';
+		} else {
+			$overall_site_bg_image_style = '
+			background-size: ' . get_theme_mod( 'vct_overall_site_bg_image_style', 'cover' ) . ';
+			background-repeat: no-repeat;';
+		}
 
-        if ( '' !== $overall_site_bg_image ) {
-            $css .= "
-            body {
-                background-image: url('{$overall_site_bg_image}');
-                {$overall_site_bg_image_style}
-            }
-            ";
-        }
-    }
+		if ( '' !== $overall_site_bg_image ) {
+			$css .= "
+			body {
+				background-image: url('{$overall_site_bg_image}');
+				{$overall_site_bg_image_style}
+			}
+			";
+		}
+	}
 
 	$header_and_menu_area_background = get_theme_mod( 'vct_header_background', '#ffffff' );
 	if ( '#ffffff' !== $header_and_menu_area_background ) {
@@ -1106,8 +1233,7 @@ function visualcomposerstarter_inline_styles() {
 		";
 	}
 
-	// Featured image custom height
-
+	// Featured image custom height.
 	$vct_featured_image_custom_height = get_theme_mod( 'vct_overall_site_featured_image_custom_height', '400px' );
 	if ( is_numeric( $vct_featured_image_custom_height ) ) {
 		$vct_featured_image_custom_height .= 'px';
@@ -1138,30 +1264,30 @@ function visualcomposerstarter_inline_styles() {
 
 	$footer_area_background = get_theme_mod( 'vct_footer_area_background', '#333333' );
 	if ( '#333333' !== $footer_area_background ) {
-		// Work out if hash given
+		// Work out if hash given.
 		$hex = str_replace( '#', '', $footer_area_background );
 
-		/// HEX TO RGB
+		// HEX TO RGB.
 		$rgb = array( hexdec( substr( $hex,0,2 ) ), hexdec( substr( $hex,2,2 ) ), hexdec( substr( $hex,4,2 ) ) );
-		//// CALCULATE
+		// CALCULATE.
 		for ( $i = 0; $i < 3; $i++ ) {
 			$rgb[ $i ] = round( $rgb[ $i ] * 1.1 );
 
-			// In case rounding up causes us to go to 256
+			// In case rounding up causes us to go to 256.
 			if ( $rgb[ $i ] > 255 ) {
 				$rgb[ $i ] = 255;
 			}
 		}
-		//// RBG to Hex
+		// RBG to Hex.
 		$hex = '';
 		for ( $i = 0; $i < 3; $i++ ) {
-			// Convert the decimal digit to hex
+			// Convert the decimal digit to hex.
 			$hex_digit = dechex( $rgb[ $i ] );
-			// Add a leading zero if necessary
+			// Add a leading zero if necessary.
 			if ( strlen( $hex_digit ) === 1 ) {
 				$hex_digit = '0' . $hex_digit;
 			}
-			// Append to the hex string
+			// Append to the hex string.
 			$hex .= $hex_digit;
 		}
 		$footer_widget_area_background = '#' . $hex;

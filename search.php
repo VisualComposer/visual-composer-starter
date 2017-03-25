@@ -1,11 +1,22 @@
-<?php get_header(); ?>
-	<div class="<?php echo vct_get_content_container_class(); ?>">
+<?php
+/**
+ * Search
+ *
+ * @package WordPress
+ * @subpackage Visual Composer Starter
+ * @since Visual Composer Starter 1.0
+ */
+
+get_header(); ?>
+	<div class="<?php echo esc_attr( vct_get_content_container_class() ); ?>">
 		<div class="content-wrapper">
 			<div class="row">
-				<div class="<?php echo vct_get_maincontent_block_class(); ?>">
+				<div class="<?php echo esc_attr( vct_get_maincontent_block_class() ); ?>">
 					<div class="main-content">
 						<div class="search-results-header">
-							<h4><?php printf( __( 'Search Results for <strong>%s</strong>', 'visual-composer-starter' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h4>
+							<h4><?php
+								/* translators: %s: search query string */
+								printf( esc_html__( 'Search Results for <strong>%s</strong>', 'visual-composer-starter' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h4>
 						</div>
 						<div class="archive">
 							<?php if ( have_posts() ) : ?>
@@ -53,5 +64,5 @@
 
 			</div><!--.row-->
 		</div><!--.content-wrapper-->
-	</div><!--.<?php echo vct_get_content_container_class(); ?>-->
+	</div><!--.<?php echo esc_html( vct_get_content_container_class() ); ?>-->
 <?php get_footer();

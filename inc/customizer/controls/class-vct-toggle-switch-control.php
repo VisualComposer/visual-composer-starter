@@ -1,4 +1,15 @@
 <?php
+/**
+ * Toggle Switch Class File
+ *
+ * @package WordPress
+ * @subpackage Visual Composer Starter
+ * @since Visual Composer Starter 1.0
+ */
+
+/**
+ * Class VCT_Toggle_Switch_Control
+ */
 class VCT_Toggle_Switch_Control extends WP_Customize_Control {
 
 	/**

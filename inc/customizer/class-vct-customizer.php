@@ -1,8 +1,18 @@
 <?php
+/**
+ * Customizer
+ *
+ * @package WordPress
+ * @subpackage Visual Composer Starter
+ * @since Visual Composer Starter 1.0
+ */
+
+/**
+ * Class VCT_Customizer
+ */
 class VCT_Customizer {
 	/**
 	 * Visual Composer Starter Customizer constructor.
-	 *
 	 *
 	 * @access public
 	 * @since  1.0
@@ -13,6 +23,9 @@ class VCT_Customizer {
 		add_action( 'customize_register', array( $this, 'register_customize_sections' ) );
 	}
 
+	/**
+	 * Custom css.
+	 */
 	public function custom_css() {
 		wp_register_style( 'vct-custom-css', get_template_directory_uri() . '/css/customizer-custom.css' );
 		wp_enqueue_style( 'vct-custom-css' );
@@ -23,7 +36,7 @@ class VCT_Customizer {
 	 *
 	 * Includes all our custom control classes.
 	 *
-	 * @param WP_Customize_Manager $wp_customize
+	 * @param WP_Customize_Manager $wp_customize Customize manager class.
 	 *
 	 * @access public
 	 * @since  1.0
@@ -37,14 +50,14 @@ class VCT_Customizer {
 	/**
 	 * Add all panels and sections to the Customizer
 	 *
-	 * @param WP_Customize_Manager $wp_customize
+	 * @param WP_Customize_Manager $wp_customize Customize manager class.
 	 *
 	 * @access public
 	 * @since  1.0
 	 * @return void
 	 */
 	public function register_customize_sections( $wp_customize ) {
-		// Create sections
+		// Create sections.
 		$wp_customize->add_section( 'vct_overall_site', array(
 			'title'             => __( 'Theme Options', 'visual-composer-starter' ),
 			'priority'          => 101,
@@ -73,7 +86,7 @@ class VCT_Customizer {
 			'title'             => __( 'Scripts', 'visual-composer-starter' ),
 		) );
 
-		// Populate sections
+		// Populate sections.
 		$this->overall_site_section( $wp_customize );
 		$this->content_area_section( $wp_customize );
 		$this->header_and_menu_section( $wp_customize );
@@ -82,6 +95,13 @@ class VCT_Customizer {
 		$this->scripts( $wp_customize );
 	}
 
+	/**
+	 * Sanitize Custom Height
+	 *
+	 * @param integer $height Height.
+	 *
+	 * @return null
+	 */
 	public function sanitize_custom_height( $height ) {
 		$matches = null;
 		preg_match( '/^(([0-9]+)px|[0-9]+)$/', $height, $matches );
@@ -92,16 +112,37 @@ class VCT_Customizer {
 		return null;
 	}
 
+	/**
+	 * Sanitize checkbox
+	 *
+	 * @param bool $input Input data.
+	 *
+	 * @return bool
+	 */
 	public function sanitize_checkbox( $input ) {
 		return ( true === $input ) ? true : false;
 	}
 
+	/**
+	 * Sanitize textarea
+	 *
+	 * @param string $text Text data.
+	 *
+	 * @return mixed
+	 */
 	public function sanitize_textarea( $text ) {
 		return esc_textarea( $text );
 	}
 
+	/**
+	 * Sanitize url
+	 *
+	 * @param string $input Input data.
+	 *
+	 * @return string
+	 */
 	public function sanitize_url( $input ) {
-		$url = parse_url( $input );
+		$url = wp_parse_url( $input );
 		if ( ! empty( $url['scheme'] ) ) {
 			if ( 'http' !== $url['scheme'] && 'https' !== $url['scheme'] ) {
 				return '//' . $input;
@@ -116,7 +157,7 @@ class VCT_Customizer {
 	/**
 	 * Section: Overall Site
 	 *
-	 * @param WP_Customize_Manager $wp_customize
+	 * @param WP_Customize_Manager $wp_customize Customize manager class.
 	 *
 	 * @access private
 	 * @since  1.0
@@ -125,12 +166,12 @@ class VCT_Customizer {
 	private function overall_site_section( $wp_customize ) {
 		$wp_customize->add_setting( VCT_DISABLE_HEADER,  array(
 			'default'           => false,
-			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
 		) );
 
 		$wp_customize->add_setting( VCT_DISABLE_FOOTER,  array(
 			'default'           => false,
-			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_overall_site_bg_color',  array(
@@ -139,17 +180,17 @@ class VCT_Customizer {
 
 		$wp_customize->add_setting( 'vct_overall_site_enable_bg_image',  array(
 			'default'           => false,
-			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_overall_site_bg_image',  array(
-			'default' => ''
+			'default' => '',
 		) );
-		
+
 		$wp_customize->add_setting( 'vct_overall_site_bg_image_style',  array(
-			'default' => 'cover'
+			'default' => 'cover',
 		) );
-		
+
 		$wp_customize->add_setting( 'vct_overall_site_featured_image',  array(
 			'default' => true,
 			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
@@ -197,7 +238,7 @@ class VCT_Customizer {
 					'label'         => __( 'Disable Theme Header', 'visual-composer-starter' ),
 					'section'       => 'vct_overall_site',
 					'settings'      => VCT_DISABLE_HEADER,
-				) )
+			) )
 		);
 
 		$wp_customize->add_control(
@@ -209,7 +250,7 @@ class VCT_Customizer {
 					'label'         => __( 'Disable Theme Footer', 'visual-composer-starter' ),
 					'section'       => 'vct_overall_site',
 					'settings'      => VCT_DISABLE_FOOTER,
-				) )
+			) )
 		);
 
 		$wp_customize->add_control(
@@ -348,17 +389,17 @@ class VCT_Customizer {
 					'label'         => __( 'Background Image', 'visual-composer-starter' ),
 					'section'       => 'vct_overall_site',
 					'settings'      => 'vct_overall_site_enable_bg_image',
-				) )
+			) )
 		);
 		$wp_customize->add_control(
 			new WP_Customize_Image_Control(
 				$wp_customize,
 				'vct_overall_site_bg_image',
-					array(
+				array(
 						'label'      => __( 'Image Upload', 'visual-composer-starter' ),
 						'section'    => 'vct_overall_site',
 						'settings'   => 'vct_overall_site_bg_image',
-					)
+				)
 			)
 		);
 		$wp_customize->add_control(
@@ -406,7 +447,7 @@ class VCT_Customizer {
 	/**
 	 * Section: Content Area Section
 	 *
-	 * @param WP_Customize_Manager $wp_customize
+	 * @param WP_Customize_Manager $wp_customize Customize manager class.
 	 *
 	 * @access private
 	 * @since  1.0
@@ -494,7 +535,7 @@ class VCT_Customizer {
 	/**
 	 * Section: Header Section
 	 *
-	 * @param WP_Customize_Manager $wp_customize
+	 * @param WP_Customize_Manager $wp_customize Customize manager class.
 	 *
 	 * @access private
 	 * @since  1.0
@@ -692,7 +733,7 @@ class VCT_Customizer {
 	/**
 	 * Section: Footer Section
 	 *
-	 * @param WP_Customize_Manager $wp_customize
+	 * @param WP_Customize_Manager $wp_customize Customize manager class.
 	 *
 	 * @access private
 	 * @since  1.0
@@ -981,7 +1022,7 @@ class VCT_Customizer {
 	/**
 	 * Section: Body Fonts & Styles Section
 	 *
-	 * @param WP_Customize_Manager $wp_customize
+	 * @param WP_Customize_Manager $wp_customize Customize manager class.
 	 *
 	 * @access private
 	 * @since  1.0
@@ -1050,7 +1091,7 @@ class VCT_Customizer {
 	/**
 	 * Section: Scripts Section
 	 *
-	 * @param WP_Customize_Manager $wp_customize
+	 * @param WP_Customize_Manager $wp_customize Customize manager class.
 	 *
 	 * @access private
 	 * @since  1.0
@@ -1093,6 +1134,11 @@ class VCT_Customizer {
 		);
 	}
 
+	/**
+	 * H1 fonts and style section
+	 *
+	 * @param object $wp_customize Customizer object.
+	 */
 	private function fonts_and_style_section_h1( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1', array(
 			'default'        => '',
@@ -1247,6 +1293,11 @@ class VCT_Customizer {
 		) );
 	}
 
+	/**
+	 * H2 fonts and style section
+	 *
+	 * @param object $wp_customize Customizer object.
+	 */
 	private function fonts_and_style_section_h2( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2', array(
 			'default'        => '',
@@ -1404,6 +1455,11 @@ class VCT_Customizer {
 		) );
 	}
 
+	/**
+	 * H3 fonts and style section
+	 *
+	 * @param object $wp_customize Customizer object.
+	 */
 	private function fonts_and_style_section_h3( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3', array(
 			'default'        => '',
@@ -1552,6 +1608,11 @@ class VCT_Customizer {
 		) );
 	}
 
+	/**
+	 * H4 fonts and style section
+	 *
+	 * @param object $wp_customize Customizer object.
+	 */
 	private function fonts_and_style_section_h4( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4', array(
 			'default'        => '',
@@ -1707,6 +1768,11 @@ class VCT_Customizer {
 		) );
 	}
 
+	/**
+	 * H5 fonts and style section
+	 *
+	 * @param object $wp_customize Customizer object.
+	 */
 	private function fonts_and_style_section_h5( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5', array(
 			'default'        => '',
@@ -1861,6 +1927,11 @@ class VCT_Customizer {
 		) );
 	}
 
+	/**
+	 * H6 fonts and style section
+	 *
+	 * @param object $wp_customize Customizer object.
+	 */
 	private function fonts_and_style_section_h6( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6', array(
 			'default'        => '',
@@ -2019,6 +2090,11 @@ class VCT_Customizer {
 		) );
 	}
 
+	/**
+	 * Body fonts and style section
+	 *
+	 * @param object $wp_customize Customizer object.
+	 */
 	private function fonts_and_style_section_body( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_body', array(
 			'default'        => '',
@@ -2194,6 +2270,11 @@ class VCT_Customizer {
 		) );
 	}
 
+	/**
+	 * Buttons fonts and style section
+	 *
+	 * @param object $wp_customize Customizer object.
+	 */
 	private function fonts_and_style_section_buttons( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons', array(
 			'default'        => '',
