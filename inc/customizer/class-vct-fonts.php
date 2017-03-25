@@ -208,7 +208,7 @@ class VCT_Fonts {
 	 * Google font variants
 	 *
 	 * @param string $font Font name.
-	 * @param array $variants Font variants.
+	 * @param array  $variants Font variants.
 	 *
 	 * @return array
 	 */
@@ -234,7 +234,7 @@ class VCT_Fonts {
 			$chosen_variants[] = 'italic';
 		}
 
-		// Font weight
+		// Font weight.
 		$font_weight = get_theme_mod( 'vct_fonts_and_style_body_weight', '400' );
 		if ( in_array( $font_weight, $variants ) ) {
 			$chosen_variants[] = $font_weight;
