@@ -1,6 +1,22 @@
 <?php
+/**
+ * Google Fonts Class file
+ *
+ * @package WordPress
+ * @subpackage Visual Composer Starter
+ * @since Visual Composer Starter 1.0
+ */
+
+/**
+ * Class VCT_Fonts
+ */
 class VCT_Fonts {
 
+	/**
+	 * Get Fonts List
+	 *
+	 * @return array
+	 */
 	protected static function vct_get_fonts_list() {
 		$heading1 = array(
 			1 => array(
@@ -17,7 +33,11 @@ class VCT_Fonts {
 		return array_merge( $heading1, $standard_fonts, $heading2, $google_fonts );
 	}
 
-
+	/**
+	 * Theme standard fonts list
+	 *
+	 * @return array
+	 */
 	protected static function vct_theme_standard_fonts() {
 		return array(
 			'Arial, Helvetica, sans-serif' => array(
@@ -92,6 +112,11 @@ class VCT_Fonts {
 		);
 	}
 
+	/**
+	 * Theme font choices
+	 *
+	 * @return array
+	 */
 	public static function vct_theme_font_choices() {
 		$fonts  = self::vct_get_fonts_list();
 		$choices = array();
@@ -102,32 +127,40 @@ class VCT_Fonts {
 
 		return $choices;
 	}
+
+	/**
+	 * Get Google font uri
+	 *
+	 * @param array $fonts Fonts array.
+	 *
+	 * @return string
+	 */
 	public static function vct_theme_get_google_font_uri( $fonts ) {
 
-		// De-dupe the fonts
+		// De-dupe the fonts.
 		$fonts     = array_unique( $fonts );
 		$allowed_fonts = self::vct_theme_google_fonts();
 		$family    = array();
 
-		// Validate each font and convert to URL format
+		// Validate each font and convert to URL format.
 		foreach ( $fonts as $font ) {
 			$font = trim( $font );
 
-			// Verify that the font exists
+			// Verify that the font exists.
 			if ( array_key_exists( $font, $allowed_fonts ) ) {
-				// Build the family name and variant string (e.g., "Open+Sans:regular,italic,700")
+				// Build the family name and variant string (e.g., "Open+Sans:regular,italic,700").
 				$family[] = urlencode( $font . ':' . join( ',', self::vct_theme_google_font_variants( $font, $allowed_fonts[ $font ]['variants'] ) ) );
 			}
 		}
 
-		// Convert from array to string
+		// Convert from array to string.
 		if ( empty( $family ) ) {
 			return '';
 		} else {
 			$request = '//fonts.googleapis.com/css?family=' . implode( '|', $family );
 		}
 
-		// Load the font subset
+		// Load the font subset.
 		$subset = get_theme_mod( 'vct_fonts_and_style_subsets', 'all' );
 
 		if ( 'all' === $subset ) {
@@ -143,7 +176,7 @@ class VCT_Fonts {
 			);
 		}
 
-		// Append the subset string
+		// Append the subset string.
 		if ( ! empty( $subsets ) ) {
 			$request .= urlencode( '&subset=' . join( ',', $subsets ) );
 		}
@@ -151,6 +184,11 @@ class VCT_Fonts {
 		return esc_url( $request );
 	}
 
+	/**
+	 * Font subsets
+	 *
+	 * @return array
+	 */
 	public static function vct_theme_font_subsets() {
 		return array(
 			'all'     => __( 'All', 'visual-composer-starter' ),
@@ -166,6 +204,14 @@ class VCT_Fonts {
 		);
 	}
 
+	/**
+	 * Google font variants
+	 *
+	 * @param string $font Font name.
+	 * @param array $variants Font variants.
+	 *
+	 * @return array
+	 */
 	public static function vct_theme_google_font_variants( $font, $variants = array() ) {
 		$chosen_variants = array();
 		if ( empty( $variants ) ) {
@@ -176,14 +222,14 @@ class VCT_Fonts {
 			}
 		}
 
-		// If a "regular" variant is not found, get the first variant
+		// If a "regular" variant is not found, get the first variant.
 		if ( ! in_array( 'regular', $variants ) ) {
 			$chosen_variants[] = $variants[0];
 		} else {
 			$chosen_variants[] = 'regular';
 		}
 
-		// Only add "italic" if it exists
+		// Only add "italic" if it exists.
 		if ( in_array( 'italic', $variants ) ) {
 			$chosen_variants[] = 'italic';
 		}
@@ -197,6 +243,11 @@ class VCT_Fonts {
 		return array_unique( $chosen_variants );
 	}
 
+	/**
+	 * Google Fonts list
+	 *
+	 * @return mixed
+	 */
 	protected static function vct_theme_google_fonts() {
 		return apply_filters( 'vct_theme_google_fonts_list', array(
 			'ABeeZee' => array(
