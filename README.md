@@ -1,4 +1,4 @@
-Visual Composer Starter WordPress Theme [![Build Status](https://api.travis-ci.org/wpbakery/visual-composer-theme.svg?branch=master)](https://api.travis-ci.org/wpbakery/visual-composer-theme)
+Visual Composer Starter WordPress Theme [![Build Status](https://api.travis-ci.org/wpbakery/visual-composer-theme.svg?branch=master)](https://travis-ci.org/wpbakery/visual-composer-theme)
 ===
 Visual Composer Starter theme designed to be a perfect companion for a simple and good looking website. Theme developed by WPBakery and is available for free to the community. Bugs, ideas? Please [open an issue here on GitHub](https://github.com/wpbakery/visual-composer-theme/issues/new).
 
