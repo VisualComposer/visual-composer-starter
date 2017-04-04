@@ -77,7 +77,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 				add_action( 'admin_notices', 'vct_acf_admin_notice__activate' );
 			} else {
 				$name     = $activated_pro ? 'advanced-custom-fields-pro/acf.php' : 'advanced-custom-fields/acf.php';
-				$acf_info = get_plugin_data( WP_PLUGIN_DIR . $name );
+				$acf_info = get_plugin_data( WP_PLUGIN_DIR . '/' . $name );
 				if ( version_compare( $acf_info['Version'], '4.1.0', '<' ) ) {
 					add_action( 'admin_notices', 'vct_acf_admin_notice__update' );
 				} else {
