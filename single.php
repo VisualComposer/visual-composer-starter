@@ -28,10 +28,10 @@ while ( have_posts() ) :
                                                     <div class="col-md-5">
                                                         <div class="nav-previous">
                                                             <?php
-                                                                echo get_previous_post_link(
+                                                                previous_post_link(
                                                                     '%link',
-                                                                    '<span class="meta-nav">' . __( 'Previous', 'visual-composer-starter' ) . '</span>
-                                                                    <span class="screen-reader-text">' . __( 'Previous post:', 'visual-composer-starter' ) . '</span>
+                                                                    '<span class="meta-nav">' . esc_html__( 'Previous', 'visual-composer-starter' ) . '</span>
+                                                                    <span class="screen-reader-text">' . esc_html__( 'Previous post:', 'visual-composer-starter' ) . '</span>
                                                                     <span class="post-title">%title</span>'
                                                                 );
                                                             ?>
@@ -40,10 +40,10 @@ while ( have_posts() ) :
                                                     <div class="col-md-5 col-md-offset-2">
                                                         <div class="nav-next">
                                                             <?php
-                                                                echo get_next_post_link(
+                                                                next_post_link(
                                                                     '%link',
-                                                                    '<span class="meta-nav">' . __( 'Next', 'visual-composer-starter' ) . '</span>
-                                                                    <span class="screen-reader-text">' . __( 'Next post:', 'visual-composer-starter' ) . '</span>
+                                                                    '<span class="meta-nav">' . esc_html__( 'Next', 'visual-composer-starter' ) . '</span>
+                                                                    <span class="screen-reader-text">' . esc_html__( 'Next post:', 'visual-composer-starter' ) . '</span>
                                                                     <span class="post-title">%title</span>'
                                                                 );
                                                             ?>

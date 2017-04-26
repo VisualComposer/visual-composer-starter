@@ -5,8 +5,8 @@
                 <div class="<?php echo vct_get_maincontent_block_class(); ?>">
                     <div class="main-content">
                         <div class="entry-content error-404 not-found">
-                            <h1><?php _e( 'Oops! That page can&rsquo;t be found.', 'visual-composer-starter' ); ?></h1>
-                            <p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'visual-composer-starter' ); ?></p>
+                            <h1><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'visual-composer-starter' ); ?></h1>
+                            <p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try a search?', 'visual-composer-starter' ); ?></p>
                             <?php get_search_form(); ?>
                         </div><!--.entry-content-->
                     </div><!--.main-content-->

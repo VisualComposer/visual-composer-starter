@@ -47,9 +47,9 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
                             <div class="gallery-item">
                                 <div class="fade-in-img">
                                     <div class="fade-in-img-inner-wrap">
-                                        <img src="<?php echo $src;?>" data-src="<?php echo $src;?>" alt="">
+                                        <img src="<?php echo esc_url( $src );?>" data-src="<?php echo esc_url( $src );?>" alt="">
                                         <noscript>
-                                            <img src="<?php echo $src;?>" alt="">
+                                            <img src="<?php echo esc_url( $src );?>" alt="">
                                         </noscript>
                                     </div>
                                 </div><!--.fade-in-img-->
@@ -73,7 +73,7 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
                     <div class="fade-in-img">
                         <div class="fade-in-img-inner-wrap">
                             <img src="<?php the_post_thumbnail_url(); ?>" data-src="<?php the_post_thumbnail_url() ?>"
-                                 alt="<?php the_title() ?>">
+                                 alt="<?php the_title_attribute() ?>">
                             <noscript>
                                 <?php the_post_thumbnail(); ?>
                             </noscript>
@@ -117,10 +117,10 @@ if ( ! function_exists( 'visualcomposerstarter_entry_meta' ) ) :
                 <li class="entry-meta-author"><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php get_the_author(); ?></span></a></li>
             <?php endif; ?>
 
-            <li class="entry-meta-category"><?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?></li>
+            <li class="entry-meta-category"><?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?></li>
 
             <?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
-                <li class="entry-meta-comments"><?php comments_popup_link( __( 'Leave a comment', 'visual-composer-starter' ), __( '1 Comment', 'visual-composer-starter' ), __( '% Comments', 'visual-composer-starter' ) ); ?>
+                <li class="entry-meta-comments"><?php comments_popup_link( esc_html__( 'Leave a comment', 'visual-composer-starter' ), esc_html__( '1 Comment', 'visual-composer-starter' ), esc_html__( '% Comments', 'visual-composer-starter' ) ); ?>
             <?php endif; ?>
 
             </li>
@@ -141,8 +141,8 @@ if ( ! function_exists( 'visualcomposerstarter_single_meta' ) ) :
             <?php if ( get_post_type() === 'post' ): ?>
                 <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php get_the_author(); ?></span></a>
             <?php endif; ?>
-            <?php echo _x( 'to', 'Post meta' ); ?>
-            <?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?>
+            <?php echo _x( 'to', 'Post meta', 'visual-composer-starter' ); ?>
+            <?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?>
         </div>
         <?php
     }
@@ -172,17 +172,17 @@ if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
             $add_below = 'div-comment';
         }
         ?>
-        <<?php echo $tag; ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID(); ?>">
+        <<?php echo esc_attr( $tag ); ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID(); ?>">
         <?php if ( $args['style'] !== 'div' ) : ?>
             <div id="div-comment-<?php comment_ID(); ?>" class="comment-body">
         <?php endif; ?>
         <div class="author-avatar">
             <div class="fade-in-image">
                 <?php if ( $args['avatar_size'] !== 0 ): ?>
-                    <img src="<?php echo get_avatar_url( $comment, array( 'size' => $args['avatar_size'] ) ); ?>"
-                         data-src="<?php echo get_avatar_url( $comment, array( 'size' => $args['avatar_size'] ) ); ?>">
+                    <img src="<?php echo esc_url( get_avatar_url( $comment, array( 'size' => $args['avatar_size'] ) ) ); ?>"
+                         data-src="<?php echo esc_url( get_avatar_url( $comment, array( 'size' => $args['avatar_size'] ) ) ); ?>">
                     <noscript>
-                        <img src="<?php echo get_avatar_url( $comment, array( 'size' => $args['avatar_size'] ) ); ?>">
+                        <img src="<?php echo esc_url( get_avatar_url( $comment, array( 'size' => $args['avatar_size'] ) ) ); ?>">
                     </noscript>
                 <?php endif; ?>
             </div>
@@ -190,17 +190,17 @@ if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
         <div class="comment-wrapper">
             <footer class="comment-meta">
                 <div class="comment-author vcard">
-                    <?php printf( __( '%s</cite> <span class="says">says:</span>' ), get_comment_author_link() ); ?>
+                    <?php echo sprintf( '%s %s %s %s'.esc_html__("says:", "visual-composer-starter").'%s ', '<cite>', get_comment_author_link(), '</cite>', '<span class="says">', '</span>' ); ?>
                 </div>
                 <div class="comment-metadata">
-                    <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
+                    <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
                         <?php
                         /* translators: 1: date, 2: time */
-                        printf( __('On %1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?>
+                        printf( esc_html__('On %1$s at %2$s', "visual-composer-starter"), get_comment_date(),  get_comment_time() ); ?>
                     </a>
-                    <?php edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
+                    <?php edit_comment_link( esc_html__( '(Edit)', "visual-composer-starter" ), '  ', '' ); ?>
                     <?php if ( $comment->comment_approved === '0' ) : ?>
-                        <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
+                        <em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'visual-composer-starter' ); ?></em>
                     <?php endif; ?>
                 </div>
             </footer>
@@ -216,7 +216,7 @@ if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
         <?php if ( $args['style'] !== 'div' ) : ?>
             </div>
         <?php endif; ?>
-        </<?php echo $tag; ?>>
+        </<?php echo esc_attr( $tag ); ?>>
         <?php
     }
 endif;

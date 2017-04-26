@@ -2,9 +2,9 @@
 
 Contributors: wpbakery
 Tags: translation-ready, custom-background, theme-options, custom-menu, post-formats, threaded-comments
-Stable tag: 1.0
+Stable tag: 1.1.2
 Requires at least: 4.0
-Tested up to: 4.6
+Tested up to: 4.7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 

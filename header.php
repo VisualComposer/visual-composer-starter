@@ -19,13 +19,13 @@
                             if ( has_custom_logo() ):
                                 $custom_logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
                         ?>
-                            <a href="<?php echo home_url(); ?>"
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>"
                                title="<?php bloginfo( 'name' ) ?>">
-                                <img src="<?php echo $custom_logo[0] ?>" alt="<?php bloginfo( 'name' ) ?>">
+                                <img src="<?php echo esc_url( $custom_logo[0] ); ?>" alt="<?php bloginfo( 'name' ) ?>">
                             </a>
                         <?php else: ?>
-                            <a href="http://visualcomposer.io/?utm_campaign=vc-theme&amp;utm_source=vc-theme-front&amp;utm_medium=vc-theme-header" title="<?php _e( 'Visual Composer Starter', 'visual-composer-starter' ) ?>">
-                                <img width="50" height="49" src="<?php echo get_template_directory_uri() ?>/images/vct-logo.svg" alt="<?php _e( 'Visual Composer Starter', 'visual-composer-starter' ) ?>">
+                            <a href="http://visualcomposer.io/?utm_campaign=vc-theme&amp;utm_source=vc-theme-front&amp;utm_medium=vc-theme-header" title="<?php esc_attr_e( 'Visual Composer Starter', 'visual-composer-starter' ); ?>">
+                                <img width="50" height="49" src="<?php echo get_template_directory_uri() ?>/images/vct-logo.svg" alt="<?php esc_attr_e( 'Visual Composer Starter', 'visual-composer-starter' ); ?>">
                             </a>
                         <?php endif; ?>
                         
@@ -33,7 +33,7 @@
 
                     <?php if ( has_nav_menu( 'primary' ) ) : ?>
                         <button type="button" class="navbar-toggle">
-                            <span class="sr-only"><?php _e( 'Toggle navigation', 'visual-composer-starter' ) ?></span>
+                            <span class="sr-only"><?php esc_html_e( 'Toggle navigation', 'visual-composer-starter' ) ?></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>

@@ -28,7 +28,7 @@ if ( post_password_required() ) {
 				}
 			?>
 		</h3>
-		<p class="comments-subtitle"><?php echo __( 'Join the discussion and tell us your opinion.', 'visual-composer-starter' ); ?></p>
+		<p class="comments-subtitle"><?php esc_html_e( 'Join the discussion and tell us your opinion.', 'visual-composer-starter' ); ?></p>
 
 		<?php the_comments_navigation(); ?>
 
@@ -36,7 +36,7 @@ if ( post_password_required() ) {
 			<?php wp_list_comments(
 				array(
 					'callback'    => 'visualcomposerstarter_comment',
-					'reply_text'  => __( 'Reply', 'visual-composer-starter' ),
+					'reply_text'  => esc_html__( 'Reply', 'visual-composer-starter' ),
 					'avatar_size' => 80,
 					'style' 	  => 'ol'
 				)
@@ -51,7 +51,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<p class="no-comments"><?php _e( 'Comments are closed.', 'twentysixteen' ); ?></p>
+		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'twentysixteen' ); ?></p>
 	<?php endif; ?>
 
 	<?php
@@ -59,14 +59,14 @@ if ( post_password_required() ) {
 		comment_form( array(
 			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
 			'title_reply_after'  => '</h2>',
-			'title_reply' => __( 'Leave A Comment', 'visual-composer-starter' )
+			'title_reply' => esc_html__( 'Leave A Comment', 'visual-composer-starter' )
 		) );
 	}
 	else {
 		comment_form( array(
 			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
 			'title_reply_after'  => '</h2>',
-			'title_reply' => __( 'Share Your Thoughts', 'visual-composer-starter' )
+			'title_reply' => esc_html__( 'Share Your Thoughts', 'visual-composer-starter' )
 		) );
 	}
 

@@ -17,9 +17,9 @@
 				?>
 				<div class="gallery-item">
 					<div class="fade-in-img">
-						<img src="<?php echo $src;?>" data-src="<?php echo $src;?>" alt="">
+						<img src="<?php echo esc_url( $src ); ?>" data-src="<?php echo esc_url( $src ); ?>" alt="">
 						<noscript>
-							<img src="<?php echo $src;?>" alt="">
+							<img src="<?php echo esc_url( $src ); ?>" alt="">
 						</noscript>
 					</div><!--.fade-in-img-->
 				</div><!--.gallery-item-->
@@ -37,6 +37,6 @@
 
 	</div>
 	<?php if( ! is_singular() ):?>
-		<a href="<?php echo get_permalink( get_the_ID() ) ?>" class="blue-button read-more"><?php echo __( 'Read More', 'visual-composer-starter' ) ?></a>
+		<a href="<?php echo esc_url( get_permalink( get_the_ID() ) );?>" class="blue-button read-more"><?php esc_html_e( 'Read More', 'visual-composer-starter' ) ?></a>
 	<?php endif;?>
 </article><!--.entry-preview-->
