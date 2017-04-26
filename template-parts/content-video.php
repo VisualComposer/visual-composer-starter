@@ -20,9 +20,9 @@
 
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-		<?php echo get_the_content( '', false ); ?>
+		<?php the_content( '', false ); ?>
 	</div><!--.entry-content-->
 	<?php if( ! is_singular() ):?>
-		<a href="<?php echo get_permalink( get_the_ID() ) ?>" class="blue-button read-more"><?php echo __( 'Read More', 'visual-composer-starter' ) ?></a>
+		<a href="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" class="blue-button read-more"><?php esc_html_e( 'Read More', 'visual-composer-starter' ) ?></a>
 	<?php endif;?>
 </article><!--.entry-preview-->

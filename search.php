@@ -5,7 +5,7 @@
                 <div class="<?php echo vct_get_maincontent_block_class(); ?>">
                     <div class="main-content">
                         <div class="search-results-header">
-                            <h4><?php printf( __( 'Search Results for <strong>%s</strong>', 'visual-composer-starter' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h4>
+                            <h4><?php echo sprintf( esc_html__("Search Results for", "visual-composer-starter").' %s', '<strong><cite>'. get_search_query() .'</cite></strong>'); ?></h4>
                         </div>
                         <div class="archive">
                             <?php if ( have_posts() ) : ?>
@@ -26,13 +26,12 @@
 
                                 ?>
                                 <div class="pagination">
-                                    <h2 class="screen-reader-text"><?php __( 'Post navigation', 'visual-composer-starter' ); ?></h2>
                                     <div class="nav-links archive-navigation">
                                         <?php
                                         // Previous/next page navigation.
                                         the_posts_pagination( array(
                                             'screen_reader_text' => '',
-                                            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'visual-composer-starter' ) . '</span>',
+                                            'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'visual-composer-starter' ) . '</span>',
                                         ) );
                                         ?>
                                     </div><!--.nav-links archive-navigation-->

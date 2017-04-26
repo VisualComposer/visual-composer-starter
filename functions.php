@@ -35,8 +35,8 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
          * This theme uses wp_nav_menu() in two locations.
          */
         register_nav_menus( array(
-            'primary'       => __( 'Primary Menu', 'visual-composer-starter' ),
-            'secondary'     => __( 'Footer Menu', 'visual-composer-starter' ),
+            'primary'       => esc_html__( 'Primary Menu', 'visual-composer-starter' ),
+            'secondary'     => esc_html__( 'Footer Menu', 'visual-composer-starter' ),
         ) );
 
         /*
@@ -71,18 +71,18 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
                     if ( function_exists( 'register_field_group' ) ) {
                         register_field_group(array(
                             'id' => 'acf_page-options',
-                            'title' => __('Page Options'),
+                            'title' => esc_html__( 'Page Options', 'visual-composer-starter' ),
                             'fields' => array(
                                 array(
                                     'key' => 'field_589f5a321f0bc',
-                                    'label' => __('Sidebar Position'),
+                                    'label' => esc_html__( 'Sidebar Position', 'visual-composer-starter' ),
                                     'name' => 'sidebar_position',
                                     'type' => 'select',
-                                    'instructions' => __('Select specific sidebar position.'),
+                                    'instructions' => esc_html__( 'Select specific sidebar position.', 'visual-composer-starter' ),
                                     'choices' => array(
-                                        'none' => __('None'),
-                                        'left' => __('Left'),
-                                        'right' => __('Right'),
+                                        'none' => esc_html__( 'None', 'visual-composer-starter' ),
+                                        'left' => esc_html__( 'Left', 'visual-composer-starter' ),
+                                        'right' => esc_html__( 'Right', 'visual-composer-starter' ),
                                     ),
                                     'default_value' => get_theme_mod(VCT_PAGE_SIDEBAR, 'none'),
                                     'allow_null' => 0,
@@ -90,11 +90,11 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
                                 ),
                                 array(
                                     'key' => 'field_589f55db2faa9',
-                                    'label' => __('Hide Page Title'),
+                                    'label' => esc_html__( 'Hide Page Title', 'visual-composer-starter' ),
                                     'name' => 'hide_page_title',
                                     'type' => 'checkbox',
                                     'choices' => array(
-                                        1 => __('Yes'),
+                                        1 => esc_html__( 'Yes', 'visual-composer-starter' ),
                                     ),
                                     'default_value' => '',
                                     'layout' => 'vertical',
@@ -120,18 +120,18 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
                         ));
                         register_field_group(array(
                             'id' => 'acf_post-options',
-                            'title' => __('Post Options'),
+                            'title' => esc_html__('Post Options', 'visual-composer-starter' ),
                             'fields' => array(
                                 array(
                                     'key' => 'field_589f5b1d656ca',
-                                    'label' => __('Sidebar Position'),
+                                    'label' => esc_html__('Sidebar Position', 'visual-composer-starter' ),
                                     'name' => 'sidebar_position',
                                     'type' => 'select',
-                                    'instructions' => __('Select specific sidebar position.'),
+                                    'instructions' => esc_html__('Select specific sidebar position.', 'visual-composer-starter' ),
                                     'choices' => array(
-                                        'none' => __('None'),
-                                        'left' => __('Left'),
-                                        'right' => __('Right'),
+                                        'none' => esc_html__('None', 'visual-composer-starter' ),
+                                        'left' => esc_html__('Left', 'visual-composer-starter' ),
+                                        'right' => esc_html__('Right', 'visual-composer-starter' ),
                                     ),
                                     'default_value' => get_theme_mod(VCT_POST_SIDEBAR, 'none'),
                                     'allow_null' => 0,
@@ -139,11 +139,11 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
                                 ),
                                 array(
                                     'key' => 'field_589f5b9a56207',
-                                    'label' => __('Hide Post Title'),
+                                    'label' => esc_html__('Hide Post Title', 'visual-composer-starter' ),
                                     'name' => 'hide_page_title',
                                     'type' => 'checkbox',
                                     'choices' => array(
-                                        1 => __('Yes'),
+                                        1 => esc_html__('Yes', 'visual-composer-starter' ),
                                     ),
                                     'default_value' => '',
                                     'layout' => 'vertical',
@@ -201,21 +201,21 @@ function visualcomposerstarter_enqueue_comments_reply() {
 function vct_acf_admin_notice__install() {
     ?>
     <div class="notice notice-success">
-        <p><?php _e( 'In order to access full theme options, please make sure to install <a href="https://wordpress.org/plugins/advanced-custom-fields/" target="_blank">Advanced Custom Fields</a>', 'visual-composer-starter' ); ?></p>
+        <p><?php echo sprintf( esc_html__( 'In order to access full theme options, please make sure to install %s %s %s', 'visual-composer-starter' ), '<a href="https://wordpress.org/plugins/advanced-custom-fields/" target="_blank" title="'.esc_attr__( 'Advanced Custom Fields', 'visual-composer-starter' ).'">', esc_html__( 'Advanced Custom Fields', 'visual-composer-starter' ), '</a>' ); ?></p>
     </div>
     <?php
 }
 function vct_acf_admin_notice__activate() {
     ?>
     <div class="notice notice-success">
-        <p><?php _e( 'In order to access full theme options, please make sure to activate <a href="' . admin_url( 'plugins.php' ) . '">Advanced Custom Fields</a>', 'visual-composer-starter' ); ?></p>
+      <p><?php echo sprintf( esc_html__( 'In order to access full theme options, please make sure to activate %s %s %s', 'visual-composer-starter' ), '<a href="' . admin_url( 'plugins.php' ) . '" title="'.esc_attr__( 'Advanced Custom Fields', 'visual-composer-starter' ).'">', esc_html__( 'Advanced Custom Fields', 'visual-composer-starter' ), '</a>' ); ?></p>
     </div>
     <?php
 }
 function vct_acf_admin_notice__update() {
     ?>
     <div class="notice notice-success">
-        <p><?php _e( 'In order to access full theme options, please make sure to update <a href="' . admin_url( 'plugins.php' ) . '">Advanced Custom Fields</a>', 'visual-composer-starter' ); ?></p>
+        <p><?php echo sprintf( esc_html__( 'In order to access full theme options, please make sure to update %s %s %s', 'visual-composer-starter' ), '<a href="' . admin_url( 'plugins.php' ) . '" title="'.esc_attr__( 'Advanced Custom Fields', 'visual-composer-starter' ).'">', esc_html__( 'Advanced Custom Fields', 'visual-composer-starter' ), '</a>' ); ?></p>
     </div>
     <?php
 }
@@ -235,21 +235,25 @@ if( get_theme_mod( 'vct_overall_site_featured_image', true ) === true ) {
 
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 
-/*
- * Add Next Page Button to WYSIWYG editor
- */
 
-add_filter( 'mce_buttons', 'mce_page_break' );
-function mce_page_break( $mce_buttons ){
-    $pos = array_search( 'wp_more', $mce_buttons, true );
 
-    if( $pos !== false ) {
-        $buttons = array_slice( $mce_buttons, 0, $pos );
-        $buttons[] = 'wp_page';
-        $mce_buttons = array_merge( $buttons, array_slice( $mce_buttons, $pos ) );
+if ( ! function_exists( 'mce_page_break' ) ) {
+    /*
+     * Add Next Page Button to WYSIWYG editor
+     */
+
+    add_filter( 'mce_buttons', 'mce_page_break' );
+    function mce_page_break( $mce_buttons ){
+        $pos = array_search( 'wp_more', $mce_buttons, true );
+
+        if( $pos !== false ) {
+            $buttons = array_slice( $mce_buttons, 0, $pos );
+            $buttons[] = 'wp_page';
+            $mce_buttons = array_merge( $buttons, array_slice( $mce_buttons, $pos ) );
+        }
+
+        return $mce_buttons;
     }
-
-    return $mce_buttons;
 }
 
 /**
@@ -391,9 +395,9 @@ add_filter( 'body_class', 'visualcomposerstarter_body_classes' );
  */
 register_sidebar(
     array (
-        'name'          => __( 'Sidebar', 'visual-composer-starter' ),
+        'name'          => esc_html__( 'Sidebar', 'visual-composer-starter' ),
         'id'            => 'sidebar',
-        'description'   => __( 'Add widgets here to appear in your sidebar.', 'visual-composer-starter' ),
+        'description'   => esc_html__( 'Add widgets here to appear in your sidebar.', 'visual-composer-starter' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
         'before_title'  => '<h3 class="widget-title">',
@@ -403,9 +407,9 @@ register_sidebar(
 
 register_sidebar(
     array (
-        'name'          => __( 'Menu Area', 'visual-composer-starter' ),
+        'name'          => esc_html__( 'Menu Area', 'visual-composer-starter' ),
         'id'            => 'menu',
-        'description'   => __( 'Add widgets here to appear in menu area.', 'visual-composer-starter' ),
+        'description'   => esc_html__( 'Add widgets here to appear in menu area.', 'visual-composer-starter' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
         'before_title'  => '<h3 class="widget-title">',
@@ -415,9 +419,9 @@ register_sidebar(
 
 function vct_footer_1() {
     return array(
-        'name' => __( 'Footer Widget Column 1', 'visual-composer-starter' ),
+        'name' => esc_html__( 'Footer Widget Column 1', 'visual-composer-starter' ),
         'id' => 'footer',
-        'description' => __( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
+        'description' => esc_html__( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget' => '</div>',
         'before_title' => '<h3 class="widget-title">',
@@ -426,9 +430,9 @@ function vct_footer_1() {
 }
 function vct_footer_2() {
     return array(
-        'name' => __( 'Footer Widget Column 2', 'visual-composer-starter' ),
+        'name' => esc_html__( 'Footer Widget Column 2', 'visual-composer-starter' ),
         'id' => 'footer-2',
-        'description' => __( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
+        'description' => esc_html__( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget' => '</div>',
         'before_title' => '<h3 class="widget-title">',
@@ -437,9 +441,9 @@ function vct_footer_2() {
 }
 function vct_footer_3() {
     return array(
-        'name' => __( 'Footer Widget Column 3', 'visual-composer-starter' ),
+        'name' => esc_html__( 'Footer Widget Column 3', 'visual-composer-starter' ),
         'id' => 'footer-3',
-        'description' => __( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
+        'description' => esc_html__( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget' => '</div>',
         'before_title' => '<h3 class="widget-title">',
@@ -448,9 +452,9 @@ function vct_footer_3() {
 }
 function vct_footer_4() {
     return array(
-        'name' => __( 'Footer Widget Column 4', 'visual-composer-starter' ),
+        'name' => esc_html__( 'Footer Widget Column 4', 'visual-composer-starter' ),
         'id' => 'footer-4',
-        'description' => __( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
+        'description' => esc_html__( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget' => '</div>',
         'before_title' => '<h3 class="widget-title">',
