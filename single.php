@@ -35,22 +35,26 @@ while ( have_posts() ) :
 											<div class="row">
 												<div class="col-md-5">
 													<div class="nav-previous">
-														<?php $prev_post = wpcom_vip_get_adjacent_post( true, '', true, 'taxonomy_slug' ); ?>
-														<?php if ( is_a( $prev_post, 'WP_Post' ) ) { ?>
-															<span class="meta-nav"><?php echo esc_html__( 'Previous', 'visual-composer-starter' )  ?></span>
-															<span class="screen-reader-text"><?php echo esc_html__( 'Previous post:', 'visual-composer-starter' ) ?></span>
-															<span class="post-title"><?php echo get_the_title( $prev_post->ID ); ?></span>'
-														<?php } ?>
+														<?php
+														previous_post_link(
+															'%link',
+															'<span class="meta-nav">' . esc_html__( 'Previous', 'visual-composer-starter' ) . '</span>
+                                                                    <span class="screen-reader-text">' . esc_html__( 'Previous post:', 'visual-composer-starter' ) . '</span>
+                                                                    <span class="post-title">%title</span>'
+														);
+														?>
 													</div><!--nav-previous-->
 												</div><!--.col-md-5-->
 												<div class="col-md-5 col-md-offset-2">
 													<div class="nav-next">
-														<?php $next_post = wpcom_vip_get_adjacent_post( true, '', false, 'taxonomy_slug' ); ?>
-														<?php if ( is_a( $next_post, 'WP_Post' ) ) { ?>
-															<span class="meta-nav"><?php echo esc_html__( 'Previous', 'visual-composer-starter' )  ?></span>
-															<span class="screen-reader-text"><?php echo esc_html__( 'Previous post:', 'visual-composer-starter' ) ?></span>
-															<span class="post-title"><?php echo get_the_title( $next_post->ID ); ?></span>'
-														<?php } ?>
+														<?php
+														next_post_link(
+															'%link',
+															'<span class="meta-nav">' . esc_html__( 'Next', 'visual-composer-starter' ) . '</span>
+                                                                    <span class="screen-reader-text">' . esc_html__( 'Next post:', 'visual-composer-starter' ) . '</span>
+                                                                    <span class="post-title">%title</span>'
+														);
+														?>
 													</div><!--.nav-next-->
 												</div><!--.col-md-5-->
 											</div><!--.row-->
