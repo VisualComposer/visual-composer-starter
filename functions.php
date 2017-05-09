@@ -47,8 +47,8 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		 * This theme uses wp_nav_menu() in two locations.
 		 */
 		register_nav_menus( array(
-			'primary'       => __( 'Primary Menu', 'visual-composer-starter' ),
-			'secondary'     => __( 'Footer Menu', 'visual-composer-starter' ),
+			'primary'       => esc_html__( 'Primary Menu', 'visual-composer-starter' ),
+			'secondary'     => esc_html__( 'Footer Menu', 'visual-composer-starter' ),
 		) );
 
 		/*
