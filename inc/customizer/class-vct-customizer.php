@@ -558,6 +558,10 @@ class VCT_Customizer {
 			'default'       => '#333333',
 		) );
 
+		$wp_customize->add_setting( 'vct_header_padding',  array(
+			'default'       => '25px',
+		) );
+
 		$wp_customize->add_setting( 'vct_header_background_remove',  array(
 			'default'       => 'no',
 		) );
@@ -668,6 +672,18 @@ class VCT_Customizer {
 					'settings'      => 'vct_header_text_active_color',
 				)
 			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'vct_header_padding',
+				array(
+					'label'    => __( 'Header Padding', 'visual-composer-starter' ),
+					'section'  => 'vct_header_and_menu_area',
+					'settings' => 'vct_header_padding',
+					'type'     => 'text',
+				) )
 		);
 
 		$wp_customize->add_control(

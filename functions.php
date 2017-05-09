@@ -869,8 +869,8 @@ function vct_get_sidebar_class() {
  * Inline styles.
  */
 function visualcomposerstarter_inline_styles() {
-	wp_register_style( 'custom-style', get_template_directory_uri() . '/css/customizer-custom.css', array(), false );
-	wp_enqueue_style( 'custom-style' );
+	wp_register_style( 'vct-custom-style', get_template_directory_uri() . '/css/customizer-custom.css', array(), false );
+	wp_enqueue_style( 'vct-custom-style' );
 	$css = '';
 
 	// Fonts and style.
@@ -1218,6 +1218,15 @@ function visualcomposerstarter_inline_styles() {
 		";
 	}
 
+	$header_padding = get_theme_mod( 'vct_header_padding', '25px' );
+	if ( '25px' !== $header_padding ) {
+		$css .= "
+		/* Header padding */
+
+		.navbar-wrapper { padding: {$header_padding} 15px; }
+		";
+	}
+
 	$header_sandwich_icon_color = get_theme_mod( 'vct_header_sandwich_icon_color', '#ffffff' );
 	if ( '#ffffff' !== $header_sandwich_icon_color ) {
 		$css .= '
@@ -1317,6 +1326,6 @@ function visualcomposerstarter_inline_styles() {
 		";
 	}
 
-	wp_add_inline_style( 'custom-style', $css );
+	wp_add_inline_style( 'vct-custom-style', $css );
 }
 add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_inline_styles' );
