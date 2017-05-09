@@ -117,8 +117,10 @@ if ( ! function_exists( 'visualcomposerstarter_entry_date' ) ) :
 		// Wrap the time string in a link, and preface it with 'Posted on'.
 		echo sprintf(
 			/* translators: %s: post date */
-			esc_html__( '<span class="screen-reader-text">Posted on</span> %s', 'visual-composer-starter' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . esc_html( $time_string ) . '</a>'
+			esc_html__( '%sPosted on%s %s', 'visual-composer-starter' ),
+			'<span class="screen-reader-text">',
+			'</span>',
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 	}
 endif;
@@ -139,7 +141,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_meta' ) ) :
 				<li class="entry-meta-author"><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php the_author(); ?></span></a></li>
 			<?php endif; ?>
 
-			<li class="entry-meta-category"><?php echo esc_html( get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ) ); ?></li>
+			<li class="entry-meta-category"><?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?></li>
 
 			<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
 				<li class="entry-meta-comments"><?php comments_popup_link( __( 'Leave a comment', 'visual-composer-starter' ), __( '1 Comment', 'visual-composer-starter' ), __( '% Comments', 'visual-composer-starter' ) ); ?>
@@ -167,7 +169,7 @@ if ( ! function_exists( 'visualcomposerstarter_single_meta' ) ) :
 				<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php echo get_the_author(); ?></span></a>
 			<?php endif; ?>
 			<?php echo esc_html( _x( 'to', 'Post meta' ) ); ?>
-			<?php echo esc_html( get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ) ); ?>
+			<?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?>
 		</div>
 		<?php
 	}
@@ -183,7 +185,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_tags' ) ) :
 		if ( $tags_list ) {
 			printf( '<div class="entry-tags"><span class="screen-reader-text">%1$s </span>%2$s</div>',
 				esc_html( _x( 'Tags', 'Used before tag names.', 'visual-composer-starter' ) ),
-				esc_html( $tags_list )
+				$tags_list
 			);
 		}
 	}
@@ -231,9 +233,7 @@ if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
 		<div class="comment-wrapper">
 			<footer class="comment-meta">
 				<div class="comment-author vcard">
-					<?php
-					/* translators: 1: author link */
-					printf( esc_html__( '%s</cite> <span class="says">says:</span>' ), get_comment_author_link() ); ?>
+					<?php echo sprintf( '%s %s %s %s'.esc_html__("says:", "visual-composer-starter").'%s ', '<cite>', get_comment_author_link(), '</cite>', '<span class="says">', '</span>' ); ?>
 				</div>
 				<div class="comment-metadata">
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">

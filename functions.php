@@ -507,7 +507,7 @@ add_filter( 'body_class', 'visualcomposerstarter_body_classes' );
  * @since Visual Composer Starter 1.2
  * @return mixed
  */
-function visualcomposerstarter_give_linked_images_class( $html, $id, $caption, $title, $align, $url, $size, $alt = '' ) {
+function visualcomposerstarter_give_linked_images_class( $html ) {
 	$classes = 'image-link'; // separated by spaces, e.g. 'img image-link'.
 
 	$patterns = array();
