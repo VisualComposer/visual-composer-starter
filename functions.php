@@ -892,6 +892,7 @@ function visualcomposerstarter_inline_styles() {
 	  .comments-area .comment-list .comment-metadata a:hover,
 	  .comments-area .comment-list .comment-metadata a:focus { border-bottom-color: ' . get_theme_mod( 'vct_fonts_and_style_body_secondary_text_color', '#777777' ) . '; }
 	  a,
+	  a.blue-button:hover,
 	  .comments-area .comment-list .reply a,
 	  .comments-area span.required,
 	  .comments-area .comment-subscription-form label:before,
