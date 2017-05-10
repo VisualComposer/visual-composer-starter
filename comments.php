@@ -18,12 +18,12 @@ if ( post_password_required() ) {
 			<div class="col-md-12">
 	<?php if ( have_comments() ) : ?>
 		<h3 class="comments-title">
-			<?php comments_number( esc_html__('No Comment', 'visual-composer-starter' ), esc_html__('One Comment', 'visual-composer-starter' ), esc_html__('% Comment', 'visual-composer-starter' ) ) ?>
+			<?php comments_number( esc_html__( 'No Comment', 'visual-composer-starter' ), esc_html__( 'One Comment', 'visual-composer-starter' ), esc_html__( '% Comment', 'visual-composer-starter' ) ) ?>
 		</h3>
 		<p class="comments-subtitle"><?php echo esc_html__( 'Join the discussion and tell us your opinion.', 'visual-composer-starter' ); ?></p>
 
 		<?php the_comments_navigation(); ?>
-		discouraged
+
 		<ol class="comment-list">
 			<?php wp_list_comments(
 				array(
