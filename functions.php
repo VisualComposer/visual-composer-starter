@@ -84,18 +84,18 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 					if ( function_exists( 'register_field_group' ) ) {
 						$vct_acf_page_options = array(
 							'id' => 'acf_page-options',
-							'title' => __( 'Page Options' ),
+							'title' => esc_html__( 'Page Options', 'visual-composer-starter' ),
 							'fields' => array(
 								array(
 									'key' => 'field_589f5a321f0bc',
-									'label' => __( 'Sidebar Position' ),
+									'label' => esc_html__( 'Sidebar Position', 'visual-composer-starter' ),
 									'name' => 'sidebar_position',
 									'type' => 'select',
-									'instructions' => __( 'Select specific sidebar position.' ),
+									'instructions' => esc_html__( 'Select specific sidebar position.', 'visual-composer-starter' ),
 									'choices' => array(
-										'none' => __( 'None' ),
-										'left' => __( 'Left' ),
-										'right' => __( 'Right' ),
+										'none' => esc_html__( 'None', 'visual-composer-starter' ),
+										'left' => esc_html__( 'Left', 'visual-composer-starter' ),
+										'right' => esc_html__( 'Right', 'visual-composer-starter' ),
 									),
 									'default_value' => get_theme_mod( VCT_PAGE_SIDEBAR, 'none' ),
 									'allow_null' => 0,
@@ -103,11 +103,11 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 								),
 								array(
 									'key' => 'field_589f55db2faa9',
-									'label' => __( 'Hide Page Title' ),
+									'label' => esc_html__( 'Hide Page Title', 'visual-composer-starter' ),
 									'name' => 'hide_page_title',
 									'type' => 'checkbox',
 									'choices' => array(
-										1 => __( 'Yes' ),
+										1 => esc_html__( 'Yes', 'visual-composer-starter' ),
 									),
 									'default_value' => '',
 									'layout' => 'vertical',
@@ -134,18 +134,18 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 
 						$vct_acf_post_options = array(
 							'id' => 'acf_post-options',
-							'title' => __( 'Post Options' ),
+							'title' => esc_html__( 'Post Options', 'visual-composer-starter' ),
 							'fields' => array(
 								array(
 									'key' => 'field_589f5b1d656ca',
-									'label' => __( 'Sidebar Position' ),
+									'label' => esc_html__( 'Sidebar Position', 'visual-composer-starter' ),
 									'name' => 'sidebar_position',
 									'type' => 'select',
-									'instructions' => __( 'Select specific sidebar position.' ),
+									'instructions' => esc_html__( 'Select specific sidebar position.', 'visual-composer-starter' ),
 									'choices' => array(
-										'none' => __( 'None' ),
-										'left' => __( 'Left' ),
-										'right' => __( 'Right' ),
+										'none' => esc_html__( 'None', 'visual-composer-starter' ),
+										'left' => esc_html__( 'Left', 'visual-composer-starter' ),
+										'right' => esc_html__( 'Right', 'visual-composer-starter' ),
 									),
 									'default_value' => get_theme_mod( VCT_POST_SIDEBAR, 'none' ),
 									'allow_null' => 0,
@@ -153,11 +153,11 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 								),
 								array(
 									'key' => 'field_589f5b9a56207',
-									'label' => __( 'Hide Post Title' ),
+									'label' => esc_html__( 'Hide Post Title', 'visual-composer-starter' ),
 									'name' => 'hide_page_title',
 									'type' => 'checkbox',
 									'choices' => array(
-										1 => __( 'Yes' ),
+										1 => esc_html__( 'Yes', 'visual-composer-starter' ),
 									),
 									'default_value' => '',
 									'layout' => 'vertical',
@@ -189,7 +189,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 								'name' => 'disable_page_header',
 								'type' => 'checkbox',
 								'choices' => array(
-									1 => __( 'Yes' ),
+									1 => esc_html__( 'Yes', 'visual-composer-starter' ),
 								),
 								'default_value' => '',
 								'layout' => 'vertical',
@@ -201,7 +201,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 								'name' => 'disable_post_header',
 								'type' => 'checkbox',
 								'choices' => array(
-									1 => __( 'Yes' ),
+									1 => esc_html__( 'Yes', 'visual-composer-starter' ),
 								),
 								'default_value' => '',
 								'layout' => 'vertical',
@@ -215,7 +215,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 								'name' => 'disable_page_footer',
 								'type' => 'checkbox',
 								'choices' => array(
-									1 => __( 'Yes' ),
+									1 => esc_html__( 'Yes', 'visual-composer-starter' ),
 								),
 								'default_value' => '',
 								'layout' => 'vertical',
@@ -227,7 +227,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 								'name' => 'disable_post_footer',
 								'type' => 'checkbox',
 								'choices' => array(
-									1 => __( 'Yes' ),
+									1 => esc_html__( 'Yes', 'visual-composer-starter' ),
 								),
 								'default_value' => '',
 								'layout' => 'vertical',

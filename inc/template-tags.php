@@ -169,15 +169,15 @@ if ( ! function_exists( 'visualcomposerstarter_single_meta' ) ) :
 	function visualcomposerstarter_single_meta() {
 		?>
 		<div class="entry-meta">
-			<?php echo esc_html( _x( 'On', 'Post meta' ) ); ?>
+			<?php echo esc_html_x( 'On', 'Post meta', 'visual-composer-starter' ); ?>
 			<?php if ( in_array( get_post_type(), array( 'post', 'attachment' ), true ) ) : ?>
 				<span class="date"><?php visualcomposerstarter_entry_date(); ?></span>
 			<?php endif;?>
-			<?php echo esc_html( _x( 'by', 'Post meta' ) ); ?>
+			<?php echo esc_html_x( 'by', 'Post meta', 'visual-composer-starter' ); ?>
 			<?php if ( 'post' === get_post_type() ) : ?>
 				<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php echo get_the_author(); ?></span></a>
 			<?php endif; ?>
-			<?php echo esc_html( _x( 'to', 'Post meta' ) ); ?>
+			<?php echo esc_html_x( 'to', 'Post meta', 'visual-composer-starter' ); ?>
 			<?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?>
 		</div>
 		<?php
@@ -246,9 +246,9 @@ if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
 						/* translators: 1: date, 2: time */
 						printf( esc_html__( 'On %1$s at %2$s','visual-composer-starter' ), get_comment_date(),  get_comment_time() ); ?>
 					</a>
-					<?php edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
+					<?php edit_comment_link( esc_html__( '(Edit)', 'visual-composer-starter' ), '  ', '' ); ?>
 					<?php if ( '0' === $comment->comment_approved ) : ?>
-						<em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.' ); ?></em>
+						<em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'visual-composer-starter' ); ?></em>
 					<?php endif; ?>
 				</div>
 			</footer>
