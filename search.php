@@ -16,7 +16,7 @@ get_header(); ?>
 						<div class="search-results-header">
 							<h4><?php
 								/* translators: %s: search query string */
-								printf( esc_html__( 'Search Results for <strong>%s</strong>', 'visual-composer-starter' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h4>
+								printf( esc_html__( 'Search Results for %s', 'visual-composer-starter' ), '<strong><span>' . esc_html( get_search_query() ) . '</span></strong>' ); ?></h4>
 						</div>
 						<div class="archive">
 							<?php if ( have_posts() ) : ?>
