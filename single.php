@@ -38,9 +38,7 @@ while ( have_posts() ) :
 														<?php
 														previous_post_link(
 															'%link',
-															'<span class="meta-nav">' . esc_html__( 'Previous', 'visual-composer-starter' ) . '</span>
-                                                                    <span class="screen-reader-text">' . esc_html__( 'Previous post:', 'visual-composer-starter' ) . '</span>
-                                                                    <span class="post-title">%title</span>'
+															'<span class="meta-nav">' . esc_html__( 'Previous', 'visual-composer-starter' ) . '</span><span class="screen-reader-text">' . esc_html__( 'Previous post:', 'visual-composer-starter' ) . '</span><span class="post-title">%title</span>'
 														);
 														?>
 													</div><!--nav-previous-->
@@ -50,9 +48,7 @@ while ( have_posts() ) :
 														<?php
 														next_post_link(
 															'%link',
-															'<span class="meta-nav">' . esc_html__( 'Next', 'visual-composer-starter' ) . '</span>
-                                                                    <span class="screen-reader-text">' . esc_html__( 'Next post:', 'visual-composer-starter' ) . '</span>
-                                                                    <span class="post-title">%title</span>'
+															'<span class="meta-nav">' . esc_html__( 'Next', 'visual-composer-starter' ) . '</span><span class="screen-reader-text">' . esc_html__( 'Next post:', 'visual-composer-starter' ) . '</span><span class="post-title">%title</span>'
 														);
 														?>
 													</div><!--.nav-next-->

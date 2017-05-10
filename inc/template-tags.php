@@ -233,7 +233,7 @@ if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
 		<div class="comment-wrapper">
 			<footer class="comment-meta">
 				<div class="comment-author vcard">
-					<?php echo sprintf( '%s %s %s %s'.esc_html__("says:", "visual-composer-starter").'%s ', '<cite>', get_comment_author_link(), '</cite>', '<span class="says">', '</span>' ); ?>
+					<?php  printf( esc_html__("%s %s says: %s", "visual-composer-starter"), '<cite>'.get_comment_author_link().'</cite>', '<span class="says">', '</span>' ); ?>
 				</div>
 				<div class="comment-metadata">
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
