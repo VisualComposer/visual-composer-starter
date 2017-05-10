@@ -496,14 +496,7 @@ add_filter( 'body_class', 'visualcomposerstarter_body_classes' );
 /**
  *  Give linked images class
  *
- * @param string  $html Html.
- * @param integer $id Id.
- * @param string  $caption Caption.
- * @param string  $title Title.
- * @param string  $align Align.
- * @param string  $url Url.
- * @param string  $size Size.
- * @param string  $alt Alt.
+ * @param string $html Html.
  * @since Visual Composer Starter 1.2
  * @return mixed
  */

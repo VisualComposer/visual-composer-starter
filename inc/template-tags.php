@@ -115,12 +115,21 @@ if ( ! function_exists( 'visualcomposerstarter_entry_date' ) ) :
 		);
 
 		// Wrap the time string in a link, and preface it with 'Posted on'.
-		echo sprintf(
+		printf(
 			/* translators: %s: post date */
-			esc_html__( '%sPosted on%s %s', 'visual-composer-starter' ),
+			esc_html__( '%1$sPosted on%2$s %3$s', 'visual-composer-starter' ),
 			'<span class="screen-reader-text">',
 			'</span>',
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' .
+			wp_kses( $time_string,
+			         array(
+			         		'time' => array(
+					                'class' => array(),
+									'datetime' => array(),
+				            ),
+			         )
+			) .
+			'</a>'
 		);
 	}
 endif;
@@ -181,13 +190,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_tags' ) ) :
 	 * Entry tags.
 	 */
 	function visualcomposerstarter_entry_tags() {
-		$tags_list = get_the_tag_list();
-		if ( $tags_list ) {
-			printf( '<div class="entry-tags"><span class="screen-reader-text">%1$s </span>%2$s</div>',
-				esc_html( _x( 'Tags', 'Used before tag names.', 'visual-composer-starter' ) ),
-				$tags_list
-			);
-		}
+		the_tags( '<div class="entry-tags"><span class="screen-reader-text">' . esc_html( _x( 'Tags', 'Used before tag names.', 'visual-composer-starter' ) ) . '</span>','', '</div>' );
 	}
 endif;
 
@@ -233,13 +236,15 @@ if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
 		<div class="comment-wrapper">
 			<footer class="comment-meta">
 				<div class="comment-author vcard">
-					<?php  printf( esc_html__("%s %s says: %s", "visual-composer-starter"), '<cite>'.get_comment_author_link().'</cite>', '<span class="says">', '</span>' ); ?>
+					<?php
+					/* translators: 1: comment author, 2: span opening tag, 3. span closing tag */
+					printf( esc_html__( '%1$s %2$s says: %3$s', 'visual-composer-starter' ), '<cite>' . get_comment_author_link() . '</cite>', '<span class="says">', '</span>' ); ?>
 				</div>
 				<div class="comment-metadata">
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 						<?php
 						/* translators: 1: date, 2: time */
-						printf( esc_html__( 'On %1$s at %2$s' ), get_comment_date(),  get_comment_time() ); ?>
+						printf( esc_html__( 'On %1$s at %2$s','visual-composer-starter' ), get_comment_date(),  get_comment_time() ); ?>
 					</a>
 					<?php edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
 					<?php if ( '0' === $comment->comment_approved ) : ?>
