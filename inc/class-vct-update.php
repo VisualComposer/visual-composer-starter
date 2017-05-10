@@ -68,7 +68,7 @@ class VCT_Update {
 	 * @return bool
 	 */
 	protected function get_remote_version() {
-		$request = vip_safe_wp_remote_get( $this->update_path );
+		$request = wp_remote_get( $this->update_path );
 		if ( ! is_wp_error( $request ) || wp_remote_retrieve_response_code( $request ) === 200 ) {
 			return $request['body'];
 		}
