@@ -1,4 +1,6 @@
-=== Visual Composer Starter ===
+# Visual Composer Starter
+
+[![Build Status](https://travis-ci.org/wpbakery/visual-composer-theme.svg?branch=master)](https://travis-ci.org/wpbakery/visual-composer-theme)
 
 Contributors: wpbakery
 Tags: translation-ready, custom-background, theme-options, custom-menu, post-formats, threaded-comments
@@ -10,17 +12,17 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 A starter theme for Visual Composer.
 
-== Description ==
+## Description
 
 Visual Composer Starter theme designed to be a perfect companion for a simple and good looking website. Theme developed by WPBakery and is available for free to the community. Bugs, ideas? Please [open an issue here on GitHub](https://github.com/wpbakery/visual-composer-theme/issues/new)
 
-== Installation ==
-	
+## Installation
+
 1. In your admin panel, go to Appearance > Themes and click the Add New button.
 2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
 
-= License =
+## License
 
 Visual Composer Starter WordPress theme, Copyright (C) 2016 wpbakery.com
 Visual Composer Starter WordPress theme is licensed under the GPL3.
