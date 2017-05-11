@@ -136,6 +136,13 @@
         $mainMenu.removeClass( 'open' );
     });
 
+    $( document ).on( 'click', '#main-menu li', function() {
+        if( window.location.hash ) {
+            $( '.navbar-toggle' ).show();
+            $( '#main-menu' ).removeClass( 'open' );
+        }
+    });
+
     //Gallery Slider
     $( '.gallery-slider' ).slick({
         autoplay: true,
