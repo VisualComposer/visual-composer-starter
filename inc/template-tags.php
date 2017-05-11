@@ -153,7 +153,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_meta' ) ) :
 			<li class="entry-meta-category"><?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?></li>
 
 			<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
-				<li class="entry-meta-comments"><?php comments_popup_link( __( 'Leave a comment', 'visual-composer-starter' ), __( '1 Comment', 'visual-composer-starter' ), __( '% Comments', 'visual-composer-starter' ) ); ?>
+				<li class="entry-meta-comments"><?php comments_popup_link( esc_html__( 'Leave a comment', 'visual-composer-starter' ), esc_html__( '1 Comment', 'visual-composer-starter' ), esc_html__( '% Comments', 'visual-composer-starter' ) ); ?>
 			<?php endif; ?>
 
 			</li>

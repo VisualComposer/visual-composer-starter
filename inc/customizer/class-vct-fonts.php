@@ -20,13 +20,13 @@ class VCT_Fonts {
 	protected static function vct_get_fonts_list() {
 		$heading1 = array(
 			1 => array(
-				'label' => sprintf( '--- %s ---', __( 'Standard Fonts', 'visual-composer-starter' ) ),
+				'label' => sprintf( '--- %s ---', esc_html__( 'Standard Fonts', 'visual-composer-starter' ) ),
 			),
 		);
 		$standard_fonts = self::vct_theme_standard_fonts();
 		$heading2 = array(
 			2 => array(
-				'label' => sprintf( '--- %s ---', __( 'Google Fonts', 'visual-composer-starter' ) ),
+				'label' => sprintf( '--- %s ---', esc_html__( 'Google Fonts', 'visual-composer-starter' ) ),
 			),
 		);
 		$google_fonts = self::vct_theme_google_fonts();
@@ -191,16 +191,16 @@ class VCT_Fonts {
 	 */
 	public static function vct_theme_font_subsets() {
 		return array(
-			'all'     => __( 'All', 'visual-composer-starter' ),
-			'cyrillic'   => __( 'Cyrillic', 'visual-composer-starter' ),
-			'cyrillic-ext' => __( 'Cyrillic Extended', 'visual-composer-starter' ),
-			'devanagari'  => __( 'Devanagari', 'visual-composer-starter' ),
-			'greek'    => __( 'Greek', 'visual-composer-starter' ),
-			'greek-ext'  => __( 'Greek Extended', 'visual-composer-starter' ),
-			'khmer'    => __( 'Khmer', 'visual-composer-starter' ),
-			'latin'    => __( 'Latin', 'visual-composer-starter' ),
-			'latin-ext'  => __( 'Latin Extended', 'visual-composer-starter' ),
-			'vietnamese'  => __( 'Vietnamese', 'visual-composer-starter' ),
+			'all'     => esc_html__( 'All', 'visual-composer-starter' ),
+			'cyrillic'   => esc_html__( 'Cyrillic', 'visual-composer-starter' ),
+			'cyrillic-ext' => esc_html__( 'Cyrillic Extended', 'visual-composer-starter' ),
+			'devanagari'  => esc_html__( 'Devanagari', 'visual-composer-starter' ),
+			'greek'    => esc_html__( 'Greek', 'visual-composer-starter' ),
+			'greek-ext'  => esc_html__( 'Greek Extended', 'visual-composer-starter' ),
+			'khmer'    => esc_html__( 'Khmer', 'visual-composer-starter' ),
+			'latin'    => esc_html__( 'Latin', 'visual-composer-starter' ),
+			'latin-ext'  => esc_html__( 'Latin Extended', 'visual-composer-starter' ),
+			'vietnamese'  => esc_html__( 'Vietnamese', 'visual-composer-starter' ),
 		);
 	}
 
