@@ -1210,7 +1210,7 @@ class VCT_Customizer {
 				$wp_customize,
 				'vct_fonts_and_style_h1_text_color',
 				array(
-					'label'         => __( 'Сolor', 'visual-composer-starter' ),
+					'label'         => __( 'Color', 'visual-composer-starter' ),
 					'section'       => 'vct_fonts_and_style_h1',
 					'settings'      => 'vct_fonts_and_style_h1_text_color',
 				)
@@ -1221,7 +1221,7 @@ class VCT_Customizer {
 				$wp_customize,
 				'vct_fonts_and_style_h1_active_color',
 				array(
-					'label'         => __( 'Active Сolor', 'visual-composer-starter' ),
+					'label'         => __( 'Active Color', 'visual-composer-starter' ),
 					'section'       => 'vct_fonts_and_style_h1',
 					'settings'      => 'vct_fonts_and_style_h1_active_color',
 				)
@@ -1364,7 +1364,7 @@ class VCT_Customizer {
 				$wp_customize,
 				'vct_fonts_and_style_h2_text_color',
 				array(
-					'label'         => __( 'Сolor', 'visual-composer-starter' ),
+					'label'         => __( 'Color', 'visual-composer-starter' ),
 					'section'       => 'vct_fonts_and_style_h2',
 					'settings'      => 'vct_fonts_and_style_h2_text_color',
 				)
@@ -1376,7 +1376,7 @@ class VCT_Customizer {
 				$wp_customize,
 				'vct_fonts_and_style_h2_active_color',
 				array(
-					'label'         => __( 'Active Сolor', 'visual-composer-starter' ),
+					'label'         => __( 'Active Color', 'visual-composer-starter' ),
 					'section'       => 'vct_fonts_and_style_h2',
 					'settings'      => 'vct_fonts_and_style_h2_active_color',
 				)
@@ -1522,7 +1522,7 @@ class VCT_Customizer {
 				$wp_customize,
 				'vct_fonts_and_style_h3_text_color',
 				array(
-					'label'         => __( 'Сolor', 'visual-composer-starter' ),
+					'label'         => __( 'Color', 'visual-composer-starter' ),
 					'section'       => 'vct_fonts_and_style_h3',
 					'settings'      => 'vct_fonts_and_style_h3_text_color',
 				)
@@ -1533,7 +1533,7 @@ class VCT_Customizer {
 				$wp_customize,
 				'vct_fonts_and_style_h3_active_color',
 				array(
-					'label'         => __( 'Active Сolor', 'visual-composer-starter' ),
+					'label'         => __( 'Active Color', 'visual-composer-starter' ),
 					'section'       => 'vct_fonts_and_style_h3',
 					'settings'      => 'vct_fonts_and_style_h3_active_color',
 				)
@@ -1678,7 +1678,7 @@ class VCT_Customizer {
 				$wp_customize,
 				'vct_fonts_and_style_h4_text_color',
 				array(
-					'label'         => __( 'Сolor', 'visual-composer-starter' ),
+					'label'         => __( 'Color', 'visual-composer-starter' ),
 					'section'       => 'vct_fonts_and_style_h4',
 					'settings'      => 'vct_fonts_and_style_h4_text_color',
 				)
@@ -1690,7 +1690,7 @@ class VCT_Customizer {
 				$wp_customize,
 				'vct_fonts_and_style_h4_active_color',
 				array(
-					'label'         => __( 'Active Сolor', 'visual-composer-starter' ),
+					'label'         => __( 'Active Color', 'visual-composer-starter' ),
 					'section'       => 'vct_fonts_and_style_h4',
 					'settings'      => 'vct_fonts_and_style_h4_active_color',
 				)
@@ -1837,7 +1837,7 @@ class VCT_Customizer {
 				$wp_customize,
 				'vct_fonts_and_style_h5_text_color',
 				array(
-					'label'         => __( 'Сolor', 'visual-composer-starter' ),
+					'label'         => __( 'Color', 'visual-composer-starter' ),
 					'section'       => 'vct_fonts_and_style_h5',
 					'settings'      => 'vct_fonts_and_style_h5_text_color',
 				)
@@ -1849,7 +1849,7 @@ class VCT_Customizer {
 				$wp_customize,
 				'vct_fonts_and_style_h5_active_color',
 				array(
-					'label'         => __( 'Active Сolor', 'visual-composer-starter' ),
+					'label'         => __( 'Active Color', 'visual-composer-starter' ),
 					'section'       => 'vct_fonts_and_style_h5',
 					'settings'      => 'vct_fonts_and_style_h5_active_color',
 				)
@@ -1996,7 +1996,7 @@ class VCT_Customizer {
 				$wp_customize,
 				'vct_fonts_and_style_h6_text_color',
 				array(
-					'label'         => __( 'Сolor', 'visual-composer-starter' ),
+					'label'         => __( 'Color', 'visual-composer-starter' ),
 					'section'       => 'vct_fonts_and_style_h6',
 					'settings'      => 'vct_fonts_and_style_h6_text_color',
 				)
@@ -2008,7 +2008,7 @@ class VCT_Customizer {
 				$wp_customize,
 				'vct_fonts_and_style_h6_active_color',
 				array(
-					'label'         => __( 'Active Сolor', 'visual-composer-starter' ),
+					'label'         => __( 'Active Color', 'visual-composer-starter' ),
 					'section'       => 'vct_fonts_and_style_h6',
 					'settings'      => 'vct_fonts_and_style_h6_active_color',
 				)
