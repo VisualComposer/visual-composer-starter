@@ -13,6 +13,9 @@
 		border-bottom-color: transparent;
 		color: @active-text-color;
 	}
+	&.image-link {
+		border-bottom: none;
+	}
 }
 
 html {
@@ -56,6 +59,46 @@ a {
 	}
 }
 
+//Hide <time class="updated"> from display
+.updated:not(.published) {
+	display: none;
+}
+/*--------------------------------------------------------------
+Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 700;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
 img {
 	opacity: 1;
 	transition: opacity 0.5s ease;
@@ -70,7 +113,6 @@ img[data-src] {
 #wpadminbar {position: fixed;}
 
 .navbar {
-	background: @default-bg-color;
 	border: none;
 	border-radius: 0;
 	margin-bottom: 0;
@@ -466,10 +508,10 @@ body.featured-image-custom-height {
 
 		a {
 			color: @headers-color;
-			border-bottom: 1px solid transparent;
+			border-bottom: 1px solid @headers-color;
 
 			&:hover, &:focus {
-				border-bottom-color: @headers-color;
+				border-bottom-color: transparent;
 				text-decoration: none;
 			}
 		}
@@ -520,14 +562,14 @@ body.featured-image-custom-height {
 			font-size: 22px;
 			font-weight: 700;
 			color: @headers-color;
-			border-bottom: 1px solid transparent;
+			border-bottom: 1px solid @headers-color;
 		}
 
 		&:hover {
 			text-decoration: none;
 
 			.post-title {
-				border-bottom-color: @headers-color;
+				border-bottom-color: transparent;
 			}
 		}
 	}

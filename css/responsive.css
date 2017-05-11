@@ -217,8 +217,8 @@
     padding-right: 40px;
   }
   body.content-full-width .content-wrapper {
-    padding-right: 80px;
-    padding-left: 80px;
+    padding-right: 0;
+    padding-left: 0;
   }
   body.content-full-width .footer-bottom,
   body.content-full-width .footer-widget-area {
@@ -229,8 +229,8 @@
 /*min-width: 1024px*/
 @media only screen and (min-width: 1400px) {
   body.content-full-width .content-wrapper {
-    padding-right: 115px;
-    padding-left: 115px;
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 /*min-width: 1400px*/
