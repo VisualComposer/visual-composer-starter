@@ -34,6 +34,44 @@ a {
   background-color: #3c63a6;
   outline: none;
 }
+.updated:not(.published) {
+  display: none;
+}
+/*--------------------------------------------------------------
+Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
 img {
   opacity: 1;
   transition: opacity 0.5s ease;
@@ -45,7 +83,6 @@ img[data-src] {
   position: fixed;
 }
 .navbar {
-  background: #fff;
   border: none;
   border-radius: 0;
   margin-bottom: 0;
@@ -391,11 +428,11 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
 }
 .entry-full-content .entry-meta a {
   color: #333;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid #333;
 }
 .entry-full-content .entry-meta a:hover,
 .entry-full-content .entry-meta a:focus {
-  border-bottom-color: #333;
+  border-bottom-color: transparent;
   text-decoration: none;
 }
 .entry-tags {
@@ -439,13 +476,13 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   font-size: 22px;
   font-weight: 700;
   color: #333;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid #333;
 }
 .nav-links.post-navigation a:hover {
   text-decoration: none;
 }
 .nav-links.post-navigation a:hover .post-title {
-  border-bottom-color: #333;
+  border-bottom-color: transparent;
 }
 .pagination {
   margin: 65px 0 0;
@@ -1034,6 +1071,24 @@ h6 {
   text-decoration: none;
   border-bottom-color: transparent;
   color: #557cbf;
+}
+.entry-content p a.image-link,
+.comment-content p a.image-link,
+.entry-content ol a.image-link,
+.comment-content ol a.image-link,
+.entry-content ul a.image-link,
+.comment-content ul a.image-link,
+.entry-content table a.image-link,
+.comment-content table a.image-link,
+.entry-content datalist a.image-link,
+.comment-content datalist a.image-link,
+.entry-content blockquote a.image-link,
+.comment-content blockquote a.image-link,
+.entry-content dl a.image-link,
+.comment-content dl a.image-link,
+.entry-content address a.image-link,
+.comment-content address a.image-link {
+  border-bottom: none;
 }
 .entry-content ol ol,
 .comment-content ol ol,
