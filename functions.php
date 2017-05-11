@@ -529,9 +529,9 @@ add_filter( 'the_content', 'visualcomposerstarter_give_linked_images_class' );
  */
 register_sidebar(
 	array(
-		'name'          => __( 'Sidebar', 'visual-composer-starter' ),
+		'name'          => esc_html__( 'Sidebar', 'visual-composer-starter' ),
 		'id'            => 'sidebar',
-		'description'   => __( 'Add widgets here to appear in your sidebar.', 'visual-composer-starter' ),
+		'description'   => esc_html__( 'Add widgets here to appear in your sidebar.', 'visual-composer-starter' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -541,9 +541,9 @@ register_sidebar(
 
 register_sidebar(
 	array(
-		'name'          => __( 'Menu Area', 'visual-composer-starter' ),
+		'name'          => esc_html__( 'Menu Area', 'visual-composer-starter' ),
 		'id'            => 'menu',
-		'description'   => __( 'Add widgets here to appear in menu area.', 'visual-composer-starter' ),
+		'description'   => esc_html__( 'Add widgets here to appear in menu area.', 'visual-composer-starter' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -557,9 +557,9 @@ register_sidebar(
  */
 function vct_footer_1() {
 	return array(
-		'name' => __( 'Footer Widget Column 1', 'visual-composer-starter' ),
+		'name' => esc_html__( 'Footer Widget Column 1', 'visual-composer-starter' ),
 		'id' => 'footer',
-		'description' => __( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
+		'description' => esc_html__( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
@@ -573,9 +573,9 @@ function vct_footer_1() {
  */
 function vct_footer_2() {
 	return array(
-		'name' => __( 'Footer Widget Column 2', 'visual-composer-starter' ),
+		'name' => esc_html__( 'Footer Widget Column 2', 'visual-composer-starter' ),
 		'id' => 'footer-2',
-		'description' => __( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
+		'description' => esc_html__( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
@@ -589,9 +589,9 @@ function vct_footer_2() {
  */
 function vct_footer_3() {
 	return array(
-		'name' => __( 'Footer Widget Column 3', 'visual-composer-starter' ),
+		'name' => esc_html__( 'Footer Widget Column 3', 'visual-composer-starter' ),
 		'id' => 'footer-3',
-		'description' => __( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
+		'description' => esc_html__( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
@@ -605,9 +605,9 @@ function vct_footer_3() {
  */
 function vct_footer_4() {
 	return array(
-		'name' => __( 'Footer Widget Column 4', 'visual-composer-starter' ),
+		'name' => esc_html__( 'Footer Widget Column 4', 'visual-composer-starter' ),
 		'id' => 'footer-4',
-		'description' => __( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
+		'description' => esc_html__( 'Add widgets here to appear in your footer.', 'visual-composer-starter' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',

@@ -28,7 +28,7 @@ if ( post_password_required() ) {
 			<?php wp_list_comments(
 				array(
 					'callback'    => 'visualcomposerstarter_comment',
-					'reply_text'  => __( 'Reply', 'visual-composer-starter' ),
+					'reply_text'  => esc_html__( 'Reply', 'visual-composer-starter' ),
 					'avatar_size' => 80,
 					'style' 	  => 'ol',
 				)
@@ -51,13 +51,13 @@ if ( post_password_required() ) {
 		comment_form( array(
 			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
 			'title_reply_after'  => '</h2>',
-			'title_reply' => __( 'Leave A Comment', 'visual-composer-starter' ),
+			'title_reply' => esc_html__( 'Leave A Comment', 'visual-composer-starter' ),
 		) );
 	} else {
 		comment_form( array(
 			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
 			'title_reply_after'  => '</h2>',
-			'title_reply' => __( 'Share Your Thoughts', 'visual-composer-starter' ),
+			'title_reply' => esc_html__( 'Share Your Thoughts', 'visual-composer-starter' ),
 		) );
 	}
 
