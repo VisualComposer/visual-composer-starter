@@ -1323,3 +1323,39 @@ function visualcomposerstarter_inline_styles() {
 	wp_add_inline_style( 'vct-custom-style', $css );
 }
 add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_inline_styles' );
+
+
+/**
+ * Inline footer js.
+ */
+function vct_inline_footer_js() {
+	$js = '';
+
+	// custom footer scripts.
+	$footer_js = get_theme_mod( 'vct_scripts_footer', '' );
+	$js .= $footer_js;
+
+	wp_add_inline_script( 'visual-composer-starter-script', $js );
+}
+
+add_action( 'wp_enqueue_scripts', 'vct_inline_footer_js' );
+
+/**
+ * Inline header js.
+ */
+function vct_inline_header_js() {
+	/* Header scripts */
+	wp_register_script( 'visual-composer-starter-header-script', get_template_directory_uri() . '/js/header-scripts.js', array( 'jquery' ), VCT_VERSION, false );
+	/* Enqueue scripts */
+	wp_enqueue_script( 'visual-composer-starter-header-script' );
+
+	$js = '';
+
+	// custom header scripts.
+	$header_js = get_theme_mod( 'vct_scripts_header', '' );
+	$js .= $header_js;
+
+	wp_add_inline_script( 'visual-composer-starter-header-script', $js );
+}
+
+add_action( 'wp_enqueue_scripts', 'vct_inline_header_js' );

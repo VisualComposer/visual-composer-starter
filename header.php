@@ -15,7 +15,6 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php wp_head() ?>
-	<?php echo esc_html( get_theme_mod( 'vct_scripts_header', '' ) );?>
 </head>
 <body <?php body_class(); ?>>
 <?php if ( vct_is_the_header_displayed() ) : ?>

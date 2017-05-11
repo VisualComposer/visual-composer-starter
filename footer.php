@@ -93,7 +93,6 @@ if ( vct_is_the_footer_displayed() ) : ?>
 				</div>
 			</div>
 		</div>
-		<?php echo esc_html( get_theme_mod( 'vct_scripts_footer', '' ) );?>
 	</footer>
 	<?php vct_hook_after_footer(); ?>
 <?php endif; ?>
