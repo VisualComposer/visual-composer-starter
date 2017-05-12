@@ -139,7 +139,6 @@
     $( document ).on( 'click', '#main-menu li', function() {
         $( '.navbar-toggle' ).show();
         $( '#main-menu' ).removeClass( 'open' );
-
     });
 
     //Gallery Slider
