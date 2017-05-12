@@ -117,7 +117,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_date' ) ) :
 		// Wrap the time string in a link, and preface it with 'Posted on'.
 		printf(
 			/* translators: %s: post date */
-			esc_html__( '%1$sPosted on%2$s %3$s', 'visual-composer-starter' ),
+			esc_html__( '%1$sPosted on%2$s %3$s', 'visual-composer-theme' ),
 			'<span class="screen-reader-text">',
 			'</span>',
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' .
@@ -150,10 +150,10 @@ if ( ! function_exists( 'visualcomposerstarter_entry_meta' ) ) :
 				<li class="entry-meta-author"><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php the_author(); ?></span></a></li>
 			<?php endif; ?>
 
-			<li class="entry-meta-category"><?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?></li>
+			<li class="entry-meta-category"><?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-theme' ) ); ?></li>
 
 			<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
-				<li class="entry-meta-comments"><?php comments_popup_link( esc_html__( 'Leave a comment', 'visual-composer-starter' ), esc_html__( '1 Comment', 'visual-composer-starter' ), esc_html__( '% Comments', 'visual-composer-starter' ) ); ?>
+				<li class="entry-meta-comments"><?php comments_popup_link( esc_html__( 'Leave a comment', 'visual-composer-theme' ), esc_html__( '1 Comment', 'visual-composer-theme' ), esc_html__( '% Comments', 'visual-composer-theme' ) ); ?>
 			<?php endif; ?>
 
 			</li>
@@ -169,16 +169,16 @@ if ( ! function_exists( 'visualcomposerstarter_single_meta' ) ) :
 	function visualcomposerstarter_single_meta() {
 		?>
 		<div class="entry-meta">
-			<?php echo esc_html_x( 'On', 'Post meta', 'visual-composer-starter' ); ?>
+			<?php echo esc_html_x( 'On', 'Post meta', 'visual-composer-theme' ); ?>
 			<?php if ( in_array( get_post_type(), array( 'post', 'attachment' ), true ) ) : ?>
 				<span class="date"><?php visualcomposerstarter_entry_date(); ?></span>
 			<?php endif;?>
-			<?php echo esc_html_x( 'by', 'Post meta', 'visual-composer-starter' ); ?>
+			<?php echo esc_html_x( 'by', 'Post meta', 'visual-composer-theme' ); ?>
 			<?php if ( 'post' === get_post_type() ) : ?>
 				<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php echo get_the_author(); ?></span></a>
 			<?php endif; ?>
-			<?php echo esc_html_x( 'to', 'Post meta', 'visual-composer-starter' ); ?>
-			<?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?>
+			<?php echo esc_html_x( 'to', 'Post meta', 'visual-composer-theme' ); ?>
+			<?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-theme' ) ); ?>
 		</div>
 		<?php
 	}
@@ -190,7 +190,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_tags' ) ) :
 	 * Entry tags.
 	 */
 	function visualcomposerstarter_entry_tags() {
-		the_tags( '<div class="entry-tags"><span class="screen-reader-text">' . esc_html( _x( 'Tags', 'Used before tag names.', 'visual-composer-starter' ) ) . '</span>','', '</div>' );
+		the_tags( '<div class="entry-tags"><span class="screen-reader-text">' . esc_html( _x( 'Tags', 'Used before tag names.', 'visual-composer-theme' ) ) . '</span>','', '</div>' );
 	}
 endif;
 
@@ -238,17 +238,17 @@ if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
 				<div class="comment-author vcard">
 					<?php
 					/* translators: 1: comment author, 2: span opening tag, 3. span closing tag */
-					printf( esc_html__( '%1$s %2$s says: %3$s', 'visual-composer-starter' ), '<cite>' . get_comment_author_link() . '</cite>', '<span class="says">', '</span>' ); ?>
+					printf( esc_html__( '%1$s %2$s says: %3$s', 'visual-composer-theme' ), '<cite>' . get_comment_author_link() . '</cite>', '<span class="says">', '</span>' ); ?>
 				</div>
 				<div class="comment-metadata">
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 						<?php
 						/* translators: 1: date, 2: time */
-						printf( esc_html__( 'On %1$s at %2$s','visual-composer-starter' ), get_comment_date(),  get_comment_time() ); ?>
+						printf( esc_html__( 'On %1$s at %2$s','visual-composer-theme' ), get_comment_date(),  get_comment_time() ); ?>
 					</a>
-					<?php edit_comment_link( esc_html__( '(Edit)', 'visual-composer-starter' ), '  ', '' ); ?>
+					<?php edit_comment_link( esc_html__( '(Edit)', 'visual-composer-theme' ), '  ', '' ); ?>
 					<?php if ( '0' === $comment->comment_approved ) : ?>
-						<em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'visual-composer-starter' ); ?></em>
+						<em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'visual-composer-theme' ); ?></em>
 					<?php endif; ?>
 				</div>
 			</footer>

@@ -20,13 +20,13 @@ class VCT_Fonts {
 	protected static function vct_get_fonts_list() {
 		$heading1 = array(
 			1 => array(
-				'label' => sprintf( '--- %s ---', esc_html__( 'Standard Fonts', 'visual-composer-starter' ) ),
+				'label' => sprintf( '--- %s ---', esc_html__( 'Standard Fonts', 'visual-composer-theme' ) ),
 			),
 		);
 		$standard_fonts = self::vct_theme_standard_fonts();
 		$heading2 = array(
 			2 => array(
-				'label' => sprintf( '--- %s ---', esc_html__( 'Google Fonts', 'visual-composer-starter' ) ),
+				'label' => sprintf( '--- %s ---', esc_html__( 'Google Fonts', 'visual-composer-theme' ) ),
 			),
 		);
 		$google_fonts = self::vct_theme_google_fonts();
@@ -41,71 +41,71 @@ class VCT_Fonts {
 	protected static function vct_theme_standard_fonts() {
 		return array(
 			'Arial, Helvetica, sans-serif' => array(
-				'label' => _x( 'Arial, Helvetica, sans-serif', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'Arial, Helvetica, sans-serif', 'font style', 'visual-composer-theme' ),
 				'stack' => 'Arial, Helvetica, sans-serif',
 			),
 			"'Arial Black', Gadget, sans-serif" => array(
-				'label' => _x( 'Arial Black, Gadget, sans-serif', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'Arial Black, Gadget, sans-serif', 'font style', 'visual-composer-theme' ),
 				'stack' => "'Arial Black', Gadget, sans-serif",
 			),
 			"'Bookman Old Style', serif" => array(
-				'label' => _x( 'Bookman Old Style, serif', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'Bookman Old Style, serif', 'font style', 'visual-composer-theme' ),
 				'stack' => "'Bookman Old Style', serif",
 			),
 			"'Comic Sans MS', cursive" => array(
-				'label' => _x( 'Comic Sans MS, cursive', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'Comic Sans MS, cursive', 'font style', 'visual-composer-theme' ),
 				'stack' => "'Comic Sans MS', cursive",
 			),
 			'Courier, monospace' => array(
-				'label' => _x( 'Courier, monospace', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'Courier, monospace', 'font style', 'visual-composer-theme' ),
 				'stack' => 'Courier, monospace',
 			),
 			'Garamond, serif' => array(
-				'label' => _x( 'Garamond, serif', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'Garamond, serif', 'font style', 'visual-composer-theme' ),
 				'stack' => 'Garamond, serif',
 			),
 			'Georgia, serif' => array(
-				'label' => _x( 'Georgia, serif', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'Georgia, serif', 'font style', 'visual-composer-theme' ),
 				'stack' => 'Georgia, serif',
 			),
 			'Impact, Charcoal, sans-serif' => array(
-				'label' => _x( 'Impact, Charcoal, sans-serif', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'Impact, Charcoal, sans-serif', 'font style', 'visual-composer-theme' ),
 				'stack' => 'Impact, Charcoal, sans-serif',
 			),
 			"'Lucida Console', Monaco, monospace" => array(
-				'label' => _x( 'Lucida Console, Monaco, monospace', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'Lucida Console, Monaco, monospace', 'font style', 'visual-composer-theme' ),
 				'stack' => "'Lucida Console', Monaco, monospace",
 			),
 			"'Lucida Sans Unicode', 'Lucida Grande', sans-serif" => array(
-				'label' => _x( 'Lucida Sans Unicode, Lucida Grande, sans-serif', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'Lucida Sans Unicode, Lucida Grande, sans-serif', 'font style', 'visual-composer-theme' ),
 				'stack' => "'Lucida Sans Unicode', 'Lucida Grande', sans-serif",
 			),
 			"'MS Sans Serif', Geneva, sans-serif" => array(
-				'label' => _x( 'MS Sans Serif, Geneva, sans-serif', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'MS Sans Serif, Geneva, sans-serif', 'font style', 'visual-composer-theme' ),
 				'stack' => "'MS Sans Serif', Geneva, sans-serif",
 			),
 			"'MS Serif', 'New York', sans-serif" => array(
-				'label' => _x( 'MS Serif, New York, sans-serif', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'MS Serif, New York, sans-serif', 'font style', 'visual-composer-theme' ),
 				'stack' => "'MS Serif', 'New York', sans-serif",
 			),
 			"'Palatino Linotype', 'Book Antiqua', Palatino, serif" => array(
-				'label' => _x( 'Palatino Linotype, Book Antiqua, Palatino, serif', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'Palatino Linotype, Book Antiqua, Palatino, serif', 'font style', 'visual-composer-theme' ),
 				'stack' => "'Palatino Linotype', 'Book Antiqua', Palatino, serif",
 			),
 			'Tahoma, Geneva, sans-serif' => array(
-				'label' => _x( 'Tahoma, Geneva, sans-serif', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'Tahoma, Geneva, sans-serif', 'font style', 'visual-composer-theme' ),
 				'stack' => 'Tahoma, Geneva, sans-serif',
 			),
 			"'Times New Roman', Times, serif" => array(
-				'label' => _x( 'Times New Roman, Times, serif', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'Times New Roman, Times, serif', 'font style', 'visual-composer-theme' ),
 				'stack' => "'Times New Roman', Times, serif",
 			),
 			"'Trebuchet MS', Helvetica, sans-serif" => array(
-				'label' => _x( 'Trebuchet MS, Helvetica, sans-serif', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'Trebuchet MS, Helvetica, sans-serif', 'font style', 'visual-composer-theme' ),
 				'stack' => "'Trebuchet MS', Helvetica, sans-serif",
 			),
 			'Verdana, Geneva, sans-serif' => array(
-				'label' => _x( 'Verdana, Geneva, sans-serif', 'font style', 'visual-composer-starter' ),
+				'label' => _x( 'Verdana, Geneva, sans-serif', 'font style', 'visual-composer-theme' ),
 				'stack' => 'Verdana, Geneva, sans-serif',
 			),
 
@@ -191,16 +191,16 @@ class VCT_Fonts {
 	 */
 	public static function vct_theme_font_subsets() {
 		return array(
-			'all'     => esc_html__( 'All', 'visual-composer-starter' ),
-			'cyrillic'   => esc_html__( 'Cyrillic', 'visual-composer-starter' ),
-			'cyrillic-ext' => esc_html__( 'Cyrillic Extended', 'visual-composer-starter' ),
-			'devanagari'  => esc_html__( 'Devanagari', 'visual-composer-starter' ),
-			'greek'    => esc_html__( 'Greek', 'visual-composer-starter' ),
-			'greek-ext'  => esc_html__( 'Greek Extended', 'visual-composer-starter' ),
-			'khmer'    => esc_html__( 'Khmer', 'visual-composer-starter' ),
-			'latin'    => esc_html__( 'Latin', 'visual-composer-starter' ),
-			'latin-ext'  => esc_html__( 'Latin Extended', 'visual-composer-starter' ),
-			'vietnamese'  => esc_html__( 'Vietnamese', 'visual-composer-starter' ),
+			'all'     => esc_html__( 'All', 'visual-composer-theme' ),
+			'cyrillic'   => esc_html__( 'Cyrillic', 'visual-composer-theme' ),
+			'cyrillic-ext' => esc_html__( 'Cyrillic Extended', 'visual-composer-theme' ),
+			'devanagari'  => esc_html__( 'Devanagari', 'visual-composer-theme' ),
+			'greek'    => esc_html__( 'Greek', 'visual-composer-theme' ),
+			'greek-ext'  => esc_html__( 'Greek Extended', 'visual-composer-theme' ),
+			'khmer'    => esc_html__( 'Khmer', 'visual-composer-theme' ),
+			'latin'    => esc_html__( 'Latin', 'visual-composer-theme' ),
+			'latin-ext'  => esc_html__( 'Latin Extended', 'visual-composer-theme' ),
+			'vietnamese'  => esc_html__( 'Vietnamese', 'visual-composer-theme' ),
 		);
 	}
 

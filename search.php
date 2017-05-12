@@ -16,7 +16,7 @@ get_header(); ?>
 						<div class="search-results-header">
 							<h4><?php
 								/* translators: %s: search query string */
-								printf( esc_html__( 'Search Results for %s', 'visual-composer-starter' ), '<strong><span>' . esc_html( get_search_query() ) . '</span></strong>' ); ?></h4>
+								printf( esc_html__( 'Search Results for %s', 'visual-composer-theme' ), '<strong><span>' . esc_html( get_search_query() ) . '</span></strong>' ); ?></h4>
 						</div>
 						<div class="archive">
 							<?php if ( have_posts() ) : ?>
@@ -37,13 +37,13 @@ get_header(); ?>
 
 								?>
 								<div class="pagination">
-									<h2 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'visual-composer-starter' ); ?></h2>
+									<h2 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'visual-composer-theme' ); ?></h2>
 									<div class="nav-links archive-navigation">
 										<?php
 										// Previous/next page navigation.
 										the_posts_pagination( array(
 											'screen_reader_text' => '',
-											'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'visual-composer-starter' ) . '</span>',
+											'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'visual-composer-theme' ) . '</span>',
 										) );
 										?>
 									</div><!--.nav-links archive-navigation-->
