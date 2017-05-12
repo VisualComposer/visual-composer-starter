@@ -38,13 +38,13 @@ get_header(); ?>
 
 								?>
 								<div class="pagination">
-									<h2 class="screen-reader-text"><?php esc_html__( 'Post navigation', 'visual-composer-starter' ); ?></h2>
+									<h2 class="screen-reader-text"><?php esc_html__( 'Post navigation', 'visual-composer-theme' ); ?></h2>
 									<div class="nav-links archive-navigation">
 										<?php
 										// Previous/next page navigation.
 										the_posts_pagination( array(
 											'screen_reader_text' => '',
-											'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'visual-composer-starter' ) . '</span>',
+											'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'visual-composer-theme' ) . '</span>',
 										) );
 										?>
 									</div><!--.nav-links archive-navigation-->

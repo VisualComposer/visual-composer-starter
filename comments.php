@@ -18,9 +18,9 @@ if ( post_password_required() ) {
 			<div class="col-md-12">
 	<?php if ( have_comments() ) : ?>
 		<h3 class="comments-title">
-			<?php comments_number( esc_html__( 'No Comment', 'visual-composer-starter' ), esc_html__( 'One Comment', 'visual-composer-starter' ), esc_html__( '% Comment', 'visual-composer-starter' ) ) ?>
+			<?php comments_number( esc_html__( 'No Comment', 'visual-composer-theme' ), esc_html__( 'One Comment', 'visual-composer-theme' ), esc_html__( '% Comment', 'visual-composer-theme' ) ) ?>
 		</h3>
-		<p class="comments-subtitle"><?php echo esc_html__( 'Join the discussion and tell us your opinion.', 'visual-composer-starter' ); ?></p>
+		<p class="comments-subtitle"><?php echo esc_html__( 'Join the discussion and tell us your opinion.', 'visual-composer-theme' ); ?></p>
 
 		<?php the_comments_navigation(); ?>
 
@@ -28,7 +28,7 @@ if ( post_password_required() ) {
 			<?php wp_list_comments(
 				array(
 					'callback'    => 'visualcomposerstarter_comment',
-					'reply_text'  => esc_html__( 'Reply', 'visual-composer-starter' ),
+					'reply_text'  => esc_html__( 'Reply', 'visual-composer-theme' ),
 					'avatar_size' => 80,
 					'style' 	  => 'ol',
 				)
@@ -43,7 +43,7 @@ if ( post_password_required() ) {
 	// If comments are closed and there are comments, let's leave a little note, shall we?
 	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'visual-composer-starter' ); ?></p>
+		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'visual-composer-theme' ); ?></p>
 	<?php endif; ?>
 
 	<?php
@@ -51,13 +51,13 @@ if ( post_password_required() ) {
 		comment_form( array(
 			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
 			'title_reply_after'  => '</h2>',
-			'title_reply' => esc_html__( 'Leave A Comment', 'visual-composer-starter' ),
+			'title_reply' => esc_html__( 'Leave A Comment', 'visual-composer-theme' ),
 		) );
 	} else {
 		comment_form( array(
 			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
 			'title_reply_after'  => '</h2>',
-			'title_reply' => esc_html__( 'Share Your Thoughts', 'visual-composer-starter' ),
+			'title_reply' => esc_html__( 'Share Your Thoughts', 'visual-composer-theme' ),
 		) );
 	}
 
