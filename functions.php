@@ -290,7 +290,9 @@ function visualcomposerstarter_enqueue_comments_reply() {
 function vct_acf_admin_notice__install() {
 	?>
 	<div class="notice notice-success">
-		<p><?php esc_html_e( 'In order to access full theme options, please make sure to install <a href="https://wordpress.org/plugins/advanced-custom-fields/" target="_blank">Advanced Custom Fields</a>', 'visual-composer-starter' ); ?></p>
+		<p><?php
+			/* translators: 1. link to ACF with a tag, 2. a closing */
+			printf( esc_html__( 'In order to access full theme options, please make sure to install %1$sAdvanced Custom Fields%2$s', 'visual-composer-starter' ), '<a href="https://wordpress.org/plugins/advanced-custom-fields/" target="_blank">','</a>' );?></p>
 	</div>
 	<?php
 }
@@ -301,8 +303,8 @@ function vct_acf_admin_notice__activate() {
 	?>
 	<div class="notice notice-success">
 		<p><?php
-			/* translators: %s: link to Advanced Custom Fields */
-			echo sprintf( esc_html__( 'In order to access full theme options, please make sure to activate <a href="%s">Advanced Custom Fields</a>', 'visual-composer-starter' ), esc_url( admin_url( 'plugins.php' ) ) ); ?></p>
+			/* translators: 1. link to ACF activate with a tag, 2. a closing */
+			printf( esc_html__( 'In order to access full theme options, please make sure to activate %1$sAdvanced Custom Fields%2$s', 'visual-composer-starter' ), '<a href="' . esc_url( admin_url( 'plugins.php' ) ) . '">', '</a>' ); ?></p>
 	</div>
 	<?php
 }
@@ -313,8 +315,8 @@ function vct_acf_admin_notice__update() {
 	?>
 	<div class="notice notice-success">
 		<p><?php
-			/* translators: %s: link to Advanced Custom Fields */
-			echo sprintf( esc_html__( 'In order to access full theme options, please make sure to update <a href="%s">Advanced Custom Fields</a>', 'visual-composer-starter' ), esc_url( admin_url( 'plugins.php' ) ) ); ?></p>
+			/* translators: 1. link to ACF update with a tag, 2. a closing */
+			printf( esc_html__( 'In order to access full theme options, please make sure to update %1$sAdvanced Custom Fields%2$s', 'visual-composer-starter' ), '<a href="' . esc_url( admin_url( 'plugins.php' ) ) . '">', '</a>' ); ?></p>
 	</div>
 	<?php
 }
