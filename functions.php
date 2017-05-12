@@ -1161,7 +1161,7 @@ function visualcomposerstarter_inline_styles() {
 	}
 
 	$header_and_menu_area_background = get_theme_mod( 'vct_header_background', '#ffffff' );
-	if ( '#ffffff' !== $header_and_menu_area_background ) {
+	if ( true === get_theme_mod( 'vct_header_reserve_space_for_header', true ) || '#ffffff' !== $header_and_menu_area_background ) {
 		$css .= "
 		/*Header and menu area background color*/
 		#header .navbar .navbar-wrapper,
