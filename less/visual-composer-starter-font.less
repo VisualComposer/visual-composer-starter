@@ -19,6 +19,7 @@
 	font-family: 'Visual Composer Starter Font';
 	src: url('@{vct-icon-font-path}@{vct-icon-font-name}.eot');
 	src: url('@{vct-icon-font-path}@{vct-icon-font-name}.eot?#iefix') format('embedded-opentype'),
+	url('@{vct-icon-font-path}@{vct-icon-font-name}.woff2') format('woff2'),
 	url('@{vct-icon-font-path}@{vct-icon-font-name}.woff') format('woff'),
 	url('@{vct-icon-font-path}@{vct-icon-font-name}.ttf') format('truetype'),
 	url('@{vct-icon-font-path}@{vct-icon-font-name}.svg#@{vct-icon-font-svg-id}') format('svg');
@@ -27,11 +28,19 @@
 //Base styles
 [data-icon] {
 	&:before {
+		font-family: "Visual Composer Starter Font" !important;
 		content: attr(data-icon);
+		font-style: normal !important;
+		font-weight: normal !important;
+		font-variant: normal !important;
+		text-transform: none !important;
+		speak: none;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 }
 
-[data-icon],
 [class^="vct-icon-"],
 [class*=" vct-icon-"] {
 	&:before {
