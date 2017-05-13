@@ -16,7 +16,7 @@ class VCT_Update {
 	 *
 	 * @var string
 	 */
-	protected $update_path = 'http://updates.wpbakery.com/visual-composer-theme/index.html';
+	protected $update_path = 'http://updates.wpbakery.com/visual-composer-starter/index.html';
 
 	/**
 	 * VCT_Update constructor.
@@ -53,8 +53,8 @@ class VCT_Update {
 			$theme                           = array();
 			$theme['theme']                  = VCT_SLUG;
 			$theme['new_version']            = $version;
-			$theme['url']                    = 'http://updates.wpbakery.com/visual-composer-theme/changes.html';
-			$theme['package']                = 'http://updates.wpbakery.com/visual-composer-theme/visual-composer-theme.zip';
+			$theme['url']                    = 'http://updates.wpbakery.com/visual-composer-starter/changes.html';
+			$theme['package']                = 'http://updates.wpbakery.com/visual-composer-starter/visual-composer-starter.zip';
 			$transient->response[ VCT_SLUG ] = $theme;
 
 		}
