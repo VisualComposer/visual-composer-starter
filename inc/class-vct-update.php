@@ -42,6 +42,9 @@ class VCT_Update {
 	 * @return mixed
 	 */
 	public function check_for_updates( $transient ) {
+		if ( did_action( 'upgrader_process_complete' ) || ! isset( $transient->response ) ) {
+			return $transient;
+		}
 		// Extra check for 3rd plugins.
 		if ( isset( $transient->response[ VCT_SLUG ] ) ) {
 			return $transient;
