@@ -1089,6 +1089,24 @@ h6 {
 .comment-content address a.image-link {
   border-bottom: none;
 }
+.entry-content p a.blue-button,
+.comment-content p a.blue-button,
+.entry-content ol a.blue-button,
+.comment-content ol a.blue-button,
+.entry-content ul a.blue-button,
+.comment-content ul a.blue-button,
+.entry-content table a.blue-button,
+.comment-content table a.blue-button,
+.entry-content datalist a.blue-button,
+.comment-content datalist a.blue-button,
+.entry-content blockquote a.blue-button,
+.comment-content blockquote a.blue-button,
+.entry-content dl a.blue-button,
+.comment-content dl a.blue-button,
+.entry-content address a.blue-button,
+.comment-content address a.blue-button {
+  border: none;
+}
 .entry-content ol ol,
 .comment-content ol ol,
 .entry-content ul ul,

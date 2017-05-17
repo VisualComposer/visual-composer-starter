@@ -894,7 +894,6 @@ function visualcomposerstarter_inline_styles() {
 	  .comments-area .comment-list .comment-metadata a:hover,
 	  .comments-area .comment-list .comment-metadata a:focus { border-bottom-color: ' . get_theme_mod( 'vct_fonts_and_style_body_secondary_text_color', '#777777' ) . '; }
 	  a,
-	  a.blue-button:hover,
 	  .comments-area .comment-list .reply a,
 	  .comments-area span.required,
 	  .comments-area .comment-subscription-form label:before,
@@ -1010,7 +1009,8 @@ function visualcomposerstarter_inline_styles() {
 			margin-bottom: ' . get_theme_mod( 'vct_fonts_and_style_buttons_margin_bottom', '0' ) . ';
 	  }
 	  .comments-area .form-submit input[type=submit]:hover, .comments-area .form-submit input[type=submit]:focus,
-	  .blue-button:hover, .blue-button:focus { 
+	  .blue-button:hover, .blue-button:focus, 
+	  .entry-content p a.blue-button:hover { 
 			background-color: ' . get_theme_mod( 'vct_fonts_and_style_buttons_background_hover_color', '#3c63a6' ) . '; 
 			color: ' . get_theme_mod( 'vct_fonts_and_style_buttons_text_hover_color', '#f4f4f4' ) . '; 
 	  }
