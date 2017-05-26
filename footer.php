@@ -96,7 +96,7 @@ if ( vct_is_the_footer_displayed() ) : ?>
 								<?php endif; ?>
 								<?php if ( strlen( get_theme_mod( 'vct_footer_area_social_link_email', '' ) ) ) : ?>
 									<li>
-										<a href="mailto:<?php echo esc_url( get_theme_mod( 'vct_footer_area_social_link_email',
+										<a href="mailto:<?php echo antispambot( get_theme_mod( 'vct_footer_area_social_link_email',
 										                                                   '' ) ); ?>"><span class="vct-icon-mail-circle"></span></a>
 									</li>
 								<?php endif; ?>
