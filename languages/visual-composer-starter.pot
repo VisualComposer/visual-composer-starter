@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-12 15:07+0300\n"
+"POT-Creation-Date: 2017-05-25 10:14+0300\n"
 "PO-Revision-Date: 2017-03-20 21:48+0200\n"
 "Last-Translator: WPBakery <hello@wpbakery.com>\n"
 "Language-Team: WPBakery <hello@wpbakery.com>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.2\n"
 "X-Poedit-KeywordsList: esc_html__;esc_html_e;esc_attr__;esc_attr_e;"
 "esc_html_x;_x\n"
 "X-Poedit-Basepath: ..\n"
@@ -63,6 +63,16 @@ msgstr ""
 
 #: comments.php:60
 msgid "Share Your Thoughts"
+msgstr ""
+
+#: footer.php:82
+#, php-format
+msgid "Copyright &copy; %1$s %2$s. All Rights Reserved."
+msgstr ""
+
+#: footer.php:85
+#, php-format
+msgid "Proudly powered by %1$sVisual Composer%3$s and %2$sWordPress%3$s"
 msgstr ""
 
 #: functions.php:50
@@ -120,60 +130,60 @@ msgstr ""
 msgid "Hide Post Title"
 msgstr ""
 
-#: functions.php:293
-msgid ""
-"In order to access full theme options, please make sure to install <a href="
-"\"https://wordpress.org/plugins/advanced-custom-fields/\" target=\"_blank"
-"\">Advanced Custom Fields</a>"
-msgstr ""
-
-#: functions.php:305
+#: functions.php:295
 #, php-format
 msgid ""
-"In order to access full theme options, please make sure to activate <a href="
-"\"%s\">Advanced Custom Fields</a>"
+"In order to access full theme options, please make sure to install "
+"%1$sAdvanced Custom Fields%2$s"
 msgstr ""
 
-#: functions.php:317
+#: functions.php:307
 #, php-format
 msgid ""
-"In order to access full theme options, please make sure to update <a href="
-"\"%s\">Advanced Custom Fields</a>"
+"In order to access full theme options, please make sure to activate "
+"%1$sAdvanced Custom Fields%2$s"
 msgstr ""
 
-#: functions.php:532
-msgid "Sidebar"
+#: functions.php:319
+#, php-format
+msgid ""
+"In order to access full theme options, please make sure to update "
+"%1$sAdvanced Custom Fields%2$s"
 msgstr ""
 
 #: functions.php:534
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:536
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: functions.php:544
+#: functions.php:546
 msgid "Menu Area"
 msgstr ""
 
-#: functions.php:546
+#: functions.php:548
 msgid "Add widgets here to appear in menu area."
 msgstr ""
 
-#: functions.php:560
+#: functions.php:562
 msgid "Footer Widget Column 1"
 msgstr ""
 
-#: functions.php:562 functions.php:578 functions.php:594 functions.php:610
+#: functions.php:564 functions.php:580 functions.php:596 functions.php:612
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:576
+#: functions.php:578
 msgid "Footer Widget Column 2"
 msgstr ""
 
-#: functions.php:592
+#: functions.php:594
 msgid "Footer Widget Column 3"
 msgstr ""
 
-#: functions.php:608
+#: functions.php:610
 msgid "Footer Widget Column 4"
 msgstr ""
 
