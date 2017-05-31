@@ -9,7 +9,7 @@
 
 /** Slug used in update mechanism */
 define( 'VCT_SLUG', basename( get_template_directory() ) );
-define( 'VCT_VERSION', '1.3-dev' );
+define( 'VCT_VERSION', '1.2.2' );
 
 if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 	/**
