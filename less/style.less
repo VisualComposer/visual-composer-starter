@@ -884,9 +884,36 @@ body.featured-image-custom-height {
 			}
 		}
 	}
+
+  .comment div#respond {
+    min-height: 500px;
+  }
+
+  .bypostauthor .fade-in-image:before {
+    font-family: 'Visual Composer Starter Font';
+    content:'\6e';
+    background: #557cbf;
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    position:absolute;
+    margin: 55px 0 0 52px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding-left: 1px;
+    padding-bottom: 1px;
+    font-size: 20px;
+  }
 }
 
-
+.logged-in {
+  .comments-area .comment div#respond {
+    min-height: 400px;
+  }
+}
 
 .screen-reader-text, .says {
 	clip: rect(1px, 1px, 1px, 1px);
@@ -934,7 +961,7 @@ body.featured-image-custom-height {
 	margin-bottom: 22px;
 
 	img {
-		width: 100%;
+		max-width: 100%;
 		height: auto;
 		display: block;
 	}
@@ -1298,6 +1325,11 @@ h6 {
 	acronym {
 		border-bottom: 1px dotted #d1d1d1;
 	}
+
+  .main-content article.post.sticky {
+    border: 6px #eeeeee solid;
+    padding: 13px;
+  }
 }
 
 .comment-content {
@@ -1350,9 +1382,66 @@ h6 {
 }
 
 //Widgets
-.widget-title {
-	margin: 0 0 1rem 0;
-	font-size: 22px;
+.widget {
+  .widget-title {
+    margin: 0 0 1rem 0;
+    font-size: 22px;
+  }
+
+  select {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Calendar widget */
+.widget_calendar{
+  th,
+  td {
+    text-align: center;
+  }
+
+  tfoot td {
+    border: 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 0 0 1.5em;
+    width: 100%;
+  }
+
+  thead th {
+    border-bottom: 2px solid #bbb;
+    padding-bottom: 0.5em;
+  }
+
+  th {
+    padding: 0.4em;
+    text-align: left;
+  }
+
+  tr {
+    border-bottom: 1px solid #eee;
+  }
+
+  td {
+    padding: 0.4em;
+  }
+
+  th:first-child,
+  td:first-child {
+    padding-left: 0;
+  }
+
+  th:last-child,
+  td:last-child {
+    padding-right: 0;
+  }
 }
 
 .search-form {
@@ -1419,7 +1508,7 @@ h6 {
 
 
 
-//Saidbar
+//Sidebars
 .sidebar-widget-area {
 	padding-bottom: 40px;
 	.widget {

@@ -149,9 +149,9 @@ if ( ! function_exists( 'visualcomposerstarter_entry_meta' ) ) :
 			<?php if ( 'post' === get_post_type() ) : ?>
 				<li class="entry-meta-author"><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php the_author(); ?></span></a></li>
 			<?php endif; ?>
-
-			<li class="entry-meta-category"><?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?></li>
-
+			<?php if ( get_the_category_list() ) : ?>
+				<li class="entry-meta-category"><?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?></li>
+			<?php endif; ?>
 			<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
 				<li class="entry-meta-comments"><?php comments_popup_link( esc_html__( 'Leave a comment', 'visual-composer-starter' ), esc_html__( '1 Comment', 'visual-composer-starter' ), esc_html__( '% Comments', 'visual-composer-starter' ) ); ?>
 			<?php endif; ?>
