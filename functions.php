@@ -496,6 +496,13 @@ function visualcomposerstarter_body_classes( $classes ) {
 		$classes[] = 'featured-image-custom-height';
 	}
 
+	if ( false === vct_is_the_header_displayed() ) {
+		$classes[] = 'header-area-disabled';
+	}
+	if ( false === vct_is_the_footer_displayed() ) {
+		$classes[] = 'footer-area-disabled';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'visualcomposerstarter_body_classes' );
