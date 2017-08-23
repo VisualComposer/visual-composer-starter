@@ -18,7 +18,17 @@ if ( ! function_exists( 'visualcomposerstarter_post_thumbnail' ) ) :
 			?>
 			<div class="featured-content">
 				<div class="fade-in-img">
-					<img src="<?php the_post_thumbnail_url(); ?>" data-src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title() ?>">
+					<?php
+					if ( 'none' === get_theme_mod( vct_check_needed_sidebar(), 'none' ) ) {
+						the_post_thumbnail( 'vct-featured-loop-image-full', array(
+								'data-src' => get_the_post_thumbnail_url( null, 'vct-featured-loop-image-full' ),
+							) );
+					} else {
+						the_post_thumbnail( 'vct-featured-loop-image', array(
+								'data-src' => get_the_post_thumbnail_url( null, 'vct-featured-loop-image' ),
+							) );
+					}
+					?>
 					<noscript>
 						<?php the_post_thumbnail(); ?>
 					</noscript>
@@ -82,8 +92,17 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
 				<div class="row">
 					<div class="fade-in-img">
 						<div class="fade-in-img-inner-wrap">
-							<img src="<?php the_post_thumbnail_url(); ?>" data-src="<?php the_post_thumbnail_url() ?>"
-								 alt="<?php the_title() ?>">
+							<?php
+							if ( 'full_width' === get_theme_mod( 'vct_overall_site_featured_image_width', 'full_width' ) ) {
+								the_post_thumbnail( 'vct-featured-single-image-full', array(
+										'data-src' => get_the_post_thumbnail_url( null, 'vct-featured-single-image-full' ),
+									) );
+							} else {
+								the_post_thumbnail( 'vct-featured-single-image-boxed', array(
+										'data-src' => get_the_post_thumbnail_url( null, 'vct-featured-single-image-boxed' ),
+									) );
+							}
+							?>
 							<noscript>
 								<?php the_post_thumbnail(); ?>
 							</noscript>
