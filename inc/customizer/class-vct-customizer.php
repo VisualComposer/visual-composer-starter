@@ -135,6 +135,20 @@ class VCT_Customizer {
 	}
 
 	/**
+	 * Sanitize select
+	 *
+	 * @param string $input Text data.
+	 * @param object $setting Settings object data.
+	 *
+	 * @return mixed
+	 */
+	public function sanitize_select( $input, $setting ) {
+		$input = sanitize_key( $input );
+		$choices = $setting->manager->get_control( $setting->id )->choices;
+		return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+	}
+
+	/**
 	 * Sanitize url
 	 *
 	 * @param string $input Input data.
@@ -176,6 +190,7 @@ class VCT_Customizer {
 
 		$wp_customize->add_setting( 'vct_overall_site_bg_color',  array(
 			'default'       => '#ffffff',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_setting( 'vct_overall_site_enable_bg_image',  array(
@@ -185,10 +200,12 @@ class VCT_Customizer {
 
 		$wp_customize->add_setting( 'vct_overall_site_bg_image',  array(
 			'default' => '',
+			'sanitize_callback' => 'sanitize_url',
 		) );
 
 		$wp_customize->add_setting( 'vct_overall_site_bg_image_style',  array(
 			'default' => 'cover',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_overall_site_featured_image',  array(
@@ -198,10 +215,12 @@ class VCT_Customizer {
 
 		$wp_customize->add_setting( 'vct_overall_site_featured_image_width',  array(
 			'default' => 'full_width',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_overall_site_featured_image_height',  array(
 			'default' => 'auto',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_overall_site_featured_image_custom_height', array(
@@ -211,22 +230,27 @@ class VCT_Customizer {
 
 		$wp_customize->add_setting( VCT_PAGE_SIDEBAR,  array(
 			'default'       => 'none',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( VCT_POST_SIDEBAR,  array(
 			'default'       => 'none',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( VCT_ARCHIVE_AND_CATEGORY_SIDEBAR,  array(
 			'default'       => 'none',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_overall_site_content_background',  array(
 			'default'       => '#ffffff',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_setting( 'vct_overall_site_comments_background',  array(
 			'default'       => '#f4f4f4',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control(
@@ -456,17 +480,21 @@ class VCT_Customizer {
 	private function content_area_section( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_content_area_sidebar',  array(
 			'default'       => 'none',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_content_area_size',  array(
 			'default'       => 'boxed',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_content_area_background',  array(
 			'default'       => '#ffffff',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_content_area_comments_background',  array(
 			'default'       => '#f4f4f4',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control(
@@ -544,50 +572,57 @@ class VCT_Customizer {
 	private function header_and_menu_section( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_header_background',  array(
 			'default'       => '#ffffff',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_setting( 'vct_header_menu_hover_background',  array(
 			'default'       => '#eeeeee',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_setting( 'vct_header_text_color',  array(
 			'default'       => '#555555',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_setting( 'vct_header_text_active_color',  array(
 			'default'       => '#333333',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_setting( 'vct_header_padding',  array(
 			'default'       => '25px',
-		) );
-
-		$wp_customize->add_setting( 'vct_header_background_remove',  array(
-			'default'       => 'no',
+			'sanitize_callback' => 'esc_attr',
 		) );
 
 		$wp_customize->add_setting( 'vct_header_position',  array(
 			'default'       => 'top',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_header_sandwich_style',  array(
 			'default'       => '#333333',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_header_top_header_width',  array(
 			'default'       => 'boxed',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_header_reserve_space_for_header',  array(
 			'default'       => true,
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_header_sticky_header',  array(
 			'default'       => false,
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_header_sandwich_icon_color',  array(
 			'default'       => '#ffffff',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_control(
@@ -758,26 +793,32 @@ class VCT_Customizer {
 	private function footer_section( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_footer_area_background',  array(
 			'default'       => '#333333',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_setting( 'vct_footer_area_text_color',  array(
 			'default'       => '#777777',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_setting( 'vct_footer_area_text_active_color',  array(
 			'default'       => '#ffffff',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_setting( 'vct_footer_area_widget_area',  array(
 			'default'       => false,
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_footer_area_widgetized_columns',  array(
 			'default'       => 1,
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_footer_area_social_icons',  array(
 			'default'       => false,
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
 		) );
 
 		$wp_customize->add_control(
@@ -909,8 +950,9 @@ class VCT_Customizer {
 			'sanitize_callback' => 'sanitize_url',
 		) );
 
-		$wp_customize->add_setting( 'vct_footer_area_social_link_email',  array(
-			'default'       => '',
+		$wp_customize->add_setting( 'vct_footer_area_social_link_email', array(
+			'default' => '',
+			'sanitize_callback' => 'sanitize_email',
 		) );
 
 		$wp_customize->add_control(
@@ -1116,9 +1158,11 @@ class VCT_Customizer {
 	private function scripts( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_scripts_header', array(
 			'default'        => '',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_scripts_footer', array(
 			'default'        => '',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_control(
 			new WP_Customize_Control(
@@ -1130,7 +1174,6 @@ class VCT_Customizer {
 					'section'           => 'vct_scripts',
 					'settings'          => 'vct_scripts_header',
 					'type'              => 'textarea',
-					'sanitize_callback' => array( $this, 'sanitize_textarea' ),
 				)
 			)
 		);
@@ -1144,7 +1187,6 @@ class VCT_Customizer {
 					'section'           => 'vct_scripts',
 					'settings'          => 'vct_scripts_footer',
 					'type'              => 'textarea',
-					'sanitize_callback' => array( $this, 'sanitize_textarea' ),
 				)
 			)
 		);
@@ -1156,53 +1198,62 @@ class VCT_Customizer {
 	 * @param object $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_h1( $wp_customize ) {
-		$wp_customize->add_setting( 'vct_fonts_and_style_h1', array(
-			'default'        => '',
-		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_text_color', array(
 			'default'        => '#333333',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_active_color', array(
 			'default'        => '#557cbf',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_font_family', array(
 			'default'        => 'Playfair Display',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_subsets', array(
 			'default'        => 'all',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_font_size', array(
 			'default'        => '42px',
+			'sanitize_callback' => 'esc_attr',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_letter_spacing', array(
 			'default'        => '0.01rem',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_line_height', array(
 			'default'        => '1.1',
+			'sanitize_callback' => 'esc_attr',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_weight', array(
 			'default'        => '400',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_font_style', array(
 			'default'        => 'normal',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_margin_top', array(
 			'default'        => '0',
+			'sanitize_callback' => 'esc_attr',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_margin_bottom', array(
 			'default'        => '2.125rem',
+			'sanitize_callback' => 'esc_attr',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_capitalization', array(
 			'default'        => 'none',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_control(
@@ -1315,48 +1366,57 @@ class VCT_Customizer {
 	 * @param object $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_h2( $wp_customize ) {
-		$wp_customize->add_setting( 'vct_fonts_and_style_h2', array(
-			'default'        => '',
-		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_text_color', array(
 			'default'        => '#333333',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_active_color', array(
 			'default'        => '#557cbf',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_font_family', array(
 			'default'        => 'Playfair Display',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_subsets', array(
 			'default'        => 'all',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_font_size', array(
 			'default'        => '36px',
+			'sanitize_callback' => 'esc_attr',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_letter_spacing', array(
 			'default'        => '0.01rem',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_line_height', array(
 			'default'        => '1.1',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_weight', array(
 			'default'        => '400',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_font_style', array(
 			'default'        => 'normal',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_margin_top', array(
 			'default'        => '0',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_margin_bottom', array(
 			'default'        => '0.625rem',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_capitalization', array(
 			'default'        => 'none',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_control(
@@ -1477,44 +1537,53 @@ class VCT_Customizer {
 	 * @param object $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_h3( $wp_customize ) {
-		$wp_customize->add_setting( 'vct_fonts_and_style_h3', array(
-			'default'        => '',
-		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_text_color', array(
 			'default'        => '#333333',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_active_color', array(
 			'default'        => '#557cbf',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_font_family', array(
 			'default'        => 'Playfair Display',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_subsets', array(
 			'default'        => 'all',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_font_size', array(
 			'default'        => '30px',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_letter_spacing', array(
 			'default'        => '0.01rem',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_line_height', array(
 			'default'        => '1.1',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_weight', array(
 			'default'        => '400',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_font_style', array(
 			'default'        => 'normal',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_margin_top', array(
 			'default'        => '0',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_margin_bottom', array(
 			'default'        => '0.625rem',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_capitalization', array(
 			'default'        => 'none',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_control(
@@ -1630,47 +1699,56 @@ class VCT_Customizer {
 	 * @param object $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_h4( $wp_customize ) {
-		$wp_customize->add_setting( 'vct_fonts_and_style_h4', array(
-			'default'        => '',
-		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_text_color', array(
 			'default'        => '#333333',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_active_color', array(
 			'default'        => '#557cbf',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_font_family', array(
 			'default'        => 'Playfair Display',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_subsets', array(
 			'default'        => 'all',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_font_size', array(
 			'default'        => '22px',
+			'sanitize_callback' => 'esc_attr',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_letter_spacing', array(
 			'default'        => '0.01rem',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_line_height', array(
 			'default'        => '1.1',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_weight', array(
 			'default'        => '400',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_font_style', array(
 			'default'        => 'normal',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_margin_top', array(
 			'default'        => '0',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_margin_bottom', array(
 			'default'        => '0.625rem',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_capitalization', array(
 			'default'        => 'none',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_control(
@@ -1790,46 +1868,55 @@ class VCT_Customizer {
 	 * @param object $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_h5( $wp_customize ) {
-		$wp_customize->add_setting( 'vct_fonts_and_style_h5', array(
-			'default'        => '',
-		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_text_color', array(
 			'default'        => '#333333',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_active_color', array(
 			'default'        => '#557cbf',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_font_family', array(
 			'default'        => 'Playfair Display',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_subsets', array(
 			'default'        => 'all',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_font_size', array(
 			'default'        => '18px',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_letter_spacing', array(
 			'default'        => '0.01rem',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_line_height', array(
 			'default'        => '1.1',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_weight', array(
 			'default'        => '400',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_font_style', array(
 			'default'        => 'normal',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_margin_top', array(
 			'default'        => '0',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_margin_bottom', array(
 			'default'        => '0.625rem',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_capitalization', array(
 			'default'        => 'none',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_control(
@@ -1949,46 +2036,55 @@ class VCT_Customizer {
 	 * @param object $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_h6( $wp_customize ) {
-		$wp_customize->add_setting( 'vct_fonts_and_style_h6', array(
-			'default'        => '',
-		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_text_color', array(
 			'default'        => '#333333',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_active_color', array(
 			'default'        => '#557cbf',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_font_family', array(
 			'default'        => 'Playfair Display',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_subsets', array(
 			'default'        => 'all',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_font_size', array(
 			'default'        => '16px',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_letter_spacing', array(
 			'default'        => '0.01rem',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_line_height', array(
 			'default'        => '1.1',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_weight', array(
 			'default'        => '400',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_font_style', array(
 			'default'        => 'normal',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_margin_top', array(
 			'default'        => '0',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_margin_bottom', array(
 			'default'        => '0.625rem',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_capitalization', array(
 			'default'        => 'none',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_control(
@@ -2112,53 +2208,62 @@ class VCT_Customizer {
 	 * @param object $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_body( $wp_customize ) {
-		$wp_customize->add_setting( 'vct_fonts_and_style_body', array(
-			'default'        => '',
-		) );
-
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_primary_color', array(
 			'default'        => '#555555',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_secondary_text_color', array(
 			'default'        => '#777777',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_active_color', array(
 			'default'        => '#557cbf',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_font_family', array(
 			'default'        => 'Roboto',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_subsets', array(
-				'default'        => 'all',
+			'default'        => 'all',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_font_size', array(
 			'default'        => '16px',
+			'sanitize_callback' => 'esc_attr',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_letter_spacing', array(
 			'default'        => '0.01rem',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_line_height', array(
 			'default'        => '1.7',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_weight', array(
 			'default'        => '400',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_font_style', array(
 			'default'        => 'normal',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_margin_top', array(
 			'default'        => '0',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_margin_bottom', array(
 			'default'        => '1.5rem',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_capitalization', array(
 			'default'        => 'none',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_control(
@@ -2292,55 +2397,65 @@ class VCT_Customizer {
 	 * @param object $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_buttons( $wp_customize ) {
-		$wp_customize->add_setting( 'vct_fonts_and_style_buttons', array(
-			'default'        => '',
-		) );
-
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_background_color', array(
 			'default'        => '#557cbf',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_text_color', array(
 			'default'        => '#f4f4f4',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_background_hover_color', array(
 			'default'        => '#3c63a6',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_text_hover_color', array(
 			'default'        => '#f4f4f4',
+			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_font_family', array(
 			'default'        => 'Playfair Display',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_subsets', array(
-				'default'        => 'all',
+			'default'        => 'all',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_font_size', array(
 			'default'        => '16px',
+			'sanitize_callback' => 'esc_attr',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_letter_spacing', array(
 			'default'        => '0.01rem',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_line_height', array(
 			'default'        => '1',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_weight', array(
 			'default'        => '400',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_font_style', array(
 			'default'        => 'normal',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_margin_top', array(
 			'default'        => '0',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_margin_bottom', array(
 			'default'        => '0',
+			'sanitize_callback' => 'esc_attr',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_capitalization', array(
 			'default'        => 'none',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_control(

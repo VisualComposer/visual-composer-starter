@@ -44,6 +44,11 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		add_theme_support( 'custom-logo' );
 
 		/*
+		 * Feed Links
+		 */
+		add_theme_support( 'automatic-feed-links' );
+
+		/*
 		 * This theme uses wp_nav_menu() in two locations.
 		 */
 		register_nav_menus( array(

@@ -751,6 +751,30 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   background-color: #3c63a6;
   outline: none;
 }
+.comments-area .comment div#respond {
+  min-height: 500px;
+}
+.comments-area .bypostauthor .fade-in-image:before {
+  font-family: 'Visual Composer Starter Font';
+  content: '\6e';
+  background: #557cbf;
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  position: absolute;
+  margin: 55px 0 0 52px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding-left: 1px;
+  padding-bottom: 1px;
+  font-size: 20px;
+}
+.logged-in .comments-area .comment div#respond {
+  min-height: 400px;
+}
 .screen-reader-text,
 .says {
   clip: rect(1px, 1px, 1px, 1px);
@@ -789,7 +813,7 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   margin-bottom: 22px;
 }
 .featured-content img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
 }
@@ -1233,6 +1257,11 @@ h6 {
 .comment-content acronym {
   border-bottom: 1px dotted #d1d1d1;
 }
+.entry-content .main-content article.post.sticky,
+.comment-content .main-content article.post.sticky {
+  border: 6px #eeeeee solid;
+  padding: 13px;
+}
 .comment-content p,
 .comment-content ol,
 .comment-content ul,
@@ -1279,9 +1308,51 @@ h6 {
 .alignnone {
   margin: 5px 20px 20px 0;
 }
-.widget-title {
+.widget .widget-title {
   margin: 0 0 1rem 0;
   font-size: 22px;
+}
+.widget select {
+  width: 100%;
+}
+.widget img {
+  max-width: 100%;
+  height: auto;
+}
+/* Calendar widget */
+.widget_calendar th,
+.widget_calendar td {
+  text-align: center;
+}
+.widget_calendar tfoot td {
+  border: 0;
+}
+.widget_calendar table {
+  border-collapse: collapse;
+  margin: 0 0 1.5em;
+  width: 100%;
+}
+.widget_calendar thead th {
+  border-bottom: 2px solid #bbb;
+  padding-bottom: 0.5em;
+}
+.widget_calendar th {
+  padding: 0.4em;
+  text-align: left;
+}
+.widget_calendar tr {
+  border-bottom: 1px solid #eee;
+}
+.widget_calendar td {
+  padding: 0.4em;
+}
+.widget_calendar th:first-child,
+.widget_calendar td:first-child {
+  padding-left: 0;
+}
+.widget_calendar th:last-child,
+.widget_calendar td:last-child {
+  padding-right: 0;
 }
 .search-form {
   position: relative;
