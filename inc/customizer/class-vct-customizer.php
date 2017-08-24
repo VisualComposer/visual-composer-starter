@@ -149,6 +149,21 @@ class VCT_Customizer {
 	}
 
 	/**
+	 * Sanitize google fonts select
+	 *
+	 * @param string $input Text data.
+	 * @param object $setting Settings object data.
+	 *
+	 * @return mixed
+	 */
+	public function sanitize_select_google_fonts( $input, $setting ) {
+		$input = wp_strip_all_tags( $input );
+		$choices = $setting->manager->get_control( $setting->id )->choices;
+
+		return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+	}
+
+	/**
 	 * Sanitize url
 	 *
 	 * @param string $input Input data.
@@ -1209,7 +1224,7 @@ class VCT_Customizer {
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_font_family', array(
 			'default'        => 'Playfair Display',
-			'sanitize_callback' => array( $this, 'sanitize_select' ),
+			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_subsets', array(
@@ -1377,7 +1392,7 @@ class VCT_Customizer {
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_font_family', array(
 			'default'        => 'Playfair Display',
-			'sanitize_callback' => array( $this, 'sanitize_select' ),
+			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_subsets', array(
@@ -1547,7 +1562,7 @@ class VCT_Customizer {
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_font_family', array(
 			'default'        => 'Playfair Display',
-			'sanitize_callback' => array( $this, 'sanitize_select' ),
+			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_subsets', array(
 			'default'        => 'all',
@@ -1709,7 +1724,7 @@ class VCT_Customizer {
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_font_family', array(
 			'default'        => 'Playfair Display',
-			'sanitize_callback' => array( $this, 'sanitize_select' ),
+			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_subsets', array(
@@ -1878,7 +1893,7 @@ class VCT_Customizer {
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_font_family', array(
 			'default'        => 'Playfair Display',
-			'sanitize_callback' => array( $this, 'sanitize_select' ),
+			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_subsets', array(
@@ -2046,7 +2061,7 @@ class VCT_Customizer {
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_font_family', array(
 			'default'        => 'Playfair Display',
-			'sanitize_callback' => array( $this, 'sanitize_select' ),
+			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_subsets', array(
@@ -2416,7 +2431,7 @@ class VCT_Customizer {
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_font_family', array(
 			'default'        => 'Playfair Display',
-			'sanitize_callback' => array( $this, 'sanitize_select' ),
+			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_subsets', array(
