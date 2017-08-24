@@ -110,10 +110,6 @@ img[data-src] {
 	opacity: 0;
 }
 
-
-//HEADER
-#wpadminbar {position: fixed;}
-
 .navbar {
 	border: none;
 	border-radius: 0;
@@ -201,8 +197,18 @@ body.menu-sandwich {
 }
 
 .navbar-brand {
-	height: auto;
-	padding: 0 15px;
+  height: auto;
+  padding: 0 15px;
+
+  h1 a {
+    font-size: 30px;
+    color: #333;
+  }
+
+  h1 a:hover {
+    color: #557cbf;
+    text-decoration: none;
+  }
 }
 
 .navbar-toggle {
@@ -210,7 +216,7 @@ body.menu-sandwich {
 	.icon-bar {
 		width: 20px;
 		border-radius: 0;
-		background-color: #fff;
+		background-color: #333;
 	}
 }
 
@@ -462,6 +468,12 @@ body.featured-image-custom-height {
 
 .main-content {
 	padding-bottom: 40px;
+
+  article.post.sticky {
+    border: 6px #eeeeee solid;
+    padding: 13px;
+  }
+
 }
 
 .entry-full-content {
@@ -1325,11 +1337,6 @@ h6 {
 	acronym {
 		border-bottom: 1px dotted #d1d1d1;
 	}
-
-  .main-content article.post.sticky {
-    border: 6px #eeeeee solid;
-    padding: 13px;
-  }
 }
 
 .comment-content {

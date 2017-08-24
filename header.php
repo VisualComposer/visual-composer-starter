@@ -29,14 +29,16 @@
 							if ( has_custom_logo() ) :
 								$custom_logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
 							?>
-								<a href="<?php echo esc_url( home_url() ); ?>"
-								   title="<?php bloginfo( 'name' ) ?>">
-									<img src="<?php echo esc_url( $custom_logo[0] ) ?>" alt="<?php bloginfo( 'name' ) ?>">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>"
+								   title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+									<img src="<?php echo esc_url( $custom_logo[0] ) ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 								</a>
 							<?php else : ?>
-								<a href="http://visualcomposer.io/?utm_campaign=vc-theme&amp;utm_source=vc-theme-front&amp;utm_medium=vc-theme-header" title="<?php esc_attr_e( 'Visual Composer Starter', 'visual-composer-starter' ) ?>">
-									<img width="50" height="49" src="<?php echo esc_url( get_template_directory_uri() ) ?>/images/vct-logo.svg" alt="<?php esc_attr_e( 'Visual Composer Starter', 'visual-composer-starter' ) ?>">
-								</a>
+								<h1>
+									<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+										<?php bloginfo( 'name' ); ?>
+									</a>
+								</h1>
 							<?php endif; ?>
 
 						</div>
