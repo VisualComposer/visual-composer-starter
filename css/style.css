@@ -1557,3 +1557,9 @@ h6 {
   list-style: none;
   margin-right: 8px;
 }
+.header-area-disabled .content-wrapper {
+  padding-top: 0;
+}
+.footer-area-disabled .main-content {
+  padding-bottom: 0;
+}

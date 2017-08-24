@@ -48,6 +48,27 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		 */
 		add_theme_support( 'automatic-feed-links' );
 
+		add_theme_support( 'post-formats', array( 'gallery', 'video', 'image' ) );
+
+		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
+
+		if ( get_theme_mod( 'vct_overall_site_featured_image', true ) === true ) {
+			add_theme_support( 'post-thumbnails' );
+		}
+
+		add_image_size( 'vct-featured-loop-image', 848, 0 );
+		add_image_size( 'vct-featured-loop-image-full', 1140, 0 );
+		add_image_size( 'vct-featured-single-image-boxed', 1170, 0 );
+		add_image_size( 'vct-featured-single-image-full', 1920, 0 );
+
+		/*
+		 * Set the default content width.
+		 */
+		global $content_width;
+		if ( ! isset( $content_width ) ) {
+			$content_width = 848;
+		}
+
 		/*
 		 * This theme uses wp_nav_menu() in two locations.
 		 */
@@ -331,21 +352,11 @@ function vct_acf_admin_notice__update() {
  */
 require get_template_directory() . '/inc/template-tags.php';
 
-
-add_theme_support( 'post-formats', array( 'gallery', 'video', 'image' ) );
-
-if ( get_theme_mod( 'vct_overall_site_featured_image', true ) === true ) {
-	add_theme_support( 'post-thumbnails' );
-
-}
-
-add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
-
 /*
  * Add Next Page Button to WYSIWYG editor
  */
 
-add_filter( 'mce_buttons', 'mce_page_break' );
+add_filter( 'mce_buttons', 'vct_page_break' );
 
 /**
  * Add page break
@@ -354,7 +365,7 @@ add_filter( 'mce_buttons', 'mce_page_break' );
  *
  * @return array
  */
-function mce_page_break( $mce_buttons ) {
+function vct_page_break( $mce_buttons ) {
 	$pos = array_search( 'wp_more', $mce_buttons, true );
 
 	if ( false !== $pos ) {
@@ -494,6 +505,13 @@ function visualcomposerstarter_body_classes( $classes ) {
 
 	if ( get_theme_mod( 'vct_overall_site_featured_image_height', 'auto' ) === 'custom' ) {
 		$classes[] = 'featured-image-custom-height';
+	}
+
+	if ( false === vct_is_the_header_displayed() ) {
+		$classes[] = 'header-area-disabled';
+	}
+	if ( false === vct_is_the_footer_displayed() ) {
+		$classes[] = 'footer-area-disabled';
 	}
 
 	return $classes;
