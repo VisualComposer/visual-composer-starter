@@ -9,6 +9,21 @@ License URI:    http://www.gnu.org/licenses/gpl-3.0.html
 
 A starter theme for Visual Composer.
 
+== Copyright and license ==
+Visual Composer Starter theme is distributed under the terms of the GNU GPL
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+== Credits ==
+* TGM Plugin Activation - http://tgmpluginactivation.com/, 2011, Thomas Griffin [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* Slick Slider by Ken Wheeler. http://kenwheeler.github.io/slick/ Slick Slider is Licensed under the MIT license. https://github.com/kenwheeler/slick/blob/master/LICENSE
+* Images on screenshot.
+	- header photo
+    from: https://unsplash.com/photos/Jy992J_7GUs
+    license: https://unsplash.com/license
+    - post avatar photo
+    from: https://stocksnap.io/photo/TNK87N7464
+    license: https://stocksnap.io/license
+
 == Description ==
 
 Visual Composer Starter theme is designed to be a perfect companion for a simple and good looking website. It is a lightweight theme with easy-to-use theme options and SEO in mind.
