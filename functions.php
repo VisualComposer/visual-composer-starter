@@ -50,7 +50,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 
 		add_theme_support( 'post-formats', array( 'gallery', 'video', 'image' ) );
 
-		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
+		add_theme_support( 'html5', array( 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 
 		if ( get_theme_mod( 'vct_overall_site_featured_image', true ) === true ) {
 			add_theme_support( 'post-thumbnails' );
