@@ -43,20 +43,7 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
 	 * Header featured content.
 	 */
 	function visualcomposerstarter_header_featured_content() {
-		if ( 'video' === get_post_format() ) {
-			$post = get_post( get_the_ID() );
-			remove_filter( 'the_content', 'wpautop' );
-			?>
-			<div class="<?php echo esc_attr( vct_get_header_image_container_class() ); ?>">
-				<div class="row">
-					<div class="video-wrapper">
-						<?php echo esc_html( apply_filters( 'the_content', $post->post_content ) ); ?>
-					</div>
-				</div>
-			</div>
-			<?php
-			add_filter( 'the_content', 'wpautop' );
-		} elseif ( 'gallery' === get_post_format() ) {
+		if ( 'gallery' === get_post_format() ) {
 			?>
 			<div class="<?php echo esc_attr( vct_get_header_image_container_class() ); ?>">
 				<div class="row">
@@ -141,12 +128,12 @@ if ( ! function_exists( 'visualcomposerstarter_entry_date' ) ) :
 			'</span>',
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' .
 			wp_kses( $time_string,
-			         array(
-			         		'time' => array(
-					                'class' => array(),
-									'datetime' => array(),
-				            ),
-			         )
+				array(
+					'time' => array(
+					'class' => array(),
+					'datetime' => array(),
+					),
+				)
 			) .
 			'</a>'
 		);
