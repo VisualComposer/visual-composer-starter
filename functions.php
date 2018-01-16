@@ -86,185 +86,161 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		 * ACF Integration
 		 */
 
-		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		if ( class_exists( 'acf' ) && function_exists( 'register_field_group' ) ) {
+			$vct_acf_page_options = array(
+				'id' => 'acf_page-options',
+				'title' => esc_html__( 'Page Options', 'visual-composer-starter' ),
+				'fields' => array(
+					array(
+						'key' => 'field_589f5a321f0bc',
+						'label' => esc_html__( 'Sidebar Position', 'visual-composer-starter' ),
+						'name' => 'sidebar_position',
+						'type' => 'select',
+						'instructions' => esc_html__( 'Select specific sidebar position.', 'visual-composer-starter' ),
+						'choices' => array(
+							'none' => esc_html__( 'None', 'visual-composer-starter' ),
+							'left' => esc_html__( 'Left', 'visual-composer-starter' ),
+							'right' => esc_html__( 'Right', 'visual-composer-starter' ),
+						),
+						'default_value' => get_theme_mod( VCT_PAGE_SIDEBAR, 'none' ),
+						'allow_null' => 0,
+						'multiple' => 0,
+					),
+					array(
+						'key' => 'field_589f55db2faa9',
+						'label' => esc_html__( 'Hide Page Title', 'visual-composer-starter' ),
+						'name' => 'hide_page_title',
+						'type' => 'checkbox',
+						'choices' => array(
+							1 => esc_html__( 'Yes', 'visual-composer-starter' ),
+						),
+						'default_value' => '',
+						'layout' => 'vertical',
+					),
+				),
+				'location' => array(
+					array(
+						array(
+							'param' => 'post_type',
+							'operator' => '==',
+							'value' => 'page',
+							'order_no' => 0,
+							'group_no' => 0,
+						),
+					),
+				),
+				'options' => array(
+					'position' => 'side',
+					'layout' => 'default',
+					'hide_on_screen' => array(),
+				),
+				'menu_order' => 0,
+			);
 
-		$plugins   = get_plugins();
-		$basic_acf = array_key_exists( 'advanced-custom-fields/acf.php', $plugins );
-		$pro_acf   = array_key_exists( 'advanced-custom-fields-pro/acf.php', $plugins );
-		if ( ! $basic_acf && ! $pro_acf ) {
-			add_action( 'admin_notices', 'vct_acf_admin_notice__install' );
-		} else {
-			$activated_pro   = $pro_acf && is_plugin_active( 'advanced-custom-fields-pro/acf.php' );
-			$activated_basic = $basic_acf && is_plugin_active( 'advanced-custom-fields/acf.php' );
-			if ( ( ! $activated_pro && ! $activated_basic )
-				 || ( ! $activated_pro && ! $basic_acf )
-				 || ( ! $activated_basic && ! $pro_acf )
-			) {
-				add_action( 'admin_notices', 'vct_acf_admin_notice__activate' );
-			} else {
-				$name     = $activated_pro ? 'advanced-custom-fields-pro/acf.php' : 'advanced-custom-fields/acf.php';
-				$acf_info = get_plugin_data( WP_PLUGIN_DIR . '/' . $name );
-				if ( version_compare( $acf_info['Version'], '4.1.0', '<' ) ) {
-					add_action( 'admin_notices', 'vct_acf_admin_notice__update' );
-				} else {
-					if ( function_exists( 'register_field_group' ) ) {
-						$vct_acf_page_options = array(
-							'id' => 'acf_page-options',
-							'title' => esc_html__( 'Page Options', 'visual-composer-starter' ),
-							'fields' => array(
-								array(
-									'key' => 'field_589f5a321f0bc',
-									'label' => esc_html__( 'Sidebar Position', 'visual-composer-starter' ),
-									'name' => 'sidebar_position',
-									'type' => 'select',
-									'instructions' => esc_html__( 'Select specific sidebar position.', 'visual-composer-starter' ),
-									'choices' => array(
-										'none' => esc_html__( 'None', 'visual-composer-starter' ),
-										'left' => esc_html__( 'Left', 'visual-composer-starter' ),
-										'right' => esc_html__( 'Right', 'visual-composer-starter' ),
-									),
-									'default_value' => get_theme_mod( VCT_PAGE_SIDEBAR, 'none' ),
-									'allow_null' => 0,
-									'multiple' => 0,
-								),
-								array(
-									'key' => 'field_589f55db2faa9',
-									'label' => esc_html__( 'Hide Page Title', 'visual-composer-starter' ),
-									'name' => 'hide_page_title',
-									'type' => 'checkbox',
-									'choices' => array(
-										1 => esc_html__( 'Yes', 'visual-composer-starter' ),
-									),
-									'default_value' => '',
-									'layout' => 'vertical',
-								),
-							),
-							'location' => array(
-								array(
-									array(
-										'param' => 'post_type',
-										'operator' => '==',
-										'value' => 'page',
-										'order_no' => 0,
-										'group_no' => 0,
-									),
-								),
-							),
-							'options' => array(
-								'position' => 'side',
-								'layout' => 'default',
-								'hide_on_screen' => array(),
-							),
-							'menu_order' => 0,
-						);
+			$vct_acf_post_options = array(
+				'id' => 'acf_post-options',
+				'title' => esc_html__( 'Post Options', 'visual-composer-starter' ),
+				'fields' => array(
+					array(
+						'key' => 'field_589f5b1d656ca',
+						'label' => esc_html__( 'Sidebar Position', 'visual-composer-starter' ),
+						'name' => 'sidebar_position',
+						'type' => 'select',
+						'instructions' => esc_html__( 'Select specific sidebar position.', 'visual-composer-starter' ),
+						'choices' => array(
+							'none' => esc_html__( 'None', 'visual-composer-starter' ),
+							'left' => esc_html__( 'Left', 'visual-composer-starter' ),
+							'right' => esc_html__( 'Right', 'visual-composer-starter' ),
+						),
+						'default_value' => get_theme_mod( VCT_POST_SIDEBAR, 'none' ),
+						'allow_null' => 0,
+						'multiple' => 0,
+					),
+					array(
+						'key' => 'field_589f5b9a56207',
+						'label' => esc_html__( 'Hide Post Title', 'visual-composer-starter' ),
+						'name' => 'hide_page_title',
+						'type' => 'checkbox',
+						'choices' => array(
+							1 => esc_html__( 'Yes', 'visual-composer-starter' ),
+						),
+						'default_value' => '',
+						'layout' => 'vertical',
+					),
+				),
+				'location' => array(
+					array(
+						array(
+							'param' => 'post_type',
+							'operator' => '==',
+							'value' => 'post',
+							'order_no' => 0,
+							'group_no' => 0,
+						),
+					),
+				),
+				'options' => array(
+					'position' => 'side',
+					'layout' => 'default',
+					'hide_on_screen' => array(),
+				),
+				'menu_order' => 0,
+			);
 
-						$vct_acf_post_options = array(
-							'id' => 'acf_post-options',
-							'title' => esc_html__( 'Post Options', 'visual-composer-starter' ),
-							'fields' => array(
-								array(
-									'key' => 'field_589f5b1d656ca',
-									'label' => esc_html__( 'Sidebar Position', 'visual-composer-starter' ),
-									'name' => 'sidebar_position',
-									'type' => 'select',
-									'instructions' => esc_html__( 'Select specific sidebar position.', 'visual-composer-starter' ),
-									'choices' => array(
-										'none' => esc_html__( 'None', 'visual-composer-starter' ),
-										'left' => esc_html__( 'Left', 'visual-composer-starter' ),
-										'right' => esc_html__( 'Right', 'visual-composer-starter' ),
-									),
-									'default_value' => get_theme_mod( VCT_POST_SIDEBAR, 'none' ),
-									'allow_null' => 0,
-									'multiple' => 0,
-								),
-								array(
-									'key' => 'field_589f5b9a56207',
-									'label' => esc_html__( 'Hide Post Title', 'visual-composer-starter' ),
-									'name' => 'hide_page_title',
-									'type' => 'checkbox',
-									'choices' => array(
-										1 => esc_html__( 'Yes', 'visual-composer-starter' ),
-									),
-									'default_value' => '',
-									'layout' => 'vertical',
-								),
-							),
-							'location' => array(
-								array(
-									array(
-										'param' => 'post_type',
-										'operator' => '==',
-										'value' => 'post',
-										'order_no' => 0,
-										'group_no' => 0,
-									),
-								),
-							),
-							'options' => array(
-								'position' => 'side',
-								'layout' => 'default',
-								'hide_on_screen' => array(),
-							),
-							'menu_order' => 0,
-						);
+			if ( ! get_theme_mod( VCT_DISABLE_HEADER, false ) ) {
+				$vct_acf_page_options['fields'][] = array(
+					'key' => 'field_58c800e5a7722',
+					'label' => 'Disable Header',
+					'name' => 'disable_page_header',
+					'type' => 'checkbox',
+					'choices' => array(
+						1 => esc_html__( 'Yes', 'visual-composer-starter' ),
+					),
+					'default_value' => '',
+					'layout' => 'vertical',
+				);
 
-						if ( ! get_theme_mod( VCT_DISABLE_HEADER, false ) ) {
-							$vct_acf_page_options['fields'][] = array(
-								'key' => 'field_58c800e5a7722',
-								'label' => 'Disable Header',
-								'name' => 'disable_page_header',
-								'type' => 'checkbox',
-								'choices' => array(
-									1 => esc_html__( 'Yes', 'visual-composer-starter' ),
-								),
-								'default_value' => '',
-								'layout' => 'vertical',
-							);
+				$vct_acf_post_options['fields'][] = array(
+					'key' => 'field_58c7e3f0b7dfb',
+					'label' => 'Disable Header',
+					'name' => 'disable_post_header',
+					'type' => 'checkbox',
+					'choices' => array(
+						1 => esc_html__( 'Yes', 'visual-composer-starter' ),
+					),
+					'default_value' => '',
+					'layout' => 'vertical',
+				);
+			}
 
-							$vct_acf_post_options['fields'][] = array(
-								'key' => 'field_58c7e3f0b7dfb',
-								'label' => 'Disable Header',
-								'name' => 'disable_post_header',
-								'type' => 'checkbox',
-								'choices' => array(
-									1 => esc_html__( 'Yes', 'visual-composer-starter' ),
-								),
-								'default_value' => '',
-								'layout' => 'vertical',
-							);
-						}
+			if ( ! get_theme_mod( VCT_DISABLE_FOOTER, false ) ) {
+				$vct_acf_page_options['fields'][] = array(
+					'key' => 'field_58c800faa7723',
+					'label' => 'Disable Footer',
+					'name' => 'disable_page_footer',
+					'type' => 'checkbox',
+					'choices' => array(
+						1 => esc_html__( 'Yes', 'visual-composer-starter' ),
+					),
+					'default_value' => '',
+					'layout' => 'vertical',
+				);
 
-						if ( ! get_theme_mod( VCT_DISABLE_FOOTER, false ) ) {
-							$vct_acf_page_options['fields'][] = array(
-								'key' => 'field_58c800faa7723',
-								'label' => 'Disable Footer',
-								'name' => 'disable_page_footer',
-								'type' => 'checkbox',
-								'choices' => array(
-									1 => esc_html__( 'Yes', 'visual-composer-starter' ),
-								),
-								'default_value' => '',
-								'layout' => 'vertical',
-							);
+				$vct_acf_post_options['fields'][] = array(
+					'key' => 'field_58c7e40db7dfc',
+					'label' => 'Disable Footer',
+					'name' => 'disable_post_footer',
+					'type' => 'checkbox',
+					'choices' => array(
+						1 => esc_html__( 'Yes', 'visual-composer-starter' ),
+					),
+					'default_value' => '',
+					'layout' => 'vertical',
+				);
+			}
 
-							$vct_acf_post_options['fields'][] = array(
-								'key' => 'field_58c7e40db7dfc',
-								'label' => 'Disable Footer',
-								'name' => 'disable_post_footer',
-								'type' => 'checkbox',
-								'choices' => array(
-									1 => esc_html__( 'Yes', 'visual-composer-starter' ),
-								),
-								'default_value' => '',
-								'layout' => 'vertical',
-							);
-						}
-
-						register_field_group( $vct_acf_page_options );
-						register_field_group( $vct_acf_post_options );
-					} // End if().
-				} // End if().
-			} // End if().
+			register_field_group( $vct_acf_page_options );
+			register_field_group( $vct_acf_post_options );
 		} // End if().
 
 		/**
@@ -308,43 +284,6 @@ function visualcomposerstarter_enqueue_comments_reply() {
 	if ( get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-}
-
-/**
- * ACF install admin notice
- */
-function vct_acf_admin_notice__install() {
-	?>
-	<div class="notice notice-success">
-		<p><?php
-			/* translators: 1. link to ACF with a tag, 2. a closing */
-			printf( esc_html__( 'In order to access full theme options, please make sure to install %1$sAdvanced Custom Fields%2$s', 'visual-composer-starter' ), '<a href="https://wordpress.org/plugins/advanced-custom-fields/" target="_blank">','</a>' );?></p>
-	</div>
-	<?php
-}
-/**
- * ACF activate admin notice
- */
-function vct_acf_admin_notice__activate() {
-	?>
-	<div class="notice notice-success">
-		<p><?php
-			/* translators: 1. link to ACF activate with a tag, 2. a closing */
-			printf( esc_html__( 'In order to access full theme options, please make sure to activate %1$sAdvanced Custom Fields%2$s', 'visual-composer-starter' ), '<a href="' . esc_url( admin_url( 'plugins.php' ) ) . '">', '</a>' ); ?></p>
-	</div>
-	<?php
-}
-/**
- * ACF update admin notice
- */
-function vct_acf_admin_notice__update() {
-	?>
-	<div class="notice notice-success">
-		<p><?php
-			/* translators: 1. link to ACF update with a tag, 2. a closing */
-			printf( esc_html__( 'In order to access full theme options, please make sure to update %1$sAdvanced Custom Fields%2$s', 'visual-composer-starter' ), '<a href="' . esc_url( admin_url( 'plugins.php' ) ) . '">', '</a>' ); ?></p>
-	</div>
-	<?php
 }
 
 /**
@@ -1384,3 +1323,41 @@ function vct_inline_header_js() {
 }
 
 add_action( 'wp_enqueue_scripts', 'vct_inline_header_js' );
+
+/**
+ * Include the TGM_Plugin_Activation class.
+ */
+require_once get_template_directory() . '/inc/tgmpa/class-tgm-plugin-activation.php';
+
+add_action( 'tgmpa_register', 'visualcomposerstarter_register_required_plugins' );
+
+/**
+ * Register the required plugins for this theme.
+ */
+function visualcomposerstarter_register_required_plugins() {
+	/*
+	 * Array of plugin arrays. Required keys are name and slug.
+	 */
+	$plugins = array(
+		array(
+			'name'      => 'Advanced Custom Fields',
+			'slug'      => 'advanced-custom-fields',
+			'required'  => false,
+		),
+	);
+
+	/*
+	 * Array of configuration settings. Amend each line as needed.
+	 */
+	$config = array(
+		'id'           => 'visual-composer-starter',                 // Unique ID for hashing notices for multiple instances of TGMPA.
+		'default_path' => '',                      // Default absolute path to bundled plugins.
+		'menu'         => 'tgmpa-install-plugins', // Menu slug.
+		'has_notices'  => true,                    // Show admin notices or not.
+		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
+		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
+		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
+		'message'      => '',                      // Message to output right before the plugins table.
+	);
+	tgmpa( $plugins, $config );
+}
