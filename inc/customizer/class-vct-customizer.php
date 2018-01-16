@@ -92,7 +92,6 @@ class VCT_Customizer {
 		$this->header_and_menu_section( $wp_customize );
 		$this->footer_section( $wp_customize );
 		$this->fonts_and_style_panel( $wp_customize );
-		$this->scripts( $wp_customize );
 	}
 
 	/**
@@ -1159,52 +1158,6 @@ class VCT_Customizer {
 		$this->fonts_and_style_section_h6( $wp_customize );
 		$this->fonts_and_style_section_body( $wp_customize );
 		$this->fonts_and_style_section_buttons( $wp_customize );
-	}
-
-	/**
-	 * Section: Scripts Section
-	 *
-	 * @param WP_Customize_Manager $wp_customize Customize manager class.
-	 *
-	 * @access private
-	 * @since  1.0
-	 * @return void
-	 */
-	private function scripts( $wp_customize ) {
-		$wp_customize->add_setting( 'vct_scripts_header', array(
-			'default'        => '',
-			'sanitize_callback' => 'wp_strip_all_tags',
-		) );
-		$wp_customize->add_setting( 'vct_scripts_footer', array(
-			'default'        => '',
-			'sanitize_callback' => 'wp_strip_all_tags',
-		) );
-		$wp_customize->add_control(
-			new WP_Customize_Control(
-				$wp_customize,
-				'vct_scripts_header',
-				array(
-					'label'             => esc_html__( 'Header Scripts', 'visual-composer-starter' ),
-					'description'       => esc_html__( 'Add scripts to your theme header (ex. Google Analytics tracking code).', 'visual-composer-starter' ),
-					'section'           => 'vct_scripts',
-					'settings'          => 'vct_scripts_header',
-					'type'              => 'textarea',
-				)
-			)
-		);
-		$wp_customize->add_control(
-			new WP_Customize_Control(
-				$wp_customize,
-				'vct_scripts_footer',
-				array(
-					'label'             => esc_html__( 'Footer Scripts', 'visual-composer-starter' ),
-					'description'       => esc_html__( 'Add scripts to your theme footer.', 'visual-composer-starter' ),
-					'section'           => 'vct_scripts',
-					'settings'          => 'vct_scripts_footer',
-					'type'              => 'textarea',
-				)
-			)
-		);
 	}
 
 	/**
