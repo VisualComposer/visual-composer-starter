@@ -223,7 +223,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 
 							$vct_acf_post_options['fields'][] = array(
 								'key' => 'field_58c7e3f0b7dfb',
-                                'label' => esc_html__( 'Disable Header', 'visual-composer-starter' ),
+								'label' => esc_html__( 'Disable Header', 'visual-composer-starter' ),
 								'name' => 'disable_post_header',
 								'type' => 'checkbox',
 								'choices' => array(
@@ -237,7 +237,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 						if ( ! get_theme_mod( VCT_DISABLE_FOOTER, false ) ) {
 							$vct_acf_page_options['fields'][] = array(
 								'key' => 'field_58c800faa7723',
-                                'label' => esc_html__( 'Disable Footer', 'visual-composer-starter' ),
+								'label' => esc_html__( 'Disable Footer', 'visual-composer-starter' ),
 								'name' => 'disable_page_footer',
 								'type' => 'checkbox',
 								'choices' => array(
@@ -249,7 +249,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 
 							$vct_acf_post_options['fields'][] = array(
 								'key' => 'field_58c7e40db7dfc',
-                                'label' => esc_html__( 'Disable Footer', 'visual-composer-starter' ),
+								'label' => esc_html__( 'Disable Footer', 'visual-composer-starter' ),
 								'name' => 'disable_post_footer',
 								'type' => 'checkbox',
 								'choices' => array(
