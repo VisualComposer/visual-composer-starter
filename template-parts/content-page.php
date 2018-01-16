@@ -14,4 +14,14 @@
 
 <div class="entry-content">
 	<?php the_content( '', true ); ?>
+	<?php
+		wp_link_pages(
+			array(
+				'before' => '<div class="nav-links post-inner-navigation">',
+				'after' => '</div>',
+				'link_before' => '<span>',
+				'link_after' => '</span>',
+			)
+		);
+	?>
 </div><!--.entry-content-->
