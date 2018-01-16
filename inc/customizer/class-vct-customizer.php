@@ -131,7 +131,7 @@ class VCT_Customizer {
 	 * @return mixed
 	 */
 	public function sanitize_textarea( $text ) {
-		return esc_textarea( $text );
+		return sanitize_textarea_field( $text );
 	}
 
 	/**
