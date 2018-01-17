@@ -262,6 +262,10 @@ add_action( 'after_setup_theme', 'visualcomposerstarter_setup' );
  *  Style Switch Toggle function
  */
 function vct_style_switch_toggle_acf() {
+	$font_uri = VCT_Fonts::vct_theme_get_google_font_uri( array( 'Open Sans' ) );
+	wp_register_style( 'toggle-acf-fonts', $font_uri );
+	wp_enqueue_style( 'toggle-acf-fonts' );
+
 	wp_register_style( 'toggle-acf-style', get_template_directory_uri() . '/css/toggle-switch.css', array(), false );
 	wp_enqueue_style( 'toggle-acf-style' );
 }

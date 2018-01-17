@@ -29,6 +29,9 @@ class VCT_Toggle_Switch_Control extends WP_Customize_Control {
 	 * @return void
 	 */
 	public function enqueue() {
+		$font_uri = VCT_Fonts::vct_theme_get_google_font_uri( array( 'Open Sans' ) );
+		wp_register_style( 'toggle-acf-fonts', $font_uri );
+		wp_enqueue_style( 'toggle-acf-fonts' );
 		wp_register_script( 'vct-toggle-switch-control', get_template_directory_uri() . '/js/control-toggle-switch.js', array( 'jquery' ), false, true );
 		wp_register_script( 'vct-select-control', get_template_directory_uri() . '/js/control-select.js', array( 'jquery' ), false, true );
 		wp_enqueue_script( 'vct-toggle-switch-control' );
