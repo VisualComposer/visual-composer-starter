@@ -27,13 +27,8 @@
 						<div class="navbar-brand">
 							<?php
 							if ( has_custom_logo() ) :
-								$custom_logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
-							?>
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>"
-								   title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-									<img src="<?php echo esc_url( $custom_logo[0] ) ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-								</a>
-							<?php else : ?>
+								the_custom_logo();
+							else : ?>
 								<h1>
 									<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 										<?php bloginfo( 'name' ); ?>
