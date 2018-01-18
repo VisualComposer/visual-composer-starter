@@ -234,7 +234,7 @@ class VCT_Fonts {
 			$chosen_variants[] = 'italic';
 		}
 
-		// Font weights
+		// Font weights.
 		$font_types = array( 'body', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'buttons' );
 
 		foreach ( $font_types as $font_type ) {
