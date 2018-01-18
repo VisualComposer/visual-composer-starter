@@ -202,26 +202,6 @@ class VCT_Customizer {
 			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
 		) );
 
-		$wp_customize->add_setting( 'vct_overall_site_bg_color',  array(
-			'default'       => '#ffffff',
-			'sanitize_callback' => 'sanitize_hex_color',
-		) );
-
-		$wp_customize->add_setting( 'vct_overall_site_enable_bg_image',  array(
-			'default'           => false,
-			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
-		) );
-
-		$wp_customize->add_setting( 'vct_overall_site_bg_image',  array(
-			'default' => '',
-			'sanitize_callback' => 'sanitize_url',
-		) );
-
-		$wp_customize->add_setting( 'vct_overall_site_bg_image_style',  array(
-			'default' => 'cover',
-			'sanitize_callback' => array( $this, 'sanitize_select' ),
-		) );
-
 		$wp_customize->add_setting( 'vct_overall_site_featured_image',  array(
 			'default' => true,
 			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
@@ -407,56 +387,6 @@ class VCT_Customizer {
 			)
 		);
 
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'vct_overall_site_bg_color',
-				array(
-					'label'         => esc_html__( 'Site Background', 'visual-composer-starter' ),
-					'section'       => 'vct_overall_site',
-					'settings'      => 'vct_overall_site_bg_color',
-				)
-			)
-		);
-		$wp_customize->add_control(
-			new VCT_Toggle_Switch_Control(
-				$wp_customize,
-				'vct_overall_site_enable_bg_image',
-				array(
-					'type'          => 'toggle-switch',
-					'label'         => esc_html__( 'Background Image', 'visual-composer-starter' ),
-					'section'       => 'vct_overall_site',
-					'settings'      => 'vct_overall_site_enable_bg_image',
-			) )
-		);
-		$wp_customize->add_control(
-			new WP_Customize_Image_Control(
-				$wp_customize,
-				'vct_overall_site_bg_image',
-				array(
-						'label'      => esc_html__( 'Image Upload', 'visual-composer-starter' ),
-						'section'    => 'vct_overall_site',
-						'settings'   => 'vct_overall_site_bg_image',
-				)
-			)
-		);
-		$wp_customize->add_control(
-			new WP_Customize_Control(
-				$wp_customize,
-				'vct_overall_site_bg_image_style',
-				array(
-					'type'          => 'select',
-					'label'         => esc_html__( 'Image Style', 'visual-composer-starter' ),
-					'section'       => 'vct_overall_site',
-					'settings'      => 'vct_overall_site_bg_image_style',
-					'choices'       => array(
-						'cover'     => esc_html__( 'Cover', 'visual-composer-starter' ),
-						'contain'   => esc_html__( 'Contain', 'visual-composer-starter' ),
-						'repeat'    => esc_html__( 'Repeat', 'visual-composer-starter' ),
-					),
-				)
-			)
-		);
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,

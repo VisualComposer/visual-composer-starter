@@ -44,6 +44,15 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		add_theme_support( 'custom-logo' );
 
 		/*
+		 * Enable custom background
+		 */
+		add_theme_support( 'custom-background', array(
+				'default-color' => '#ffffff',
+			) );
+
+		visualcomposerstarter_set_old_styles();
+
+		/*
 		 * Feed Links
 		 */
 		add_theme_support( 'automatic-feed-links' );
@@ -1097,34 +1106,6 @@ function visualcomposerstarter_inline_styles() {
 	 h6 a:hover, h6 a:focus {color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h6_active_color', '#557cbf' ) ) . ';}
 	';
 
-	$overall_site_bg_color = get_theme_mod( 'vct_overall_site_bg_color', '#ffffff' );
-	if ( '#ffffff' !== $overall_site_bg_color ) {
-		$css .= '
-		/*Overall site background color*/
-		body {background-color: ' . esc_html( $overall_site_bg_color ) . ';}
-		';
-	}
-
-	if ( get_theme_mod( 'vct_overall_site_enable_bg_image', false ) ) {
-		$overall_site_bg_image = get_theme_mod( 'vct_overall_site_bg_image', '' );
-		if ( 'repeat' === get_theme_mod( 'vct_overall_site_bg_image_style', 'cover' ) ) {
-			$overall_site_bg_image_style = 'background-repeat: repeat;';
-		} else {
-			$overall_site_bg_image_style = '
-			background-size: ' . esc_html( get_theme_mod( 'vct_overall_site_bg_image_style', 'cover' ) ) . ';
-			background-repeat: no-repeat;';
-		}
-
-		if ( '' !== $overall_site_bg_image ) {
-			$css .= '
-			body {
-				background-image: url("' . esc_html( $overall_site_bg_image ) . '");
-				' . esc_html( $overall_site_bg_image_style ) . '
-			}
-			';
-		}
-	}
-
 	$header_and_menu_area_background = get_theme_mod( 'vct_header_background', '#ffffff' );
 	if ( true === get_theme_mod( 'vct_header_reserve_space_for_header', true ) || '#ffffff' !== $header_and_menu_area_background ) {
 		$css .= '
@@ -1329,3 +1310,28 @@ function visualcomposerstarter_register_required_plugins() {
 	tgmpa( $plugins, $config );
 }
 
+/**
+ * For backward compatibility for background
+ * Will be removed in v 1.7
+ */
+function visualcomposerstarter_set_old_styles() {
+	if ( get_theme_mod( 'vct_overall_site_bg_color' ) ) {
+		set_theme_mod( 'background_color', str_replace( '#', '', get_theme_mod( 'vct_overall_site_bg_color' ) ) );
+		remove_theme_mod( 'vct_overall_site_bg_color' );
+	}
+
+	if ( get_theme_mod( 'vct_overall_site_enable_bg_image' ) ) {
+
+		set_theme_mod( 'background_attachment', 'scroll' );
+		set_theme_mod( 'background_image', esc_url_raw( get_theme_mod( 'vct_overall_site_bg_image' ) ) );
+		if ( 'repeat' === get_theme_mod( 'vct_overall_site_bg_image_style' ) ) {
+			set_theme_mod( 'background_repeat', 'repeat' );
+		} else {
+			set_theme_mod( 'background_repeat', 'no-repeat' );
+			set_theme_mod( 'background_size', esc_html( get_theme_mod( 'vct_overall_site_bg_image_style' ) ) );
+		}
+		remove_theme_mod( 'vct_overall_site_bg_image' );
+		remove_theme_mod( 'vct_overall_site_bg_image_style' );
+		remove_theme_mod( 'vct_overall_site_enable_bg_image' );
+	}
+}
