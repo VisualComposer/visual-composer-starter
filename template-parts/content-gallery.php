@@ -18,9 +18,9 @@
 				?>
 				<div class="gallery-item">
 					<div class="fade-in-img">
-						<img src="<?php echo esc_url( $src );?>" data-src="<?php echo esc_url( $src );?>" alt="">
+						<img src="<?php echo esc_url( $src );?>" data-src="<?php echo esc_url( $src );?>">
 						<noscript>
-							<img src="<?php echo esc_url( $src );?>" alt="">
+							<img src="<?php echo esc_url( $src );?>">
 						</noscript>
 					</div><!--.fade-in-img-->
 				</div><!--.gallery-item-->

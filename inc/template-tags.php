@@ -56,9 +56,9 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
 							<div class="gallery-item">
 								<div class="fade-in-img">
 									<div class="fade-in-img-inner-wrap">
-										<img src="<?php echo esc_url( $src );?>" data-src="<?php echo esc_url( $src );?>" alt="">
+										<img src="<?php echo esc_url( $src );?>" data-src="<?php echo esc_url( $src );?>">
 										<noscript>
-											<img src="<?php echo esc_url( $src );?>" alt="">
+											<img src="<?php echo esc_url( $src );?>">
 										</noscript>
 									</div>
 								</div><!--.fade-in-img-->
