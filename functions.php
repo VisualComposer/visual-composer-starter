@@ -46,7 +46,9 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		/*
 		 * Enable custom background
 		 */
-		add_theme_support( 'custom-background', array( 'default-color' => '#ffffff' ) );
+		add_theme_support( 'custom-background', array(
+				'default-color' => '#ffffff',
+			) );
 
 		visualcomposerstarter_set_old_styles();
 
