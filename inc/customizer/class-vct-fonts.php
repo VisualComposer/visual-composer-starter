@@ -234,10 +234,18 @@ class VCT_Fonts {
 			$chosen_variants[] = 'italic';
 		}
 
-		// Font weight.
-		$font_weight = get_theme_mod( 'vct_fonts_and_style_body_weight', '400' );
-		if ( in_array( $font_weight, $variants ) ) {
-			$chosen_variants[] = $font_weight;
+		// Font weights.
+		$font_types = array( 'body', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'buttons' );
+
+		foreach ( $font_types as $font_type ) {
+			$font_family = get_theme_mod( 'vct_fonts_and_style_' . $font_type . '_font_family' );
+			if ( $font_family === $font ) {
+				$font_weight = get_theme_mod( 'vct_fonts_and_style_' . $font_type . '_weight', '400' );
+
+				if ( in_array( $font_weight, $variants ) ) {
+					$chosen_variants[] = $font_weight;
+				}
+			}
 		}
 
 		return array_unique( $chosen_variants );
