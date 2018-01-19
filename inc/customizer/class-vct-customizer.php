@@ -387,6 +387,11 @@ class VCT_Customizer {
 			)
 		);
 
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'background_color', array(
+			'label'   => esc_html__( 'Site Background', 'visual-composer-starter' ),
+			'section' => 'vct_overall_site',
+		) ) );
+
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,
