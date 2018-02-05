@@ -732,13 +732,6 @@ function visualcomposerstarter_get_content_container_class() {
 	}
 }
 
-
-if ( get_theme_mod( 'vct_overall_site_sidebar' ) ) {
-	set_theme_mod( VISUALCOMPOSERSTARTER_PAGE_SIDEBAR, get_theme_mod( 'vct_overall_site_sidebar' ) );
-	set_theme_mod( VISUALCOMPOSERSTARTER_POST_SIDEBAR, get_theme_mod( 'vct_overall_site_sidebar' ) );
-	remove_theme_mod( 'vct_overall_site_sidebar' );
-}
-
 /**
  * Check needed sidebar
  *
