@@ -8,9 +8,9 @@
  */
 
 /**
- * Class VCT_Update
+ * Class VisualComposerStarter_Update
  */
-class VCT_Update {
+class VisualComposerStarter_Update {
 	/**
 	 * Update path
 	 *
@@ -19,13 +19,13 @@ class VCT_Update {
 	protected $update_path = 'http://updates.wpbakery.com/visual-composer-starter/index.html';
 
 	/**
-	 * VCT_Update constructor.
+	 * VisualComposerStarter_Update constructor.
 	 */
 	public function __construct() {
 		/**
 		 * Init check update.
 		 *
-		 * @see \VCT_Update::check_for_updates
+		 * @see \VisualComposerStarter_Update::check_for_updates
 		 */
 		add_filter( 'pre_set_site_transient_update_themes', array(
 			$this,
@@ -52,7 +52,7 @@ class VCT_Update {
 		// Get the remote version.
 		$version = $this->get_remote_version();
 		// If a newer version is available, add the update.
-		if ( version_compare( VCT_VERSION, $version, '<' ) ) {
+		if ( version_compare( VISUALCOMPOSERSTARTER_VERSION, $version, '<' ) ) {
 			$theme                           = array();
 			$theme['theme']                  = VCT_SLUG;
 			$theme['new_version']            = $version;

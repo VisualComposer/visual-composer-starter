@@ -8,7 +8,7 @@
  */
 
 ?>
-<?php if ( vct_is_the_title_displayed() && get_the_title() ) : ?>
+<?php if ( visualcomposerstarter_is_the_title_displayed() && get_the_title() ) : ?>
 <h1 class="entry-title"><?php the_title(); ?></h1>
 <?php endif; ?>
 <div class="entry-content">

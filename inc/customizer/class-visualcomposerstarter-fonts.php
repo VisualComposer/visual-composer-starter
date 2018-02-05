@@ -8,9 +8,9 @@
  */
 
 /**
- * Class VCT_Fonts
+ * Class VisualComposerStarter_Fonts
  */
-class VCT_Fonts {
+class VisualComposerStarter_Fonts {
 
 	/**
 	 * Get Fonts List

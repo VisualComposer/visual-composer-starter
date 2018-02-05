@@ -12,7 +12,7 @@
  *
  * @since Visual Composer Starter 1.1.1
  */
-function vct_hook_after_head() {
+function visualcomposerstarter_hook_after_head() {
 	do_action( 'vct_hook_after_head' );
 }
 
@@ -21,7 +21,7 @@ function vct_hook_after_head() {
  *
  * @since Visual Composer Starter 1.1.1
  */
-function vct_hook_before_header() {
+function visualcomposerstarter_hook_before_header() {
 	do_action( 'vct_hook_before_header' );
 }
 /**
@@ -29,7 +29,7 @@ function vct_hook_before_header() {
  *
  * @since Visual Composer Starter 1.1.1
  */
-function vct_hook_after_header() {
+function visualcomposerstarter_hook_after_header() {
 	do_action( 'vct_hook_after_header' );
 }
 
@@ -38,7 +38,7 @@ function vct_hook_after_header() {
  *
  * @since Visual Composer Starter 1.1.1
  */
-function vct_hook_before_footer() {
+function visualcomposerstarter_hook_before_footer() {
 	do_action( 'vct_hook_before_footer' );
 }
 /**
@@ -46,6 +46,6 @@ function vct_hook_before_footer() {
  *
  * @since Visual Composer Starter 1.1.1
  */
-function vct_hook_after_footer() {
+function visualcomposerstarter_hook_after_footer() {
 	do_action( 'vct_hook_after_footer' );
 }

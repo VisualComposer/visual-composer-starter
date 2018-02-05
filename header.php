@@ -11,17 +11,17 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-	<?php vct_hook_after_head(); ?>
+	<?php visualcomposerstarter_hook_after_head(); ?>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php wp_head() ?>
 </head>
 <body <?php body_class(); ?>>
-<?php if ( vct_is_the_header_displayed() ) : ?>
-	<?php vct_hook_before_header(); ?>
+<?php if ( visualcomposerstarter_is_the_header_displayed() ) : ?>
+	<?php visualcomposerstarter_hook_before_header(); ?>
 	<header id="header">
 		<nav class="navbar">
-			<div class="<?php echo esc_attr( vct_get_header_container_class() ); ?>">
+			<div class="<?php echo esc_attr( visualcomposerstarter_get_header_container_class() ); ?>">
 				<div class="navbar-wrapper clearfix">
 					<div class="navbar-header">
 						<div class="navbar-brand">
@@ -73,6 +73,6 @@
 			</div>
 			<?php endif; ?>
 	</header>
-	<?php vct_hook_after_header(); ?>
+	<?php visualcomposerstarter_hook_after_header(); ?>
 <?php endif;
 

@@ -19,7 +19,7 @@ if ( ! function_exists( 'visualcomposerstarter_post_thumbnail' ) ) :
 			<div class="featured-content">
 				<div class="fade-in-img">
 					<?php
-					if ( 'none' === get_theme_mod( vct_check_needed_sidebar(), 'none' ) ) {
+					if ( 'none' === get_theme_mod( visualcomposerstarter_check_needed_sidebar(), 'none' ) ) {
 						the_post_thumbnail( 'vct-featured-loop-image-full', array(
 								'data-src' => get_the_post_thumbnail_url( null, 'vct-featured-loop-image-full' ),
 							) );
@@ -45,7 +45,7 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
 	function visualcomposerstarter_header_featured_content() {
 		if ( 'gallery' === get_post_format() ) {
 			?>
-			<div class="<?php echo esc_attr( vct_get_header_image_container_class() ); ?>">
+			<div class="<?php echo esc_attr( visualcomposerstarter_get_header_image_container_class() ); ?>">
 				<div class="row">
 					<div class="gallery-slider">
 						<?php
@@ -75,7 +75,7 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
 			return;
 		} else {
 			?>
-			<div class="<?php echo esc_attr( vct_get_header_image_container_class() ); ?>">
+			<div class="<?php echo esc_attr( visualcomposerstarter_get_header_image_container_class() ); ?>">
 				<div class="row">
 					<div class="fade-in-img">
 						<div class="fade-in-img-inner-wrap">
