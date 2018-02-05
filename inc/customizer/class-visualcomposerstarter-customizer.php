@@ -541,7 +541,7 @@ class VisualComposerStarter_Customizer {
 
 		$wp_customize->add_setting( 'vct_header_padding',  array(
 			'default'       => '25px',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 
 		$wp_customize->add_setting( 'vct_header_position',  array(
@@ -1122,16 +1122,16 @@ class VisualComposerStarter_Customizer {
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_font_size', array(
 			'default'        => '42px',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_letter_spacing', array(
 			'default'        => '0.01rem',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_line_height', array(
 			'default'        => '1.1',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_weight', array(
@@ -1146,12 +1146,12 @@ class VisualComposerStarter_Customizer {
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_margin_top', array(
 			'default'        => '0',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_margin_bottom', array(
 			'default'        => '2.125rem',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_capitalization', array(
@@ -1290,16 +1290,16 @@ class VisualComposerStarter_Customizer {
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_font_size', array(
 			'default'        => '36px',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_letter_spacing', array(
 			'default'        => '0.01rem',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_line_height', array(
 			'default'        => '1.1',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_weight', array(
 			'default'        => '400',
@@ -1311,11 +1311,11 @@ class VisualComposerStarter_Customizer {
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_margin_top', array(
 			'default'        => '0',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_margin_bottom', array(
 			'default'        => '0.625rem',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_capitalization', array(
 			'default'        => 'none',
@@ -1458,15 +1458,15 @@ class VisualComposerStarter_Customizer {
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_font_size', array(
 			'default'        => '30px',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_letter_spacing', array(
 			'default'        => '0.01rem',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_line_height', array(
 			'default'        => '1.1',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_weight', array(
 			'default'        => '400',
@@ -1478,11 +1478,11 @@ class VisualComposerStarter_Customizer {
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_margin_top', array(
 			'default'        => '0',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_margin_bottom', array(
 			'default'        => '0.625rem',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_capitalization', array(
 			'default'        => 'none',
@@ -1622,16 +1622,16 @@ class VisualComposerStarter_Customizer {
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_font_size', array(
 			'default'        => '22px',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_letter_spacing', array(
 			'default'        => '0.01rem',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_line_height', array(
 			'default'        => '1.1',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_weight', array(
 			'default'        => '400',
@@ -1643,11 +1643,11 @@ class VisualComposerStarter_Customizer {
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_margin_top', array(
 			'default'        => '0',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_margin_bottom', array(
 			'default'        => '0.625rem',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_capitalization', array(
 			'default'        => 'none',
@@ -1791,15 +1791,15 @@ class VisualComposerStarter_Customizer {
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_font_size', array(
 			'default'        => '18px',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_letter_spacing', array(
 			'default'        => '0.01rem',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_line_height', array(
 			'default'        => '1.1',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_weight', array(
 			'default'        => '400',
@@ -1811,11 +1811,11 @@ class VisualComposerStarter_Customizer {
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_margin_top', array(
 			'default'        => '0',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_margin_bottom', array(
 			'default'        => '0.625rem',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_capitalization', array(
 			'default'        => 'none',
@@ -1959,15 +1959,15 @@ class VisualComposerStarter_Customizer {
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_font_size', array(
 			'default'        => '16px',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_letter_spacing', array(
 			'default'        => '0.01rem',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_line_height', array(
 			'default'        => '1.1',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_weight', array(
 			'default'        => '400',
@@ -1979,11 +1979,11 @@ class VisualComposerStarter_Customizer {
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_margin_top', array(
 			'default'        => '0',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_margin_bottom', array(
 			'default'        => '0.625rem',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_capitalization', array(
 			'default'        => 'none',
@@ -2137,16 +2137,16 @@ class VisualComposerStarter_Customizer {
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_font_size', array(
 			'default'        => '16px',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_letter_spacing', array(
 			'default'        => '0.01rem',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_line_height', array(
 			'default'        => '1.7',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_weight', array(
 			'default'        => '400',
@@ -2158,11 +2158,11 @@ class VisualComposerStarter_Customizer {
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_margin_top', array(
 			'default'        => '0',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_margin_bottom', array(
 			'default'        => '1.5rem',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_capitalization', array(
 			'default'        => 'none',
@@ -2329,16 +2329,16 @@ class VisualComposerStarter_Customizer {
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_font_size', array(
 			'default'        => '16px',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_letter_spacing', array(
 			'default'        => '0.01rem',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_line_height', array(
 			'default'        => '1',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_weight', array(
 			'default'        => '400',
@@ -2350,11 +2350,11 @@ class VisualComposerStarter_Customizer {
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_margin_top', array(
 			'default'        => '0',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_margin_bottom', array(
 			'default'        => '0',
-			'sanitize_callback' => 'esc_attr',
+			'sanitize_callback' => 'wp_strip_all_tags',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_capitalization', array(
 			'default'        => 'none',
