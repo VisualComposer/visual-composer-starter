@@ -271,12 +271,15 @@ add_action( 'after_setup_theme', 'visualcomposerstarter_setup' );
  *  Style Switch Toggle function
  */
 function visualcomposerstarter_style_switch_toggle_acf() {
-	$font_uri = VisualComposerStarter_Fonts::vct_theme_get_google_font_uri( array( 'Open Sans' ) );
-	wp_register_style( 'visualcomposerstarter-toggle-acf-fonts', $font_uri );
-	wp_enqueue_style( 'visualcomposerstarter-toggle-acf-fonts' );
+	$screen = get_current_screen();
+	if ( isset( $screen->base ) && 'post' === $screen->base ) {
+		$font_uri = VisualComposerStarter_Fonts::vct_theme_get_google_font_uri( array( 'Open Sans' ) );
+		wp_register_style( 'visualcomposerstarter-toggle-acf-fonts', $font_uri );
+		wp_enqueue_style( 'visualcomposerstarter-toggle-acf-fonts' );
 
-	wp_register_style( 'visualcomposerstarter-toggle-acf-style', get_template_directory_uri() . '/css/toggle-switch.css', array(), false );
-	wp_enqueue_style( 'visualcomposerstarter-toggle-acf-style' );
+		wp_register_style( 'visualcomposerstarter-toggle-acf-style', get_template_directory_uri() . '/css/toggle-switch.css', array(), false );
+		wp_enqueue_style( 'visualcomposerstarter-toggle-acf-style' );
+	}
 }
 add_action( 'admin_enqueue_scripts', 'visualcomposerstarter_style_switch_toggle_acf' );
 
@@ -284,8 +287,11 @@ add_action( 'admin_enqueue_scripts', 'visualcomposerstarter_style_switch_toggle_
  *  Script Switch Toggle function
  */
 function visualcomposerstarter_script_switch_toggle_acf() {
-	wp_register_script( 'visualcomposerstarter-toggle-acf-script', get_template_directory_uri() . '/js/toggle-switch-acf.js',  array( 'jquery' ), false, true );
-	wp_enqueue_script( 'visualcomposerstarter-toggle-acf-script' );
+	$screen = get_current_screen();
+	if ( isset( $screen->base ) && 'post' === $screen->base ) {
+		wp_register_script( 'visualcomposerstarter-toggle-acf-script', get_template_directory_uri() . '/js/toggle-switch-acf.js', array( 'jquery' ), false, true );
+		wp_enqueue_script( 'visualcomposerstarter-toggle-acf-script' );
+	}
 }
 add_action( 'admin_enqueue_scripts', 'visualcomposerstarter_script_switch_toggle_acf' );
 
