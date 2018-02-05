@@ -8,9 +8,9 @@
  */
 
 /**
- * Class VCT_Customizer
+ * Class VisualComposerStarter_Customizer
  */
-class VCT_Customizer {
+class VisualComposerStarter_Customizer {
 	/**
 	 * Visual Composer Starter Customizer constructor.
 	 *
@@ -192,12 +192,12 @@ class VCT_Customizer {
 	 * @return void
 	 */
 	private function overall_site_section( $wp_customize ) {
-		$wp_customize->add_setting( VCT_DISABLE_HEADER,  array(
+		$wp_customize->add_setting( VISUALCOMPOSERSTARTER_DISABLE_HEADER,  array(
 			'default'           => false,
 			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
 		) );
 
-		$wp_customize->add_setting( VCT_DISABLE_FOOTER,  array(
+		$wp_customize->add_setting( VISUALCOMPOSERSTARTER_DISABLE_FOOTER,  array(
 			'default'           => false,
 			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
 		) );
@@ -222,17 +222,17 @@ class VCT_Customizer {
 			'sanitize_callback'         => array( $this, 'sanitize_custom_height' ),
 		) );
 
-		$wp_customize->add_setting( VCT_PAGE_SIDEBAR,  array(
+		$wp_customize->add_setting( VISUALCOMPOSERSTARTER_PAGE_SIDEBAR,  array(
 			'default'       => 'none',
 			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
-		$wp_customize->add_setting( VCT_POST_SIDEBAR,  array(
+		$wp_customize->add_setting( VISUALCOMPOSERSTARTER_POST_SIDEBAR,  array(
 			'default'       => 'none',
 			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
-		$wp_customize->add_setting( VCT_ARCHIVE_AND_CATEGORY_SIDEBAR,  array(
+		$wp_customize->add_setting( VISUALCOMPOSERSTARTER_ARCHIVE_AND_CATEGORY_SIDEBAR,  array(
 			'default'       => 'none',
 			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
@@ -250,24 +250,24 @@ class VCT_Customizer {
 		$wp_customize->add_control(
 			new VCT_Toggle_Switch_Control(
 				$wp_customize,
-				VCT_DISABLE_HEADER,
+				VISUALCOMPOSERSTARTER_DISABLE_HEADER,
 				array(
 					'type'          => 'toggle-switch',
 					'label'         => esc_html__( 'Disable Theme Header', 'visual-composer-starter' ),
 					'section'       => 'vct_overall_site',
-					'settings'      => VCT_DISABLE_HEADER,
+					'settings'      => VISUALCOMPOSERSTARTER_DISABLE_HEADER,
 			) )
 		);
 
 		$wp_customize->add_control(
 			new VCT_Toggle_Switch_Control(
 				$wp_customize,
-				VCT_DISABLE_FOOTER,
+				VISUALCOMPOSERSTARTER_DISABLE_FOOTER,
 				array(
 					'type'          => 'toggle-switch',
 					'label'         => esc_html__( 'Disable Theme Footer', 'visual-composer-starter' ),
 					'section'       => 'vct_overall_site',
-					'settings'      => VCT_DISABLE_FOOTER,
+					'settings'      => VISUALCOMPOSERSTARTER_DISABLE_FOOTER,
 			) )
 		);
 
@@ -336,12 +336,12 @@ class VCT_Customizer {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
-				VCT_PAGE_SIDEBAR,
+				VISUALCOMPOSERSTARTER_PAGE_SIDEBAR,
 				array(
 					'type'          => 'select',
 					'label'         => esc_html__( 'Page Sidebar Position', 'visual-composer-starter' ),
 					'section'       => 'vct_overall_site',
-					'settings'      => VCT_PAGE_SIDEBAR,
+					'settings'      => VISUALCOMPOSERSTARTER_PAGE_SIDEBAR,
 					'choices'       => array(
 						'none'  => esc_html__( 'None (default)', 'visual-composer-starter' ),
 						'left'  => esc_html__( 'Left', 'visual-composer-starter' ),
@@ -354,12 +354,12 @@ class VCT_Customizer {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
-				VCT_POST_SIDEBAR,
+				VISUALCOMPOSERSTARTER_POST_SIDEBAR,
 				array(
 					'type'          => 'select',
 					'label'         => esc_html__( 'Post Sidebar Position', 'visual-composer-starter' ),
 					'section'       => 'vct_overall_site',
-					'settings'      => VCT_POST_SIDEBAR,
+					'settings'      => VISUALCOMPOSERSTARTER_POST_SIDEBAR,
 					'choices'       => array(
 						'none'  => esc_html__( 'None (default)', 'visual-composer-starter' ),
 						'left'  => esc_html__( 'Left', 'visual-composer-starter' ),
@@ -372,12 +372,12 @@ class VCT_Customizer {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
-				VCT_ARCHIVE_AND_CATEGORY_SIDEBAR,
+				VISUALCOMPOSERSTARTER_ARCHIVE_AND_CATEGORY_SIDEBAR,
 				array(
 					'type'          => 'select',
 					'label'         => esc_html__( 'Archive/Category Sidebar Position', 'visual-composer-starter' ),
 					'section'       => 'vct_overall_site',
-					'settings'      => VCT_ARCHIVE_AND_CATEGORY_SIDEBAR,
+					'settings'      => VISUALCOMPOSERSTARTER_ARCHIVE_AND_CATEGORY_SIDEBAR,
 					'choices'       => array(
 						'none'  => esc_html__( 'None (default)', 'visual-composer-starter' ),
 						'left'  => esc_html__( 'Left', 'visual-composer-starter' ),
@@ -1186,14 +1186,14 @@ class VCT_Customizer {
 			'section' => 'vct_fonts_and_style_h1',
 			'settings'   => 'vct_fonts_and_style_h1_font_family',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_choices(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
 		) );
 		$wp_customize->add_control( 'vct_fonts_and_style_h1_subsets', array(
 			'label'   => esc_html__( 'Google Fonts Subsets', 'visual-composer-starter' ),
 			'section' => 'vct_fonts_and_style_h1',
 			'settings'   => 'vct_fonts_and_style_h1_subsets',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_subsets(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_subsets(),
 		) );
 		$wp_customize->add_control( 'vct_fonts_and_style_h1_weight', array(
 			'label'   => esc_html__( 'Font Weight', 'visual-composer-starter' ),
@@ -1351,7 +1351,7 @@ class VCT_Customizer {
 			'section' => 'vct_fonts_and_style_h2',
 			'settings'   => 'vct_fonts_and_style_h2_font_family',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_choices(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h2_subsets', array(
@@ -1359,7 +1359,7 @@ class VCT_Customizer {
 			'section' => 'vct_fonts_and_style_h2',
 			'settings'   => 'vct_fonts_and_style_h2_subsets',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_subsets(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_subsets(),
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h2_weight', array(
@@ -1516,14 +1516,14 @@ class VCT_Customizer {
 			'section' => 'vct_fonts_and_style_h3',
 			'settings'   => 'vct_fonts_and_style_h3_font_family',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_choices(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
 		) );
 		$wp_customize->add_control( 'vct_fonts_and_style_h3_subsets', array(
 			'label'   => esc_html__( 'Google Fonts Subsets', 'visual-composer-starter' ),
 			'section' => 'vct_fonts_and_style_h3',
 			'settings'   => 'vct_fonts_and_style_h3_subsets',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_subsets(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_subsets(),
 		) );
 		$wp_customize->add_control( 'vct_fonts_and_style_h3_weight', array(
 			'label'   => esc_html__( 'Font Weight', 'visual-composer-starter' ),
@@ -1683,7 +1683,7 @@ class VCT_Customizer {
 			'section' => 'vct_fonts_and_style_h4',
 			'settings'   => 'vct_fonts_and_style_h4_font_family',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_choices(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h4_subsets', array(
@@ -1691,7 +1691,7 @@ class VCT_Customizer {
 			'section' => 'vct_fonts_and_style_h4',
 			'settings'   => 'vct_fonts_and_style_h4_subsets',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_subsets(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_subsets(),
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h4_weight', array(
@@ -1851,7 +1851,7 @@ class VCT_Customizer {
 			'section' => 'vct_fonts_and_style_h5',
 			'settings'   => 'vct_fonts_and_style_h5_font_family',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_choices(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h5_subsets', array(
@@ -1859,7 +1859,7 @@ class VCT_Customizer {
 			'section' => 'vct_fonts_and_style_h5',
 			'settings'   => 'vct_fonts_and_style_h5_subsets',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_subsets(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_subsets(),
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h5_weight', array(
@@ -2019,7 +2019,7 @@ class VCT_Customizer {
 			'section' => 'vct_fonts_and_style_h6',
 			'settings'   => 'vct_fonts_and_style_h6_font_family',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_choices(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h6_subsets', array(
@@ -2027,7 +2027,7 @@ class VCT_Customizer {
 			'section' => 'vct_fonts_and_style_h6',
 			'settings'   => 'vct_fonts_and_style_h6_subsets',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_subsets(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_subsets(),
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h6_weight', array(
@@ -2212,7 +2212,7 @@ class VCT_Customizer {
 			'section' => 'vct_fonts_and_style_body',
 			'settings'   => 'vct_fonts_and_style_body_font_family',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_choices(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_body_subsets', array(
@@ -2220,7 +2220,7 @@ class VCT_Customizer {
 			'section' => 'vct_fonts_and_style_body',
 			'settings'   => 'vct_fonts_and_style_body_subsets',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_subsets(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_subsets(),
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_body_weight', array(
@@ -2414,7 +2414,7 @@ class VCT_Customizer {
 			'section' => 'vct_fonts_and_style_buttons',
 			'settings'   => 'vct_fonts_and_style_buttons_font_family',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_choices(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_buttons_subsets', array(
@@ -2422,7 +2422,7 @@ class VCT_Customizer {
 			'section' => 'vct_fonts_and_style_buttons',
 			'settings'   => 'vct_fonts_and_style_buttons_subsets',
 			'type'    => 'select',
-			'choices'     => VCT_Fonts::vct_theme_font_subsets(),
+			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_subsets(),
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_buttons_weight', array(

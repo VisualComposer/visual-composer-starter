@@ -8,7 +8,7 @@
  */
 
 ?>
-<div class="<?php echo esc_attr( vct_get_sidebar_class() ); ?>">
+<div class="<?php echo esc_attr( visualcomposerstarter_get_sidebar_class() ); ?>">
 	<div class="sidebar-widget-area">
 <?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
 		<?php dynamic_sidebar( 'sidebar' ); ?>

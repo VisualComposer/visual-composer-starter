@@ -13,7 +13,7 @@ if ( post_password_required() ) {
 ?>
 
 <div id="comments" class="comments-area">
-	<div class="<?php echo esc_attr( vct_get_content_container_class() ); ?>">
+	<div class="<?php echo esc_attr( visualcomposerstarter_get_content_container_class() ); ?>">
 		<div class="row">
 			<div class="col-md-12">
 	<?php if ( have_comments() ) : ?>

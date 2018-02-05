@@ -8,10 +8,10 @@
  */
 
 get_header(); ?>
-<div class="<?php echo esc_attr( vct_get_content_container_class() ); ?>">
+<div class="<?php echo esc_attr( visualcomposerstarter_get_content_container_class() ); ?>">
 		<div class="content-wrapper">
 			<div class="row">
-				<div class="<?php echo esc_attr( vct_get_maincontent_block_class() ) ?>">
+				<div class="<?php echo esc_attr( visualcomposerstarter_get_maincontent_block_class() ) ?>">
 					<div class="main-content">
 						<div class="archive">
 							<?php if ( have_posts() ) :
@@ -52,13 +52,13 @@ get_header(); ?>
 
 						</div><!--.archive-->
 					</div><!--.main-content-->
-				</div><!--.<?php echo esc_html( vct_get_maincontent_block_class() ) ?>-->
+				</div><!--.<?php echo esc_html( visualcomposerstarter_get_maincontent_block_class() ) ?>-->
 
-				<?php if ( vct_get_sidebar_class() ) :
+				<?php if ( visualcomposerstarter_get_sidebar_class() ) :
 					get_sidebar();
 				endif; ?>
 
 			</div><!--.row-->
 		</div><!--.content-wrapper-->
-	</div><!--.<?php echo esc_html( vct_get_content_container_class() ); ?>-->
+	</div><!--.<?php echo esc_html( visualcomposerstarter_get_content_container_class() ); ?>-->
 <?php get_footer();
