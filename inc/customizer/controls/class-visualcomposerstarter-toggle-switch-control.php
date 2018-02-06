@@ -8,9 +8,9 @@
  */
 
 /**
- * Class VCT_Toggle_Switch_Control
+ * Class VisualComposerStarter_Toggle_Switch_Control
  */
-class VCT_Toggle_Switch_Control extends WP_Customize_Control {
+class VisualComposerStarter_Toggle_Switch_Control extends WP_Customize_Control {
 
 	/**
 	 * The type of customize control being rendered.

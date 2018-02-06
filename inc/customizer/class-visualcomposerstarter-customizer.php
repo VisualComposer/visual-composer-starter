@@ -27,8 +27,8 @@ class VisualComposerStarter_Customizer {
 	 * Custom css.
 	 */
 	public function custom_css() {
-		wp_register_style( 'vct-custom-css', get_template_directory_uri() . '/css/customizer-custom.css' );
-		wp_enqueue_style( 'vct-custom-css' );
+		wp_register_style( 'visualcomposerstarter-custom-css', get_template_directory_uri() . '/css/customizer-custom.css' );
+		wp_enqueue_style( 'visualcomposerstarter-custom-css' );
 	}
 
 	/**
@@ -43,8 +43,8 @@ class VisualComposerStarter_Customizer {
 	 * @return void
 	 */
 	public function include_controls( $wp_customize ) {
-		require_once get_template_directory() . '/inc/customizer/controls/class-vct-toggle-switch-control.php';
-		$wp_customize->register_control_type( 'VCT_Toggle_Switch_Control' );
+		require_once get_template_directory() . '/inc/customizer/controls/class-visualcomposerstarter-toggle-switch-control.php';
+		$wp_customize->register_control_type( 'VisualComposerStarter_Toggle_Switch_Control' );
 	}
 
 	/**
@@ -163,26 +163,6 @@ class VisualComposerStarter_Customizer {
 	}
 
 	/**
-	 * Sanitize url
-	 *
-	 * @param string $input Input data.
-	 *
-	 * @return string
-	 */
-	public function sanitize_url( $input ) {
-		$url = wp_parse_url( $input );
-		if ( ! empty( $url['scheme'] ) ) {
-			if ( 'http' !== $url['scheme'] && 'https' !== $url['scheme'] ) {
-				return '//' . $input;
-			} else {
-				return $input;
-			}
-		} else {
-			return $input;
-		}
-	}
-
-	/**
 	 * Section: Overall Site
 	 *
 	 * @param WP_Customize_Manager $wp_customize Customize manager class.
@@ -248,7 +228,7 @@ class VisualComposerStarter_Customizer {
 		) );
 
 		$wp_customize->add_control(
-			new VCT_Toggle_Switch_Control(
+			new VisualComposerStarter_Toggle_Switch_Control(
 				$wp_customize,
 				VISUALCOMPOSERSTARTER_DISABLE_HEADER,
 				array(
@@ -260,7 +240,7 @@ class VisualComposerStarter_Customizer {
 		);
 
 		$wp_customize->add_control(
-			new VCT_Toggle_Switch_Control(
+			new VisualComposerStarter_Toggle_Switch_Control(
 				$wp_customize,
 				VISUALCOMPOSERSTARTER_DISABLE_FOOTER,
 				array(
@@ -272,7 +252,7 @@ class VisualComposerStarter_Customizer {
 		);
 
 		$wp_customize->add_control(
-			new VCT_Toggle_Switch_Control(
+			new VisualComposerStarter_Toggle_Switch_Control(
 				$wp_customize,
 				'vct_overall_site_featured_image',
 				array(
@@ -671,7 +651,7 @@ class VisualComposerStarter_Customizer {
 		);
 
 		$wp_customize->add_control(
-			new VCT_Toggle_Switch_Control(
+			new VisualComposerStarter_Toggle_Switch_Control(
 				$wp_customize,
 				'vct_header_reserve_space_for_header',
 				array(
@@ -685,7 +665,7 @@ class VisualComposerStarter_Customizer {
 		);
 
 		$wp_customize->add_control(
-			new VCT_Toggle_Switch_Control(
+			new VisualComposerStarter_Toggle_Switch_Control(
 				$wp_customize,
 				'vct_header_sticky_header',
 				array(
@@ -807,7 +787,7 @@ class VisualComposerStarter_Customizer {
 		);
 
 		$wp_customize->add_control(
-			new VCT_Toggle_Switch_Control(
+			new VisualComposerStarter_Toggle_Switch_Control(
 				$wp_customize,
 				'vct_footer_area_widget_area',
 				array(
@@ -841,7 +821,7 @@ class VisualComposerStarter_Customizer {
 		);
 
 		$wp_customize->add_control(
-			new VCT_Toggle_Switch_Control(
+			new VisualComposerStarter_Toggle_Switch_Control(
 				$wp_customize,
 				'vct_footer_area_social_icons',
 				array(
@@ -856,47 +836,47 @@ class VisualComposerStarter_Customizer {
 
 		$wp_customize->add_setting( 'vct_footer_area_social_link_facebook',  array(
 			'default'       => '',
-			'sanitize_callback' => 'sanitize_url',
+			'sanitize_callback' => 'esc_url_raw',
 		) );
 
 		$wp_customize->add_setting( 'vct_footer_area_social_link_twitter',  array(
 			'default'       => '',
-			'sanitize_callback' => 'sanitize_url',
+			'sanitize_callback' => 'esc_url_raw',
 		) );
 
 		$wp_customize->add_setting( 'vct_footer_area_social_link_linkedin',  array(
 			'default'       => '',
-			'sanitize_callback' => 'sanitize_url',
+			'sanitize_callback' => 'esc_url_raw',
 		) );
 
 		$wp_customize->add_setting( 'vct_footer_area_social_link_github',  array(
 			'default'       => '',
-			'sanitize_callback' => 'sanitize_url',
+			'sanitize_callback' => 'esc_url_raw',
 		) );
 
 		$wp_customize->add_setting( 'vct_footer_area_social_link_instagram',  array(
 			'default'       => '',
-			'sanitize_callback' => 'sanitize_url',
+			'sanitize_callback' => 'esc_url_raw',
 		) );
 
 		$wp_customize->add_setting( 'vct_footer_area_social_link_pinterest',  array(
 			'default'       => '',
-			'sanitize_callback' => 'sanitize_url',
+			'sanitize_callback' => 'esc_url_raw',
 		) );
 
 		$wp_customize->add_setting( 'vct_footer_area_social_link_flickr',  array(
 			'default'       => '',
-			'sanitize_callback' => 'sanitize_url',
+			'sanitize_callback' => 'esc_url_raw',
 		) );
 
 		$wp_customize->add_setting( 'vct_footer_area_social_link_youtube',  array(
 			'default'       => '',
-			'sanitize_callback' => 'sanitize_url',
+			'sanitize_callback' => 'esc_url_raw',
 		) );
 
 		$wp_customize->add_setting( 'vct_footer_area_social_link_vimeo',  array(
 			'default'       => '',
-			'sanitize_callback' => 'sanitize_url',
+			'sanitize_callback' => 'esc_url_raw',
 		) );
 
 		$wp_customize->add_setting( 'vct_footer_area_social_link_email', array(
