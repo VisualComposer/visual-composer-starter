@@ -837,8 +837,8 @@ function visualcomposerstarter_get_sidebar_class() {
  * Inline styles.
  */
 function visualcomposerstarter_inline_styles() {
-	wp_register_style( 'vct-custom-style', get_template_directory_uri() . '/css/customizer-custom.css', array(), false );
-	wp_enqueue_style( 'vct-custom-style' );
+	wp_register_style( 'visualcomposerstarter-custom-style', get_template_directory_uri() . '/css/customizer-custom.css', array(), false );
+	wp_enqueue_style( 'visualcomposerstarter-custom-style' );
 	$css = '';
 
 	// Fonts and style.
@@ -1267,7 +1267,7 @@ function visualcomposerstarter_inline_styles() {
 		';
 	}
 
-	wp_add_inline_style( 'vct-custom-style', $css );
+	wp_add_inline_style( 'visualcomposerstarter-custom-style', $css );
 }
 add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_inline_styles' );
 
