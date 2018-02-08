@@ -7,8 +7,6 @@
  * @since Visual Composer Starter 1.0
  */
 
-/** Slug used in update mechanism */
-define( 'VCT_SLUG', basename( get_template_directory() ) );
 define( 'VISUALCOMPOSERSTARTER_VERSION', '1.3' );
 
 if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
@@ -256,11 +254,9 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		 */
 		require get_template_directory() . '/inc/customizer/class-visualcomposerstarter-fonts.php';
 		require get_template_directory() . '/inc/customizer/class-visualcomposerstarter-customizer.php';
-		require get_template_directory() . '/inc/class-visualcomposerstarter-update.php';
 		require get_template_directory() . '/inc/hooks.php';
 		new VisualComposerStarter_Fonts();
 		new VisualComposerStarter_Customizer();
-		new VisualComposerStarter_Update();
 
 	}
 endif; /* visualcomposerstarter_setup */
