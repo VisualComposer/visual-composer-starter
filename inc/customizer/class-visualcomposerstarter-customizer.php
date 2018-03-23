@@ -73,8 +73,13 @@ class VisualComposerStarter_Customizer {
 			'priority'          => 103,
 			'capability'        => 'edit_theme_options',
 		) );
-		$wp_customize->add_panel( 'vct_fonts_and_style', array(
+		$wp_customize->add_section( 'vct_content_area', array(
+			'title'             => esc_html__( 'Content', 'visual-composer-starter' ),
 			'priority'          => 104,
+			'capability'        => 'edit_theme_options',
+		) );
+		$wp_customize->add_panel( 'vct_fonts_and_style', array(
+			'priority'          => 105,
 			'capability'        => 'edit_theme_options',
 			'theme_supports'    => '',
 			'title'             => esc_html__( 'Fonts & Style', 'visual-composer-starter' ),
