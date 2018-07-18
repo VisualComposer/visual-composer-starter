@@ -451,7 +451,7 @@ function visualcomposerstarter_body_classes( $classes ) {
 	}
 
 	/* Width of content-area */
-	if ( get_theme_mod( 'vct_content_area_size', 'boxed' ) === 'full_width' ) {
+	if ( get_theme_mod( 'vct_overall_content_area_size', 'boxed' ) === 'full_width' ) {
 		$classes[] = 'content-full-width';
 	}
 
@@ -731,7 +731,7 @@ function visualcomposerstarter_get_header_image_container_class() {
  * @return string
  */
 function visualcomposerstarter_get_content_container_class() {
-	if ( 'full_width' === get_theme_mod( 'vct_content_area_size', 'boxed' ) ) {
+	if ( 'full_width' === get_theme_mod( 'vct_overall_content_area_size', 'boxed' ) ) {
 		return 'container-fluid';
 	} else {
 		return 'container';
