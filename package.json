@@ -1,0 +1,36 @@
+{
+  "name": "visual-composer-starter",
+  "version": "2.0.4",
+  "description": "Visual Composer Starter Theme",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpbakery/visual-composer-starter.git"
+  },
+  "keywords": [
+    "WordPress",
+    "blog"
+  ],
+  "author": "Visual Composer",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/wpbakery/visual-composer-starter/issues"
+  },
+  "homepage": "https://github.com/wpbakery/visual-composer-starter#readme",
+  "devDependencies": {
+    "autoprefixer": "8.6.0",
+    "grunt": "1.0.3",
+    "grunt-banner": "0.6.0",
+    "grunt-composer": "0.4.5",
+    "grunt-contrib-cssmin": "2.2.1",
+    "grunt-contrib-less": "2.0.0",
+    "grunt-contrib-watch": "1.1.0",
+    "grunt-postcss": "0.9.0",
+    "jscs": "3.0.7",
+    "jshint": "2.9.6",
+    "load-grunt-tasks": "4.0.0"
+  }
+}
