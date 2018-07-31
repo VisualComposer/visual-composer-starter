@@ -927,12 +927,6 @@ function visualcomposerstarter_inline_styles() {
 	  .entry-content address a { border-bottom-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_body_active_color', '#557cbf' ) ) . '; }    
 	  .entry-content blockquote, .comment-content { border-left-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_body_active_color', '#557cbf' ) ) . '; }
 	  
-	  .comments-area .form-submit input[type=submit]:hover, .comments-area .form-submit input[type=submit]:focus,
-	  .blue-button:hover, .blue-button:focus {
-		background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_hover_background', '#3c63a6' ) ) . ';
-		color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_button_text_color', '#f4f4f4' ) ) . ';
-	  }
-	  
 	  html, #main-menu ul li ul li { font-size: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_body_font_size', '16px' ) ) . ' }
 	  body, #footer, .footer-widget-area .widget-title { line-height: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_body_line_height', '1.7' ) ) . '; }
 	  body {
@@ -981,6 +975,16 @@ function visualcomposerstarter_inline_styles() {
 	  .blue-button:hover, .blue-button:focus, 
 	  .entry-content p a.blue-button:hover { 
 			background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_hover_color', '#3c63a6' ) ) . '; 
+			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_hover_color', '#f4f4f4' ) ) . '; 
+	  }
+	  
+	  .nav-links.archive-navigation .page-numbers {
+	        background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_color', '#557cbf' ) ) . '; 
+			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_color', '#f4f4f4' ) ) . ';
+	  }
+	  
+	  .nav-links.archive-navigation a.page-numbers:hover, .nav-links.archive-navigation a.page-numbers:focus, .nav-links.archive-navigation .page-numbers.current {
+	        background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_hover_color', '#3c63a6' ) ) . '; 
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_hover_color', '#f4f4f4' ) ) . '; 
 	  }
 	';
