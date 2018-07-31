@@ -147,4 +147,39 @@
         arrows: false,
         dots: true
     });
+
+    // Set scroller to submenu when submenu height is bigger than screen height
+    if ($navBar && $navBar[0] && window.getComputedStyle($navBar[0]).position === 'fixed') {
+      var menuItems = $( '.menu-item.menu-item-has-children' );
+      menuItems.each(function (index, item) {
+
+        item.addEventListener('mouseenter', function() {
+          if (window.innerWidth < 768) {
+            return;
+          }
+
+          var subMenu = item.querySelector( '.sub-menu' )
+          if (subMenu) {
+            var rect = subMenu.getBoundingClientRect();
+
+            if (rect.top + rect.height > window.innerHeight) {
+              subMenu.style.maxHeight = window.innerHeight - rect.top + 'px';
+              subMenu.style.overflow = 'auto';
+            }
+          }
+        }, false);
+
+        item.addEventListener('mouseleave', function() {
+          if (window.innerWidth < 768) {
+            return;
+          }
+
+          var subMenu = item.querySelector( '.sub-menu' );
+          if (subMenu) {
+            subMenu.style.maxHeight = '';
+            subMenu.style.overflow = '';
+          }
+        })
+      })
+    }
 })( window.jQuery );
