@@ -19,9 +19,10 @@ module.exports = function( grunt ) {
 			destPath: 'css/'
 		}
 	};
-	
+
 	// Project configuration.
 	grunt.initConfig( {
+
 		// Task configuration.
 		pkg: grunt.file.readJSON( 'package.json' ),
 		go: globalOptions,
@@ -158,32 +159,12 @@ module.exports = function( grunt ) {
 				files: [
 					{
 						expand: true,
-						cwd: globalOptions.libPath,
 						src: [
 							'**/*.css',
 							'!**/*.min.css'
 						],
-						dest: globalOptions.libPath,
 						ext: '.min.css'
 					},
-					{
-						'css/style.min.css': 'css/style.css'
-					},
-					{
-						'css/bootstrap.min.css': 'css/bootstrap.css'
-					},
-					{
-						'css/responsive.min.css': 'css/responsive.css'
-					},
-					{
-						'css/slick.min.css': 'css/slick.css'
-					},
-					{
-						'css/style.min.css': 'css/style.css'
-					},
-					{
-						'css/visual-composer-starter-font.min.css': 'css/visual-composer-starter-font.css'
-					}
 				]
 			}
 		},
@@ -226,6 +207,7 @@ module.exports = function( grunt ) {
 			'cssmin:main'
 		] );
 	grunt.registerTask( 'build', [ 'build-css' ] );
+
 	// Default task.
 	grunt.registerTask( 'default', [ 'build' ] );
 };
