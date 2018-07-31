@@ -1144,7 +1144,7 @@ function visualcomposerstarter_inline_styles() {
 		
 		@media only screen and (min-width: 768px) {
 			body:not(.menu-sandwich) #main-menu ul li a:hover,
-			body:not(.menu-sandwich) #main-menu ul li.current-menu-item > a
+			body:not(.menu-sandwich) #main-menu ul li.current-menu-item > a,
 			body:not(.menu-sandwich) #main-menu ul li ul li a:focus, body:not(.menu-sandwich) #main-menu ul li ul li a:hover,
 			body:not(.menu-sandwich) .sandwich-color-light #main-menu>ul>li.current_page_item>a,
 			body:not(.menu-sandwich) .sandwich-color-light #main-menu>ul ul li.current_page_item>a {

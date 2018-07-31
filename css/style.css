@@ -698,7 +698,8 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   padding-right: 10px;
   width: 100%;
   border: 1px solid #dadada;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .comments-area input[type="text"]:focus,
 .comments-area input[type="email"]:focus,
