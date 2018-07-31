@@ -7,6 +7,7 @@
     var $footerLeftBlock = $( '.footer-left-block' );
     var windowHeight, featuredImageHeight, navbarHeight, subMenu, subMenuRect;
     var menuItems = $( '.menu-item.menu-item-has-children' );
+    var menuItemLinks = $( '.menu-item.menu-item-has-children > a' );
 
     // Add dropdown toggle that displays child menu items.
     var $dropdownToggle = $( '<button />', {
@@ -181,4 +182,11 @@
             } );
         } );
     }
+
+    // Prevent click on menu links before sub menu is opened
+    menuItemLinks.on( 'click', function( e ) {
+        if ( 'hidden' === $( this ).siblings( '.sub-menu' ).css( 'visibility' ) ) {
+            e.preventDefault();
+        }
+    } );
 } )( window.jQuery );
