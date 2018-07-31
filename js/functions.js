@@ -5,7 +5,8 @@
     var $header = $( '#header' );
     var $footerRightBlock = $( '.footer-right-block' );
     var $footerLeftBlock = $( '.footer-left-block' );
-    var windowHeight, featuredImageHeight, navbarHeight;
+    var windowHeight, featuredImageHeight, navbarHeight, subMenu, subMenuRect;
+    var menuItems = $( '.menu-item.menu-item-has-children' );
 
     // Add dropdown toggle that displays child menu items.
     var $dropdownToggle = $( '<button />', {
@@ -149,37 +150,35 @@
     });
 
     // Set scroller to submenu when submenu height is bigger than screen height
-    if ($navBar && $navBar[0] && window.getComputedStyle($navBar[0]).position === 'fixed') {
-      var menuItems = $( '.menu-item.menu-item-has-children' );
-      menuItems.each(function (index, item) {
-
-        item.addEventListener('mouseenter', function() {
-          if (window.innerWidth < 768) {
+    if ( 'fixed' === $navBar.css( 'position' ) ) {
+      menuItems.each(function( index, item ) {
+        item.addEventListener( 'mouseenter', function() {
+          if ( window.innerWidth < 768 ) {
             return;
           }
 
-          var subMenu = item.querySelector( '.sub-menu' )
-          if (subMenu) {
-            var rect = subMenu.getBoundingClientRect();
+          subMenu = item.querySelector( '.sub-menu' );
+          if ( subMenu ) {
+            subMenuRect = subMenu.getBoundingClientRect();
 
-            if (rect.top + rect.height > window.innerHeight) {
-              subMenu.style.maxHeight = window.innerHeight - rect.top + 'px';
+            if ( subMenuRect.top + subMenuRect.height > window.innerHeight ) {
+              subMenu.style.maxHeight = window.innerHeight - subMenuRect.top + 'px';
               subMenu.style.overflow = 'auto';
             }
           }
-        }, false);
+        }, false );
 
-        item.addEventListener('mouseleave', function() {
-          if (window.innerWidth < 768) {
+        item.addEventListener( 'mouseleave', function() {
+          if ( window.innerWidth < 768 ) {
             return;
           }
 
-          var subMenu = item.querySelector( '.sub-menu' );
-          if (subMenu) {
+          subMenu = item.querySelector( '.sub-menu' );
+          if ( subMenu ) {
             subMenu.style.maxHeight = '';
             subMenu.style.overflow = '';
           }
-        })
-      })
+        });
+      });
     }
 })( window.jQuery );
