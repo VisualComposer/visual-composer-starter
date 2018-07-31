@@ -152,6 +152,10 @@ body.menu-sandwich #main-menu ul.nav li {
   color: #557cbf;
   text-decoration: none;
 }
+.navbar-brand img {
+  max-width: 100%;
+  height: auto;
+}
 .navbar-toggle {
   margin-bottom: 0;
 }
