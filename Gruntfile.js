@@ -1,4 +1,4 @@
-module.exports = function ( grunt ) {
+module.exports = function( grunt ) {
 	var globalOptions = {
 		browsers: [
 			'> 1%',
@@ -19,6 +19,7 @@ module.exports = function ( grunt ) {
 			destPath: 'css/'
 		}
 	};
+	
 	// Project configuration.
 	grunt.initConfig( {
 		// Task configuration.
@@ -218,7 +219,12 @@ module.exports = function ( grunt ) {
 	require( 'load-grunt-tasks' )( grunt );
 	grunt.loadNpmTasks( 'grunt-composer' );
 
-	grunt.registerTask( 'build-css', [ 'less:main', 'postcss:main', 'cssmin:main' ] );
+	grunt.registerTask( 'build-css',
+		[
+			'less:main',
+			'postcss:main',
+			'cssmin:main'
+		] );
 	grunt.registerTask( 'build', [ 'build-css' ] );
 	// Default task.
 	grunt.registerTask( 'default', [ 'build' ] );
