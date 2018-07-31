@@ -164,7 +164,7 @@ module.exports = function( grunt ) {
 							'!**/*.min.css'
 						],
 						ext: '.min.css'
-					},
+					}
 				]
 			}
 		},
