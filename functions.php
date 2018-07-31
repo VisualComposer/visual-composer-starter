@@ -352,9 +352,6 @@ function visualcomposerstarter_style() {
 	/* Stylesheet with additional responsive style */
 	wp_register_style( 'visualcomposerstarter-responsive', get_template_directory_uri() . '/css/responsive.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
 
-	/* Theme stylesheet */
-	wp_register_style( 'visualcomposerstarter-style', get_stylesheet_uri() );
-
 	/* Font options */
 	$fonts = array(
 		get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto' ),
@@ -378,7 +375,6 @@ function visualcomposerstarter_style() {
 	wp_enqueue_style( 'slick-style' );
 	wp_enqueue_style( 'visualcomposerstarter-general' );
 	wp_enqueue_style( 'visualcomposerstarter-responsive' );
-	wp_enqueue_style( 'visualcomposerstarter-style' );
 	wp_enqueue_style( 'visualcomposerstarter-fonts' );
 }
 add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_style' );
