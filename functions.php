@@ -49,6 +49,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 			) );
 
 		visualcomposerstarter_set_old_styles();
+		visualcomposerstarter_set_old_content_size();
 
 		/*
 		 * Feed Links
@@ -105,6 +106,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 						'type' => 'select',
 						'instructions' => esc_html__( 'Select specific sidebar position.', 'visual-composer-starter' ),
 						'choices' => array(
+							'default' => esc_html__( 'Default', 'visual-composer-starter' ),
 							'none' => esc_html__( 'None', 'visual-composer-starter' ),
 							'left' => esc_html__( 'Left', 'visual-composer-starter' ),
 							'right' => esc_html__( 'Right', 'visual-composer-starter' ),
@@ -155,6 +157,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 						'type' => 'select',
 						'instructions' => esc_html__( 'Select specific sidebar position.', 'visual-composer-starter' ),
 						'choices' => array(
+							'default' => esc_html__( 'Default', 'visual-composer-starter' ),
 							'none' => esc_html__( 'None', 'visual-composer-starter' ),
 							'left' => esc_html__( 'Left', 'visual-composer-starter' ),
 							'right' => esc_html__( 'Right', 'visual-composer-starter' ),
@@ -443,7 +446,7 @@ function visualcomposerstarter_body_classes( $classes ) {
 	}
 
 	/* Width of content-area */
-	if ( get_theme_mod( 'vct_content_area_size', 'boxed' ) === 'full_width' ) {
+	if ( get_theme_mod( 'vct_overall_content_area_size', 'boxed' ) === 'full_width' ) {
 		$classes[] = 'content-full-width';
 	}
 
@@ -723,7 +726,7 @@ function visualcomposerstarter_get_header_image_container_class() {
  * @return string
  */
 function visualcomposerstarter_get_content_container_class() {
-	if ( 'full_width' === get_theme_mod( 'vct_content_area_size', 'boxed' ) ) {
+	if ( 'full_width' === get_theme_mod( 'vct_overall_content_area_size', 'boxed' ) ) {
 		return 'container-fluid';
 	} else {
 		return 'container';
@@ -761,12 +764,15 @@ function visualcomposerstarter_specify_sidebar() {
 		$value = null;
 	}
 
-	$specify_setting = function_exists( 'get_field' ) ? $value : null;
-
-	if ( $specify_setting ) {
-		return $specify_setting;
-	} else {
+	if ( 'default' === $value ) {
 		return get_theme_mod( visualcomposerstarter_check_needed_sidebar(), 'none' );
+	} else {
+		$specify_setting = function_exists( 'get_field' ) ? $value : null;
+		if ( $specify_setting ) {
+			return $specify_setting;
+		} else {
+			return get_theme_mod( visualcomposerstarter_check_needed_sidebar(), 'none' );
+		}
 	}
 }
 
@@ -1306,8 +1312,9 @@ function visualcomposerstarter_register_required_plugins() {
 }
 
 /**
- * For backward compatibility for background
- * Will be removed in v 1.7
+ *  For backward compatibility for background
+ *
+ * @deprecated 1.3
  */
 function visualcomposerstarter_set_old_styles() {
 	if ( get_theme_mod( 'vct_overall_site_bg_color' ) ) {
@@ -1325,8 +1332,21 @@ function visualcomposerstarter_set_old_styles() {
 			set_theme_mod( 'background_repeat', 'no-repeat' );
 			set_theme_mod( 'background_size', esc_html( get_theme_mod( 'vct_overall_site_bg_image_style' ) ) );
 		}
+
 		remove_theme_mod( 'vct_overall_site_bg_image' );
 		remove_theme_mod( 'vct_overall_site_bg_image_style' );
 		remove_theme_mod( 'vct_overall_site_enable_bg_image' );
+	}
+}
+
+/**
+ * For backward compatibility content area size
+ *
+ * @deprecated 2.0.4
+ */
+function visualcomposerstarter_set_old_content_size() {
+	if ( get_theme_mod( 'vct_content_area_size' ) ) {
+		set_theme_mod( 'vct_overall_content_area_size', get_theme_mod( 'vct_content_area_size' ) );
+		remove_theme_mod( 'vct_content_area_size' );
 	}
 }
