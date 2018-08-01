@@ -99,7 +99,7 @@ if ( visualcomposerstarter_is_the_footer_displayed() ) : ?>
 					<p class="copyright">
 						<span>
 							<?php /* translators: 1. date, 2. blog name */
-							printf( esc_html__( 'Copyright &copy; %1$s %2$s. All Rights Reserved.', 'visual-composer-starter' ), esc_html( get_the_time( 'Y' ) ), esc_html( get_bloginfo( 'name' ) ) ); ?></span>
+							printf( esc_html__( 'Copyright &copy; %1$s %2$s. All Rights Reserved.', 'visual-composer-starter' ), esc_html( date( 'Y' ) ), esc_html( get_bloginfo( 'name' ) ) ); ?></span>
 						<span>
 							<?php /* translators: 1. link opening tag, 2. link opening tag, 3. link closing tag */
 							printf( esc_html__( 'Proudly powered by %1$sVisual Composer%3$s and %2$sWordPress%3$s', 'visual-composer-starter' ), '<a href="http://visualcomposer.io/?utm_campaign=vc-theme&utm_source=vc-theme-front&utm_medium=vc-theme-footer" target="_blank">', '<a href="https://wordpress.org" target="_blank">', '</a>' ); ?></span>
