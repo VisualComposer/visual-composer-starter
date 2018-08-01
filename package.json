@@ -4,8 +4,8 @@
   "description": "Visual Composer Starter Theme",
   "main": "Gruntfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "grunt build"
+    "build": "grunt build",
+    "watch": "grunt watch"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "grunt-postcss": "0.9.0",
     "jscs": "3.0.7",
     "jshint": "2.9.6",
-    "load-grunt-tasks": "4.0.0"
+    "load-grunt-tasks": "4.0.0",
+    "grunt-contrib-uglify": "3.3.0"
   }
 }

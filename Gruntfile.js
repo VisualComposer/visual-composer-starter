@@ -17,6 +17,10 @@ module.exports = function( grunt ) {
 				'visual-composer-starter-font.less'
 			],
 			destPath: 'css/'
+		},
+		js: {
+			srcPath: 'js/',
+			destPath: 'js/'
 		}
 	};
 
@@ -181,6 +185,17 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		uglify: {
+			main: {
+				files: [
+					{
+						dest: '<%= go.js.destPath %>functions.min.js',
+						src: '<%= go.js.srcPath %>functions.js'
+					}
+				]
+			}
+		},
+
 		// Run predefined tasks whenever watched file changed or deleted
 		watch: {
 			css: {
@@ -191,6 +206,18 @@ module.exports = function( grunt ) {
 				tasks: [
 					'build-css',
 					'postcss:lib'
+				]
+			},
+			js: {
+				options: {
+					atBegin: true
+				},
+				files: [
+					'js/**/*.js',
+					'!js/*min.js'
+				],
+				tasks: [
+					'build-js'
 				]
 			}
 		}
@@ -206,7 +233,14 @@ module.exports = function( grunt ) {
 			'postcss:main',
 			'cssmin:main'
 		] );
-	grunt.registerTask( 'build', [ 'build-css' ] );
+
+	grunt.registerTask( 'build-js', [ 'uglify:main' ] );
+
+	grunt.registerTask( 'build',
+		[
+			'build-css',
+			'build-js'
+		] );
 
 	// Default task.
 	grunt.registerTask( 'default', [ 'build' ] );
