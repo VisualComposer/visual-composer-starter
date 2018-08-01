@@ -73,11 +73,6 @@ class VisualComposerStarter_Customizer {
 			'priority'          => 103,
 			'capability'        => 'edit_theme_options',
 		) );
-		$wp_customize->add_section( 'vct_content_area', array(
-			'title'             => esc_html__( 'Content', 'visual-composer-starter' ),
-			'priority'          => 104,
-			'capability'        => 'edit_theme_options',
-		) );
 		$wp_customize->add_panel( 'vct_fonts_and_style', array(
 			'priority'          => 105,
 			'capability'        => 'edit_theme_options',
@@ -93,7 +88,6 @@ class VisualComposerStarter_Customizer {
 
 		// Populate sections.
 		$this->overall_site_section( $wp_customize );
-		$this->content_area_section( $wp_customize );
 		$this->header_and_menu_section( $wp_customize );
 		$this->footer_section( $wp_customize );
 		$this->fonts_and_style_panel( $wp_customize );
@@ -205,6 +199,11 @@ class VisualComposerStarter_Customizer {
 		$wp_customize->add_setting( 'vct_overall_site_featured_image_custom_height', array(
 			'default'                   => '400px',
 			'sanitize_callback'         => array( $this, 'sanitize_custom_height' ),
+		) );
+
+		$wp_customize->add_setting( 'vct_overall_content_area_size',  array(
+			'default'       => 'boxed',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
 		) );
 
 		$wp_customize->add_setting( VISUALCOMPOSERSTARTER_PAGE_SIDEBAR,  array(
@@ -321,6 +320,24 @@ class VisualComposerStarter_Customizer {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
+				'vct_overall_content_area_size',
+				array(
+					'type'          => 'select',
+					'label'         => esc_html__( 'Content Area Size Customization', 'visual-composer-starter' ),
+					'description'   => esc_html__( 'Default content area size is defined as Boxed and Full width.', 'visual-composer-starter' ),
+					'section'       => 'vct_overall_site',
+					'settings'      => 'vct_overall_content_area_size',
+					'choices'       => array(
+						'boxed'         => esc_html__( 'Boxed (default)', 'visual-composer-starter' ),
+						'full_width'    => esc_html__( 'Full width', 'visual-composer-starter' ),
+					),
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
 				VISUALCOMPOSERSTARTER_PAGE_SIDEBAR,
 				array(
 					'type'          => 'select',
@@ -397,98 +414,6 @@ class VisualComposerStarter_Customizer {
 					'label'         => esc_html__( 'Comments Background', 'visual-composer-starter' ),
 					'section'       => 'vct_overall_site',
 					'settings'      => 'vct_overall_site_comments_background',
-				)
-			)
-		);
-	}
-
-	/**
-	 * Section: Content Area Section
-	 *
-	 * @param WP_Customize_Manager $wp_customize Customize manager class.
-	 *
-	 * @access private
-	 * @since  1.0
-	 * @return void
-	 */
-	private function content_area_section( $wp_customize ) {
-		$wp_customize->add_setting( 'vct_content_area_sidebar',  array(
-			'default'       => 'none',
-			'sanitize_callback' => array( $this, 'sanitize_select' ),
-		) );
-
-		$wp_customize->add_setting( 'vct_content_area_size',  array(
-			'default'       => 'boxed',
-			'sanitize_callback' => array( $this, 'sanitize_select' ),
-		) );
-
-		$wp_customize->add_setting( 'vct_content_area_background',  array(
-			'default'       => '#ffffff',
-			'sanitize_callback' => 'sanitize_hex_color',
-		) );
-		$wp_customize->add_setting( 'vct_content_area_comments_background',  array(
-			'default'       => '#f4f4f4',
-			'sanitize_callback' => 'sanitize_hex_color',
-		) );
-
-		$wp_customize->add_control(
-			new WP_Customize_Control(
-				$wp_customize,
-				'vct_content_area_sidebar',
-				array(
-					'type'          => 'select',
-					'label'         => esc_html__( 'Sidebar Customization', 'visual-composer-starter' ),
-					'description'   => esc_html__( 'Default content area of theme is defined as Boxed and No Sidebar.', 'visual-composer-starter' ),
-					'section'       => 'vct_content_area',
-					'settings'      => 'vct_content_area_sidebar',
-					'choices'       => array(
-						'none'  => esc_html__( 'None (default)', 'visual-composer-starter' ),
-						'left'  => esc_html__( 'Position left', 'visual-composer-starter' ),
-						'right' => esc_html__( 'Position right', 'visual-composer-starter' ),
-					),
-				)
-			)
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Control(
-				$wp_customize,
-				'vct_content_area_size',
-				array(
-					'type'          => 'select',
-					'label'         => esc_html__( 'Content Area Size Customization', 'visual-composer-starter' ),
-					'description'   => esc_html__( 'Default content area size is defined as Boxed and Full width.', 'visual-composer-starter' ),
-					'section'       => 'vct_content_area',
-					'settings'      => 'vct_content_area_size',
-					'choices'       => array(
-						'boxed'         => esc_html__( 'Boxed (default)', 'visual-composer-starter' ),
-						'full_width'    => esc_html__( 'Full width', 'visual-composer-starter' ),
-					),
-				)
-			)
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'vct_content_area_background',
-				array(
-					'label'         => esc_html__( 'Content background color', 'visual-composer-starter' ),
-					'description'   => esc_html__( 'Choose content background color', 'visual-composer-starter' ),
-					'section'       => 'vct_content_area',
-					'settings'      => 'vct_content_area_background',
-				)
-			)
-		);
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'vct_content_area_comments_background',
-				array(
-					'label'         => esc_html__( 'Comments background color', 'visual-composer-starter' ),
-					'description'   => esc_html__( 'Choose comments background color', 'visual-composer-starter' ),
-					'section'       => 'vct_content_area',
-					'settings'      => 'vct_content_area_comments_background',
 				)
 			)
 		);
