@@ -743,7 +743,7 @@ function visualcomposerstarter_check_needed_sidebar() {
 		return VISUALCOMPOSERSTARTER_PAGE_SIDEBAR;
 	} elseif ( is_singular() ) {
 		return VISUALCOMPOSERSTARTER_POST_SIDEBAR;
-	} elseif ( is_archive() || is_category() || is_search() || is_front_page() ) {
+	} elseif ( is_archive() || is_category() || is_search() || is_front_page() || is_home() ) {
 		return VISUALCOMPOSERSTARTER_ARCHIVE_AND_CATEGORY_SIDEBAR;
 	} else {
 		return 'none';
@@ -760,6 +760,14 @@ function visualcomposerstarter_specify_sidebar() {
 		$value = function_exists( 'get_field' ) ? get_field( 'field_589f5a321f0bc' ) : null;
 	} elseif ( is_singular() ) {
 		$value = function_exists( 'get_field' ) ? get_field( 'field_589f5b1d656ca' ) : null;
+	} elseif ( is_archive() || is_category() || is_search() || is_front_page() || is_home() ) {
+		if ( is_front_page() ) {
+			$value = function_exists( 'get_field' ) ? get_field( 'field_589f5a321f0bc', get_option( 'page_on_front' ) ) : null;
+		} elseif ( is_home() ) {
+			$value = function_exists( 'get_field' ) ? get_field( 'field_589f5a321f0bc', get_option( 'page_for_posts' ) ) : null;
+		} else {
+			$value = get_theme_mod( visualcomposerstarter_check_needed_sidebar(), 'none' );
+		}
 	} else {
 		$value = null;
 	}
