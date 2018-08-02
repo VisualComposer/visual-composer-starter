@@ -1287,13 +1287,15 @@ function visualcomposerstarter_register_required_plugins() {
 	/*
 	 * Array of plugin arrays. Required keys are name and slug.
 	 */
-	$plugins = array(
-		array(
-			'name'      => 'Advanced Custom Fields',
-			'slug'      => 'advanced-custom-fields',
-			'required'  => false,
-		),
-	);
+	$plugins = array();
+
+	if ( ! class_exists( 'acf' ) ) {
+		$plugins[] = array(
+			'name' => 'Advanced Custom Fields',
+			'slug' => 'advanced-custom-fields',
+			'required' => false,
+		);
+	}
 
 	/*
 	 * Array of configuration settings. Amend each line as needed.
