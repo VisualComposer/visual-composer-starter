@@ -147,7 +147,8 @@
     $( '.gallery-slider' ).slick( {
         autoplay: true,
         arrows: false,
-        dots: true
+        dots: true,
+		adaptiveHeight: true
     } );
 
     // Set scroller to submenu when submenu height is bigger than screen height
