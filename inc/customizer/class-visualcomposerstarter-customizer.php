@@ -2037,7 +2037,7 @@ class VisualComposerStarter_Customizer {
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_font_family', array(
 			'default'        => 'Roboto',
-			'sanitize_callback' => array( $this, 'sanitize_select' ),
+			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_subsets', array(
