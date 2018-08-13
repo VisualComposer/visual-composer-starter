@@ -1396,39 +1396,59 @@ function visualcomposerstarter_set_old_content_size() {
 	}
 }
 
+
 /**
- *  WooCommerce support.
+ *  WooCommerce support
  */
-add_action( 'after_setup_theme', 'visualcomposerstarter_support' );
 function visualcomposerstarter_support() {
 	add_theme_support( 'woocommerce' );
 }
+add_action( 'after_setup_theme', 'visualcomposerstarter_support' );
 
-add_action( 'after_setup_theme', 'visualcomposerstarter_woo_setup' );
+/**
+ *  WooCommerce single product gallery
+ */
 function visualcomposerstarter_woo_setup() {
 	add_theme_support( 'wc-product-gallery-zoom' );
 	add_theme_support( 'wc-product-gallery-lightbox' );
 	add_theme_support( 'wc-product-gallery-slider' );
 }
+add_action( 'after_setup_theme', 'visualcomposerstarter_woo_setup' );
 
-add_action( 'woocommerce_single_product_summary', 'visualcomposerstarter_woo_categories', 1 );
+/**
+ *  WooCommerce single product categories layout
+ */
 function visualcomposerstarter_woo_categories() {
 	global $product;
+	// @codingStandardsIgnoreLine
 	echo wc_get_product_category_list( $product->get_id(), ' ', '<div class="entry-categories"><span class="screen-reader-text">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woocommerce' ) . '</span>', '</div>' );
 }
+add_action( 'woocommerce_single_product_summary', 'visualcomposerstarter_woo_categories', 1 );
 
-add_action( 'woocommerce_single_product_summary', 'visualcomposerstarter_woo_tags', 65 );
+/**
+ * WooCommerce single product tags layout
+ */
 function visualcomposerstarter_woo_tags() {
 	global $product;
+	// @codingStandardsIgnoreLine
 	echo wc_get_product_tag_list( $product->get_id(), ' ', '<div class="entry-tags"><span class="screen-reader-text">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woocommerce' ) . '</span>', '</div>' );
 }
+add_action( 'woocommerce_single_product_summary', 'visualcomposerstarter_woo_tags', 65 );
 
-add_filter( 'woocommerce_format_sale_price', 'visualcomposerstarter_woo_format_sale_price', 10, 3 );
+/**
+ * WooCommerce single product price layout
+ *
+ * @param product $price layout.
+ * @param product $regular_price number.
+ * @param product $sale_price number.
+ * @return string
+ */
 function visualcomposerstarter_woo_format_sale_price( $price, $regular_price, $sale_price ) {
 	$price = '<ins>' . ( is_numeric( $sale_price ) ? wc_price( $sale_price ) : $sale_price ) . '</ins> <del>' . ( is_numeric( $regular_price ) ? wc_price( $regular_price ) : $regular_price ) . '</del>';
 
 	return $price;
 }
+add_filter( 'woocommerce_format_sale_price', 'visualcomposerstarter_woo_format_sale_price', 10, 3 );
 
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 25 );
@@ -1436,9 +1456,16 @@ add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_m
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 15 );
 
-add_filter( 'woocommerce_sale_flash', 'visualcomposerstarter_woo_sale_flash', 10, 2 );
+/**
+ * WooCommerce single product sale flash layout
+ *
+ * @param single $post data.
+ * @param single $product data.
+ * @return string
+ */
 function visualcomposerstarter_woo_sale_flash( $post, $product ) {
 	$sale = '<span class="onsale"><img src="' . esc_url( get_template_directory_uri() . '/images/discount.png' ) . '"/></span>';
 
 	return $sale;
 }
+add_filter( 'woocommerce_sale_flash', 'visualcomposerstarter_woo_sale_flash', 10, 2 );

@@ -17,7 +17,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit; // Exit if accessed directly.
 }
 
 global $product;
@@ -33,7 +33,10 @@ $average = $product->get_average_rating();
 if ( $rating_count > 0 ) : ?>
 
 	<div class="woocommerce-product-rating">
-		<?php echo wc_get_rating_html( $average, $rating_count ); ?>
+		<?php
+		// @codingStandardsIgnoreLine
+		echo wc_get_rating_html( $average, $rating_count );
+		?>
 	</div>
 
 <?php endif; ?>
