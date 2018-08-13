@@ -352,6 +352,9 @@ function visualcomposerstarter_style() {
 	/* General theme stylesheet */
 	wp_register_style( 'visualcomposerstarter-general', get_template_directory_uri() . '/css/style.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
 
+	/* Woocommerce stylesheet */
+	wp_register_style( 'visualcomposerstarter-woocommerce', get_template_directory_uri() . '/css/woocommerce.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
+
 	/* Stylesheet with additional responsive style */
 	wp_register_style( 'visualcomposerstarter-responsive', get_template_directory_uri() . '/css/responsive.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
 
@@ -380,6 +383,7 @@ function visualcomposerstarter_style() {
 	wp_enqueue_style( 'visualcomposerstarter-font' );
 	wp_enqueue_style( 'slick-style' );
 	wp_enqueue_style( 'visualcomposerstarter-general' );
+	wp_enqueue_style( 'visualcomposerstarter-woocommerce' );
 	wp_enqueue_style( 'visualcomposerstarter-responsive' );
 	wp_enqueue_style( 'visualcomposerstarter-style' );
 	wp_enqueue_style( 'visualcomposerstarter-fonts' );
@@ -422,6 +426,8 @@ add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_script' );
  * @return array
  */
 function visualcomposerstarter_body_classes( $classes ) {
+	$classes[] = 'visualcomposerstarter';
+
 	/* Sandwich color */
 	if ( get_theme_mod( 'vct_header_sandwich_style', '#333333' ) === '#FFFFFF' ) {
 		$classes[] = 'sandwich-color-light';
@@ -776,6 +782,8 @@ function visualcomposerstarter_specify_sidebar() {
 		$value = null;
 	}
 
+	$value = apply_filters('visualcomposerstarter_specify_sidebar', $value);
+
 	if ( 'default' === $value ) {
 		return get_theme_mod( visualcomposerstarter_check_needed_sidebar(), 'none' );
 	} else {
@@ -999,6 +1007,29 @@ function visualcomposerstarter_inline_styles() {
 	  
 	  .nav-links.archive-navigation a.page-numbers:hover, .nav-links.archive-navigation a.page-numbers:focus, .nav-links.archive-navigation .page-numbers.current {
 	        background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_hover_color', '#3c63a6' ) ) . '; 
+			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_hover_color', '#f4f4f4' ) ) . '; 
+	  }
+	  .visualcomposerstarter.woocommerce button.button,
+	  .visualcomposerstarter.woocommerce a.button.product_type_simple {
+	  		background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_color', '#557cbf' ) ) . '; 
+			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_color', '#f4f4f4' ) ) . ';
+			font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_family', 'Playfair Display' ) ) . ';
+			font-size: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_size', '16px' ) ) . ';
+			font-weight: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_weight', '400' ) ) . ';
+			font-style: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_style', 'normal' ) ) . ';
+			letter-spacing: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_letter_spacing', '0.01rem' ) ) . ';
+			line-height: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_line_height', '1' ) ) . ';
+			text-transform: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_capitalization', 'none' ) ) . ';
+			margin-top: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_margin_top', '0' ) ) . ';
+			margin-bottom: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_margin_bottom', '0' ) ) . ';
+	  }
+	  .visualcomposerstarter.woocommerce button.button.alt.disabled {
+            background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_color', '#557cbf' ) ) . '; 
+			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_color', '#f4f4f4' ) ) . ';
+	  }
+	  .visualcomposerstarter.woocommerce button.button:hover,
+	  .visualcomposerstarter.woocommerce button.button:focus { 
+			background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_hover_color', '#3c63a6' ) ) . '; 
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_hover_color', '#f4f4f4' ) ) . '; 
 	  }
 	';
@@ -1363,4 +1394,52 @@ function visualcomposerstarter_set_old_content_size() {
 		set_theme_mod( 'vct_overall_content_area_size', get_theme_mod( 'vct_content_area_size' ) );
 		remove_theme_mod( 'vct_content_area_size' );
 	}
+}
+
+/**
+ *  WooCommerce support
+ */
+
+add_action( 'after_setup_theme', 'visualcomposerstarter_support' );
+function visualcomposerstarter_support() {
+	add_theme_support( 'woocommerce' );
+}
+
+add_action( 'after_setup_theme', 'visualcomposerstarter_woo_setup' );
+function visualcomposerstarter_woo_setup() {
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
+}
+
+add_action( 'woocommerce_single_product_summary', 'visualcomposerstarter_woo_categories', 1 );
+function visualcomposerstarter_woo_categories() {
+	global $product;
+	echo wc_get_product_category_list( $product->get_id(), ' ', '<div class="entry-categories"><span class="screen-reader-text">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woocommerce' ) . '</span>', '</div>' );
+}
+
+add_action( 'woocommerce_single_product_summary', 'visualcomposerstarter_woo_tags', 65 );
+function visualcomposerstarter_woo_tags() {
+	global $product;
+	echo wc_get_product_tag_list( $product->get_id(), ' ', '<div class="entry-tags"><span class="screen-reader-text">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woocommerce' ) . '</span>', '</div>' );
+}
+
+add_filter( 'woocommerce_format_sale_price', 'visualcomposerstarter_woo_format_sale_price', 10, 3 );
+function visualcomposerstarter_woo_format_sale_price( $price, $regular_price, $sale_price ) {
+	$price = '<ins>' . ( is_numeric( $sale_price ) ? wc_price( $sale_price ) : $sale_price ) . '</ins> <del>' . ( is_numeric( $regular_price ) ? wc_price( $regular_price ) : $regular_price ) . '</del>';
+
+	return $price;
+}
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 25 );
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 15 );
+
+add_filter( 'woocommerce_sale_flash', 'visualcomposerstarter_woo_sale_flash', 10, 2 );
+function visualcomposerstarter_woo_sale_flash( $post, $product ) {
+	$sale = '<span class="onsale"><img src="' . esc_url( get_template_directory_uri() . '/images/discount.png' ) . '"/></span>';
+
+	return $sale;
 }
