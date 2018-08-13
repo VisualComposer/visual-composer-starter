@@ -782,7 +782,7 @@ function visualcomposerstarter_specify_sidebar() {
 		$value = null;
 	}
 
-	$value = apply_filters('visualcomposerstarter_specify_sidebar', $value);
+	$value = apply_filters( 'visualcomposerstarter_specify_sidebar', $value );
 
 	if ( 'default' === $value ) {
 		return get_theme_mod( visualcomposerstarter_check_needed_sidebar(), 'none' );
@@ -1397,9 +1397,8 @@ function visualcomposerstarter_set_old_content_size() {
 }
 
 /**
- *  WooCommerce support
+ *  WooCommerce support.
  */
-
 add_action( 'after_setup_theme', 'visualcomposerstarter_support' );
 function visualcomposerstarter_support() {
 	add_theme_support( 'woocommerce' );
