@@ -140,8 +140,10 @@
                 }
                 control.setting.set( value );
 
-                // Refresh the preview
-                wp.customize.previewer.refresh();
+				if ( 'woocommerce_header_cart_icon' !== $this.attr( 'id' ) ) {
+					// Refresh the preview
+					wp.customize.previewer.refresh();
+				}
             });
         }
 

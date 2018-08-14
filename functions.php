@@ -410,7 +410,7 @@ function visualcomposerstarter_script() {
 	wp_register_script( 'visualcomposerstarter-script', get_template_directory_uri() . '/js/functions.min.js', array( 'jquery' ), VISUALCOMPOSERSTARTER_VERSION, true );
 
 	wp_localize_script( 'jquery', 'visualcomposerstarter', array(
-			'ajax_url' => admin_url( "admin-ajax.php" ),
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
 			'nonce' => wp_create_nonce( 'visualcomposerstarter' ),
 		) );
 
@@ -422,6 +422,18 @@ function visualcomposerstarter_script() {
 }
 add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_script' );
 
+/**
+ * Used by hook: 'customize_preview_init'
+ *
+ * @see add_action('customize_preview_init',$func)
+ */
+function visualcomposerstarter_customizer_live_preview() {
+	wp_enqueue_script( 'visualcomposerstarter-themecustomizer', get_template_directory_uri() . '/js/customize-preview.min.js', array(
+			'jquery',
+			'customize-preview',
+		), '', true );
+}
+add_action( 'customize_preview_init', 'visualcomposerstarter_customizer_live_preview' );
 
 /**
  * Adds custom classes to the array of body classes.
@@ -1486,3 +1498,14 @@ function visualcomposerstarter_woo_cart_count() {
 }
 add_action( 'wp_ajax_visualcomposerstarter_woo_cart_count', 'visualcomposerstarter_woo_cart_count' );
 add_action( 'wp_ajax_nopriv_visualcomposerstarter_woo_cart_count', 'visualcomposerstarter_woo_cart_count' );
+
+/**
+ * Add variable container
+ *
+ * @param dropdown $html content.
+ * @return string
+ */
+function visualcomposerstarter_woo_variable_container( $html ) {
+	return '<div class="vct-variable-container">' . $html . '</div>';
+}
+add_filter( 'woocommerce_dropdown_variation_attribute_options_html', 'visualcomposerstarter_woo_variable_container' );
