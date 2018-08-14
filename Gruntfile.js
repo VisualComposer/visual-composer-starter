@@ -93,6 +93,9 @@ module.exports = function( grunt ) {
 					},
 					{
 						'css/visual-composer-starter-font.css': 'less/visual-composer-starter-font.less'
+					},
+					{
+						'css/woocommerce.css': 'less/woocommerce.less'
 					}
 				]
 			}
