@@ -175,8 +175,11 @@
 
 
 .visualcomposerstarter.woocommerce div.product div.images .flex-control-thumbs {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     margin-top: 12px;
 }
 
@@ -199,7 +202,8 @@
 }
 
 .visualcomposerstarter.woocommerce div.product .woocommerce-tabs .panel {
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
 }
 
 .visualcomposerstarter.woocommerce-page .woocommerce-message a.button {

@@ -190,4 +190,18 @@
             e.preventDefault();
         }
     } );
+
+	$( document.body ).on( 'added_to_cart', function() {
+		$.ajax( {
+			url: visualcomposerstarter.ajax_url,
+			data: {
+				'action': 'visualcomposerstarter_woo_cart_count',
+				'nonce': visualcomposerstarter.nonce
+			},
+			success: function( data ) {
+				$( '.vct-cart-items-count' ).html( data );
+			}
+		} );
+	} );
+
 } )( window.jQuery );
