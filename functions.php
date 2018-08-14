@@ -1044,6 +1044,8 @@ function visualcomposerstarter_inline_styles() {
             background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_color', '#557cbf' ) ) . '; 
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_color', '#f4f4f4' ) ) . ';
 	  }
+	  .visualcomposerstarter.woocommerce a.button:hover,
+	  .visualcomposerstarter.woocommerce a.button:focus,
 	  .visualcomposerstarter.woocommerce button.button:hover,
 	  .visualcomposerstarter.woocommerce button.button:focus { 
 			background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_hover_color', '#3c63a6' ) ) . '; 
