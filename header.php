@@ -47,7 +47,7 @@
 							</button>
 						<?php endif; ?>
 					</div>
-					<?php if ( function_exists( 'WC' ) && get_theme_mod( 'woocommerce_header_cart_icon', false ) && wc_get_cart_url() ) : ?>
+					<?php if ( function_exists( 'WC' ) && get_theme_mod( 'woocommerce_header_cart_icon', true ) && wc_get_cart_url() ) : ?>
 						<div class="vct-cart-wrapper">
 							<a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
 								<svg width="32px" height="31px" viewBox="0 0 32 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
