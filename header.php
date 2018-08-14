@@ -64,7 +64,7 @@
 							</div>
 						</div><!--#main-menu-->
 					<?php endif; ?>
-					<?php // if ( function_exists( 'WC' ) && get_theme_mod( 'header_cart', 'on' ) ) : ?>
+					<?php  if ( function_exists( 'WC' ) && get_theme_mod( 'woocommerce_header_cart_icon', false ) ) : ?>
 						<div class="vct-cart-wrapper">
 							<svg width="32px" height="31px" viewBox="0 0 32 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 								<!-- Generator: Sketch 46 (44423) - http://www.bohemiancoding.com/sketch -->
@@ -85,7 +85,7 @@
 								<?php echo esc_html( WC()->cart->get_cart_contents_count() ); ?>
 							</span>
 						</div>
-					<?php // endif; ?>
+					<?php  endif; ?>
 				</div><!--.navbar-wrapper-->
 			</div><!--.container-->
 		</nav>

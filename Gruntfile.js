@@ -198,6 +198,10 @@ module.exports = function( grunt ) {
 					{
 						dest: '<%= go.js.destPath %>functions.min.js',
 						src: '<%= go.js.srcPath %>functions.js'
+					},
+					{
+						dest: '<%= go.js.destPath %>customize-preview.min.js',
+						src: '<%= go.js.srcPath %>customize-preview.js'
 					}
 				]
 			}

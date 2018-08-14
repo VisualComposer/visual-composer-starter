@@ -57,6 +57,9 @@ class VisualComposerStarter_Customizer {
 	 * @return void
 	 */
 	public function register_customize_sections( $wp_customize ) {
+		$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+
 		// Create sections.
 		$wp_customize->add_section( 'vct_overall_site', array(
 			'title'             => esc_html__( 'Theme Options', 'visual-composer-starter' ),
@@ -79,18 +82,12 @@ class VisualComposerStarter_Customizer {
 			'theme_supports'    => '',
 			'title'             => esc_html__( 'Fonts & Style', 'visual-composer-starter' ),
 		) );
-		$wp_customize->add_section( 'vct_scripts', array(
-			'priority'          => 999,
-			'capability'        => 'edit_theme_options',
-			'theme_supports'    => '',
-			'title'             => esc_html__( 'Scripts', 'visual-composer-starter' ),
-		) );
-
 		// Populate sections.
 		$this->overall_site_section( $wp_customize );
 		$this->header_and_menu_section( $wp_customize );
 		$this->footer_section( $wp_customize );
 		$this->fonts_and_style_panel( $wp_customize );
+		$this->vct_woocommerce( $wp_customize );
 	}
 
 	/**
@@ -1003,6 +1000,48 @@ class VisualComposerStarter_Customizer {
 		$this->fonts_and_style_section_h6( $wp_customize );
 		$this->fonts_and_style_section_body( $wp_customize );
 		$this->fonts_and_style_section_buttons( $wp_customize );
+	}
+
+	/**
+	 * Section: Woocommerce custom settings
+	 *
+	 * @param WP_Customize_Manager $wp_customize Customize manager class.
+	 *
+	 * @access private
+	 * @since  2.0.4
+	 * @return void
+	 */
+	private function vct_woocommerce( $wp_customize ) {
+		$wp_customize->add_section( 'vct_woocommerce_settings', array(
+			'title' => esc_html__( 'Visual Composer Starter Theme', 'visual-composer-starter' ),
+			'priority' => 90,
+			'panel' => 'woocommerce',
+		) );
+
+		$wp_customize->add_setting( 'woocommerce_header_cart_icon', array(
+			'default' => true,
+			'capability' => 'manage_woocommerce',
+			'sanitize_callback' => array(
+				$this,
+				'sanitize_checkbox',
+			),
+			'transport' => 'postMessage',
+		) );
+
+		$wp_customize->add_control(
+			new VisualComposerStarter_Toggle_Switch_Control(
+				$wp_customize,
+				'woocommerce_header_cart_icon',
+				array(
+					'label' => __( 'Cart Icon', 'woocommerce' ),
+					'description' => __( 'If enabled, this show the cart icon right next to the main menu.', 'visual-composer-starter' ),
+					'section' => 'vct_woocommerce_settings',
+					'settings' => 'woocommerce_header_cart_icon',
+					'type' => 'toggle-switch',
+				)
+			)
+		);
+
 	}
 
 	/**
