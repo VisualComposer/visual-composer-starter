@@ -11,6 +11,11 @@
   text-align: center;
   border-radius: 0;
 }
+.visualcomposerstarter.woocommerce .products .button.product_type_external {
+  padding: 17px;
+  text-align: center;
+  border-radius: 0;
+}
 .visualcomposerstarter.woocommerce .products .added_to_cart {
   font-size: 15px;
   margin-left: 0.8em;
@@ -97,10 +102,13 @@
   height: 60px;
   width: 120px;
   text-align: left;
-  padding: 20px;
+  padding: 20px 30px 20px 20px;
 }
-.visualcomposerstarter.woocommerce div.quantity {
-  margin-left: 10px;
+.visualcomposerstarter.woocommerce div.product form.cart div.quantity {
+  margin: 0 20px 20px 0;
+}
+.visualcomposerstarter.woocommerce div.product form.cart table div.quantity {
+  margin: 0;
 }
 .visualcomposerstarter.woocommerce .vct-variable-container,
 .visualcomposerstarter.woocommerce .vct-orderby-container {
