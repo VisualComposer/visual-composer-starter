@@ -88,7 +88,7 @@
       display: none;
     }
 
-    form.cart .variations td.value {
+    .vct-variable-container {
       position: relative;
       display: inline-block;
 
@@ -100,6 +100,43 @@
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
         border-top: 5px solid #b9b9b9;
+      }
+    }
+
+    .vct-input-qty {
+      position: relative;
+      display: inline-block;
+
+      .vct-input-qty-control {
+        content: '';
+        position: absolute;
+        right: 17px;
+        cursor: pointer;
+      }
+
+      .vct-input-qty-control-add {
+        top: 22px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid #b9b9b9;
+      }
+
+      .vct-input-qty-control-remove {
+        top: 33px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #b9b9b9;
+      }
+
+      /* For Firefox */
+      input[type='number'] {
+        -moz-appearance:textfield;
+      }
+      /* Webkit browsers like Safari and Chrome */
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
       }
     }
 

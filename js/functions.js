@@ -8,6 +8,9 @@
     var windowHeight, featuredImageHeight, navbarHeight, subMenu, subMenuRect;
     var menuItems = $( '.menu-item.menu-item-has-children' );
     var menuItemLinks = $( '.menu-item.menu-item-has-children > a' );
+    var $qtyInputContainer = $( '.vct-input-qty' );
+    var $qtyControls = $qtyInputContainer.find( '.vct-input-qty-control' );
+    var $qtyInput = $qtyInputContainer.find( '.qty' );
 
     // Add dropdown toggle that displays child menu items.
     var $dropdownToggle = $( '<button />', {
@@ -204,4 +207,17 @@
 		} );
 	} );
 
+    // Handle click on quantity input controls
+    $qtyControls.on( 'click', function() {
+      var $this = $( this ),
+          currentValue = parseInt( $qtyInput.val() ),
+          value = currentValue;
+      if ( $this.hasClass( 'vct-input-qty-control-add' ) ) {
+        value = ++currentValue;
+      }
+      if ( $this.hasClass( 'vct-input-qty-control-remove' ) && currentValue > 1 ) {
+        value = --currentValue;
+      }
+      $qtyInput.val( value );
+    });
 } )( window.jQuery );

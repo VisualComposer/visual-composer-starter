@@ -65,11 +65,11 @@
 .visualcomposerstarter.woocommerce div.product form.cart .variations td.label {
   display: none;
 }
-.visualcomposerstarter.woocommerce div.product form.cart .variations td.value {
+.visualcomposerstarter.woocommerce div.product .vct-variable-container {
   position: relative;
   display: inline-block;
 }
-.visualcomposerstarter.woocommerce div.product form.cart .variations td.value::before {
+.visualcomposerstarter.woocommerce div.product .vct-variable-container::before {
   content: '';
   position: absolute;
   top: 23px;
@@ -77,6 +77,38 @@
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 5px solid #b9b9b9;
+}
+.visualcomposerstarter.woocommerce div.product .vct-input-qty {
+  position: relative;
+  display: inline-block;
+  /* For Firefox */
+  /* Webkit browsers like Safari and Chrome */
+}
+.visualcomposerstarter.woocommerce div.product .vct-input-qty .vct-input-qty-control {
+  content: '';
+  position: absolute;
+  right: 17px;
+  cursor: pointer;
+}
+.visualcomposerstarter.woocommerce div.product .vct-input-qty .vct-input-qty-control-add {
+  top: 22px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #b9b9b9;
+}
+.visualcomposerstarter.woocommerce div.product .vct-input-qty .vct-input-qty-control-remove {
+  top: 33px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #b9b9b9;
+}
+.visualcomposerstarter.woocommerce div.product .vct-input-qty input[type='number'] {
+  -moz-appearance: textfield;
+}
+.visualcomposerstarter.woocommerce div.product .vct-input-qty input[type=number]::-webkit-inner-spin-button,
+.visualcomposerstarter.woocommerce div.product .vct-input-qty input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 .visualcomposerstarter.woocommerce div.product form.cart .variations select {
   width: 340px;
