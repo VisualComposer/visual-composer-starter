@@ -279,45 +279,107 @@
           box-shadow: none;
   outline: none;
 }
-.visualcomposerstarter.woocommerce-page .woocommerce-message {
+.visualcomposerstarter.woocommerce .woocommerce-error,
+.visualcomposerstarter.woocommerce .woocommerce-info,
+.visualcomposerstarter.woocommerce .woocommerce-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 23px;
   border: none;
-  background-color: #2b4b80;
-  color: #fff;
   border-radius: 5px;
-  padding: 20px;
+  font-size: 13px;
+  color: #fff;
 }
-.visualcomposerstarter.woocommerce-page .woocommerce-message::before {
+.visualcomposerstarter.woocommerce .woocommerce-error::before,
+.visualcomposerstarter.woocommerce .woocommerce-info::before,
+.visualcomposerstarter.woocommerce .woocommerce-message::before {
   display: none;
 }
-.visualcomposerstarter.woocommerce-page .woocommerce-message a.button {
-  padding-bottom: 7px;
-  padding-left: 13px;
-  padding-right: 13px;
-  padding-top: 7px;
-  border-color: #fff;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  border-width: 2px;
-  border-style: solid;
-  background-color: inherit;
+.visualcomposerstarter.woocommerce .woocommerce-error .button,
+.visualcomposerstarter.woocommerce .woocommerce-info .button,
+.visualcomposerstarter.woocommerce .woocommerce-message .button {
+  width: 100px;
+  float: none;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  border: none;
+  padding: 1px;
+  font-weight: 600;
+  line-height: 0;
   color: #fff;
-  font-size: 13px;
-  font-weight: 500;
+  background: transparent;
 }
-.visualcomposerstarter.woocommerce-page .woocommerce-message a.button:hover {
-  padding-bottom: 7px;
-  padding-left: 13px;
-  padding-right: 13px;
-  padding-top: 7px;
-  border-color: #fff;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  border-width: 2px;
-  border-style: solid;
-  background-color: #fff;
-  color: #2b4b80;
-  font-size: 13px;
-  font-weight: 500;
+.visualcomposerstarter.woocommerce .woocommerce-error .button:hover,
+.visualcomposerstarter.woocommerce .woocommerce-info .button:hover,
+.visualcomposerstarter.woocommerce .woocommerce-message .button:hover {
+  background: transparent;
+}
+.visualcomposerstarter.woocommerce .woocommerce-error {
+  background: #F6424C;
+}
+.visualcomposerstarter.woocommerce .woocommerce-error li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.visualcomposerstarter.woocommerce .woocommerce-info {
+  background: #FBD137;
+}
+.visualcomposerstarter.woocommerce .woocommerce-message {
+  background: #2B4B80;
+}
+.visualcomposerstarter.woocommerce .vct-close-woocommerce-msg-container {
+  margin-left: auto !important;
+}
+.visualcomposerstarter.woocommerce .vct-close-woocommerce-msg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  margin-left: auto;
+}
+.visualcomposerstarter.woocommerce .vct-close-woocommerce-msg::before,
+.visualcomposerstarter.woocommerce .vct-close-woocommerce-msg::after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.visualcomposerstarter.woocommerce .vct-close-woocommerce-msg::before {
+  width: 100%;
+  height: 2px;
+}
+.visualcomposerstarter.woocommerce .vct-close-woocommerce-msg::after {
+  width: 2px;
+  height: 100%;
 }
 @media only screen and (min-width: 768px) {
   .visualcomposerstarter.woocommerce:not(.menu-sandwich) .navbar-wrapper {

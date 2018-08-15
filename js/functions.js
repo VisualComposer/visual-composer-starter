@@ -11,6 +11,7 @@
     var $qtyInputContainer = $( '.vct-input-qty' );
     var $qtyControls = $qtyInputContainer.find( '.vct-input-qty-control' );
     var $qtyInput = $qtyInputContainer.find( '.qty' );
+    var $woocommerceMessageClose = $( '.vct-close-woocommerce-msg' );
 
     // Add dropdown toggle that displays child menu items.
     var $dropdownToggle = $( '<button />', {
@@ -219,5 +220,13 @@
         value = --currentValue;
       }
       $qtyInput.val( value );
+    });
+
+    // Handle click on message close control
+    $woocommerceMessageClose.on( 'click', function() {
+      var $this = $( this ),
+          parentSelector = $this.data( 'parent' ),
+          $parentMessage = $this.closest( '.' + parentSelector );
+      $parentMessage.remove();
     });
 } )( window.jQuery );

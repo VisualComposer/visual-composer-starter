@@ -309,51 +309,87 @@
       }
     }
   }
-}
 
-.visualcomposerstarter.woocommerce-page {
+  .woocommerce-error,
+  .woocommerce-info,
   .woocommerce-message {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 23px;
     border: none;
-    background-color: #2b4b80;
-    color: #fff;
     border-radius: 5px;
-    padding: 20px;
-  }
-
-  .woocommerce-message::before {
-    display: none;
-  }
-
-  .woocommerce-message a.button {
-    padding-bottom: 7px;
-    padding-left: 13px;
-    padding-right: 13px;
-    padding-top: 7px;
-    border-color: #fff;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    border-width: 2px;
-    border-style: solid;
-    background-color: inherit;
+    font-size: 13px;
     color: #fff;
-    font-size: 13px;
-    font-weight: 500;
+
+    &::before {
+      display: none;
+    }
+
+    .button {
+      width: 100px;
+      float: none;
+      order: 1;
+      border: none;
+      padding: 1px;
+      font-weight: 600;
+      line-height: 0;
+      color: #fff;
+      background: transparent;
+
+      &:hover {
+        background: transparent;
+      }
+    }
   }
 
-  .woocommerce-message a.button:hover {
-    padding-bottom: 7px;
-    padding-left: 13px;
-    padding-right: 13px;
-    padding-top: 7px;
-    border-color: #fff;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    border-width: 2px;
-    border-style: solid;
-    background-color: #fff;
-    color: #2b4b80;
-    font-size: 13px;
-    font-weight: 500;
+  .woocommerce-error {
+    background: #F6424C;
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .woocommerce-info {
+    background: #FBD137;
+  }
+
+  .woocommerce-message {
+    background: #2B4B80;
+  }
+
+  .vct-close-woocommerce-msg-container {
+    margin-left: auto !important; // to overwrite woocommerce important
+  }
+
+  .vct-close-woocommerce-msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    order: 2;
+    margin-left: auto;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      transform: rotate(45deg);
+    }
+    &::before {
+      width: 100%;
+      height: 2px;
+    }
+    &::after {
+      width: 2px;
+      height: 100%;
+    }
   }
 }
 
@@ -370,4 +406,3 @@
     }
   }
 }
-
