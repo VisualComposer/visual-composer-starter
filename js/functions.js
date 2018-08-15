@@ -215,7 +215,7 @@
           $currentInput = $qtyContainer.find( '.qty' ),
           currentValue = parseInt( $currentInput.val() ),
           value = currentValue,
-          minValue = parseInt($currentInput.attr( 'min' ));
+          minValue = parseInt( $currentInput.attr( 'min' ) );
       if ( $this.hasClass( 'vct-input-qty-control-add' ) ) {
         value = ++currentValue;
       }
