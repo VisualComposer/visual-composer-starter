@@ -1,0 +1,21 @@
+.visualcomposerstarter.woocommerce {
+  .products {
+    .button {
+      &.add_to_cart_button,
+      &.product_type_grouped {
+        padding: 17px 0;
+        width: 150px;
+        text-align: center;
+        border-radius: 0;
+      }
+    }
+    .added_to_cart {
+      font-size: 15px;
+      margin-left: 0.8em;
+    }
+    .add_to_cart_button.button.loading::after {
+      top: 1em;
+      right: .5em;
+    }
+  }
+}

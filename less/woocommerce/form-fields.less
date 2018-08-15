@@ -1,0 +1,89 @@
+.visualcomposerstarter.woocommerce {
+  // input[type="number"]
+  .vct-input-qty {
+    position: relative;
+    display: inline-block;
+
+    .vct-input-qty-control {
+      content: '';
+      position: absolute;
+      right: 17px;
+      cursor: pointer;
+    }
+
+    .vct-input-qty-control-add {
+      top: 22px;
+      border-left: @woocommerce-form-field-bullet-transparent;
+      border-right: @woocommerce-form-field-bullet-transparent;
+      border-bottom: @woocommerce-form-field-bullet;
+    }
+
+    .vct-input-qty-control-remove {
+      top: 33px;
+      border-left: @woocommerce-form-field-bullet-transparent;
+      border-right: @woocommerce-form-field-bullet-transparent;
+      border-top: @woocommerce-form-field-bullet;
+    }
+
+    /* For Firefox */
+    input[type='number'] {
+      -moz-appearance:textfield;
+    }
+    /* Webkit browsers like Safari and Chrome */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  .quantity .qty {
+    border-radius: 2px;
+    border: 1px solid @woocommerce-form-field-border-color;
+    line-height: 0;
+    height: 60px;
+    width: 120px;
+    text-align: left;
+    padding: 20px;
+  }
+
+  div.quantity {
+    margin-left: 10px;
+  }
+
+  // select
+  .vct-variable-container,
+  .vct-orderby-container {
+    position: relative;
+    display: inline-block;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 23px;
+      right: 35px;
+      border-left: @woocommerce-form-field-bullet-transparent;
+      border-right: @woocommerce-form-field-bullet-transparent;
+      border-top: @woocommerce-form-field-bullet;
+    }
+  }
+
+  .vct-orderby-container {
+    &::before {
+      right: 20px;
+    }
+  }
+
+  form.cart .variations select,
+  .woocommerce-ordering .orderby {
+    width: 340px;
+    height: 50px;
+    border-radius: 2px;
+    border: 1px solid @woocommerce-form-field-border-color;
+    background: transparent;
+    margin-bottom: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0 20px;
+  }
+}
