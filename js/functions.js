@@ -211,15 +211,18 @@
     // Handle click on quantity input controls
     $qtyControls.on( 'click', function() {
       var $this = $( this ),
-          currentValue = parseInt( $qtyInput.val() ),
-          value = currentValue;
+          $qtyContainer = $this.closest( '.vct-input-qty' ),
+          $currentInput = $qtyContainer.find( '.qty' ),
+          currentValue = parseInt( $currentInput.val() ),
+          value = currentValue,
+          minValue = parseInt($currentInput.attr( 'min' ));
       if ( $this.hasClass( 'vct-input-qty-control-add' ) ) {
         value = ++currentValue;
       }
-      if ( $this.hasClass( 'vct-input-qty-control-remove' ) && currentValue > 1 ) {
+      if ( $this.hasClass( 'vct-input-qty-control-remove' ) && currentValue > minValue ) {
         value = --currentValue;
       }
-      $qtyInput.val( value );
+      $currentInput.val( value );
     });
 
     // Handle click on message close control
