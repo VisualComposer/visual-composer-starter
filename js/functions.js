@@ -8,10 +8,6 @@
     var windowHeight, featuredImageHeight, navbarHeight, subMenu, subMenuRect;
     var menuItems = $( '.menu-item.menu-item-has-children' );
     var menuItemLinks = $( '.menu-item.menu-item-has-children > a' );
-    var $qtyInputContainer = $( '.vct-input-qty' );
-    var $qtyControls = $qtyInputContainer.find( '.vct-input-qty-control' );
-    var $qtyInput = $qtyInputContainer.find( '.qty' );
-    var $woocommerceMessageClose = $( '.vct-close-woocommerce-msg' );
 
     // Add dropdown toggle that displays child menu items.
     var $dropdownToggle = $( '<button />', {
@@ -209,7 +205,7 @@
 	} );
 
     // Handle click on quantity input controls
-    $qtyControls.on( 'click', function() {
+    $body.on( 'click', '.vct-input-qty-control', function() {
       var $this = $( this ),
           $qtyContainer = $this.closest( '.vct-input-qty' ),
           $currentInput = $qtyContainer.find( '.qty' ),
