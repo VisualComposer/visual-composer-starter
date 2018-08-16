@@ -140,7 +140,7 @@
   -moz-appearance: none;
   padding: 0 20px;
 }
-.visualcomposerstarter .vct-cart-items-count {
+.visualcomposerstarter.woocommerce .vct-cart-items-count {
   background: #2b4b80;
   color: #fff;
   width: 25px;
@@ -158,17 +158,17 @@
   line-height: 2.1;
   margin-left: 10px;
 }
-.visualcomposerstarter .navbar-wrapper {
+.visualcomposerstarter.woocommerce .navbar-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.visualcomposerstarter .navbar-header {
+.visualcomposerstarter.woocommerce .navbar-header {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
 }
-.visualcomposerstarter .vct-cart-wrapper {
+.visualcomposerstarter.woocommerce .vct-cart-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -179,7 +179,7 @@
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
 }
-.visualcomposerstarter .vct-cart-wrapper a {
+.visualcomposerstarter.woocommerce .vct-cart-wrapper a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -191,20 +191,11 @@
           align-items: center;
   text-decoration: none;
 }
-.visualcomposerstarter .vct-cart-wrapper a:hover {
+.visualcomposerstarter.woocommerce .vct-cart-wrapper a:hover {
   text-decoration: none;
   -webkit-box-shadow: none;
           box-shadow: none;
   outline: none;
-}
-.visualcomposerstarter .woocommerce table.cart {
-  border: none;
-}
-.visualcomposerstarter .woocommerce table.cart thead {
-  display: none;
-}
-.visualcomposerstarter .woocommerce table.cart td {
-  border: none;
 }
 .visualcomposerstarter.woocommerce .woocommerce-error,
 .visualcomposerstarter.woocommerce .woocommerce-info,
@@ -481,13 +472,13 @@
   font-size: 20px;
 }
 @media only screen and (min-width: 768px) {
-  .visualcomposerstarter:not(.menu-sandwich) .navbar-wrapper {
+  .visualcomposerstarter.woocommerce:not(.menu-sandwich) .navbar-wrapper {
     display: block;
   }
-  .visualcomposerstarter:not(.menu-sandwich) .vct-cart-wrapper {
+  .visualcomposerstarter.woocommerce:not(.menu-sandwich) .vct-cart-wrapper {
     float: right;
   }
-  .visualcomposerstarter:not(.menu-sandwich) .vct-cart-wrapper a {
+  .visualcomposerstarter.woocommerce:not(.menu-sandwich) .vct-cart-wrapper a {
     height: 55px;
   }
 }

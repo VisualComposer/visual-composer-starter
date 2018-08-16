@@ -232,4 +232,31 @@
           $parentMessage = $this.closest( '.' + parentSelector );
       $parentMessage.remove();
     });
+
+    // Hide original coupon code field
+	$( 'a.showcoupon' ).parent().hide();
+
+	// Toggle custom coupon code field
+	$( '#vct-show-promo-form' ).on( 'click', function() {
+		$( this ).parent().toggleClass( 'vct-visible' ).find( '.vct-promo-content' ).slideToggle( 500 );
+		return false;
+	});
+
+	$( '#vct-promo-code' ).keyup( function() {
+		$( '#coupon_code' ).val( this.value );
+	} );
+
+	// Copy coupon code to the default input field
+	$( document ).on( 'click', '#vct-apply-promo-code', function() {
+		$( '#coupon_code' ).val( $( '#vct-promo-code' ).val() );
+		$( '#vct-submit-coupon' ).trigger( 'click' );
+		return false;
+	} );
+
+	// Remove the coupon code
+	$( document ).on( 'click', '.woocommerce-remove-coupon', function() {
+		$( '#vct-promo-code' ).val( '' );
+		return false;
+	} );
+
 } )( window.jQuery );
