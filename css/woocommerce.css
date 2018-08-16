@@ -4,25 +4,56 @@
 /*
   Shapes
  */
-.visualcomposerstarter.woocommerce .products .button.add_to_cart_button,
-.visualcomposerstarter.woocommerce .products .button.product_type_grouped {
+.flex-center-all {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.visualcomposerstarter .products .button.add_to_cart_button,
+.visualcomposerstarter .products .button.product_type_grouped {
   padding: 17px 0;
   width: 150px;
   text-align: center;
   border-radius: 0;
 }
-.visualcomposerstarter.woocommerce .products .button.product_type_external {
+.visualcomposerstarter .products .button.product_type_external {
   padding: 17px;
   text-align: center;
   border-radius: 0;
 }
-.visualcomposerstarter.woocommerce .products .added_to_cart {
+.visualcomposerstarter .products .added_to_cart {
   font-size: 15px;
   margin-left: 0.8em;
 }
-.visualcomposerstarter.woocommerce .products .add_to_cart_button.button.loading::after {
+.visualcomposerstarter .products .add_to_cart_button.button.loading::after {
   top: 1em;
   right: 0.5em;
+}
+.visualcomposerstarter .woocommerce .button.checkout-button {
+  border-radius: 0;
+  text-transform: uppercase;
+  background: #557cbf;
+  font-size: 14px;
+  padding: 23px 20px;
+}
+.visualcomposerstarter .woocommerce .button.checkout-button:hover {
+  background: #3e63a3;
+}
+.visualcomposerstarter .woocommerce .button[name="update_cart"],
+.visualcomposerstarter .woocommerce .button[name="apply_coupon"] {
+  color: #4E4E4E;
+  border: 2px solid #4E4E4E;
+  border-radius: 0;
+  background: transparent;
+  padding: 15px 68px;
+  text-transform: uppercase;
+  float: right;
 }
 .visualcomposerstarter.woocommerce nav.woocommerce-pagination ul {
   border: none;
@@ -197,8 +228,11 @@
           box-shadow: none;
   outline: none;
 }
+.visualcomposerstarter .woocommerce-error,
 .visualcomposerstarter.woocommerce .woocommerce-error,
+.visualcomposerstarter .woocommerce-info,
 .visualcomposerstarter.woocommerce .woocommerce-info,
+.visualcomposerstarter .woocommerce-message,
 .visualcomposerstarter.woocommerce .woocommerce-message {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -215,15 +249,32 @@
   font-size: 13px;
   color: #fff;
 }
+.visualcomposerstarter .woocommerce-error::before,
 .visualcomposerstarter.woocommerce .woocommerce-error::before,
+.visualcomposerstarter .woocommerce-info::before,
 .visualcomposerstarter.woocommerce .woocommerce-info::before,
+.visualcomposerstarter .woocommerce-message::before,
 .visualcomposerstarter.woocommerce .woocommerce-message::before {
   display: none;
 }
+.visualcomposerstarter .woocommerce-error .button,
 .visualcomposerstarter.woocommerce .woocommerce-error .button,
+.visualcomposerstarter .woocommerce-info .button,
 .visualcomposerstarter.woocommerce .woocommerce-info .button,
-.visualcomposerstarter.woocommerce .woocommerce-message .button {
-  width: 100px;
+.visualcomposerstarter .woocommerce-message .button,
+.visualcomposerstarter.woocommerce .woocommerce-message .button,
+.visualcomposerstarter .woocommerce-error .restore-item,
+.visualcomposerstarter.woocommerce .woocommerce-error .restore-item,
+.visualcomposerstarter .woocommerce-info .restore-item,
+.visualcomposerstarter.woocommerce .woocommerce-info .restore-item,
+.visualcomposerstarter .woocommerce-message .restore-item,
+.visualcomposerstarter.woocommerce .woocommerce-message .restore-item,
+.visualcomposerstarter .woocommerce-error .showcoupon,
+.visualcomposerstarter.woocommerce .woocommerce-error .showcoupon,
+.visualcomposerstarter .woocommerce-info .showcoupon,
+.visualcomposerstarter.woocommerce .woocommerce-info .showcoupon,
+.visualcomposerstarter .woocommerce-message .showcoupon,
+.visualcomposerstarter.woocommerce .woocommerce-message .showcoupon {
   float: none;
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
@@ -235,14 +286,45 @@
   color: #fff;
   background: transparent;
 }
+.visualcomposerstarter .woocommerce-error .button:hover,
 .visualcomposerstarter.woocommerce .woocommerce-error .button:hover,
+.visualcomposerstarter .woocommerce-info .button:hover,
 .visualcomposerstarter.woocommerce .woocommerce-info .button:hover,
-.visualcomposerstarter.woocommerce .woocommerce-message .button:hover {
+.visualcomposerstarter .woocommerce-message .button:hover,
+.visualcomposerstarter.woocommerce .woocommerce-message .button:hover,
+.visualcomposerstarter .woocommerce-error .restore-item:hover,
+.visualcomposerstarter.woocommerce .woocommerce-error .restore-item:hover,
+.visualcomposerstarter .woocommerce-info .restore-item:hover,
+.visualcomposerstarter.woocommerce .woocommerce-info .restore-item:hover,
+.visualcomposerstarter .woocommerce-message .restore-item:hover,
+.visualcomposerstarter.woocommerce .woocommerce-message .restore-item:hover,
+.visualcomposerstarter .woocommerce-error .showcoupon:hover,
+.visualcomposerstarter.woocommerce .woocommerce-error .showcoupon:hover,
+.visualcomposerstarter .woocommerce-info .showcoupon:hover,
+.visualcomposerstarter.woocommerce .woocommerce-info .showcoupon:hover,
+.visualcomposerstarter .woocommerce-message .showcoupon:hover,
+.visualcomposerstarter.woocommerce .woocommerce-message .showcoupon:hover {
   background: transparent;
 }
+.visualcomposerstarter .woocommerce-error .button,
+.visualcomposerstarter.woocommerce .woocommerce-error .button,
+.visualcomposerstarter .woocommerce-info .button,
+.visualcomposerstarter.woocommerce .woocommerce-info .button,
+.visualcomposerstarter .woocommerce-message .button,
+.visualcomposerstarter.woocommerce .woocommerce-message .button,
+.visualcomposerstarter .woocommerce-error .restore-item,
+.visualcomposerstarter.woocommerce .woocommerce-error .restore-item,
+.visualcomposerstarter .woocommerce-info .restore-item,
+.visualcomposerstarter.woocommerce .woocommerce-info .restore-item,
+.visualcomposerstarter .woocommerce-message .restore-item,
+.visualcomposerstarter.woocommerce .woocommerce-message .restore-item {
+  width: 100px;
+}
+.visualcomposerstarter .woocommerce-error,
 .visualcomposerstarter.woocommerce .woocommerce-error {
   background: #F6424C;
 }
+.visualcomposerstarter .woocommerce-error li,
 .visualcomposerstarter.woocommerce .woocommerce-error li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -254,15 +336,25 @@
       -ms-flex-align: center;
           align-items: center;
 }
+.visualcomposerstarter .woocommerce-error li::before,
+.visualcomposerstarter.woocommerce .woocommerce-error li::before,
+.visualcomposerstarter .woocommerce-error li::after,
+.visualcomposerstarter.woocommerce .woocommerce-error li::after {
+  display: none;
+}
+.visualcomposerstarter .woocommerce-info,
 .visualcomposerstarter.woocommerce .woocommerce-info {
   background: #FBD137;
 }
+.visualcomposerstarter .woocommerce-message,
 .visualcomposerstarter.woocommerce .woocommerce-message {
   background: #2B4B80;
 }
+.visualcomposerstarter .vct-close-woocommerce-msg-container,
 .visualcomposerstarter.woocommerce .vct-close-woocommerce-msg-container {
   margin-left: auto !important;
 }
+.visualcomposerstarter .vct-close-woocommerce-msg,
 .visualcomposerstarter.woocommerce .vct-close-woocommerce-msg {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -273,8 +365,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
   cursor: pointer;
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
@@ -282,7 +374,9 @@
   margin-left: auto;
   position: relative;
 }
+.visualcomposerstarter .vct-close-woocommerce-msg::before,
 .visualcomposerstarter.woocommerce .vct-close-woocommerce-msg::before,
+.visualcomposerstarter .vct-close-woocommerce-msg::after,
 .visualcomposerstarter.woocommerce .vct-close-woocommerce-msg::after {
   content: '';
   position: absolute;
@@ -291,10 +385,12 @@
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
+.visualcomposerstarter .vct-close-woocommerce-msg::before,
 .visualcomposerstarter.woocommerce .vct-close-woocommerce-msg::before {
   width: 100%;
   height: 2px;
 }
+.visualcomposerstarter .vct-close-woocommerce-msg::after,
 .visualcomposerstarter.woocommerce .vct-close-woocommerce-msg::after {
   width: 2px;
   height: 100%;

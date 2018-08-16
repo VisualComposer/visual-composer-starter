@@ -1,4 +1,4 @@
-.visualcomposerstarter.woocommerce {
+.visualcomposerstarter {
   .products {
     .button {
       &.add_to_cart_button,
@@ -21,6 +21,30 @@
     .add_to_cart_button.button.loading::after {
       top: 1em;
       right: .5em;
+    }
+  }
+
+  .woocommerce {
+    .button.checkout-button {
+      border-radius: 0;
+      text-transform: uppercase;
+      background: @woocommerce-basic-button-background-color;
+      font-size: 14px;
+      padding: 23px 20px;
+      &:hover {
+        background: darken(@woocommerce-basic-button-background-color, 10%);
+      }
+    }
+
+    .button[name="update_cart"],
+    .button[name="apply_coupon"] {
+      color: @woocommerce-cart-update-cart-color;
+      border: 2px solid @woocommerce-cart-update-cart-color;
+      border-radius: 0;
+      background: transparent;
+      padding: 15px 68px;
+      text-transform: uppercase;
+      float: right;
     }
   }
 }

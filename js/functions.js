@@ -8,10 +8,6 @@
     var windowHeight, featuredImageHeight, navbarHeight, subMenu, subMenuRect;
     var menuItems = $( '.menu-item.menu-item-has-children' );
     var menuItemLinks = $( '.menu-item.menu-item-has-children > a' );
-    var $qtyInputContainer = $( '.vct-input-qty' );
-    var $qtyControls = $qtyInputContainer.find( '.vct-input-qty-control' );
-    var $qtyInput = $qtyInputContainer.find( '.qty' );
-    var $woocommerceMessageClose = $( '.vct-close-woocommerce-msg' );
 
     // Add dropdown toggle that displays child menu items.
     var $dropdownToggle = $( '<button />', {
@@ -209,7 +205,7 @@
 	} );
 
     // Handle click on quantity input controls
-    $qtyControls.on( 'click', function() {
+    $body.on( 'click', '.vct-input-qty-control', function() {
       var $this = $( this ),
           $qtyContainer = $this.closest( '.vct-input-qty' ),
           $currentInput = $qtyContainer.find( '.qty' ),
@@ -218,15 +214,17 @@
           minValue = parseInt( $currentInput.attr( 'min' ) );
       if ( $this.hasClass( 'vct-input-qty-control-add' ) ) {
         value = ++currentValue;
+        $currentInput.trigger( 'change' );
       }
       if ( $this.hasClass( 'vct-input-qty-control-remove' ) && currentValue > minValue ) {
         value = --currentValue;
+        $currentInput.trigger( 'change' );
       }
       $currentInput.val( value );
     });
 
     // Handle click on message close control
-    $woocommerceMessageClose.on( 'click', function() {
+    $body.on( 'click', '.vct-close-woocommerce-msg', function() {
       var $this = $( this ),
           parentSelector = $this.data( 'parent' ),
           $parentMessage = $this.closest( '.' + parentSelector );

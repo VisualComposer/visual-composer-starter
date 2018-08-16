@@ -1,3 +1,4 @@
+.visualcomposerstarter,
 .visualcomposerstarter.woocommerce {
   .woocommerce-error,
   .woocommerce-info,
@@ -15,8 +16,9 @@
       display: none;
     }
 
-    .button {
-      width: 100px;
+    .button,
+    .restore-item,
+    .showcoupon {
       float: none;
       order: 1;
       border: none;
@@ -30,14 +32,21 @@
         background: transparent;
       }
     }
+
+    .button,
+    .restore-item {
+      width: 100px;
+    }
   }
 
   .woocommerce-error {
     background: #F6424C;
     li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      .flex-center-all;
+      &::before,
+      &::after {
+        display: none;
+      }
     }
   }
 
@@ -54,12 +63,9 @@
   }
 
   .vct-close-woocommerce-msg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 14px;
-    height: 14px;
+    .flex-center-all;
+    width: @woocommerce-close-button-size;
+    height: @woocommerce-close-button-size;
     cursor: pointer;
     order: 2;
     margin-left: auto;
