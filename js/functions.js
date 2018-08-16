@@ -226,7 +226,7 @@
     });
 
     // Handle click on message close control
-    $woocommerceMessageClose.on( 'click', function() {
+    $body.on( 'click', '.vct-close-woocommerce-msg', function() {
       var $this = $( this ),
           parentSelector = $this.data( 'parent' ),
           $parentMessage = $this.closest( '.' + parentSelector );
