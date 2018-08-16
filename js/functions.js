@@ -218,9 +218,11 @@
           minValue = parseInt( $currentInput.attr( 'min' ) );
       if ( $this.hasClass( 'vct-input-qty-control-add' ) ) {
         value = ++currentValue;
+        $currentInput.trigger( 'change' );
       }
       if ( $this.hasClass( 'vct-input-qty-control-remove' ) && currentValue > minValue ) {
         value = --currentValue;
+        $currentInput.trigger( 'change' );
       }
       $currentInput.val( value );
     });
