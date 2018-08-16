@@ -688,8 +688,10 @@ function visualcomposerstarter_is_the_header_displayed() {
 	if ( get_theme_mod( VISUALCOMPOSERSTARTER_DISABLE_HEADER, false ) ) {
 		return false;
 	} elseif ( function_exists( 'get_field' ) ) {
-		if ( is_page() ) {
+		if ( is_page() && ! ( function_exists( 'is_shop' ) && is_shop() ) ) {
 			return ! get_field( 'field_58c800e5a7722' );
+		} elseif ( function_exists( 'is_shop' ) && is_shop() && get_option( 'woocommerce_shop_page_id' ) ) {
+			return ! get_field( 'field_58c800e5a7722', get_option( 'woocommerce_shop_page_id' ) );
 		} elseif ( is_singular() ) {
 			return ! get_field( 'field_58c7e3f0b7dfb' );
 		} else {
@@ -709,8 +711,10 @@ function visualcomposerstarter_is_the_footer_displayed() {
 	if ( get_theme_mod( VISUALCOMPOSERSTARTER_DISABLE_FOOTER, false ) ) {
 		return false;
 	} elseif ( function_exists( 'get_field' ) ) {
-		if ( is_page() ) {
+		if ( is_page() && ! ( function_exists( 'is_shop' ) && is_shop() ) ) {
 			return ! get_field( 'field_58c800faa7723' );
+		} elseif ( function_exists( 'is_shop' ) && is_shop() && get_option( 'woocommerce_shop_page_id' ) ) {
+			return ! get_field( 'field_58c800faa7723', get_option( 'woocommerce_shop_page_id' ) );
 		} elseif ( is_singular() ) {
 			return ! get_field( 'field_58c7e40db7dfc' );
 		} else {
@@ -766,7 +770,9 @@ function visualcomposerstarter_get_content_container_class() {
  * @return string
  */
 function visualcomposerstarter_check_needed_sidebar() {
-	if ( is_page() ) {
+	if ( is_page() && ! ( function_exists( 'is_shop' ) && is_shop() ) ) {
+		return VISUALCOMPOSERSTARTER_PAGE_SIDEBAR;
+	} elseif ( function_exists( 'is_shop' ) && is_shop() ) {
 		return VISUALCOMPOSERSTARTER_PAGE_SIDEBAR;
 	} elseif ( is_singular() ) {
 		return VISUALCOMPOSERSTARTER_POST_SIDEBAR;
@@ -787,7 +793,7 @@ function visualcomposerstarter_specify_sidebar() {
 		$value = function_exists( 'get_field' ) ? get_field( 'field_589f5a321f0bc' ) : null;
 	} elseif ( is_singular() ) {
 		$value = function_exists( 'get_field' ) ? get_field( 'field_589f5b1d656ca' ) : null;
-	} elseif ( is_archive() || is_category() || is_search() || is_front_page() || is_home() ) {
+	} elseif ( (is_archive() || is_category() || is_search() || is_front_page() || is_home()) && !(function_exists('is_shop') && is_shop())) {
 		if ( is_front_page() ) {
 			$value = function_exists( 'get_field' ) ? get_field( 'field_589f5a321f0bc', get_option( 'page_on_front' ) ) : null;
 		} elseif ( is_home() ) {
@@ -795,6 +801,8 @@ function visualcomposerstarter_specify_sidebar() {
 		} else {
 			$value = get_theme_mod( visualcomposerstarter_check_needed_sidebar(), 'none' );
 		}
+	} elseif ( function_exists('is_shop') && is_shop() && get_option( 'woocommerce_shop_page_id' ) ) {
+		$value = function_exists( 'get_field' ) ? get_field( 'field_589f5a321f0bc', get_option( 'woocommerce_shop_page_id' ) ) : null;
 	} else {
 		$value = null;
 	}
@@ -820,8 +828,10 @@ function visualcomposerstarter_specify_sidebar() {
  */
 function visualcomposerstarter_is_the_title_displayed() {
 	if ( function_exists( 'get_field' ) ) {
-		if ( is_page() ) {
+		if ( is_page() && ! ( function_exists( 'is_shop' ) && is_shop() ) ) {
 			return (bool) ! get_field( 'field_589f55db2faa9' );
+		} elseif ( function_exists( 'is_shop' ) && is_shop() && get_option( 'woocommerce_shop_page_id' ) ) {
+			return (bool) ! get_field( 'field_589f55db2faa9', get_option( 'woocommerce_shop_page_id' ) );
 		} elseif ( is_singular() ) {
 			return (bool) ! get_field( 'field_589f5b9a56207' );
 		} else {
@@ -1511,3 +1521,14 @@ function visualcomposerstarter_woo_variable_container( $html ) {
 	return '<div class="vct-variable-container">' . $html . '</div>';
 }
 add_filter( 'woocommerce_dropdown_variation_attribute_options_html', 'visualcomposerstarter_woo_variable_container' );
+
+/**
+ * Removes the "shop" title on the main shop page
+ *
+ * @access      public
+ * @return bool
+ */
+function visualcomposerstarter_woo_hide_page_title() {
+	return visualcomposerstarter_is_the_title_displayed();
+}
+add_filter( 'woocommerce_show_page_title' , 'visualcomposerstarter_woo_hide_page_title' );
