@@ -45,15 +45,21 @@
   top: 1em;
   right: 0.5em;
 }
-.visualcomposerstarter .woocommerce .button.checkout-button {
+.visualcomposerstarter .woocommerce .button.checkout-button,
+.visualcomposerstarter .woocommerce #place_order {
   border-radius: 0;
   text-transform: uppercase;
   background: #557cbf;
   font-size: 14px;
   padding: 23px 20px;
 }
-.visualcomposerstarter .woocommerce .button.checkout-button:hover {
+.visualcomposerstarter .woocommerce .button.checkout-button:hover,
+.visualcomposerstarter .woocommerce #place_order:hover {
   background: #3e63a3;
+}
+.visualcomposerstarter .woocommerce #place_order {
+  text-transform: none;
+  font-size: 16px;
 }
 .visualcomposerstarter .woocommerce .button[name="update_cart"],
 .visualcomposerstarter .woocommerce .button[name="apply_coupon"],
@@ -329,7 +335,6 @@
 .visualcomposerstarter .woocommerce .cart-collaterals .cart_totals .shop_table {
   margin: 30px 0 0;
   font-size: 15px;
-  font-weight: 400;
   border: none;
   border-radius: 0;
   border-top: 1px solid #efefef;
@@ -338,14 +343,13 @@
 .visualcomposerstarter .woocommerce .cart-collaterals .cart_totals .shop_table th {
   border: none;
   padding: 30px 12px;
-}
-.visualcomposerstarter .woocommerce .cart-collaterals .cart_totals .order-total {
-  font-weight: 700;
+  font-weight: 300;
 }
 .visualcomposerstarter .woocommerce .cart-collaterals .cart_totals .order-total td,
 .visualcomposerstarter .woocommerce .cart-collaterals .cart_totals .order-total th {
   border: none;
   border-top: 1px solid #efefef;
+  font-weight: 700;
 }
 .visualcomposerstarter .woocommerce .cart-collaterals .cart_totals .wc-proceed-to-checkout {
   padding: 0;
@@ -353,6 +357,7 @@
 .visualcomposerstarter .woocommerce table.cart {
   border: none;
   color: #979797;
+  font-weight: 300;
 }
 .visualcomposerstarter .woocommerce table.cart .coupon {
   display: none;
@@ -807,10 +812,52 @@
 .visualcomposerstarter.woocommerce .related.products ul.products li.product .woocommerce-loop-product__title {
   font-size: 20px;
 }
-.visualcomposerstarter .woocommerce .vcv-checkout .woocommerce-billing-fields h3:first-child {
+.visualcomposerstarter .woocommerce .checkout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+.visualcomposerstarter .woocommerce .checkout .vct-main-form-content {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 70%;
+          flex: 0 0 70%;
+  padding-right: 50px;
+}
+.visualcomposerstarter .woocommerce .checkout .vct-main-form-content h3 {
+  margin-top: 20px;
+}
+.visualcomposerstarter .woocommerce .checkout .vct-side-summary {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
+  padding: 22px;
+  -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
+          box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
+}
+.visualcomposerstarter .woocommerce .checkout #payment.woocommerce-checkout-payment {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  background: transparent;
+}
+.visualcomposerstarter .woocommerce .checkout .woocommerce-billing-fields h3:first-child {
   margin-top: 0px;
 }
-.visualcomposerstarter .woocommerce .vcv-checkout .woocommerce-billing-fields__field-wrapper {
+.visualcomposerstarter .woocommerce .checkout .woocommerce-billing-fields__field-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -820,31 +867,72 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.visualcomposerstarter .woocommerce .vcv-checkout .form-row {
+.visualcomposerstarter .woocommerce .checkout .form-row {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
 }
-.visualcomposerstarter .woocommerce .vcv-checkout .form-row-small {
+.visualcomposerstarter .woocommerce .checkout .form-row-small {
   -ms-flex-preferred-size: 47%;
       flex-basis: 47%;
 }
-.visualcomposerstarter .woocommerce .vcv-checkout .shop_table,
-.visualcomposerstarter .woocommerce .vcv-checkout .shop_table tr th,
-.visualcomposerstarter .woocommerce .vcv-checkout .shop_table tr td {
+.visualcomposerstarter .woocommerce .checkout .shop_table,
+.visualcomposerstarter .woocommerce .checkout .shop_table tr th,
+.visualcomposerstarter .woocommerce .checkout .shop_table tr td {
   border: none;
 }
-.visualcomposerstarter .woocommerce .vcv-checkout .shop_table tr th,
-.visualcomposerstarter .woocommerce .vcv-checkout .shop_table tr td {
+.visualcomposerstarter .woocommerce .checkout .shop_table tr th,
+.visualcomposerstarter .woocommerce .checkout .shop_table tr td {
   font-weight: 300;
   padding: 15px;
   border-bottom: 1px solid #efefef;
 }
-.visualcomposerstarter .woocommerce .vcv-checkout .shop_table .product-quantity {
+.visualcomposerstarter .woocommerce .checkout .shop_table .product-quantity,
+.visualcomposerstarter .woocommerce .checkout .shop_table tfoot th,
+.visualcomposerstarter .woocommerce .checkout .shop_table tfoot td {
   font-weight: 300;
 }
-.visualcomposerstarter .woocommerce .vcv-checkout .shop_table tfoot th,
-.visualcomposerstarter .woocommerce .vcv-checkout .shop_table tfoot td {
+.visualcomposerstarter .woocommerce .checkout .shop_table tfoot tr:last-child th,
+.visualcomposerstarter .woocommerce .checkout .shop_table tfoot tr:last-child td {
+  border: none;
+}
+.visualcomposerstarter .woocommerce .checkout .shop_table .order-total th,
+.visualcomposerstarter .woocommerce .checkout .shop_table .order-total td {
   font-weight: 700;
+}
+.visualcomposerstarter .woocommerce .checkout .wc_payment_methods {
+  padding: 1em 0;
+}
+.visualcomposerstarter .woocommerce .checkout .payment_methods label {
+  cursor: pointer;
+  display: block;
+}
+.visualcomposerstarter .woocommerce .checkout #payment ul.payment_methods {
+  padding: 1em 0;
+}
+.visualcomposerstarter .woocommerce .checkout #payment ul.payment_methods li {
+  padding: 7px 15px;
+  border: 1px solid #efefef;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+.visualcomposerstarter .woocommerce .checkout #payment ul.payment_methods li .input-radio {
+  display: none;
+}
+.visualcomposerstarter .woocommerce .checkout #payment div.payment_box {
+  background-color: transparent;
+  padding: 1em 0;
+}
+.visualcomposerstarter .woocommerce .checkout #payment div.payment_box::before {
+  display: none;
+}
+.visualcomposerstarter .woocommerce .checkout #payment .payment_method_paypal .about_paypal {
+  display: inline-block;
+  margin-left: 20px;
+  float: none;
+  line-height: 1;
+}
+.visualcomposerstarter .woocommerce .checkout #payment div.form-row {
+  padding: 1em 0;
 }
 @media only screen and (min-width: 768px) {
   .visualcomposerstarter:not(.menu-sandwich) .navbar-wrapper {
@@ -887,5 +975,15 @@
 @media only screen and (max-width: 992px) {
   .visualcomposerstarter .woocommerce table.cart .product-name {
     width: auto;
+  }
+  .visualcomposerstarter .woocommerce .checkout .vct-main-form-content {
+    padding: 0;
+  }
+  .visualcomposerstarter .woocommerce .checkout .vct-main-form-content,
+  .visualcomposerstarter .woocommerce .checkout .vct-side-summary {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    margin-bottom: 50px;
   }
 }
