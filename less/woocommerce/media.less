@@ -33,13 +33,22 @@
         .cart_item:first-child td {
           padding-top: 30px;
         }
-        .product-remove,
-        .product-name {
+        .product-remove {
           width: auto;
         }
         .button[name="update_cart"] {
           float: none;
         }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .visualcomposerstarter {
+    .woocommerce {
+      table.cart .product-name {
+        width: auto;
       }
     }
   }

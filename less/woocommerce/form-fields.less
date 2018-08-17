@@ -94,4 +94,52 @@
       padding: 10px;
     }
   }
+
+  .woocommerce form .form-row input,
+  .woocommerce form .form-row textarea {
+    padding: 10px 12px;
+    width: 100%;
+    border: 1px solid @woocommerce-form-field-border-color;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .woocommerce form .form-row textarea {
+    resize: none;
+  }
+
+  .select2 {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+
+  .select2-container--default .select2-selection--single {
+    border: none;
+    height: 37px;
+    margin-bottom: 0;
+  }
+
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 36px;
+    padding-left: 12px;
+    padding-right: 38px;
+    font-weight: 300;
+  }
+
+  .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 34px;
+    width: 38px;
+  }
+
+  .woocommerce form .form-row.woocommerce-validated .select2-container,
+  .woocommerce form .form-row.woocommerce-validated input.input-text,
+  .woocommerce form .form-row.woocommerce-validated select {
+    border-color: #ccc;
+  }
+
+  .woocommerce form .form-row label {
+    font-weight: 300;
+  }
 }
