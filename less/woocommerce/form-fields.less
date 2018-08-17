@@ -13,16 +13,12 @@
 
     .vct-input-qty-control-add {
       top: 22px;
-      border-left: @woocommerce-form-field-bullet-transparent;
-      border-right: @woocommerce-form-field-bullet-transparent;
-      border-bottom: @woocommerce-form-field-bullet;
+      .arrow-up;
     }
 
     .vct-input-qty-control-remove {
       top: 33px;
-      border-left: @woocommerce-form-field-bullet-transparent;
-      border-right: @woocommerce-form-field-bullet-transparent;
-      border-top: @woocommerce-form-field-bullet;
+      .arrow-down;
     }
 
     /* For Firefox */
@@ -56,7 +52,8 @@
 
   // select
   .vct-variable-container,
-  .vct-orderby-container {
+  .vct-orderby-container,
+  .vct-promo-code-container {
     position: relative;
     display: inline-block;
 
@@ -65,9 +62,7 @@
       position: absolute;
       top: 23px;
       right: 35px;
-      border-left: @woocommerce-form-field-bullet-transparent;
-      border-right: @woocommerce-form-field-bullet-transparent;
-      border-top: @woocommerce-form-field-bullet;
+      .arrow-down;
     }
   }
 
@@ -88,5 +83,15 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     padding: 0 20px;
+  }
+
+  .vct-promo-content {
+    input {
+      border: 1px solid @woocommerce-form-field-border-color;
+      border-radius: 3px;
+      margin-bottom: 10px;
+      height: 40px;
+      padding: 10px;
+    }
   }
 }

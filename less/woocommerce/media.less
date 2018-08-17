@@ -14,16 +14,29 @@
 
 @media only screen and (max-width: 768px) {
   .visualcomposerstarter {
-    .woocommerce table.cart {
-      td {
-        padding: 30px 20px;
+    .woocommerce {
+      flex-wrap: wrap;
+
+      .vcv-cart-container {
+        padding: 0;
       }
-      .product-remove,
-      .product-name {
-        width: auto;
+
+      .vcv-cart-container,
+      .cart-collaterals {
+        flex: 0 0 100%;
       }
-      .button[name="update_cart"] {
-        float: none;
+
+      table.cart {
+        td {
+          padding: 30px 20px;
+        }
+        .product-remove,
+        .product-name {
+          width: auto;
+        }
+        .button[name="update_cart"] {
+          float: none;
+        }
       }
     }
   }

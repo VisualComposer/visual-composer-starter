@@ -25,21 +25,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
 
-	<h2><?php _e( 'Cart totals', 'woocommerce' ); ?></h2>
+	<h2><?php _e( 'Order Summary', 'woocommerce' ); ?></h2>
 
 	<?php if ( wc_coupons_enabled() ) { ?>
 		<div class="vct-promo">
-			<button id="vct-show-promo-form">
+			<button id="vct-show-promo-form" class="vct-show-promo-form">
 				<?php _e( "Got promo code?", "visual-composer-starter" ); ?>
-				<span class="vct-arrow">
-					<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
-						<path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"></path>
-					</svg>
-				</span>
 			</button>
 			<div class="vct-promo-content" style="display:none;">
 				<input type="text" class="input-text " name="vct-promo-code" id="vct-promo-code">
-				<button id="vct-apply-promo-code" class="vct-checkout-button">><?php __( "Apply", "visual-composer-starter" ); ?></button>
+				<button id="vct-apply-promo-code" class="vct-checkout-button"><?php _e( "Apply", "visual-composer-starter" ); ?></button>
 			</div>
 		</div>
 	<?php } ?>
