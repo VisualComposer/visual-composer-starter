@@ -795,6 +795,9 @@
   .visualcomposerstarter .woocommerce table.cart td {
     padding: 30px 20px;
   }
+  .visualcomposerstarter .woocommerce table.cart .cart_item:first-child td {
+    padding-top: 30px;
+  }
   .visualcomposerstarter .woocommerce table.cart .product-remove,
   .visualcomposerstarter .woocommerce table.cart .product-name {
     width: auto;
