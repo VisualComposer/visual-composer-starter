@@ -231,11 +231,8 @@
       $parentMessage.remove();
     });
 
-    // Hide original coupon code field
-	$( 'a.showcoupon' ).parent().hide();
-
 	// Toggle custom coupon code field
-	$( '#vct-show-promo-form' ).on( 'click', function() {
+  $( document ).on( 'click', '#vct-show-promo-form', function() {
 		$( this ).parent().toggleClass( 'vct-visible' ).find( '.vct-promo-content' ).slideToggle( 500 );
 		return false;
 	});
