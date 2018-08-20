@@ -1,5 +1,5 @@
-.close-button-character(@color) {
-  position: relative;
+.close-button-character(@color, @position) {
+  position: @position;
   &::before,
   &::after {
     content: '';
@@ -33,4 +33,15 @@
   border-left: @woocommerce-form-field-bullet-transparent;
   border-right: @woocommerce-form-field-bullet-transparent;
   border-top: @woocommerce-form-field-bullet;
+}
+
+.item-count {
+  background: #2b4b80;
+  color: #fff;
+  width: 25px;
+  .flex-center-all;
+  font-size: 12px;
+  border-radius: 50%;
+  line-height: 2.1;
+  margin-left: 10px;
 }

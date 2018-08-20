@@ -73,7 +73,8 @@
   }
 
   form.cart .variations select,
-  .woocommerce-ordering .orderby {
+  .woocommerce-ordering .orderby,
+  .widget.woocommerce .dropdown_product_cat {
     width: 340px;
     height: 50px;
     border-radius: 2px;
@@ -83,6 +84,11 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     padding: 0 20px;
+  }
+
+  .widget.woocommerce .dropdown_product_cat {
+    width: 100%;
+    -webkit-appearance: menulist;
   }
 
   .vct-promo-content {
