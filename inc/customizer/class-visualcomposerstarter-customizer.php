@@ -1033,10 +1033,32 @@ class VisualComposerStarter_Customizer {
 				$wp_customize,
 				'woocommerce_header_cart_icon',
 				array(
-					'label' => __( 'Cart Icon', 'woocommerce' ),
+					'label' => __( 'Cart Icon', 'visual-composer-starter' ),
 					'description' => __( 'If enabled, this show the cart icon right next to the main menu.', 'visual-composer-starter' ),
 					'section' => 'vct_woocommerce_settings',
 					'settings' => 'woocommerce_header_cart_icon',
+					'type' => 'toggle-switch',
+				)
+			)
+		);
+		$wp_customize->add_setting( 'woocommerce_coupon_from', array(
+			'default' => true,
+			'capability' => 'manage_woocommerce',
+			'sanitize_callback' => array(
+				$this,
+				'sanitize_checkbox',
+			),
+		) );
+
+		$wp_customize->add_control(
+			new VisualComposerStarter_Toggle_Switch_Control(
+				$wp_customize,
+				'woocommerce_coupon_from',
+				array(
+					'label' => __( 'Always open coupon form', 'visual-composer-starter' ),
+					'description' => __( 'If enabled, this show will leave the coupon form always open.', 'visual-composer-starter' ),
+					'section' => 'vct_woocommerce_settings',
+					'settings' => 'woocommerce_coupon_from',
 					'type' => 'toggle-switch',
 				)
 			)

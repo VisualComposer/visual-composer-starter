@@ -410,9 +410,10 @@ function visualcomposerstarter_script() {
 	wp_register_script( 'visualcomposerstarter-script', get_template_directory_uri() . '/js/functions.min.js', array( 'jquery' ), VISUALCOMPOSERSTARTER_VERSION, true );
 
 	wp_localize_script( 'jquery', 'visualcomposerstarter', array(
-			'ajax_url' => admin_url( 'admin-ajax.php' ),
-			'nonce' => wp_create_nonce( 'visualcomposerstarter' ),
-		) );
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'nonce' => wp_create_nonce( 'visualcomposerstarter' ),
+		'woo_coupon_form' => get_theme_mod( 'woocommerce_coupon_from', false ),
+	) );
 
 	/* Enqueue scripts */
 	wp_enqueue_script( 'bootstrap-transition' );
