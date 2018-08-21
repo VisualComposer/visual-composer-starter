@@ -1319,6 +1319,46 @@
   margin: 0 0 14px;
   font-size: 13px;
 }
+.visualcomposerstarter .woocommerce-order .vct-thank-you-title,
+.visualcomposerstarter .woocommerce-order .vct-thank-you-subtitle,
+.visualcomposerstarter .woocommerce-order .vct-thank-you-subtitle + p {
+  text-align: center;
+}
+.visualcomposerstarter .woocommerce-order .woocommerce-order-details {
+  padding: 0 0 20px;
+  border-bottom: 1px solid #bbb;
+}
+.visualcomposerstarter .woocommerce-order .woocommerce-order-details__title,
+.visualcomposerstarter .woocommerce-order .woocommerce-column__title {
+  margin: 30px;
+}
+.visualcomposerstarter .woocommerce-order .vct-order-detail,
+.visualcomposerstarter .woocommerce-order .vct-billing-detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 0 15px;
+  padding: 0;
+}
+.visualcomposerstarter .woocommerce-order .vct-order-detail::before,
+.visualcomposerstarter .woocommerce-order .vct-billing-detail::before {
+  display: none;
+}
+.visualcomposerstarter .woocommerce-order .vct-order-detail span,
+.visualcomposerstarter .woocommerce-order .vct-billing-detail span {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+}
+.visualcomposerstarter .woocommerce-order .vct-order-detail span:nth-child(2),
+.visualcomposerstarter .woocommerce-order .vct-billing-detail span:nth-child(2) {
+  font-weight: 600;
+}
+.visualcomposerstarter .woocommerce-order .vct-order-detail span a,
+.visualcomposerstarter .woocommerce-order .vct-billing-detail span a {
+  color: inherit;
+  border-color: inherit;
+}
 @media only screen and (min-width: 768px) {
   .visualcomposerstarter:not(.menu-sandwich) .navbar-wrapper {
     display: block;

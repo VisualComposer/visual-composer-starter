@@ -1,0 +1,41 @@
+.visualcomposerstarter .woocommerce-order {
+  .vct-thank-you-title,
+  .vct-thank-you-subtitle,
+  .vct-thank-you-subtitle + p {
+    text-align: center;
+  }
+
+  .woocommerce-order-details {
+    padding: 0 0 20px;
+    border-bottom: 1px solid #bbb;
+  }
+
+  .woocommerce-order-details__title,
+  .woocommerce-column__title {
+    margin: 30px;
+  }
+
+  .vct-order-detail,
+  .vct-billing-detail {
+    display: flex;
+    margin: 0 0 15px;
+    padding: 0;
+
+    &::before {
+      display: none;
+    }
+
+    span {
+      flex: 0 0 50%;
+    }
+
+    span:nth-child(2) {
+      font-weight: 600;
+    }
+
+    span a {
+      color: inherit;
+      border-color: inherit;
+    }
+  }
+}
