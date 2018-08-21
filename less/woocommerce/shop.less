@@ -4,12 +4,27 @@
     color: #979797;
   }
 
+  ul.products {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   ul.products li.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     .onsale {
-      top: 20px;
-      left: 20px;
+      top: 2%;
+      left: 4%;
       right: auto;
+      width: 2%;
       margin: 0;
+
+      svg {
+        width: 100%;
+        height: auto;
+      }
     }
 
     .woocommerce-loop-product__title {

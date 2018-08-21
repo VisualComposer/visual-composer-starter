@@ -134,4 +134,17 @@
   #payment #place_order {
     float: none;
   }
+
+  .woocommerce-checkout-review-order tfoot tr {
+    td, th {
+      border: none;
+    }
+
+    &:last-child,
+    &:first-child {
+      td, th {
+        border-top: 1px solid @woocommerce-cart-order-summary-border-color;
+      }
+    }
+  }
 }
