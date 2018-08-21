@@ -58,6 +58,10 @@
     }
   }
 
+  .woocommerce > .woocommerce-info {
+    flex: 0 0 100%;
+  }
+
   .woocommerce-message {
     background: @vc-starter-theme-woocomemrce-dark-blue;
   }
@@ -81,5 +85,20 @@
     font-family: 'Roboto', Arial, sans-serif;
     font-style: italic;
     background: @vc-starter-theme-woocomemrce-dark-blue;
+  }
+
+  .woocommerce-NoticeGroup {
+    width: 100%;
+    .woocommerce-error {
+      flex-wrap: wrap;
+      li {
+        flex: 0 0 100%;
+        justify-content: flex-start;
+      }
+      .vct-close-woocommerce-msg-container {
+        position: absolute;
+        right: 23px;
+      }
+    }
   }
 }

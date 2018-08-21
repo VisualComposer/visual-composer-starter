@@ -94,11 +94,20 @@
     .woocommerce-tabs .panel {
       box-shadow: none;
     }
+
+    .woocommerce-variation-price {
+      margin-bottom: 20px;
+    }
+
+    .woocommerce-Reviews-title {
+      margin-bottom: 40px;
+      font-size: 30px;
+    }
   }
 
   .star-rating::before {
     content: '\53\53\53\53\53';
-    color: #eee;
+    color: rgba(0, 0, 0, 0.15);
   }
 
   .star-rating span::before {
@@ -146,7 +155,7 @@
   p.stars a::before,
   p.stars a:hover ~ a::before {
     content: '\e020';
-    color: #eee;
+    color: rgba(0, 0, 0, .15);
   }
 
   p.stars:hover a::before,
@@ -157,11 +166,40 @@
 
   p.stars.selected a.active ~ a::before {
     content: '\e020';
-    color: #eee;
+    color: rgba(0, 0, 0, .15);
   }
 
-  #reviews #comments ol.commentlist li .comment-text {
-    border: none;
-    border-bottom: 1px solid #e4e1e3;
+  #reviews #comments ol.commentlist {
+    padding: 0;
+
+    li .comment-text {
+      flex: 0 0 87%;
+      margin: 0;
+      padding: 0;
+      border: none;
+      border-bottom: 1px solid #e4e1e3;
+    }
+
+    .comment_container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    li img.avatar {
+      float: none;
+      position: relative;
+      padding: 0;
+      background: none;
+      border: none;
+      border-radius: 50%;
+      height: 8%;
+      flex: 0 0 8%;
+    }
+  }
+
+  .comment-reply-title {
+    display: inline-block;
+    font-size: 30px;
+    margin: 10px 0;
   }
 }

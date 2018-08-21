@@ -27,7 +27,8 @@
   .woocommerce {
     .button.checkout-button,
     #place_order,
-    .woocommerce-mini-cart__buttons.buttons a {
+    .woocommerce-mini-cart__buttons.buttons a,
+    .button.wc-backward {
       border-radius: 0;
       text-transform: uppercase;
       background: @woocommerce-basic-button-background-color;
@@ -36,6 +37,10 @@
       &:hover {
         background: darken(@woocommerce-basic-button-background-color, 10%);
       }
+    }
+
+    .button.wc-backward {
+      color: #fff;
     }
 
     #place_order {
@@ -63,6 +68,18 @@
 
     .vct-checkout-button {
       padding: 13px 68px;
+    }
+  }
+
+  #review_form #respond .form-submit .submit {
+    border-radius: 0;
+    text-transform: uppercase;
+    background: @woocommerce-basic-button-background-color;
+    font-size: 14px;
+    padding: 23px 50px;
+    color: #fff;
+    &:hover {
+      background: darken(@woocommerce-basic-button-background-color, 10%);
     }
   }
 
