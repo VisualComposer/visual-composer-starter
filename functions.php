@@ -1537,5 +1537,3 @@ add_filter( 'woocommerce_show_page_title' , 'visualcomposerstarter_woo_hide_page
 //move payments after customer details
 remove_action('woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20);
 add_action('woocommerce_checkout_after_customer_details', 'woocommerce_checkout_payment', 20);
-
-add_filter( 'woocommerce_checkout_cart_item_visible' , '__return_false' );
