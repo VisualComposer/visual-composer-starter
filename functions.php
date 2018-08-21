@@ -1341,7 +1341,7 @@ function visualcomposerstarter_inline_styles() {
 		#footer a:hover { border-bottom-color: ' . esc_html( $footer_area_text_active_color ) . '; }
 		';
 	}
-	$on_sale_color = get_theme_mod( 'woo_on_sale_color', '#ffffff' );
+	$on_sale_color = get_theme_mod( 'woo_on_sale_color', '#FAC917' );
 	if ( '#FAC917' !== $on_sale_color ) {
 		$css .= '
 		/*Woocommerce*/
