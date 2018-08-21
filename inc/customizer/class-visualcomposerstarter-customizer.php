@@ -1027,7 +1027,6 @@ class VisualComposerStarter_Customizer {
 			),
 			'transport' => 'postMessage',
 		) );
-
 		$wp_customize->add_control(
 			new VisualComposerStarter_Toggle_Switch_Control(
 				$wp_customize,
@@ -1041,6 +1040,7 @@ class VisualComposerStarter_Customizer {
 				)
 			)
 		);
+
 		$wp_customize->add_setting( 'woocommerce_coupon_from', array(
 			'default' => true,
 			'capability' => 'manage_woocommerce',
@@ -1049,7 +1049,6 @@ class VisualComposerStarter_Customizer {
 				'sanitize_checkbox',
 			),
 		) );
-
 		$wp_customize->add_control(
 			new VisualComposerStarter_Toggle_Switch_Control(
 				$wp_customize,
@@ -1064,6 +1063,22 @@ class VisualComposerStarter_Customizer {
 			)
 		);
 
+		$wp_customize->add_setting( 'woo_on_sale_color',  array(
+			'default'       => '#FAC917',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_on_sale_color',
+				array(
+					'label'         => esc_html__( 'On sale badge color', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_on_sale_color',
+				)
+			)
+		);
 	}
 
 	/**

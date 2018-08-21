@@ -20,4 +20,15 @@
 		} );
 	} );
 
+	// Woocmmerce sale icon
+	wp.customize( 'woo_on_sale_color', function( value ) {
+		value.bind( function( newval ) {
+			if ( newval ) {
+				$( '.vct-sale svg>g>g' ).css( 'fill', newval );
+			} else {
+				$( '.vct-sale svg>g>g' ).css( 'fill', '#FAC917' );
+			}
+		} );
+	} );
+
 })( window.jQuery );
