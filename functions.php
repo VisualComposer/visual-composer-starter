@@ -1038,7 +1038,11 @@ function visualcomposerstarter_inline_styles() {
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_hover_color', '#f4f4f4' ) ) . '; 
 	  }
 	  .visualcomposerstarter.woocommerce button.button,
-	  .visualcomposerstarter.woocommerce a.button.product_type_simple {
+	  .visualcomposerstarter.woocommerce a.button.product_type_simple,
+	  .visualcomposerstarter.woocommerce a.button.product_type_grouped,
+	  .visualcomposerstarter.woocommerce a.button.product_type_variable,
+	  .visualcomposerstarter.woocommerce a.button.product_type_external,
+	  .visualcomposerstarter.woocommerce a.button.wc-forward {
 	  		background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_color', '#557cbf' ) ) . '; 
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_color', '#f4f4f4' ) ) . ';
 			font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_family', 'Playfair Display' ) ) . ';
