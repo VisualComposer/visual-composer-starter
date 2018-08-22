@@ -124,8 +124,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 						</td>
 					</tr>
 					<?php
-				} // If the product exists and the view is not disabled.
-			} // Foreach all the cart items.
+				} // End if()
+			} // End foreach()
 			?>
 
 			<?php do_action( 'woocommerce_cart_contents' ); ?>
