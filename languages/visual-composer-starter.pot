@@ -3,7 +3,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-22 12:30+0300\n"
 "PO-Revision-Date: 2017-03-20 21:48+0200\n"
 "Last-Translator: WPBakery <hello@wpbakery.com>\n"
 "Language-Team: Visual Composer <hello@visualcomposer.io>\n"
@@ -15,6 +14,7 @@ msgstr ""
 "X-Poedit-KeywordsList: esc_html__;esc_html_e;esc_attr__;esc_attr_e;"
 "esc_html_x;_x;esc_attr_x\n"
 "X-Poedit-Basepath: ..\n"
+"POT-Creation-Date: \n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 "X-Poedit-SearchPathExcluded-1: less\n"
@@ -43,8 +43,8 @@ msgstr ""
 msgid "One Comment"
 msgstr ""
 
-#: comments.php:21
-msgid "% Comment"
+#: comments.php:21 inc/template-tags.php:172
+msgid "% Comments"
 msgstr ""
 
 #: comments.php:23
@@ -908,10 +908,6 @@ msgstr ""
 
 #: inc/template-tags.php:172
 msgid "1 Comment"
-msgstr ""
-
-#: inc/template-tags.php:172
-msgid "% Comments"
 msgstr ""
 
 #: inc/template-tags.php:188
