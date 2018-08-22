@@ -194,10 +194,10 @@
 
     $( document.body ).on( 'added_to_cart', function() {
       $.ajax({
-        url: visualcomposerstarter.ajax_url,
+        url: vcThemeVars.ajax_url,
         data: {
           'action': 'visualcomposerstarter_woo_cart_count',
-          'nonce': visualcomposerstarter.nonce
+          'nonce': vcThemeVars.nonce
         },
         success: function( data ) {
           $( '.vct-cart-items-count' ).html( data );
@@ -210,9 +210,9 @@
       var $this = $( this ),
           $qtyContainer = $this.closest( '.vct-input-qty' ),
           $currentInput = $qtyContainer.find( '.qty' ),
-          currentValue = parseInt( $currentInput.val() ),
-          value = currentValue,
-          minValue = parseInt( $currentInput.attr( 'min' ) );
+		  currentValue = parseInt( $currentInput.val(), 10 ),
+		  value = currentValue,
+		  minValue = parseInt( $currentInput.attr( 'min' ), 10 );
       if ( $this.hasClass( 'vct-input-qty-control-add' ) ) {
         value = ++currentValue;
         $currentInput.trigger( 'change' );
