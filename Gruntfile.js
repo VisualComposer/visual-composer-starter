@@ -14,7 +14,8 @@ module.exports = function( grunt ) {
 				'style.less',
 				'responsive.less',
 				'slick.less',
-				'visual-composer-starter-font.less'
+				'visual-composer-starter-font.less',
+				'woocommerce.less'
 			],
 			destPath: 'css/'
 		},
@@ -92,6 +93,9 @@ module.exports = function( grunt ) {
 					},
 					{
 						'css/visual-composer-starter-font.css': 'less/visual-composer-starter-font.less'
+					},
+					{
+						'css/woocommerce.css': 'less/woocommerce.less'
 					}
 				]
 			}
@@ -133,6 +137,9 @@ module.exports = function( grunt ) {
 					},
 					{
 						'css/visual-composer-starter-font.css': 'css/visual-composer-starter-font.css'
+					},
+					{
+						'css/woocommerce.css': 'css/woocommerce.css'
 					}
 				]
 			},
@@ -191,6 +198,10 @@ module.exports = function( grunt ) {
 					{
 						dest: '<%= go.js.destPath %>functions.min.js',
 						src: '<%= go.js.srcPath %>functions.js'
+					},
+					{
+						dest: '<%= go.js.destPath %>customize-preview.min.js',
+						src: '<%= go.js.srcPath %>customize-preview.js'
 					}
 				]
 			}

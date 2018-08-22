@@ -1,0 +1,47 @@
+.close-button-character(@color, @position) {
+  position: @position;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background: @color;
+    transform: rotate(45deg);
+  }
+  &::before {
+    width: 100%;
+    height: 2px;
+  }
+  &::after {
+    width: 2px;
+    height: 100%;
+  }
+}
+
+.flex-center-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-up {
+  border-left: @woocommerce-form-field-bullet-transparent;
+  border-right: @woocommerce-form-field-bullet-transparent;
+  border-bottom: @woocommerce-form-field-bullet;
+}
+
+.arrow-down {
+  border-left: @woocommerce-form-field-bullet-transparent;
+  border-right: @woocommerce-form-field-bullet-transparent;
+  border-top: @woocommerce-form-field-bullet;
+}
+
+.item-count {
+  background: @vc-starter-theme-woocomemrce-dark-blue;
+  color: #fff;
+  width: 25px;
+  .flex-center-all;
+  font-size: 12px;
+  border-radius: 50%;
+  line-height: 2.1;
+  margin-left: 10px;
+}
