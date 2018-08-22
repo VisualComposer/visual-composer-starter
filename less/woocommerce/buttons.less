@@ -1,0 +1,142 @@
+.visualcomposerstarter {
+  .products {
+    .button {
+      &.add_to_cart_button,
+      &.product_type_grouped,
+      &.product_type_simple {
+        padding: 17px 0;
+        //width: 150px;
+        text-align: center;
+        border-radius: 0;
+      }
+      &.product_type_external {
+        padding: 17px;
+        text-align: center;
+        border-radius: 0;
+      }
+    }
+    .product {
+      .button.add_to_cart_button {
+        width: auto;
+      }
+    }
+    .added_to_cart {
+      font-size: 15px;
+      margin-left: 0.8em;
+    }
+    .add_to_cart_button.button.loading::after {
+      top: 1em;
+      right: .5em;
+    }
+  }
+
+  .woocommerce {
+    .button.checkout-button,
+    #place_order,
+    .woocommerce-mini-cart__buttons.buttons a,
+    .button.wc-backward,
+    .vct-thank-you-footer a {
+      border-radius: 0;
+      text-transform: uppercase;
+      background: @woocommerce-basic-button-background-color;
+      font-size: 14px;
+      padding: 23px 20px;
+      &:hover {
+        background: darken(@woocommerce-basic-button-background-color, 10%);
+      }
+    }
+
+    .button.wc-backward,
+    .vct-thank-you-footer a {
+      color: #fff;
+    }
+
+    .vct-thank-you-footer a {
+      padding: 23px 60px;
+    }
+
+    #place_order {
+      text-transform: none;
+      font-size: 16px;
+      padding: 17px 0;
+      width: 150px;
+    }
+
+    .button[name="update_cart"],
+    .button[name="apply_coupon"],
+    .vct-checkout-button {
+      color: @woocommerce-cart-update-cart-color;
+      border: 2px solid @woocommerce-cart-update-cart-color;
+      border-radius: 0;
+      background: transparent;
+      padding: 15px 68px;
+      text-transform: uppercase;
+      float: right;
+      font-size: 12px;
+
+      &:disabled[disabled],
+      &:disabled {
+        padding: 15px 68px;
+      }
+    }
+
+    .vct-checkout-button {
+      padding: 13px 68px;
+    }
+  }
+
+  #review_form #respond .form-submit .submit {
+    border-radius: 0;
+    text-transform: uppercase;
+    background: @woocommerce-basic-button-background-color;
+    font-size: 14px;
+    padding: 23px 50px;
+    color: #fff;
+    &:hover {
+      background: darken(@woocommerce-basic-button-background-color, 10%);
+    }
+  }
+
+  .vct-show-promo-form {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    background: transparent;
+    padding: 0;
+    outline: none;
+    color: @woocommerce-cart-promo-code-color;
+
+    &::after {
+      content: '';
+      position: relative;
+      .arrow-down;
+    }
+  }
+
+  .vct-promo-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 0;
+  }
+
+  .widget.woocommerce {
+    .woocommerce-mini-cart__buttons {
+      display: flex;
+    }
+
+    a.button {
+      width: 50%;
+      color: #fff;
+      padding: 20px 12px;
+      font-size: 13px;
+      text-align: center;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

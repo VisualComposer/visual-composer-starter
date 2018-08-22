@@ -1,0 +1,150 @@
+.visualcomposerstarter .woocommerce form.checkout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+
+  .vct-main-form-content {
+    order: 1;
+    flex: 0 0 70%;
+    padding-right: 50px;
+
+    h3 {
+      margin-top: 20px;
+    }
+  }
+
+  .vct-side-summary {
+    order: 2;
+    flex: 0 0 30%;
+    padding: 22px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
+  }
+
+  #payment.woocommerce-checkout-payment {
+    order: 3;
+    flex: 0 0 70%;
+    background: transparent;
+    padding-right: 50px;
+  }
+
+  .woocommerce-billing-fields h3:first-child {
+    margin-top: 0px;
+  }
+
+  .woocommerce-billing-fields__field-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .form-row {
+    flex-basis: 100%;
+  }
+
+  .form-row-small {
+    flex-basis: 47%;
+  }
+
+  .shop_table,
+  .shop_table tr th,
+  .shop_table tr td {
+    border: none;
+  }
+
+  .shop_table tr th,
+  .shop_table tr td {
+    font-weight: 300;
+    padding: 15px;
+    border-bottom: 1px solid @woocommerce-checkout-order-summary-border-color;
+  }
+
+  .shop_table .product-quantity,
+  .shop_table tfoot th,
+  .shop_table tfoot td {
+    font-weight: 300;
+  }
+
+  .shop_table tfoot tr:last-child {
+    th, td {
+      border: none;
+    }
+  }
+
+  .shop_table .order-total {
+    th, td {
+      font-weight: 700;
+    }
+  }
+
+  .wc_payment_methods {
+    padding: 1em 0;
+  }
+
+  .payment_methods label {
+    cursor: pointer;
+    display: block;
+  }
+
+  #payment ul.payment_methods {
+    padding: 1em 0;
+  }
+
+  #payment ul.payment_methods li {
+    padding: 7px 15px;
+    border: 1px solid @woocommerce-checkout-order-summary-border-color;
+    margin-bottom: 10px;
+    border-radius: 3px;
+  }
+
+  #payment ul.payment_methods li .input-radio {
+    display: none;
+  }
+
+  #payment div.payment_box {
+    background-color: transparent;
+    padding: 1em 0;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  #payment .payment_method_paypal .about_paypal {
+    display: inline-block;
+    margin-left: 20px;
+    float: none;
+    line-height: 1;
+  }
+
+  #payment div.form-row {
+    padding: 1em 0;
+  }
+
+  label.checkbox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .input-checkbox {
+      width: auto;
+      position: relative;
+    }
+  }
+
+  #payment #place_order {
+    float: none;
+  }
+
+  .woocommerce-checkout-review-order tfoot tr {
+    td, th {
+      border: none;
+    }
+
+    &:last-child,
+    &:first-child {
+      td, th {
+        border-top: 1px solid @woocommerce-cart-order-summary-border-color;
+      }
+    }
+  }
+}

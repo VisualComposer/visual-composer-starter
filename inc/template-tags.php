@@ -81,7 +81,7 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
 			</div>
 
 			<?php
-		} elseif ( post_password_required() || is_attachment() || ! has_post_thumbnail() || ! get_theme_mod( 'vct_overall_site_featured_image', true ) ) {
+		} elseif ( 'product' === get_post_type() || post_password_required() || is_attachment() || ! has_post_thumbnail() || ! get_theme_mod( 'vct_overall_site_featured_image', true ) ) {
 			return;
 		} else {
 			?>

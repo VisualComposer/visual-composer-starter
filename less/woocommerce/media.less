@@ -1,0 +1,116 @@
+@media only screen and (min-width: 768px) {
+  .visualcomposerstarter:not(.menu-sandwich) {
+    .navbar-wrapper {
+      display: block;
+    }
+    .vct-cart-wrapper {
+      float: right;
+      a {
+        height: 55px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 516px) {
+  .visualcomposerstarter {
+    &.woocommerce {
+      div.product .woocommerce-tabs ul.tabs li {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 33%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .visualcomposerstarter {
+    .woocommerce {
+      flex-wrap: wrap;
+
+      .vcv-cart-container {
+        padding: 0;
+      }
+
+      .woocommerce-order-details,
+      .woocommerce-customer-details {
+        width: 90%;
+      }
+
+      .vcv-cart-container,
+      .cart-collaterals {
+        flex: 0 0 100%;
+      }
+
+      table.cart {
+        td {
+          padding: 30px 20px;
+        }
+        .cart_item:first-child td {
+          padding-top: 30px;
+        }
+        .product-remove {
+          width: auto;
+        }
+        .button[name="update_cart"] {
+          float: none;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .visualcomposerstarter {
+    .woocommerce {
+      table.cart .product-name {
+        width: auto;
+      }
+
+      .checkout {
+        .vct-main-form-content {
+          padding: 0;
+        }
+
+        .vct-side-summary {
+
+        }
+
+        .vct-main-form-content,
+        .vct-side-summary {
+          flex: 0 0 100%;
+          margin-bottom: 50px;
+        }
+      }
+
+      form.checkout {
+        .vct-main-form-content,
+        .vct-side-summary,
+        #payment.woocommerce-checkout-payment {
+          flex-basis: 100%;
+        }
+
+        .vct-main-form-content,
+        #payment.woocommerce-checkout-payment {
+          padding: 0;
+        }
+      }
+    }
+
+    &.woocommerce-cart {
+      .woocommerce {
+        flex-wrap: wrap;
+        .vcv-cart-container,
+        .cart-collaterals {
+          flex-basis: 100%;
+        }
+
+        .vcv-cart-container {
+          padding: 0;
+        }
+      }
+    }
+  }
+}

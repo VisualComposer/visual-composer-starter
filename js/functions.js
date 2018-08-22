@@ -8,6 +8,7 @@
     var windowHeight, featuredImageHeight, navbarHeight, subMenu, subMenuRect;
     var menuItems = $( '.menu-item.menu-item-has-children' );
     var menuItemLinks = $( '.menu-item.menu-item-has-children > a' );
+    var vcThemeVars = window.visualcomposerstarter;
 
     // Add dropdown toggle that displays child menu items.
     var $dropdownToggle = $( '<button />', {
@@ -148,7 +149,7 @@
         autoplay: true,
         arrows: false,
         dots: true,
-		adaptiveHeight: true
+        adaptiveHeight: true
     } );
 
     // Set scroller to submenu when submenu height is bigger than screen height
@@ -190,4 +191,74 @@
             e.preventDefault();
         }
     } );
+
+    $( document.body ).on( 'added_to_cart', function() {
+      $.ajax({
+        url: vcThemeVars.ajax_url,
+        data: {
+          'action': 'visualcomposerstarter_woo_cart_count',
+          'nonce': vcThemeVars.nonce
+        },
+        success: function( data ) {
+          $( '.vct-cart-items-count' ).html( data );
+        }
+      });
+    });
+
+    // Handle click on quantity input controls
+    $body.on( 'click', '.vct-input-qty-control', function() {
+      var $this = $( this ),
+          $qtyContainer = $this.closest( '.vct-input-qty' ),
+          $currentInput = $qtyContainer.find( '.qty' ),
+		  currentValue = parseInt( $currentInput.val(), 10 ),
+		  value = currentValue,
+		  minValue = parseInt( $currentInput.attr( 'min' ), 10 );
+      if ( $this.hasClass( 'vct-input-qty-control-add' ) ) {
+        value = ++currentValue;
+        $currentInput.trigger( 'change' );
+      }
+      if ( $this.hasClass( 'vct-input-qty-control-remove' ) && currentValue > minValue ) {
+        value = --currentValue;
+        $currentInput.trigger( 'change' );
+      }
+      $currentInput.val( value );
+    });
+
+    // Handle click on message close control
+    $body.on( 'click', '.vct-close-woocommerce-msg', function() {
+      var $this = $( this ),
+          parentSelector = $this.data( 'parent' ),
+          $parentMessage = $this.closest( '.' + parentSelector );
+      $parentMessage.remove();
+    });
+
+    // Toggle custom coupon code field
+    $( document ).on( 'click', '#vct-show-promo-form', function() {
+    $( this ).parent().toggleClass( 'vct-visible' ).find( '.vct-promo-content' ).slideToggle( 500 );
+      return false;
+    });
+
+    $( '#vct-promo-code' ).keyup(function() {
+      $( '#coupon_code' ).val( this.value );
+    });
+
+    // Copy coupon code to the default input field
+    $( document ).on( 'click', '#vct-apply-promo-code', function() {
+      $( '#coupon_code' ).val( $( '#vct-promo-code' ).val() );
+      $( '#vct-submit-coupon' ).trigger( 'click' );
+      return false;
+    });
+
+    // Remove the coupon code
+    $( document ).on( 'click', '.woocommerce-remove-coupon', function() {
+      $( '#vct-promo-code' ).val( '' );
+      return false;
+    });
+
+    // Enable coupon visibility if it is set so in Customizer settings
+    if ( vcThemeVars && vcThemeVars.woo_coupon_form && '1' === vcThemeVars.woo_coupon_form ) {
+      $( '.vct-promo' ).addClass( 'vct-visible' );
+      $( '.vct-promo' ).find( '.vct-promo-content' ).show();
+    }
+
 } )( window.jQuery );
