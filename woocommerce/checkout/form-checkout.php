@@ -2,7 +2,7 @@
 /**
  * Checkout Form
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/checkout/form-checkout.php.
+ * This template can be overridden by copying it to visual-composer-starter/woocommerce/checkout/form-checkout.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -10,9 +10,9 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
- * @package 	WooCommerce/Templates
+ * @see        https://docs.woocommerce.com/document/template-structure/
+ * @author        WooThemes
+ * @package    WooCommerce/Templates
  * @version     2.3.0
  */
 
@@ -24,9 +24,10 @@ wc_print_notices();
 
 do_action( 'woocommerce_before_checkout_form', $checkout );
 
-// If checkout registration is disabled and not logged in, the user cannot checkout
+// If checkout registration is disabled and not logged in, the user cannot checkout.
 if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_required() && ! is_user_logged_in() ) {
-	echo apply_filters( 'woocommerce_checkout_must_be_logged_in_message', __( 'You must be logged in to checkout.', 'woocommerce' ) );
+	echo esc_html( apply_filters( 'woocommerce_checkout_must_be_logged_in_message', esc_html__( 'You must be logged in to checkout.', 'visual-composer-starter' ) ) );
+
 	return;
 }
 
@@ -49,16 +50,16 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 	<div class="vct-side-summary">
 		<div class="vct-summary-box">
-			<h3 id="order_review_heading"><?php _e( 'Order summary', 'visual-composer-starter' ); ?></h3>
+			<h3 id="order_review_heading"><?php esc_html_e( 'Order summary', 'visual-composer-starter' ); ?></h3>
 			<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 			<?php if ( wc_coupons_enabled() ) { ?>
 				<div class="vct-promo">
 					<button id="vct-show-promo-form" class="vct-show-promo-form">
-						<?php _e( "Got promo code?", "visual-composer-starter" ); ?>
+						<?php esc_html_e( 'Got promo code?', 'visual-composer-starter' ); ?>
 					</button>
 					<div class="vct-promo-content" style="display:none;">
 						<input type="text" class="input-text " name="vct-promo-code" id="vct-promo-code">
-						<button id="vct-apply-promo-code" class="vct-checkout-button"><?php _e( "Apply", "visual-composer-starter" ); ?></button>
+						<button id="vct-apply-promo-code" class="vct-checkout-button"><?php esc_html_e( 'Apply', 'visual-composer-starter' ); ?></button>
 					</div>
 				</div>
 			<?php } ?>

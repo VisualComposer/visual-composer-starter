@@ -70,7 +70,7 @@
 								</span>
 							</a>
 						</div>
-					<?php  endif; ?>
+					<?php endif; ?>
 					<?php if ( has_nav_menu( 'primary' ) ) : ?>
 						<div id="main-menu">
 							<div class="button-close"><span class="vct-icon-close"></span></div>

@@ -2,7 +2,7 @@
 /**
  * Checkout coupon form
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/checkout/form-coupon.php.
+ * This template can be overridden by copying it to visual-composer-starter/woocommerce/checkout/form-coupon.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -25,11 +25,11 @@ if ( ! wc_coupons_enabled() || ! empty( WC()->cart->applied_coupons ) ) { // @co
 <form class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none">
 
 	<p class="form-row form-row-first">
-		<input type="text" name="coupon_code" class="input-text" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" id="coupon_code" value="" />
+		<input type="text" name="coupon_code" class="input-text" placeholder="<?php esc_attr_e( 'Coupon code', 'visual-composer-starter' ); ?>" id="coupon_code" value="" />
 	</p>
 
 	<p class="form-row form-row-last">
-		<button id="vct-submit-coupon" type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_html_e( 'Apply coupon', 'woocommerce' ); ?></button>
+		<button id="vct-submit-coupon" type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'visual-composer-starter' ); ?>"><?php esc_html_e( 'Apply coupon', 'visual-composer-starter' ); ?></button>
 	</p>
 
 	<div class="clear"></div>

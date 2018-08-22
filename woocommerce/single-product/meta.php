@@ -2,7 +2,7 @@
 /**
  * Single Product Meta
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/single-product/meta.php.
+ * This template can be overridden by copying it to visual-composer-starter/woocommerce/single-product/meta.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -28,11 +28,11 @@ global $product;
 
 	<?php if ( wc_product_sku_enabled() && ( $product->get_sku() || $product->is_type( 'variable' ) ) ) : ?>
 
-		<span class="sku_wrapper"><?php esc_html_e( 'SKU:', 'woocommerce' ); ?>
+		<span class="sku_wrapper"><?php esc_html_e( 'SKU:', 'visual-composer-starter' ); ?>
 			<span class="sku">
 				<?php
 				// @codingStandardsIgnoreLine
-				echo ( $sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'woocommerce' );
+				echo ( $sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'visual-composer-starter' );
 				?>
 			</span>
 		</span>
