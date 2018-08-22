@@ -80,7 +80,7 @@
     wp.customize.controlConstructor['toggle-switch'] = wp.customize.Control.extend( {
         ready: function() {
             var control = this;
-            var value = ( undefined !== control.setting._value ) ? control.setting._value : '';
+			var value = ( undefined !== control.setting._value ) ? control.setting._value : '';
 
             /**
              * Social Icons
@@ -141,6 +141,7 @@
                 control.setting.set( value );
 
 				if ( 'woocommerce_header_cart_icon' !== $this.attr( 'id' ) ) {
+
 					// Refresh the preview
 					wp.customize.previewer.refresh();
 				}
