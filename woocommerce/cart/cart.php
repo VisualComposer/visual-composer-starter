@@ -124,8 +124,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 						</td>
 					</tr>
 					<?php
-				} // End if()
-			} // End foreach()
+				} // End if().
+			} // End foreach().
 			?>
 
 			<?php do_action( 'woocommerce_cart_contents' ); ?>
