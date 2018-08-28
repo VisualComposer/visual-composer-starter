@@ -76,6 +76,7 @@
   background: #557cbf;
   font-size: 14px;
   padding: 23px 20px;
+  text-decoration: none;
 }
 .visualcomposerstarter .woocommerce .button.checkout-button:hover,
 .visualcomposerstarter .woocommerce #place_order:hover,
@@ -415,8 +416,16 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .visualcomposerstarter.woocommerce-cart .woocommerce .cart-empty {
   display: -webkit-box;
@@ -435,7 +444,7 @@
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   text-align: right;
-  margin: 0 20px 0 0;
+  margin: 0 0 20px;
 }
 .visualcomposerstarter.woocommerce-cart .woocommerce .return-to-shop {
   display: -webkit-box;
@@ -688,6 +697,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  line-height: 2;
 }
 .visualcomposerstarter .woocommerce-error li::before,
 .visualcomposerstarter.woocommerce .woocommerce-error li::before,
