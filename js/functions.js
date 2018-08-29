@@ -261,4 +261,28 @@
       $( '.vct-promo' ).find( '.vct-promo-content' ).show();
     }
 
+    // Handle click on Add to cart button
+    $body.on( 'click', '.add_to_cart_button', function() {
+      var $this = $( this );
+      var opacityTimeout = null;
+      var removeTimeout = null;
+      var interval = setInterval(function() {
+        if ( $this.hasClass( 'added' ) ) {
+          opacityTimeout = setTimeout(function() {
+            $this.removeClass( 'added' );
+            $this.next( '.added_to_cart' ).css( 'opacity', '0' );
+            removeTimeout = setTimeout(function() {
+              $this.next( '.added_to_cart' ).remove();
+              window.clearTimeout( removeTimeout );
+              removeTimeout = null;
+            }, 250 );
+            window.clearTimeout( opacityTimeout );
+            opacityTimeout = null;
+          }, 2000 );
+          window.clearInterval( interval );
+          interval = null;
+        }
+      }, 1000 );
+
+    });
 } )( window.jQuery );
