@@ -1615,4 +1615,7 @@
   .visualcomposerstarter.woocommerce-cart .woocommerce .vcv-cart-container {
     padding: 0;
   }
+  .visualcomposerstarter .widget .woocommerce-product-search {
+    display: inline-block;
+  }
 }
