@@ -79,31 +79,47 @@
   top: 1em;
   right: 0.5em;
 }
+.visualcomposerstarter .woocommerce a.button,
+.visualcomposerstarter .woocommerce .woocommerce-MyAccount-content a.edit,
 .visualcomposerstarter .woocommerce .button.checkout-button,
 .visualcomposerstarter .woocommerce #place_order,
 .visualcomposerstarter .woocommerce .woocommerce-mini-cart__buttons.buttons a,
 .visualcomposerstarter .woocommerce .button.wc-backward,
 .visualcomposerstarter .woocommerce .vct-thank-you-footer a,
-.visualcomposerstarter .woocommerce .track_order .button {
+.visualcomposerstarter .woocommerce .track_order .button,
+.visualcomposerstarter .woocommerce .woocommerce-EditAccountForm .button,
+.visualcomposerstarter .woocommerce .woocommerce-orders-table__cell .button {
   border-radius: 0;
   text-transform: uppercase;
+  color: #fff;
   background: #557cbf;
   font-size: 14px;
   padding: 23px 20px;
   text-decoration: none;
 }
+.visualcomposerstarter .woocommerce a.button:hover,
+.visualcomposerstarter .woocommerce .woocommerce-MyAccount-content a.edit:hover,
 .visualcomposerstarter .woocommerce .button.checkout-button:hover,
 .visualcomposerstarter .woocommerce #place_order:hover,
 .visualcomposerstarter .woocommerce .woocommerce-mini-cart__buttons.buttons a:hover,
 .visualcomposerstarter .woocommerce .button.wc-backward:hover,
 .visualcomposerstarter .woocommerce .vct-thank-you-footer a:hover,
-.visualcomposerstarter .woocommerce .track_order .button:hover {
+.visualcomposerstarter .woocommerce .track_order .button:hover,
+.visualcomposerstarter .woocommerce .woocommerce-EditAccountForm .button:hover,
+.visualcomposerstarter .woocommerce .woocommerce-orders-table__cell .button:hover {
   background: #3e63a3;
 }
-.visualcomposerstarter .woocommerce .button.wc-backward,
-.visualcomposerstarter .woocommerce .vct-thank-you-footer a,
-.visualcomposerstarter .woocommerce .track_order .button {
+.visualcomposerstarter .woocommerce .button.woocommerce-button--next,
+.visualcomposerstarter .woocommerce .button.woocommerce-button--previous,
+.visualcomposerstarter .woocommerce .woocommerce-MyAccount-content a.edit {
+  padding: 15px 30px;
+}
+.visualcomposerstarter .woocommerce .woocommerce-MyAccount-downloads-file.button.alt {
+  padding: 15px 20px;
   color: #fff;
+}
+.visualcomposerstarter .woocommerce .woocommerce-orders-table__cell .button {
+  padding: 13px 20px;
 }
 .visualcomposerstarter .woocommerce .vct-thank-you-footer a,
 .visualcomposerstarter .woocommerce .track_order .button {
@@ -626,6 +642,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
   padding: 23px;
   border: none;
   border-radius: 5px;
@@ -688,6 +705,7 @@
 .visualcomposerstarter .woocommerce-message .showcoupon:hover,
 .visualcomposerstarter.woocommerce .woocommerce-message .showcoupon:hover {
   background: transparent;
+  color: #fff;
 }
 .visualcomposerstarter .woocommerce-error .button,
 .visualcomposerstarter.woocommerce .woocommerce-error .button,
@@ -706,6 +724,8 @@
 .visualcomposerstarter .woocommerce-error,
 .visualcomposerstarter.woocommerce .woocommerce-error {
   background: #F6424C;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .visualcomposerstarter .woocommerce-error li,
 .visualcomposerstarter.woocommerce .woocommerce-error li {
@@ -719,12 +739,27 @@
       -ms-flex-align: center;
           align-items: center;
   line-height: 2;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 .visualcomposerstarter .woocommerce-error li::before,
 .visualcomposerstarter.woocommerce .woocommerce-error li::before,
 .visualcomposerstarter .woocommerce-error li::after,
 .visualcomposerstarter.woocommerce .woocommerce-error li::after {
   display: none;
+}
+.visualcomposerstarter .woocommerce-error li strong,
+.visualcomposerstarter.woocommerce .woocommerce-error li strong {
+  margin-right: 5px;
+}
+.visualcomposerstarter .woocommerce-error .vct-close-woocommerce-msg-container,
+.visualcomposerstarter.woocommerce .woocommerce-error .vct-close-woocommerce-msg-container {
+  position: absolute;
+  right: 23px;
 }
 .visualcomposerstarter .woocommerce-info,
 .visualcomposerstarter.woocommerce .woocommerce-info {
@@ -799,29 +834,6 @@
 .visualcomposerstarter .woocommerce-NoticeGroup,
 .visualcomposerstarter.woocommerce .woocommerce-NoticeGroup {
   width: 100%;
-}
-.visualcomposerstarter .woocommerce-NoticeGroup .woocommerce-error,
-.visualcomposerstarter.woocommerce .woocommerce-NoticeGroup .woocommerce-error {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-.visualcomposerstarter .woocommerce-NoticeGroup .woocommerce-error li,
-.visualcomposerstarter.woocommerce .woocommerce-NoticeGroup .woocommerce-error li {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 100%;
-          flex: 0 0 100%;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-.visualcomposerstarter .woocommerce-NoticeGroup .woocommerce-error li strong,
-.visualcomposerstarter.woocommerce .woocommerce-NoticeGroup .woocommerce-error li strong {
-  margin-right: 5px;
-}
-.visualcomposerstarter .woocommerce-NoticeGroup .woocommerce-error .vct-close-woocommerce-msg-container,
-.visualcomposerstarter.woocommerce .woocommerce-NoticeGroup .woocommerce-error .vct-close-woocommerce-msg-container {
-  position: absolute;
-  right: 23px;
 }
 .visualcomposerstarter.woocommerce .woocommerce-result-count,
 .visualcomposerstarter.woocommerce .woocommerce-ordering {
@@ -1406,9 +1418,9 @@
   margin: 0 0 14px;
   font-size: 13px;
 }
-.visualcomposerstarter .woocommerce-order .vct-thank-you-title,
-.visualcomposerstarter .woocommerce-order .vct-thank-you-subtitle,
-.visualcomposerstarter .woocommerce-order .vct-thank-you-subtitle + p {
+.visualcomposerstarter .vct-thank-you-title,
+.visualcomposerstarter .vct-thank-you-subtitle,
+.visualcomposerstarter .vct-thank-you-subtitle + p {
   text-align: center;
 }
 .visualcomposerstarter .woocommerce-order .woocommerce-order-details,
@@ -1424,36 +1436,88 @@
 .visualcomposerstarter .woocommerce-order .woocommerce-column__title {
   margin: 30px 0;
 }
-.visualcomposerstarter .woocommerce-order .vct-order-detail,
-.visualcomposerstarter .woocommerce-order .vct-billing-detail {
+.visualcomposerstarter .vct-order-detail,
+.visualcomposerstarter .vct-billing-detail {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: 0 0 15px;
   padding: 0;
 }
-.visualcomposerstarter .woocommerce-order .vct-order-detail::before,
-.visualcomposerstarter .woocommerce-order .vct-billing-detail::before {
+.visualcomposerstarter .vct-order-detail::before,
+.visualcomposerstarter .vct-billing-detail::before {
   display: none;
 }
-.visualcomposerstarter .woocommerce-order .vct-order-detail span,
-.visualcomposerstarter .woocommerce-order .vct-billing-detail span {
+.visualcomposerstarter .vct-order-detail span,
+.visualcomposerstarter .vct-billing-detail span {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 50%;
           flex: 0 0 50%;
 }
-.visualcomposerstarter .woocommerce-order .vct-order-detail span:nth-child(2),
-.visualcomposerstarter .woocommerce-order .vct-billing-detail span:nth-child(2) {
+.visualcomposerstarter .vct-order-detail span:nth-child(2),
+.visualcomposerstarter .vct-billing-detail span:nth-child(2) {
   font-weight: 600;
 }
-.visualcomposerstarter .woocommerce-order .vct-order-detail span a,
-.visualcomposerstarter .woocommerce-order .vct-billing-detail span a {
+.visualcomposerstarter .vct-order-detail span a,
+.visualcomposerstarter .vct-billing-detail span a {
   color: inherit;
   border-color: inherit;
 }
-.visualcomposerstarter .woocommerce-order .vct-thank-you-footer {
+.visualcomposerstarter .vct-thank-you-footer {
   text-align: center;
   margin: 100px 0 50px;
+}
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content p a {
+  border-bottom-color: transparent;
+}
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content p a:hover {
+  border-bottom-color: #557cbf;
+}
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table {
+  border: none;
+  border-collapse: collapse;
+}
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table td a {
+  border: none;
+  color: inherit;
+}
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table th,
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table td {
+  border: none;
+  border-bottom: 1px solid #efefef;
+  padding: 18px 13px;
+}
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table tbody tr:last-child th,
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table tbody tr:last-child td {
+  border-bottom: none;
+}
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content li a {
+  color: #333;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content li a:hover {
+  opacity: 0.7;
+}
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-navigation li a {
+  border: none;
+  color: #333;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-navigation li a:hover {
+  opacity: 0.7;
+}
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-navigation li::before {
+  content: '\2022';
+  font-size: 1.5em;
+  position: absolute;
+  left: 20px;
+  top: -4px;
+  line-height: 1.3;
+  color: #557cbf;
 }
 @media only screen and (min-width: 768px) {
   .visualcomposerstarter:not(.menu-sandwich) .navbar-wrapper {

@@ -6,6 +6,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    width: 100%;
     padding: 23px;
     border: none;
     border-radius: 5px;
@@ -30,6 +31,7 @@
 
       &:hover {
         background: transparent;
+        color: #fff;
       }
     }
 
@@ -41,13 +43,24 @@
 
   .woocommerce-error {
     background: #F6424C;
+    flex-wrap: wrap;
+
     li {
       .flex-center-all;
       line-height: 2;
+      flex: 0 0 100%;
+      justify-content: flex-start;
       &::before,
       &::after {
         display: none;
       }
+      strong {
+        margin-right: 5px;
+      }
+    }
+    .vct-close-woocommerce-msg-container {
+      position: absolute;
+      right: 23px;
     }
   }
 
@@ -90,19 +103,5 @@
 
   .woocommerce-NoticeGroup {
     width: 100%;
-    .woocommerce-error {
-      flex-wrap: wrap;
-      li {
-        flex: 0 0 100%;
-        justify-content: flex-start;
-        strong {
-          margin-right: 5px;
-        }
-      }
-      .vct-close-woocommerce-msg-container {
-        position: absolute;
-        right: 23px;
-      }
-    }
   }
 }
