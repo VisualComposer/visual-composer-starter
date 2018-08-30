@@ -270,6 +270,7 @@
         if ( $this.hasClass( 'added' ) ) {
           opacityTimeout = setTimeout(function() {
             $this.removeClass( 'added' );
+            $this.blur();
             $this.next( '.added_to_cart' ).css( 'opacity', '0' );
             removeTimeout = setTimeout(function() {
               $this.next( '.added_to_cart' ).remove();
