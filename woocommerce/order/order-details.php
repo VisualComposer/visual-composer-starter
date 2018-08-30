@@ -19,7 +19,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-if ( wc_get_order( $order_id ) !== $order ) {
+$order = wc_get_order( $order_id );
+if ( ! $order ) {
 	return;
 }
 
@@ -81,8 +82,18 @@ if ( $show_downloads ) {
 				foreach ( $order->get_order_item_totals() as $key => $total ) {
 					?>
 					<li class="vct-order-detail">
-						<span><?php echo esc_html( $total['label'] ); ?></span>
-						<span><?php echo esc_html( $total['value'] ); ?></span>
+						<span>
+							<?php
+							// @codingStandardsIgnoreLine
+							echo $total['label'];
+							?>
+						</span>
+						<span>
+							<?php
+							// @codingStandardsIgnoreLine
+							echo $total['value'];
+							?>
+						</span>
 					</li>
 					<?php
 				}

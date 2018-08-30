@@ -5,7 +5,6 @@
       &.product_type_grouped,
       &.product_type_simple {
         padding: 17px 0;
-        //width: 150px;
         text-align: center;
         border-radius: 0;
       }
@@ -21,8 +20,20 @@
       }
     }
     .added_to_cart {
-      font-size: 15px;
-      margin-left: 0.8em;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 17px;
+      font-size: 16px;
+      text-align: center;
+      line-height: 1;
+      color: #fff;
+      background: #51c15c;
+      transition: background .2s ease-in-out, opacity .2s ease-in-out;
+
+      &:hover {
+        background: darken(#51c15c, 10%);
+      }
     }
     .add_to_cart_button.button.loading::after {
       top: 1em;
@@ -31,28 +42,50 @@
   }
 
   .woocommerce {
+    a.button,
+    .woocommerce-MyAccount-content a.edit,
     .button.checkout-button,
     #place_order,
     .woocommerce-mini-cart__buttons.buttons a,
     .button.wc-backward,
-    .vct-thank-you-footer a {
+    .vct-thank-you-footer a,
+    .track_order .button,
+    .woocommerce-EditAccountForm .button,
+    .woocommerce-orders-table__cell .button {
       border-radius: 0;
       text-transform: uppercase;
+      color: #fff;
       background: @woocommerce-basic-button-background-color;
       font-size: 14px;
       padding: 23px 20px;
+      text-decoration: none;
       &:hover {
         background: darken(@woocommerce-basic-button-background-color, 10%);
       }
     }
 
-    .button.wc-backward,
-    .vct-thank-you-footer a {
+    .button.woocommerce-button--next,
+    .button.woocommerce-button--previous,
+    .woocommerce-MyAccount-content a.edit {
+      padding: 15px 30px;
+    }
+
+    .woocommerce-MyAccount-downloads-file.button.alt {
+      padding: 15px 20px;
       color: #fff;
     }
 
-    .vct-thank-you-footer a {
+    .woocommerce-orders-table__cell .button {
+      padding: 13px 20px;
+    }
+
+    .vct-thank-you-footer a,
+    .track_order .button {
       padding: 23px 60px;
+    }
+
+    .track_order .button {
+      margin: 20px 0 0;
     }
 
     #place_order {
