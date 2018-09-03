@@ -850,6 +850,9 @@
 .visualcomposerstarter.woocommerce .woocommerce-ordering {
   color: #979797;
 }
+.visualcomposerstarter.woocommerce .woocommerce-result-count {
+  margin: 12px 0 0;
+}
 .visualcomposerstarter.woocommerce ul.products {
   display: -webkit-box;
   display: -ms-flexbox;
