@@ -59,6 +59,8 @@
           width: 100%;
           padding: 22px;
           box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
+          border-radius: 5px;
+          background: #fff;
 
           h2 {
             font-size: 22px;
@@ -71,9 +73,33 @@
             border-top: 1px solid @woocommerce-cart-order-summary-border-color;
 
             td, th {
+              width: 50%;
               border: none;
               padding: 22px 12px;
               font-weight: 300;
+            }
+
+            th {
+              padding-left: 0;
+            }
+
+            td {
+              text-align: right;
+              padding-right: 0;
+            }
+          }
+
+          .cart-subtotal {
+            th, td {
+              padding-bottom: 12px;
+              color: #979797;
+            }
+          }
+
+          .tax-rate {
+            th, td {
+              padding-top: 12px;
+              color: #979797;
             }
           }
 

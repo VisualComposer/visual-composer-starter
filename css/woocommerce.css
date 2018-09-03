@@ -509,6 +509,8 @@
   padding: 22px;
   -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
           box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
+  border-radius: 5px;
+  background: #fff;
 }
 .visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals h2 {
   font-size: 22px;
@@ -521,9 +523,27 @@
 }
 .visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals .shop_table td,
 .visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals .shop_table th {
+  width: 50%;
   border: none;
   padding: 22px 12px;
   font-weight: 300;
+}
+.visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals .shop_table th {
+  padding-left: 0;
+}
+.visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals .shop_table td {
+  text-align: right;
+  padding-right: 0;
+}
+.visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals .cart-subtotal th,
+.visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals .cart-subtotal td {
+  padding-bottom: 12px;
+  color: #979797;
+}
+.visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals .tax-rate th,
+.visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals .tax-rate td {
+  padding-top: 12px;
+  color: #979797;
 }
 .visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals .order-total td,
 .visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals .order-total th {
