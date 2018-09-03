@@ -1009,6 +1009,7 @@
   padding: 22px 48px;
   border-radius: 0;
   text-transform: uppercase;
+  -webkit-font-smoothing: unset;
 }
 .visualcomposerstarter.woocommerce .entry-summary .product_meta {
   margin-bottom: 30px;
