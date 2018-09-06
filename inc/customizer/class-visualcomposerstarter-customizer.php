@@ -1084,7 +1084,7 @@ class VisualComposerStarter_Customizer {
 		$wp_customize->add_setting( 'woo_cart_color',  array(
 			'default'       => '#2b4b80',
 			'sanitize_callback' => 'sanitize_hex_color',
-			//'transport' => 'postMessage',
+			'transport' => 'postMessage',
 		) );
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
@@ -1102,7 +1102,7 @@ class VisualComposerStarter_Customizer {
 		$wp_customize->add_setting( 'woo_cart_text_color',  array(
 			'default'       => '#fff',
 			'sanitize_callback' => 'sanitize_hex_color',
-			//'transport' => 'postMessage',
+			'transport' => 'postMessage',
 		) );
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
@@ -1121,7 +1121,7 @@ class VisualComposerStarter_Customizer {
 		$wp_customize->add_setting( 'woo_price_tag_color',  array(
 			'default'       => '#2b4b80',
 			'sanitize_callback' => 'sanitize_hex_color',
-			//'transport' => 'postMessage',
+			'transport' => 'postMessage',
 		) );
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
@@ -1140,7 +1140,7 @@ class VisualComposerStarter_Customizer {
 		$wp_customize->add_setting( 'woo_old_price_tag_color',  array(
 			'default'       => '#d5d5d5',
 			'sanitize_callback' => 'sanitize_hex_color',
-			//'transport' => 'postMessage',
+			'transport' => 'postMessage',
 		) );
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
@@ -1159,7 +1159,7 @@ class VisualComposerStarter_Customizer {
 		$wp_customize->add_setting( 'woo_link_color',  array(
 			'default'       => '#d5d5d5',
 			'sanitize_callback' => 'sanitize_hex_color',
-			//'transport' => 'postMessage',
+			'transport' => 'postMessage',
 		) );
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
@@ -1178,7 +1178,6 @@ class VisualComposerStarter_Customizer {
 		$wp_customize->add_setting( 'woo_link_hover_color',  array(
 			'default'       => '#2b4b80',
 			'sanitize_callback' => 'sanitize_hex_color',
-			//'transport' => 'postMessage',
 		) );
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
@@ -1196,7 +1195,6 @@ class VisualComposerStarter_Customizer {
 		$wp_customize->add_setting( 'woo_link_active_color',  array(
 			'default'       => '#2b4b80',
 			'sanitize_callback' => 'sanitize_hex_color',
-			//'transport' => 'postMessage',
 		) );
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
@@ -1215,7 +1213,7 @@ class VisualComposerStarter_Customizer {
 		$wp_customize->add_setting( 'woo_outline_button_color',  array(
 			'default'       => '#4e4e4e',
 			'sanitize_callback' => 'sanitize_hex_color',
-			//'transport' => 'postMessage',
+			'transport' => 'postMessage',
 		) );
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
@@ -1233,7 +1231,7 @@ class VisualComposerStarter_Customizer {
 		$wp_customize->add_setting( 'woo_price_filter_widget_color',  array(
 			'default'       => '#2b4b80',
 			'sanitize_callback' => 'sanitize_hex_color',
-			//'transport' => 'postMessage',
+			'transport' => 'postMessage',
 		) );
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
@@ -1252,7 +1250,7 @@ class VisualComposerStarter_Customizer {
 		$wp_customize->add_setting( 'woo_widget_links_color',  array(
 			'default'       => '#000',
 			'sanitize_callback' => 'sanitize_hex_color',
-			//'transport' => 'postMessage',
+			'transport' => 'postMessage',
 		) );
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
@@ -1271,7 +1269,6 @@ class VisualComposerStarter_Customizer {
 		$wp_customize->add_setting( 'woo_widget_links_hover_color',  array(
 			'default'       => '#2b4b80',
 			'sanitize_callback' => 'sanitize_hex_color',
-			//'transport' => 'postMessage',
 		) );
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
@@ -1290,7 +1287,6 @@ class VisualComposerStarter_Customizer {
 		$wp_customize->add_setting( 'woo_delete_icon_color',  array(
 			'default'       => '#d5d5d5',
 			'sanitize_callback' => 'sanitize_hex_color',
-			//'transport' => 'postMessage',
 		) );
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(

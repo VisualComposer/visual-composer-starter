@@ -1418,14 +1418,13 @@ function visualcomposerstarter_inline_styles() {
 	.visualcomposerstarter.woocommerce p.price,
 	.visualcomposerstarter.woocommerce span.price,
 	.visualcomposerstarter.woocommerce span.price ins,
-	.visualcomposerstarter .woocommerce.widget .quantity,
 	.visualcomposerstarter .woocommerce.widget span.amount,
 	.visualcomposerstarter .woocommerce.widget ins {
 		color: ' . esc_html( $price_tag_color ) . '
 	}
 	';
 
-	$old_price_tag_color = get_theme_mod( 'woo_old_price_tag_color', '#2b4b80' );
+	$old_price_tag_color = get_theme_mod( 'woo_old_price_tag_color', '#d5d5d5' );
 	$css .= '
 	.visualcomposerstarter.woocommerce span.price del,
 	.visualcomposerstarter.woocommerce p.price del,
