@@ -1,11 +1,4 @@
 .visualcomposerstarter .woocommerce.widget {
-  .quantity,
-  span.woocommerce-Price-amount.amount,
-  ins,
-  del {
-    color: @vc-starter-theme-woocomemrce-dark-blue;
-  }
-
   ins {
     text-decoration: none;
   }
@@ -66,9 +59,12 @@
     font-size: 0;
     .flex-center-all;
     top: 15px;
+    opacity: .8;
+    transition: opacity .2s ease-in-out;
 
     &:hover {
       background: transparent;
+      opacity: 1;
     }
   }
 
