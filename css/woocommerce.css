@@ -849,14 +849,12 @@
 }
 .visualcomposerstarter.woocommerce ul.products li.product .price {
   font-size: 16px;
-  color: #2B4B80;
 }
 .visualcomposerstarter.woocommerce ul.products li.product .price ins {
   text-decoration: none;
 }
 .visualcomposerstarter.woocommerce ul.products li.product .price del {
   text-decoration: line-through;
-  color: #d5d5d5;
   opacity: 1;
 }
 .visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs {
