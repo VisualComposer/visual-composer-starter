@@ -791,10 +791,6 @@
 .visualcomposerstarter.woocommerce .woocommerce-NoticeGroup {
   width: 100%;
 }
-.visualcomposerstarter.woocommerce .woocommerce-result-count,
-.visualcomposerstarter.woocommerce .woocommerce-ordering {
-  color: #979797;
-}
 .visualcomposerstarter.woocommerce .woocommerce-result-count {
   margin: 12px 0 0;
 }
