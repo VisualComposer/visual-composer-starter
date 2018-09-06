@@ -1159,7 +1159,6 @@
 }
 .visualcomposerstarter .woocommerce.widget span.product-title,
 .visualcomposerstarter .woocommerce.widget li a {
-  color: #333;
   -webkit-transition: opacity 0.2s ease-in-out;
   -o-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
@@ -1305,10 +1304,6 @@
 }
 .visualcomposerstarter .woocommerce.widget.widget_price_filter .price_slider_wrapper .ui-widget-content {
   background-color: rgba(0, 0, 0, 0.1);
-}
-.visualcomposerstarter .woocommerce.widget.widget_price_filter .ui-slider .ui-slider-range,
-.visualcomposerstarter .woocommerce.widget.widget_price_filter .ui-slider .ui-slider-handle {
-  background-color: #2B4B80;
 }
 .visualcomposerstarter .woocommerce.widget.widget_price_filter .ui-slider .ui-slider-handle {
   top: 0;
