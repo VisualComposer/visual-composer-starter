@@ -1447,7 +1447,6 @@ function visualcomposerstarter_inline_styles() {
 	.visualcomposerstarter.woocommerce div.product .entry-categories a,
 	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart .product-name a,
 	.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li a,
-	.visualcomposerstarter .woocommerce.widget li a
 	{
 		color: ' . esc_html( $link_color ) . ';
 	}
@@ -1458,11 +1457,9 @@ function visualcomposerstarter_inline_styles() {
 	.visualcomposerstarter.woocommerce div.product .entry-categories a:hover,
 	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart .product-name a:hover,
 	.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover,
-	.visualcomposerstarter .woocommerce.widget li a:hover,
 	.visualcomposerstarter.woocommerce div.product .entry-categories a:focus,
 	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart .product-name a:focus,
 	.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li a:focus,
-	.visualcomposerstarter .woocommerce.widget li a:focus
 	{
 		color: ' . esc_html( $link_hover_color ) . ';
 	}
@@ -1479,6 +1476,50 @@ function visualcomposerstarter_inline_styles() {
 		background: ' . esc_html( $link_active_color ) . ';
 	}
 	';
+
+	$outline_button_color = get_theme_mod( 'woo_outline_button_color', '#4e4e4e' );
+	$css .= '
+	.woocommerce button.button[name="update_cart"],
+    .button[name="apply_coupon"],
+    .vct-checkout-button,
+    .woocommerce button.button:disabled, 
+    .woocommerce button.button:disabled[disabled]
+	{
+		color: ' . esc_html( $outline_button_color ) . ';
+	}';
+
+	$price_filter_widget_color = get_theme_mod( 'woo_price_filter_widget_color', '#2b4b80' );
+	$css .= '
+	.visualcomposerstarter .woocommerce.widget.widget_price_filter .ui-slider .ui-slider-handle,
+	.visualcomposerstarter .woocommerce.widget.widget_price_filter .ui-slider .ui-slider-range
+	{
+		background-color: ' . esc_html( $price_filter_widget_color ) . ';
+	}';
+
+	$widget_links_color = get_theme_mod( 'woo_widget_links_color', '#000' );
+	$css .= '
+	.visualcomposerstarter .woocommerce.widget li a
+	{
+		color: ' . esc_html( $widget_links_color ) . ';
+	}';
+
+	$widget_links_hover_color = get_theme_mod( 'woo_widget_links_hover_color', '#2b4b80' );
+	$css .= '
+	.visualcomposerstarter .woocommerce.widget li a:hover,
+	.visualcomposerstarter .woocommerce.widget li a:focus
+	{
+		color: ' . esc_html( $widget_links_hover_color ) . ';
+	}';
+
+	$delete_icon_color = get_theme_mod( 'woo_delete_icon_color', '#d5d5d5' );
+	$css .= '
+	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart a.remove:before,
+	.visualcomposerstarter .woocommerce.widget .cart_list li a.remove:before,
+	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart a.remove:after,
+	.visualcomposerstarter .woocommerce.widget .cart_list li a.remove:after
+	{
+		background-color: ' . esc_html( $delete_icon_color ) . ';
+	}';
 
 	wp_add_inline_style( 'visualcomposerstarter-custom-style', $css );
 }
