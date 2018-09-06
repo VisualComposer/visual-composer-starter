@@ -1186,7 +1186,7 @@
   color: #557cbf;
 }
 .visualcomposerstarter .woocommerce.widget .cat-item span {
-  color: #8C8C8C;
+  color: rgba(0, 0, 0, 0.5);
 }
 .visualcomposerstarter .woocommerce.widget .cat-item.cat-parent {
   -webkit-box-orient: vertical;
