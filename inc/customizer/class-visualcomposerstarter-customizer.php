@@ -1147,7 +1147,7 @@ class VisualComposerStarter_Customizer {
 				$wp_customize,
 				'woo_old_price_tag_color',
 				array(
-					'label'         => esc_html__( 'Price tag color', 'visual-composer-starter' ),
+					'label'         => esc_html__( 'Old price tag color', 'visual-composer-starter' ),
 					'description'   => esc_html__( 'Color for each items old price, in case there is a discount set.', 'visual-composer-starter' ),
 					'section'       => 'vct_woocommerce_settings',
 					'settings'      => 'woo_old_price_tag_color',

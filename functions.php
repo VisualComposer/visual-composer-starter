@@ -906,7 +906,7 @@ function visualcomposerstarter_inline_styles() {
 	 { font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto' ) ) . '; }
 	 body,
 	 .sidebar-widget-area a:hover, .sidebar-widget-area a:focus,
-	 .sidebar-widget-area .widget_recent_entries ul li:hover, .sidebar-widget-area .widget_archive ul li:hover, .sidebar-widget-area .widget_categories ul li:hover, .sidebar-widget-area .widget_meta ul li:hover, .sidebar-widget-area .widget_recent_entries ul li:focus, .sidebar-widget-area .widget_archive ul li:focus, .sidebar-widget-area .widget_categories ul li:focus, .sidebar-widget-area .widget_meta ul li:focus { color: ' . get_theme_mod( 'vct_fonts_and_style_body_primary_color', '#555555' ) . '; }
+	 .sidebar-widget-area .widget_recent_entries ul li:hover, .sidebar-widget-area .widget_archive ul li:hover, .sidebar-widget-area .widget_categories ul li:hover, .sidebar-widget-area .widget_meta ul li:hover, .sidebar-widget-area .widget_recent_entries ul li:focus, .sidebar-widget-area .widget_archive ul li:focus, .sidebar-widget-area .widget_categories ul li:focus, .sidebar-widget-area .widget_meta ul li:focus, .visualcomposerstarter.woocommerce-cart .woocommerce table.cart .product-name a { color: ' . get_theme_mod( 'vct_fonts_and_style_body_primary_color', '#555555' ) . '; }
 	  .comment-content table,
 	  .entry-content table { border-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_body_primary_color', '#555555' ) ) . '; }
 	  .entry-full-content .entry-author-data .author-biography,
@@ -1068,7 +1068,8 @@ function visualcomposerstarter_inline_styles() {
 	  .visualcomposerstarter .woocommerce .woocommerce-MyAccount-content a.edit,
 	  .visualcomposerstarter .woocommerce .woocommerce-mini-cart__buttons.buttons a,
 	  .visualcomposerstarter .woocommerce .woocommerce-orders-table__cell .button,
-	  .visualcomposerstarter .woocommerce a.button
+	  .visualcomposerstarter .woocommerce a.button,
+	  .visualcomposerstarter #review_form #respond .form-submit .submit
 	   {
 	  		background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_color', '#557cbf' ) ) . '; 
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_color', '#f4f4f4' ) ) . ';
@@ -1099,7 +1100,8 @@ function visualcomposerstarter_inline_styles() {
 	  .visualcomposerstarter .woocommerce .woocommerce-MyAccount-content a.edit:hover,
 	  .visualcomposerstarter .woocommerce .woocommerce-mini-cart__buttons.buttons a:hover,
 	  .visualcomposerstarter .woocommerce .woocommerce-orders-table__cell .button:hover,
-	  .visualcomposerstarter .woocommerce a.button:hover ,
+	  .visualcomposerstarter .woocommerce a.button:hover,
+	  .visualcomposerstarter #review_form #respond .form-submit .submit:hover
 	  .visualcomposerstarter .woocommerce #place_order:focus,
 	  .visualcomposerstarter .woocommerce .button.checkout-button:focus,
 	  .visualcomposerstarter .woocommerce .button.wc-backward:focus,
@@ -1109,7 +1111,8 @@ function visualcomposerstarter_inline_styles() {
 	  .visualcomposerstarter .woocommerce .woocommerce-MyAccount-content a.edit:focus,
 	  .visualcomposerstarter .woocommerce .woocommerce-mini-cart__buttons.buttons a:focus,
 	  .visualcomposerstarter .woocommerce .woocommerce-orders-table__cell .button:focus,
-	  .visualcomposerstarter .woocommerce a.button:focus { 
+	  .visualcomposerstarter .woocommerce a.button:focus,
+	  .visualcomposerstarter #review_form #respond .form-submit .submit:focus { 
 			background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_hover_color', '#3c63a6' ) ) . '; 
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_hover_color', '#f4f4f4' ) ) . '; 
 	  }
@@ -1450,8 +1453,7 @@ function visualcomposerstarter_inline_styles() {
 	$link_color = get_theme_mod( 'woo_link_color', '#d5d5d5' );
 	$css .= '
 	.visualcomposerstarter.woocommerce div.product .entry-categories a,
-	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart .product-name a,
-	.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li a,
+	.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li a
 	{
 		color: ' . esc_html( $link_color ) . ';
 	}
