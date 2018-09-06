@@ -27,6 +27,18 @@
 
 @media only screen and (max-width: 768px) {
   .visualcomposerstarter {
+    &.woocommerce {
+      ul.products li.product,
+      .woocommerce-page ul.products li.product {
+        width: 31%;
+        margin-right: 2%;
+      }
+      .woocommerce-result-count,
+      .woocommerce-ordering {
+        float: none;
+        margin: 1em 0;
+      }
+    }
     .woocommerce {
       flex-wrap: wrap;
 

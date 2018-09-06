@@ -1410,22 +1410,27 @@ function visualcomposerstarter_inline_styles() {
 	.visualcomposerstarter.woocommerce.widget .quantity,
 	.visualcomposerstarter.woocommerce.widget del,
 	.visualcomposerstarter.woocommerce.widget ins,
-	.visualcomposerstarter.woocommerce.widget span.woocommerce-Price-amount.amount {
+	.visualcomposerstarter.woocommerce.widget span.woocommerce-Price-amount.amount,
+	.visualcomposerstarter.woocommerce p.price ins,
+	.visualcomposerstarter.woocommerce p.price,
+	.visualcomposerstarter.woocommerce span.price,
+	.visualcomposerstarter.woocommerce span.price ins,
+	.visualcomposerstarter .woocommerce.widget .quantity,
+	.visualcomposerstarter .woocommerce.widget span.amount,
+	.visualcomposerstarter .woocommerce.widget ins {
 		color: ' . esc_html( $price_tag_color ) . '
 	}
 	';
 
 	$old_price_tag_color = get_theme_mod( 'woo_old_price_tag_color', '#2b4b80' );
 	$css .= '
-	.visualcomposerstarter.woocommerce ul.products li.product .price,
-	.visualcomposerstarter.woocommerce div.product p.price,
-	.visualcomposerstarter.woocommerce div.product p.price ins,
-	.visualcomposerstarter.woocommerce div.product span.price,
-	.visualcomposerstarter.woocommerce div.product span.price ins,
-	.visualcomposerstarter.woocommerce.widget .quantity,
-	.visualcomposerstarter.woocommerce.widget del,
-	.visualcomposerstarter.woocommerce.widget ins,
-	.visualcomposerstarter.woocommerce.widget span.woocommerce-Price-amount.amount {
+	.visualcomposerstarter.woocommerce span.price del,
+	.visualcomposerstarter.woocommerce p.price del,
+	.visualcomposerstarter.woocommerce p.price del span,
+	.visualcomposerstarter.woocommerce span.price del span,
+	.visualcomposerstarter .woocommerce.widget del,
+	.visualcomposerstarter .woocommerce.widget del span.amount,
+	.visualcomposerstarter.woocommerce ul.products li.product .price del {
 		color: ' . esc_html( $old_price_tag_color ) . '
 	}
 	';

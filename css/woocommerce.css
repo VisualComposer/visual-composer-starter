@@ -18,12 +18,12 @@
 .arrow-up {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-bottom: 5px solid #b9b9b9;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.1);
 }
 .arrow-down {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid #b9b9b9;
+  border-top: 5px solid rgba(0, 0, 0, 0.1);
 }
 .item-count {
   background: #2B4B80;
@@ -144,6 +144,9 @@
   text-transform: uppercase;
   float: right;
   font-size: 12px;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 .visualcomposerstarter .woocommerce .button[name="update_cart"]:disabled[disabled],
 .visualcomposerstarter .woocommerce .button[name="apply_coupon"]:disabled[disabled],
@@ -152,6 +155,11 @@
 .visualcomposerstarter .woocommerce .button[name="apply_coupon"]:disabled,
 .visualcomposerstarter .woocommerce .vct-checkout-button:disabled {
   padding: 15px 68px;
+}
+.visualcomposerstarter .woocommerce .button[name="update_cart"]:hover,
+.visualcomposerstarter .woocommerce .button[name="apply_coupon"]:hover,
+.visualcomposerstarter .woocommerce .vct-checkout-button:hover {
+  opacity: 0.8;
 }
 .visualcomposerstarter .woocommerce .vct-checkout-button {
   padding: 13px 68px;
@@ -194,7 +202,7 @@
   position: relative;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid #b9b9b9;
+  border-top: 5px solid rgba(0, 0, 0, 0.1);
 }
 .visualcomposerstarter .vct-promo-content {
   display: -webkit-box;
@@ -276,13 +284,13 @@
   top: 22px;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-bottom: 5px solid #b9b9b9;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.1);
 }
 .visualcomposerstarter .vct-input-qty .vct-input-qty-control-remove {
   top: 33px;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid #b9b9b9;
+  border-top: 5px solid rgba(0, 0, 0, 0.1);
 }
 .visualcomposerstarter .vct-input-qty input[type='number'] {
   -moz-appearance: textfield;
@@ -322,7 +330,7 @@
   right: 35px;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid #b9b9b9;
+  border-top: 5px solid rgba(0, 0, 0, 0.1);
 }
 .visualcomposerstarter .vct-orderby-container::before {
   right: 20px;
@@ -543,6 +551,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  opacity: 0.8;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 .visualcomposerstarter.woocommerce-cart .woocommerce table.cart a.remove::before,
 .visualcomposerstarter.woocommerce-cart .woocommerce table.cart a.remove::after {
@@ -562,6 +574,7 @@
 }
 .visualcomposerstarter.woocommerce-cart .woocommerce table.cart a.remove:hover {
   background: transparent;
+  opacity: 1;
 }
 .visualcomposerstarter.woocommerce-cart .woocommerce table.cart .product-remove {
   width: 7%;
@@ -781,6 +794,12 @@
   width: 2px;
   height: 100%;
 }
+.visualcomposerstarter .vct-close-woocommerce-msg::before,
+.visualcomposerstarter.woocommerce .vct-close-woocommerce-msg::before,
+.visualcomposerstarter .vct-close-woocommerce-msg::after,
+.visualcomposerstarter.woocommerce .vct-close-woocommerce-msg::after {
+  background: #fff;
+}
 .visualcomposerstarter .woocommerce-store-notice.demo_store,
 .visualcomposerstarter.woocommerce .woocommerce-store-notice.demo_store {
   font-family: 'Roboto', Arial, sans-serif;
@@ -790,10 +809,6 @@
 .visualcomposerstarter .woocommerce-NoticeGroup,
 .visualcomposerstarter.woocommerce .woocommerce-NoticeGroup {
   width: 100%;
-}
-.visualcomposerstarter.woocommerce .woocommerce-result-count,
-.visualcomposerstarter.woocommerce .woocommerce-ordering {
-  color: #979797;
 }
 .visualcomposerstarter.woocommerce .woocommerce-result-count {
   margin: 12px 0 0;
@@ -862,9 +877,6 @@
   position: relative;
   text-transform: uppercase;
 }
-.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
-  color: #2B4B80;
-}
 .visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li.active a::before {
   content: '';
   position: absolute;
@@ -872,7 +884,6 @@
   bottom: 0;
   width: 100%;
   height: 3px;
-  background: #2B4B80;
 }
 .visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li::after,
 .visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li::before {
@@ -880,11 +891,9 @@
 }
 .visualcomposerstarter.woocommerce div.product .entry-categories a {
   text-transform: uppercase;
-  color: #c2c2c2;
 }
 .visualcomposerstarter.woocommerce div.product .entry-categories a:hover {
   text-decoration: none;
-  color: #c2c2c2;
 }
 .visualcomposerstarter.woocommerce div.product .product_title {
   margin-bottom: 10px;
@@ -897,14 +906,7 @@
 .visualcomposerstarter.woocommerce div.product p.price,
 .visualcomposerstarter.woocommerce div.product span.price,
 .visualcomposerstarter.woocommerce div.product span.price ins {
-  color: #2B4B80;
   text-decoration: none;
-}
-.visualcomposerstarter.woocommerce div.product span.price del,
-.visualcomposerstarter.woocommerce div.product p.price del,
-.visualcomposerstarter.woocommerce div.product p.price del span,
-.visualcomposerstarter.woocommerce div.product span.price del span {
-  color: #d5d5d5;
 }
 .visualcomposerstarter.woocommerce div.product form.cart .variations td.label {
   display: none;
@@ -1152,18 +1154,11 @@
 .visualcomposerstarter .woocommerce form.checkout #payment #place_order {
   float: none;
 }
-.visualcomposerstarter .woocommerce.widget .quantity,
-.visualcomposerstarter .woocommerce.widget span.woocommerce-Price-amount.amount,
-.visualcomposerstarter .woocommerce.widget ins,
-.visualcomposerstarter .woocommerce.widget del {
-  color: #2B4B80;
-}
 .visualcomposerstarter .woocommerce.widget ins {
   text-decoration: none;
 }
 .visualcomposerstarter .woocommerce.widget span.product-title,
 .visualcomposerstarter .woocommerce.widget li a {
-  color: #333;
   -webkit-transition: opacity 0.2s ease-in-out;
   -o-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
@@ -1191,7 +1186,7 @@
   color: #557cbf;
 }
 .visualcomposerstarter .woocommerce.widget .cat-item span {
-  color: #8C8C8C;
+  color: rgba(0, 0, 0, 0.5);
 }
 .visualcomposerstarter .woocommerce.widget .cat-item.cat-parent {
   -webkit-box-orient: vertical;
@@ -1224,6 +1219,10 @@
       -ms-flex-align: center;
           align-items: center;
   top: 15px;
+  opacity: 0.8;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 .visualcomposerstarter .woocommerce.widget .cart_list li a.remove::before,
 .visualcomposerstarter .woocommerce.widget .cart_list li a.remove::after {
@@ -1243,6 +1242,7 @@
 }
 .visualcomposerstarter .woocommerce.widget .cart_list li a.remove:hover {
   background: transparent;
+  opacity: 1;
 }
 .visualcomposerstarter .woocommerce.widget.widget_shopping_cart .total {
   border-top: 1px solid #ebe9eb;
@@ -1309,10 +1309,6 @@
 }
 .visualcomposerstarter .woocommerce.widget.widget_price_filter .price_slider_wrapper .ui-widget-content {
   background-color: rgba(0, 0, 0, 0.1);
-}
-.visualcomposerstarter .woocommerce.widget.widget_price_filter .ui-slider .ui-slider-range,
-.visualcomposerstarter .woocommerce.widget.widget_price_filter .ui-slider .ui-slider-handle {
-  background-color: #2B4B80;
 }
 .visualcomposerstarter .woocommerce.widget.widget_price_filter .ui-slider .ui-slider-handle {
   top: 0;
@@ -1510,6 +1506,16 @@
   }
 }
 @media only screen and (max-width: 768px) {
+  .visualcomposerstarter.woocommerce ul.products li.product,
+  .visualcomposerstarter.woocommerce .woocommerce-page ul.products li.product {
+    width: 31%;
+    margin-right: 2%;
+  }
+  .visualcomposerstarter.woocommerce .woocommerce-result-count,
+  .visualcomposerstarter.woocommerce .woocommerce-ordering {
+    float: none;
+    margin: 1em 0;
+  }
   .visualcomposerstarter .woocommerce {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
