@@ -137,8 +137,7 @@
 .visualcomposerstarter .woocommerce .button[name="update_cart"],
 .visualcomposerstarter .woocommerce .button[name="apply_coupon"],
 .visualcomposerstarter .woocommerce .vct-checkout-button {
-  color: #4E4E4E;
-  border: 2px solid #4E4E4E;
+  border: 2px solid;
   border-radius: 0;
   background: transparent;
   padding: 15px 68px;
