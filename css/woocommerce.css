@@ -167,13 +167,9 @@
 .visualcomposerstarter #review_form #respond .form-submit .submit {
   border-radius: 0;
   text-transform: uppercase;
-  background: #557cbf;
   font-size: 14px;
   padding: 23px 50px;
   color: #fff;
-}
-.visualcomposerstarter #review_form #respond .form-submit .submit:hover {
-  background: #3e63a3;
 }
 .visualcomposerstarter .vct-promo.vct-visible .vct-show-promo-form::after {
   -webkit-transform: rotate(180deg);
@@ -849,14 +845,12 @@
 }
 .visualcomposerstarter.woocommerce ul.products li.product .price {
   font-size: 16px;
-  color: #2B4B80;
 }
 .visualcomposerstarter.woocommerce ul.products li.product .price ins {
   text-decoration: none;
 }
 .visualcomposerstarter.woocommerce ul.products li.product .price del {
   text-decoration: line-through;
-  color: #d5d5d5;
   opacity: 1;
 }
 .visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs {
