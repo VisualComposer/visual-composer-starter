@@ -1079,6 +1079,57 @@ class VisualComposerStarter_Customizer {
 				)
 			)
 		);
+
+		$wp_customize->add_setting( 'woo_cart_color',  array(
+			'default'       => '#2b4b80',
+			'sanitize_callback' => 'sanitize_hex_color',
+			//'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_cart_color',
+				array(
+					'label'         => esc_html__( 'Cart color', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_cart_color',
+				)
+			)
+		);
+
+		$wp_customize->add_setting( 'woo_cart_text_color',  array(
+			'default'       => '#fff',
+			'sanitize_callback' => 'sanitize_hex_color',
+			//'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_cart_text_color',
+				array(
+					'label'         => esc_html__( 'Cart icon text color', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_cart_text_color',
+				)
+			)
+		);
+
+		$wp_customize->add_setting( 'woo_price_tag_color',  array(
+			'default'       => '#2b4b80',
+			'sanitize_callback' => 'sanitize_hex_color',
+			//'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_price_tag_color',
+				array(
+					'label'         => esc_html__( 'Price tag color', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_price_tag_color',
+				)
+			)
+		);
 	}
 
 	/**

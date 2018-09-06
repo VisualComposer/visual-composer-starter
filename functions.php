@@ -1028,12 +1028,18 @@ function visualcomposerstarter_inline_styles() {
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_hover_color', '#f4f4f4' ) ) . '; 
 	  }
 	  
-	  .nav-links.archive-navigation .page-numbers {
+	  .nav-links.archive-navigation .page-numbers,
+	  .visualcomposerstarter.woocommerce nav.woocommerce-pagination ul li .page-numbers {
 	        background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_color', '#557cbf' ) ) . '; 
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_color', '#f4f4f4' ) ) . ';
 	  }
 	  
-	  .nav-links.archive-navigation a.page-numbers:hover, .nav-links.archive-navigation a.page-numbers:focus, .nav-links.archive-navigation .page-numbers.current {
+	  .nav-links.archive-navigation a.page-numbers:hover, 
+	  .nav-links.archive-navigation a.page-numbers:focus, 
+	  .nav-links.archive-navigation .page-numbers.current,
+	  .visualcomposerstarter.woocommerce nav.woocommerce-pagination ul li .page-numbers:hover, 
+	  .visualcomposerstarter.woocommerce nav.woocommerce-pagination ul li .page-numbers:focus, 
+	  .visualcomposerstarter.woocommerce nav.woocommerce-pagination ul li .page-numbers.current {
 	        background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_hover_color', '#3c63a6' ) ) . '; 
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_hover_color', '#f4f4f4' ) ) . '; 
 	  }
@@ -1042,7 +1048,18 @@ function visualcomposerstarter_inline_styles() {
 	  .visualcomposerstarter.woocommerce a.button.product_type_grouped,
 	  .visualcomposerstarter.woocommerce a.button.product_type_variable,
 	  .visualcomposerstarter.woocommerce a.button.product_type_external,
-	  .visualcomposerstarter.woocommerce .buttons a.button.wc-forward {
+	  .visualcomposerstarter .woocommerce .buttons a.button.wc-forward,
+	  .visualcomposerstarter .woocommerce #place_order,
+	  .visualcomposerstarter .woocommerce .button.checkout-button,
+	  .visualcomposerstarter .woocommerce .button.wc-backward,
+	  .visualcomposerstarter .woocommerce .track_order .button,
+	  .visualcomposerstarter .woocommerce .vct-thank-you-footer a,
+	  .visualcomposerstarter .woocommerce .woocommerce-EditAccountForm .button,
+	  .visualcomposerstarter .woocommerce .woocommerce-MyAccount-content a.edit,
+	  .visualcomposerstarter .woocommerce .woocommerce-mini-cart__buttons.buttons a,
+	  .visualcomposerstarter .woocommerce .woocommerce-orders-table__cell .button,
+	  .visualcomposerstarter .woocommerce a.button
+	   {
 	  		background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_color', '#557cbf' ) ) . '; 
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_color', '#f4f4f4' ) ) . ';
 			font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_family', 'Playfair Display' ) ) . ';
@@ -1062,7 +1079,27 @@ function visualcomposerstarter_inline_styles() {
 	  .visualcomposerstarter.woocommerce a.button:hover,
 	  .visualcomposerstarter.woocommerce a.button:focus,
 	  .visualcomposerstarter.woocommerce button.button:hover,
-	  .visualcomposerstarter.woocommerce button.button:focus { 
+	  .visualcomposerstarter.woocommerce button.button:focus,
+	  .visualcomposerstarter .woocommerce #place_order:hover,
+	  .visualcomposerstarter .woocommerce .button.checkout-button:hover,
+	  .visualcomposerstarter .woocommerce .button.wc-backward:hover,
+	  .visualcomposerstarter .woocommerce .track_order .button:hover,
+	  .visualcomposerstarter .woocommerce .vct-thank-you-footer a:hover,
+	  .visualcomposerstarter .woocommerce .woocommerce-EditAccountForm .button:hover,
+	  .visualcomposerstarter .woocommerce .woocommerce-MyAccount-content a.edit:hover,
+	  .visualcomposerstarter .woocommerce .woocommerce-mini-cart__buttons.buttons a:hover,
+	  .visualcomposerstarter .woocommerce .woocommerce-orders-table__cell .button:hover,
+	  .visualcomposerstarter .woocommerce a.button:hover ,
+	  .visualcomposerstarter .woocommerce #place_order:focus,
+	  .visualcomposerstarter .woocommerce .button.checkout-button:focus,
+	  .visualcomposerstarter .woocommerce .button.wc-backward:focus,
+	  .visualcomposerstarter .woocommerce .track_order .button:focus,
+	  .visualcomposerstarter .woocommerce .vct-thank-you-footer a:focus,
+	  .visualcomposerstarter .woocommerce .woocommerce-EditAccountForm .button:focus,
+	  .visualcomposerstarter .woocommerce .woocommerce-MyAccount-content a.edit:focus,
+	  .visualcomposerstarter .woocommerce .woocommerce-mini-cart__buttons.buttons a:focus,
+	  .visualcomposerstarter .woocommerce .woocommerce-orders-table__cell .button:focus,
+	  .visualcomposerstarter .woocommerce a.button:focus { 
 			background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_hover_color', '#3c63a6' ) ) . '; 
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_hover_color', '#f4f4f4' ) ) . '; 
 	  }
@@ -1353,6 +1390,32 @@ function visualcomposerstarter_inline_styles() {
 		';
 	}
 
+	$price_tag_color = get_theme_mod( 'woo_price_tag_color', '#2b4b80' );
+	$css .= '
+	.visualcomposerstarter.woocommerce ul.products li.product .price,
+	.visualcomposerstarter.woocommerce div.product p.price,
+	.visualcomposerstarter.woocommerce div.product p.price ins,
+	.visualcomposerstarter.woocommerce div.product span.price,
+	.visualcomposerstarter.woocommerce div.product span.price ins,
+	.visualcomposerstarter.woocommerce.widget .quantity,
+	.visualcomposerstarter.woocommerce.widget del,
+	.visualcomposerstarter.woocommerce.widget ins,
+	.visualcomposerstarter.woocommerce.widget span.woocommerce-Price-amount.amount {
+		color: ' . esc_html( $price_tag_color ) . '
+	}
+	';
+
+	$cart_color = get_theme_mod( 'woo_cart_color', '#2b4b80' );
+	$cart_text_color = get_theme_mod( 'woo_cart_text_color', '#fff' );
+	$css .= '
+	.visualcomposerstarter .vct-cart-items-count {
+	    background: ' . esc_html( $cart_color ) . ';
+	    color: ' . esc_html( $cart_text_color ) . ';
+	}
+	.visualcomposerstarter .vct-cart-wrapper svg g>g {
+	    fill: ' . esc_html( $cart_color ) . ';
+	}
+	';
 	wp_add_inline_style( 'visualcomposerstarter-custom-style', $css );
 }
 add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_inline_styles' );
