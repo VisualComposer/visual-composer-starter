@@ -1,10 +1,9 @@
-.close-button-character(@color, @position) {
+.close-button-character(@position) {
   position: @position;
   &::before,
   &::after {
     content: '';
     position: absolute;
-    background: @color;
     transform: rotate(45deg);
   }
   &::before {

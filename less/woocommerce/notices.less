@@ -92,7 +92,11 @@
     order: 2;
     margin-left: auto;
 
-    .close-button-character(#fff, relative);
+    .close-button-character(relative);
+    &::before,
+    &::after {
+      background: #fff;
+    }
   }
 
   .woocommerce-store-notice.demo_store {

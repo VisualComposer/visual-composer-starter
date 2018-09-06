@@ -1,18 +1,10 @@
 .visualcomposerstarter .woocommerce.widget {
-  .quantity,
-  span.woocommerce-Price-amount.amount,
-  ins,
-  del {
-    color: @vc-starter-theme-woocomemrce-dark-blue;
-  }
-
   ins {
     text-decoration: none;
   }
 
   span.product-title,
   li a {
-    color: #333;
     transition: opacity .2s ease-in-out;
 
     &:hover {
@@ -41,7 +33,7 @@
     }
 
     span {
-      color: #8C8C8C;
+      color: rgba(0, 0, 0, 0.5);
     }
 
     &.cat-parent {
@@ -61,15 +53,18 @@
   }
 
   .cart_list li a.remove {
-    .close-button-character(@woocommerce-cart-product-remove-color, absolute);
+    .close-button-character(absolute);
     width: @woocommerce-close-button-size;
     height: @woocommerce-close-button-size;
     font-size: 0;
     .flex-center-all;
     top: 15px;
+    opacity: .8;
+    transition: opacity .2s ease-in-out;
 
     &:hover {
       background: transparent;
+      opacity: 1;
     }
   }
 
@@ -147,11 +142,6 @@
   &.widget_price_filter {
     .price_slider_wrapper .ui-widget-content {
       background-color: rgba(0, 0, 0, 0.1);
-    }
-
-    .ui-slider .ui-slider-range,
-    .ui-slider .ui-slider-handle {
-      background-color: @vc-starter-theme-woocomemrce-dark-blue;
     }
 
     .ui-slider .ui-slider-handle {
