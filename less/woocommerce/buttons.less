@@ -105,10 +105,15 @@
       text-transform: uppercase;
       float: right;
       font-size: 12px;
+      transition: opacity .2s ease-in-out;
 
       &:disabled[disabled],
       &:disabled {
         padding: 15px 68px;
+      }
+
+      &:hover {
+        opacity: .8;
       }
     }
 

@@ -144,6 +144,9 @@
   text-transform: uppercase;
   float: right;
   font-size: 12px;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 .visualcomposerstarter .woocommerce .button[name="update_cart"]:disabled[disabled],
 .visualcomposerstarter .woocommerce .button[name="apply_coupon"]:disabled[disabled],
@@ -152,6 +155,11 @@
 .visualcomposerstarter .woocommerce .button[name="apply_coupon"]:disabled,
 .visualcomposerstarter .woocommerce .vct-checkout-button:disabled {
   padding: 15px 68px;
+}
+.visualcomposerstarter .woocommerce .button[name="update_cart"]:hover,
+.visualcomposerstarter .woocommerce .button[name="apply_coupon"]:hover,
+.visualcomposerstarter .woocommerce .vct-checkout-button:hover {
+  opacity: 0.8;
 }
 .visualcomposerstarter .woocommerce .vct-checkout-button {
   padding: 13px 68px;
