@@ -893,7 +893,17 @@ function visualcomposerstarter_inline_styles() {
 	body,
 	#main-menu ul li ul li,
 	.comment-content cite,
-	.entry-content cite { font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto' ) ) . '; }
+	.entry-content cite,
+	#add_payment_method .cart-collaterals .cart_totals table small,
+	.woocommerce-cart .cart-collaterals .cart_totals table small,
+	.woocommerce-checkout .cart-collaterals .cart_totals table small,
+	.visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals .cart-subtotal td,
+	.visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals .cart-subtotal th,
+	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart,
+	.visualcomposerstarter.woocommerce .woocommerce-ordering,
+	.visualcomposerstarter.woocommerce .woocommerce-result-count,
+	.visualcomposerstarter legend
+	 { font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto' ) ) . '; }
 	 body,
 	 .sidebar-widget-area a:hover, .sidebar-widget-area a:focus,
 	 .sidebar-widget-area .widget_recent_entries ul li:hover, .sidebar-widget-area .widget_archive ul li:hover, .sidebar-widget-area .widget_categories ul li:hover, .sidebar-widget-area .widget_meta ul li:hover, .sidebar-widget-area .widget_recent_entries ul li:focus, .sidebar-widget-area .widget_archive ul li:focus, .sidebar-widget-area .widget_categories ul li:focus, .sidebar-widget-area .widget_meta ul li:focus { color: ' . get_theme_mod( 'vct_fonts_and_style_body_primary_color', '#555555' ) . '; }
@@ -1405,6 +1415,21 @@ function visualcomposerstarter_inline_styles() {
 	}
 	';
 
+	$old_price_tag_color = get_theme_mod( 'woo_old_price_tag_color', '#2b4b80' );
+	$css .= '
+	.visualcomposerstarter.woocommerce ul.products li.product .price,
+	.visualcomposerstarter.woocommerce div.product p.price,
+	.visualcomposerstarter.woocommerce div.product p.price ins,
+	.visualcomposerstarter.woocommerce div.product span.price,
+	.visualcomposerstarter.woocommerce div.product span.price ins,
+	.visualcomposerstarter.woocommerce.widget .quantity,
+	.visualcomposerstarter.woocommerce.widget del,
+	.visualcomposerstarter.woocommerce.widget ins,
+	.visualcomposerstarter.woocommerce.widget span.woocommerce-Price-amount.amount {
+		color: ' . esc_html( $old_price_tag_color ) . '
+	}
+	';
+
 	$cart_color = get_theme_mod( 'woo_cart_color', '#2b4b80' );
 	$cart_text_color = get_theme_mod( 'woo_cart_text_color', '#fff' );
 	$css .= '
@@ -1416,6 +1441,45 @@ function visualcomposerstarter_inline_styles() {
 	    fill: ' . esc_html( $cart_color ) . ';
 	}
 	';
+
+	$link_color = get_theme_mod( 'woo_link_color', '#d5d5d5' );
+	$css .= '
+	.visualcomposerstarter.woocommerce div.product .entry-categories a,
+	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart .product-name a,
+	.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li a,
+	.visualcomposerstarter .woocommerce.widget li a
+	{
+		color: ' . esc_html( $link_color ) . ';
+	}
+	';
+
+	$link_hover_color = get_theme_mod( 'woo_link_hover_color', '#2b4b80' );
+	$css .= '
+	.visualcomposerstarter.woocommerce div.product .entry-categories a:hover,
+	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart .product-name a:hover,
+	.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover,
+	.visualcomposerstarter .woocommerce.widget li a:hover,
+	.visualcomposerstarter.woocommerce div.product .entry-categories a:focus,
+	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart .product-name a:focus,
+	.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li a:focus,
+	.visualcomposerstarter .woocommerce.widget li a:focus
+	{
+		color: ' . esc_html( $link_hover_color ) . ';
+	}
+	';
+
+	$link_active_color = get_theme_mod( 'woo_link_active_color', '#2b4b80' );
+	$css .= '
+	.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li.active a
+	{
+		color: ' . esc_html( $link_active_color ) . ';
+	}
+	.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li.active a:before
+	{
+		background: ' . esc_html( $link_active_color ) . ';
+	}
+	';
+
 	wp_add_inline_style( 'visualcomposerstarter-custom-style', $css );
 }
 add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_inline_styles' );
