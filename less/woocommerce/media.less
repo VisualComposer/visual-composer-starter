@@ -44,7 +44,23 @@
         flex: 0 0 100%;
       }
 
+      .track_order .form-row {
+        float: none;
+        width: 100%;
+        margin: 0 0 10px;
+      }
+
+      .track_order .form-row .button {
+        margin: 15px 0 0;
+        width: 100%;
+      }
+    }
+    &.woocommerce-cart .woocommerce {
       table.cart {
+        tr.cart_item td,
+        tr td {
+          width: 100%;
+        }
         td {
           padding: 30px 20px;
         }
@@ -59,15 +75,13 @@
         }
       }
 
-      .track_order .form-row {
-        float: none;
-        width: 100%;
-        margin: 0 0 10px;
-      }
-
-      .track_order .form-row .button {
-        margin: 15px 0 0;
-        width: 100%;
+      .cart_totals table.shop_table {
+        tr td {
+          width: 100%;
+          padding-left: 0;
+          padding-right: 0;
+          background: transparent;
+        }
       }
     }
   }

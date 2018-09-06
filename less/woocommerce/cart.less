@@ -32,7 +32,7 @@
 
   &.woocommerce-cart {
     .woocommerce {
-      .flex-center-all;
+      display: flex;
       flex-wrap: wrap;
 
       .cart-empty {
@@ -61,7 +61,6 @@
 
       table.cart {
         border: none;
-        color: @woocommerce-cart-table-color;
         font-weight: 300;
 
         .coupon {
@@ -84,7 +83,7 @@
 
         td {
           border: none;
-          border-bottom: 1px solid #efefef;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
           padding: 40px 0;
           text-align: center;
         }
@@ -95,7 +94,7 @@
         }
 
         a.remove {
-          .close-button-character(@woocommerce-cart-product-remove-color, relative);
+          .close-button-character(relative);
           width: @woocommerce-close-button-size;
           height: @woocommerce-close-button-size;
           font-size: 0;
@@ -113,7 +112,6 @@
         .product-name {
           width: 35%;
           a {
-            color: @woocommerce-cart-table-color;
             text-decoration: none;
             border: none;
           }
