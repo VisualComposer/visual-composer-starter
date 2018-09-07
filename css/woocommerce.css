@@ -595,12 +595,12 @@
 .visualcomposerstarter.woocommerce-cart .woocommerce table.cart .vct-input-qty-control-remove {
   top: 28px;
 }
-.visualcomposerstarter .woocommerce-error,
-.visualcomposerstarter.woocommerce .woocommerce-error,
-.visualcomposerstarter .woocommerce-info,
-.visualcomposerstarter.woocommerce .woocommerce-info,
-.visualcomposerstarter .woocommerce-message,
-.visualcomposerstarter.woocommerce .woocommerce-message {
+.visualcomposerstarter div.woocommerce-error,
+.visualcomposerstarter.woocommerce div.woocommerce-error,
+.visualcomposerstarter div.woocommerce-info,
+.visualcomposerstarter.woocommerce div.woocommerce-info,
+.visualcomposerstarter div.woocommerce-message,
+.visualcomposerstarter.woocommerce div.woocommerce-message {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -617,32 +617,38 @@
   font-size: 13px;
   color: #fff;
 }
-.visualcomposerstarter .woocommerce-error::before,
-.visualcomposerstarter.woocommerce .woocommerce-error::before,
-.visualcomposerstarter .woocommerce-info::before,
-.visualcomposerstarter.woocommerce .woocommerce-info::before,
-.visualcomposerstarter .woocommerce-message::before,
-.visualcomposerstarter.woocommerce .woocommerce-message::before {
+.visualcomposerstarter div.woocommerce-error::before,
+.visualcomposerstarter.woocommerce div.woocommerce-error::before,
+.visualcomposerstarter div.woocommerce-info::before,
+.visualcomposerstarter.woocommerce div.woocommerce-info::before,
+.visualcomposerstarter div.woocommerce-message::before,
+.visualcomposerstarter.woocommerce div.woocommerce-message::before {
   display: none;
 }
-.visualcomposerstarter .woocommerce-error .button,
-.visualcomposerstarter.woocommerce .woocommerce-error .button,
-.visualcomposerstarter .woocommerce-info .button,
-.visualcomposerstarter.woocommerce .woocommerce-info .button,
-.visualcomposerstarter .woocommerce-message .button,
-.visualcomposerstarter.woocommerce .woocommerce-message .button,
-.visualcomposerstarter .woocommerce-error .restore-item,
-.visualcomposerstarter.woocommerce .woocommerce-error .restore-item,
-.visualcomposerstarter .woocommerce-info .restore-item,
-.visualcomposerstarter.woocommerce .woocommerce-info .restore-item,
-.visualcomposerstarter .woocommerce-message .restore-item,
-.visualcomposerstarter.woocommerce .woocommerce-message .restore-item,
-.visualcomposerstarter .woocommerce-error .showcoupon,
-.visualcomposerstarter.woocommerce .woocommerce-error .showcoupon,
-.visualcomposerstarter .woocommerce-info .showcoupon,
-.visualcomposerstarter.woocommerce .woocommerce-info .showcoupon,
-.visualcomposerstarter .woocommerce-message .showcoupon,
-.visualcomposerstarter.woocommerce .woocommerce-message .showcoupon {
+.visualcomposerstarter div.woocommerce-error a.button,
+.visualcomposerstarter.woocommerce div.woocommerce-error a.button,
+.visualcomposerstarter div.woocommerce-info a.button,
+.visualcomposerstarter.woocommerce div.woocommerce-info a.button,
+.visualcomposerstarter div.woocommerce-message a.button,
+.visualcomposerstarter.woocommerce div.woocommerce-message a.button,
+.visualcomposerstarter div.woocommerce-error .button,
+.visualcomposerstarter.woocommerce div.woocommerce-error .button,
+.visualcomposerstarter div.woocommerce-info .button,
+.visualcomposerstarter.woocommerce div.woocommerce-info .button,
+.visualcomposerstarter div.woocommerce-message .button,
+.visualcomposerstarter.woocommerce div.woocommerce-message .button,
+.visualcomposerstarter div.woocommerce-error .restore-item,
+.visualcomposerstarter.woocommerce div.woocommerce-error .restore-item,
+.visualcomposerstarter div.woocommerce-info .restore-item,
+.visualcomposerstarter.woocommerce div.woocommerce-info .restore-item,
+.visualcomposerstarter div.woocommerce-message .restore-item,
+.visualcomposerstarter.woocommerce div.woocommerce-message .restore-item,
+.visualcomposerstarter div.woocommerce-error .showcoupon,
+.visualcomposerstarter.woocommerce div.woocommerce-error .showcoupon,
+.visualcomposerstarter div.woocommerce-info .showcoupon,
+.visualcomposerstarter.woocommerce div.woocommerce-info .showcoupon,
+.visualcomposerstarter div.woocommerce-message .showcoupon,
+.visualcomposerstarter.woocommerce div.woocommerce-message .showcoupon {
   float: none;
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
@@ -653,40 +659,53 @@
   line-height: 0;
   color: #fff;
   background: transparent;
+  font-size: 14px;
 }
-.visualcomposerstarter .woocommerce-error .button:hover,
-.visualcomposerstarter.woocommerce .woocommerce-error .button:hover,
-.visualcomposerstarter .woocommerce-info .button:hover,
-.visualcomposerstarter.woocommerce .woocommerce-info .button:hover,
-.visualcomposerstarter .woocommerce-message .button:hover,
-.visualcomposerstarter.woocommerce .woocommerce-message .button:hover,
-.visualcomposerstarter .woocommerce-error .restore-item:hover,
-.visualcomposerstarter.woocommerce .woocommerce-error .restore-item:hover,
-.visualcomposerstarter .woocommerce-info .restore-item:hover,
-.visualcomposerstarter.woocommerce .woocommerce-info .restore-item:hover,
-.visualcomposerstarter .woocommerce-message .restore-item:hover,
-.visualcomposerstarter.woocommerce .woocommerce-message .restore-item:hover,
-.visualcomposerstarter .woocommerce-error .showcoupon:hover,
-.visualcomposerstarter.woocommerce .woocommerce-error .showcoupon:hover,
-.visualcomposerstarter .woocommerce-info .showcoupon:hover,
-.visualcomposerstarter.woocommerce .woocommerce-info .showcoupon:hover,
-.visualcomposerstarter .woocommerce-message .showcoupon:hover,
-.visualcomposerstarter.woocommerce .woocommerce-message .showcoupon:hover {
+.visualcomposerstarter div.woocommerce-error a.button:hover,
+.visualcomposerstarter.woocommerce div.woocommerce-error a.button:hover,
+.visualcomposerstarter div.woocommerce-info a.button:hover,
+.visualcomposerstarter.woocommerce div.woocommerce-info a.button:hover,
+.visualcomposerstarter div.woocommerce-message a.button:hover,
+.visualcomposerstarter.woocommerce div.woocommerce-message a.button:hover,
+.visualcomposerstarter div.woocommerce-error .button:hover,
+.visualcomposerstarter.woocommerce div.woocommerce-error .button:hover,
+.visualcomposerstarter div.woocommerce-info .button:hover,
+.visualcomposerstarter.woocommerce div.woocommerce-info .button:hover,
+.visualcomposerstarter div.woocommerce-message .button:hover,
+.visualcomposerstarter.woocommerce div.woocommerce-message .button:hover,
+.visualcomposerstarter div.woocommerce-error .restore-item:hover,
+.visualcomposerstarter.woocommerce div.woocommerce-error .restore-item:hover,
+.visualcomposerstarter div.woocommerce-info .restore-item:hover,
+.visualcomposerstarter.woocommerce div.woocommerce-info .restore-item:hover,
+.visualcomposerstarter div.woocommerce-message .restore-item:hover,
+.visualcomposerstarter.woocommerce div.woocommerce-message .restore-item:hover,
+.visualcomposerstarter div.woocommerce-error .showcoupon:hover,
+.visualcomposerstarter.woocommerce div.woocommerce-error .showcoupon:hover,
+.visualcomposerstarter div.woocommerce-info .showcoupon:hover,
+.visualcomposerstarter.woocommerce div.woocommerce-info .showcoupon:hover,
+.visualcomposerstarter div.woocommerce-message .showcoupon:hover,
+.visualcomposerstarter.woocommerce div.woocommerce-message .showcoupon:hover {
   background: transparent;
   color: #fff;
 }
-.visualcomposerstarter .woocommerce-error .button,
-.visualcomposerstarter.woocommerce .woocommerce-error .button,
-.visualcomposerstarter .woocommerce-info .button,
-.visualcomposerstarter.woocommerce .woocommerce-info .button,
-.visualcomposerstarter .woocommerce-message .button,
-.visualcomposerstarter.woocommerce .woocommerce-message .button,
-.visualcomposerstarter .woocommerce-error .restore-item,
-.visualcomposerstarter.woocommerce .woocommerce-error .restore-item,
-.visualcomposerstarter .woocommerce-info .restore-item,
-.visualcomposerstarter.woocommerce .woocommerce-info .restore-item,
-.visualcomposerstarter .woocommerce-message .restore-item,
-.visualcomposerstarter.woocommerce .woocommerce-message .restore-item {
+.visualcomposerstarter div.woocommerce-error a.button,
+.visualcomposerstarter.woocommerce div.woocommerce-error a.button,
+.visualcomposerstarter div.woocommerce-info a.button,
+.visualcomposerstarter.woocommerce div.woocommerce-info a.button,
+.visualcomposerstarter div.woocommerce-message a.button,
+.visualcomposerstarter.woocommerce div.woocommerce-message a.button,
+.visualcomposerstarter div.woocommerce-error .button,
+.visualcomposerstarter.woocommerce div.woocommerce-error .button,
+.visualcomposerstarter div.woocommerce-info .button,
+.visualcomposerstarter.woocommerce div.woocommerce-info .button,
+.visualcomposerstarter div.woocommerce-message .button,
+.visualcomposerstarter.woocommerce div.woocommerce-message .button,
+.visualcomposerstarter div.woocommerce-error .restore-item,
+.visualcomposerstarter.woocommerce div.woocommerce-error .restore-item,
+.visualcomposerstarter div.woocommerce-info .restore-item,
+.visualcomposerstarter.woocommerce div.woocommerce-info .restore-item,
+.visualcomposerstarter div.woocommerce-message .restore-item,
+.visualcomposerstarter.woocommerce div.woocommerce-message .restore-item {
   width: 100px;
 }
 .visualcomposerstarter .woocommerce-error,
@@ -1387,21 +1406,27 @@
 .visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content p a:hover {
   border-bottom-color: #557cbf;
 }
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-table--order-downloads,
 .visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-MyAccount-orders {
   border: none;
   border-collapse: collapse;
 }
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-table--order-downloads td a,
 .visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-MyAccount-orders td a {
   border: none;
 }
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-table--order-downloads th,
 .visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-MyAccount-orders th,
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-table--order-downloads td,
 .visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-MyAccount-orders td {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 18px 13px;
   text-align: center;
 }
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-table--order-downloads tbody tr:last-child th,
 .visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-MyAccount-orders tbody tr:last-child th,
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-table--order-downloads tbody tr:last-child td,
 .visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-MyAccount-orders tbody tr:last-child td {
   border-bottom: none;
 }
