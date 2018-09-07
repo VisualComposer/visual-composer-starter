@@ -1,3 +1,23 @@
+@-webkit-keyframes add-to-cart-loading-animation {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes add-to-cart-loading-animation {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 /*
   Color
  */
@@ -75,9 +95,25 @@
 .visualcomposerstarter .products .added_to_cart:hover {
   background: #3ba445;
 }
+.visualcomposerstarter .products .add_to_cart_button.button.loading {
+  opacity: 0.7;
+  color: transparent;
+  cursor: not-allowed;
+}
 .visualcomposerstarter .products .add_to_cart_button.button.loading::after {
-  top: 1em;
-  right: 0.5em;
+  content: '';
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background: transparent url(../images/spinner-light.svg) 50% 50% no-repeat;
+  background-size: contain;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-animation: add-to-cart-loading-animation 1.08s linear infinite;
+          animation: add-to-cart-loading-animation 1.08s linear infinite;
 }
 .visualcomposerstarter .woocommerce button.button,
 .visualcomposerstarter .woocommerce a.button,

@@ -1031,6 +1031,9 @@ function visualcomposerstarter_inline_styles() {
 			margin-top: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_margin_top', '0' ) ) . ';
 			margin-bottom: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_margin_bottom', '0' ) ) . ';
 	  }
+	  .visualcomposerstarter .products .added_to_cart {
+			font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_family', 'Playfair Display' ) ) . ';
+	  }
 	  .comments-area .form-submit input[type=submit]:hover, .comments-area .form-submit input[type=submit]:focus,
 	  .blue-button:hover, .blue-button:focus, 
 	  .entry-content p a.blue-button:hover { 
