@@ -1385,22 +1385,22 @@
 .visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content p a:hover {
   border-bottom-color: #557cbf;
 }
-.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table {
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-MyAccount-orders {
   border: none;
   border-collapse: collapse;
 }
-.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table td a {
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-MyAccount-orders td a {
   border: none;
-  color: inherit;
 }
-.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table th,
-.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table td {
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-MyAccount-orders th,
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-MyAccount-orders td {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 18px 13px;
+  text-align: center;
 }
-.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table tbody tr:last-child th,
-.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table tbody tr:last-child td {
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-MyAccount-orders tbody tr:last-child th,
+.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content table.woocommerce-MyAccount-orders tbody tr:last-child td {
   border-bottom: none;
 }
 .visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content li a {
