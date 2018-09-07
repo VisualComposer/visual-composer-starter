@@ -1069,6 +1069,7 @@ function visualcomposerstarter_inline_styles() {
 	  .visualcomposerstarter .woocommerce .woocommerce-mini-cart__buttons.buttons a,
 	  .visualcomposerstarter .woocommerce .woocommerce-orders-table__cell .button,
 	  .visualcomposerstarter .woocommerce a.button,
+	  .visualcomposerstarter .woocommerce button.button,
 	  .visualcomposerstarter #review_form #respond .form-submit .submit
 	   {
 	  		background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_color', '#557cbf' ) ) . '; 

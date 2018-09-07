@@ -79,6 +79,7 @@
   top: 1em;
   right: 0.5em;
 }
+.visualcomposerstarter .woocommerce button.button,
 .visualcomposerstarter .woocommerce a.button,
 .visualcomposerstarter .woocommerce .woocommerce-MyAccount-content a.edit,
 .visualcomposerstarter .woocommerce .button.checkout-button,
@@ -97,6 +98,7 @@
   padding: 23px 20px;
   text-decoration: none;
 }
+.visualcomposerstarter .woocommerce button.button:hover,
 .visualcomposerstarter .woocommerce a.button:hover,
 .visualcomposerstarter .woocommerce .woocommerce-MyAccount-content a.edit:hover,
 .visualcomposerstarter .woocommerce .button.checkout-button:hover,
@@ -1430,6 +1432,9 @@
   top: -4px;
   line-height: 1.3;
   color: #557cbf;
+}
+.visualcomposerstarter.woocommerce-account .woocommerce-Addresses address {
+  line-height: 2;
 }
 .visualcomposerstarter .vct-side-summary,
 .visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals {
