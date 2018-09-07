@@ -392,7 +392,8 @@
 .visualcomposerstarter .woocommerce form .form-row.woocommerce-validated .select2-container,
 .visualcomposerstarter .woocommerce form .form-row.woocommerce-validated input.input-text,
 .visualcomposerstarter .woocommerce form .form-row.woocommerce-validated select,
-.visualcomposerstarter .select2-dropdown {
+.visualcomposerstarter .select2-dropdown,
+.visualcomposerstarter.woocommerce #reviews #comment {
   border-color: rgba(0, 0, 0, 0.1);
 }
 .visualcomposerstarter .woocommerce form .form-row label {
