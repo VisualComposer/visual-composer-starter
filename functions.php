@@ -1732,7 +1732,7 @@ add_filter( 'woocommerce_dropdown_variation_attribute_options_html', 'visualcomp
 /**
  * Removes the "shop" title on the main shop page
  *
- * @access      public
+ * @access public
  * @return bool
  */
 function visualcomposerstarter_woo_hide_page_title() {
