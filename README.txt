@@ -27,7 +27,7 @@ This program is free software: you can redistribute it and/or modify it under th
 
 == Description ==
 
-Visual Composer Starter theme is designed to be a perfect companion for a simple and good looking website. It is a lightweight theme with easy-to-use theme options and SEO in mind.
+Visual Composer Starter theme designed to be a perfect companion for a simple and good looking website. It is an easy-to-use multipurpose theme that can help you create business websites, portfolio, blogs, WooCommerce stores, and more.
 
 Intuitive theme options allow you to quickly create landing pages, business websites, portfolio, blogs, and more. Advanced page options allow you to quickly customize individual pages to design unique layouts.
 

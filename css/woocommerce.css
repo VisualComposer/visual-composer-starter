@@ -691,7 +691,7 @@
       -ms-flex-order: 1;
           order: 1;
   border: none;
-  padding: 1px;
+  padding: 1px 1px 1px 3px;
   font-weight: 600;
   line-height: 0;
   color: #fff;

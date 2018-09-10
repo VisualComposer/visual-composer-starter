@@ -902,7 +902,8 @@ function visualcomposerstarter_inline_styles() {
 	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart,
 	.visualcomposerstarter.woocommerce .woocommerce-ordering,
 	.visualcomposerstarter.woocommerce .woocommerce-result-count,
-	.visualcomposerstarter legend
+	.visualcomposerstarter legend,
+	.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content a.button
 	 { font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto' ) ) . '; }
 	 body,
 	 .sidebar-widget-area a:hover, .sidebar-widget-area a:focus,
