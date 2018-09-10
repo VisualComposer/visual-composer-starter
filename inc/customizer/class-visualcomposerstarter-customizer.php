@@ -1069,10 +1069,6 @@ class VisualComposerStarter_Customizer {
 					'description'       => esc_html__( 'Color for header cart icon color.', 'visual-composer-starter' ),
 					'section'           => 'vct_woocommerce_settings',
 					'settings'          => 'woo_cart_color',
-/*					'active_callback' => array(
-						$this,
-						'header_cart_enabled',
-					),*/
 				)
 			)
 		);
@@ -1091,10 +1087,6 @@ class VisualComposerStarter_Customizer {
 					'description'   => esc_html__( 'Color for header cart text color.', 'visual-composer-starter' ),
 					'section'       => 'vct_woocommerce_settings',
 					'settings'      => 'woo_cart_text_color',
-/*					'active_callback' => array(
-						$this,
-						'header_cart_enabled',
-					),*/
 				)
 			)
 		);
