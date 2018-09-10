@@ -1003,6 +1003,20 @@ class VisualComposerStarter_Customizer {
 	}
 
 	/**
+	 * Check if header cart is enabled
+	 *
+	 * @return true|false
+	 */
+	public function header_cart_enabled() {
+		$header_cart = get_theme_mod( 'woocommerce_header_cart_icon' );
+		if ( $header_cart ) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
 	 * Section: Woocommerce custom settings
 	 *
 	 * @param WP_Customize_Manager $wp_customize Customize manager class.
@@ -1037,6 +1051,42 @@ class VisualComposerStarter_Customizer {
 					'section' => 'vct_woocommerce_settings',
 					'settings' => 'woocommerce_header_cart_icon',
 					'type' => 'toggle-switch',
+				)
+			)
+		);
+
+		$wp_customize->add_setting( 'woo_cart_color',  array(
+			'default'       => '#2b4b80',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_cart_color',
+				array(
+					'label'             => esc_html__( 'Cart icon color', 'visual-composer-starter' ),
+					'description'       => esc_html__( 'Color for header cart icon color.', 'visual-composer-starter' ),
+					'section'           => 'vct_woocommerce_settings',
+					'settings'          => 'woo_cart_color',
+				)
+			)
+		);
+
+		$wp_customize->add_setting( 'woo_cart_text_color',  array(
+			'default'       => '#fff',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_cart_text_color',
+				array(
+					'label'         => esc_html__( 'Cart icon text color', 'visual-composer-starter' ),
+					'description'   => esc_html__( 'Color for header cart text color.', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_cart_text_color',
 				)
 			)
 		);
@@ -1077,42 +1127,6 @@ class VisualComposerStarter_Customizer {
 					'description'   => esc_html__( 'Color for "On Sale" badge that is appearing on product image.', 'visual-composer-starter' ),
 					'section'       => 'vct_woocommerce_settings',
 					'settings'      => 'woo_on_sale_color',
-				)
-			)
-		);
-
-		$wp_customize->add_setting( 'woo_cart_color',  array(
-			'default'       => '#2b4b80',
-			'sanitize_callback' => 'sanitize_hex_color',
-			'transport' => 'postMessage',
-		) );
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'woo_cart_color',
-				array(
-					'label'         => esc_html__( 'Cart icon color', 'visual-composer-starter' ),
-					'description'   => esc_html__( 'Color for header cart icon color.', 'visual-composer-starter' ),
-					'section'       => 'vct_woocommerce_settings',
-					'settings'      => 'woo_cart_color',
-				)
-			)
-		);
-
-		$wp_customize->add_setting( 'woo_cart_text_color',  array(
-			'default'       => '#fff',
-			'sanitize_callback' => 'sanitize_hex_color',
-			'transport' => 'postMessage',
-		) );
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize,
-				'woo_cart_text_color',
-				array(
-					'label'         => esc_html__( 'Cart icon text color', 'visual-composer-starter' ),
-					'description'   => esc_html__( 'Color for header cart text color.', 'visual-composer-starter' ),
-					'section'       => 'vct_woocommerce_settings',
-					'settings'      => 'woo_cart_text_color',
 				)
 			)
 		);
@@ -1166,7 +1180,7 @@ class VisualComposerStarter_Customizer {
 				$wp_customize,
 				'woo_link_color',
 				array(
-					'label'         => esc_html__( 'Link color', 'visual-composer-starter' ),
+					'label'         => esc_html__( 'Secondary link color', 'visual-composer-starter' ),
 					'description'   => esc_html__( 'Color for links like categories, tabs links etc.', 'visual-composer-starter' ),
 					'section'       => 'vct_woocommerce_settings',
 					'settings'      => 'woo_link_color',

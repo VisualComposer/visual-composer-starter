@@ -35,13 +35,27 @@
         background: darken(#51c15c, 10%);
       }
     }
+    .add_to_cart_button.button.loading {
+      opacity: .7;
+      color: transparent;
+      cursor: not-allowed;
+    }
     .add_to_cart_button.button.loading::after {
-      top: 1em;
-      right: .5em;
+      content: '';
+      display: block;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 16px;
+      background: transparent url(../images/spinner-light.svg) 50% 50% no-repeat;
+      background-size: contain;
+      transform: translate(-50%, -50%);
+      animation: add-to-cart-loading-animation 1.08s linear infinite;
     }
   }
 
   .woocommerce {
+    button.button,
     a.button,
     .woocommerce-MyAccount-content a.edit,
     .button.checkout-button,
