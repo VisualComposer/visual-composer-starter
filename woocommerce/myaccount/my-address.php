@@ -24,12 +24,12 @@ $customer_id = get_current_user_id();
 
 if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
 	$get_addresses = apply_filters( 'woocommerce_my_account_get_addresses', array(
-		'billing' => __( 'Billing address', 'woocommerce' ),
-		'shipping' => __( 'Shipping address', 'woocommerce' ),
+		'billing' => __( 'Billing address', 'visual-composer-starter' ),
+		'shipping' => __( 'Shipping address', 'visual-composer-starter' ),
 	), $customer_id );
 } else {
 	$get_addresses = apply_filters( 'woocommerce_my_account_get_addresses', array(
-		'billing' => __( 'Billing address', 'woocommerce' ),
+		'billing' => __( 'Billing address', 'visual-composer-starter' ),
 	), $customer_id );
 }
 
@@ -40,7 +40,7 @@ $col = 1;
 	<p>
 		<?php
 		// @codingStandardsIgnoreLine
-		echo apply_filters( 'woocommerce_my_account_my_address_description', __( 'The following addresses will be used on the checkout page by default.', 'visualcomposer-starter' ) );
+		echo apply_filters( 'woocommerce_my_account_my_address_description', __( 'The following addresses will be used on the checkout page by default.', 'visual-composer-starter' ) );
 		?>
 	</p>
 
@@ -61,10 +61,10 @@ $col = 1;
 			<?php
 			$address = wc_get_account_formatted_address( $name );
 			// @codingStandardsIgnoreLine
-			echo $address ? wp_kses_post( $address ) : esc_html_e( 'You have not set up this type of address yet.', 'visualcomposer-starter' );
+			echo $address ? wp_kses_post( $address ) : esc_html_e( 'You have not set up this type of address yet.', 'visual-composer-starter' );
 			?>
 		</address>
-		<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="edit"><?php esc_html_e( 'Edit', 'visualcomposer-starter' ); ?></a>
+		<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="edit"><?php esc_html_e( 'Edit', 'visual-composer-starter' ); ?></a>
 	</div>
 
 <?php endforeach; ?>
