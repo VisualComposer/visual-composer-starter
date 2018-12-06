@@ -115,6 +115,7 @@ if ( visualcomposerstarter_is_the_footer_displayed() ) : ?>
 					<?php endif; ?>
 
 				</div>
+				<?php do_action( 'visualcomposerstarter_after_footer_copyright' ); ?>
 			</div>
 		</div>
 	</footer>

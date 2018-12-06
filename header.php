@@ -8,14 +8,14 @@
  */
 
 ?>
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-<head>
-	<?php visualcomposerstarter_hook_after_head(); ?>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php wp_head() ?>
-</head>
+	<head>
+		<?php visualcomposerstarter_hook_after_head(); ?>
+		<meta charset="<?php bloginfo( 'charset' ); ?>">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<?php wp_head() ?>
+	</head>
 <body <?php body_class(); ?>>
 <?php if ( visualcomposerstarter_is_the_header_displayed() ) : ?>
 	<?php visualcomposerstarter_hook_before_header(); ?>
@@ -82,20 +82,21 @@
 							) );
 							?>
 							<div class="header-widgetised-area">
-							<?php if ( is_active_sidebar( 'menu' ) ) : ?>
-								<?php dynamic_sidebar( 'menu' ); ?>
-							<?php endif; ?>
+								<?php if ( is_active_sidebar( 'menu' ) ) : ?>
+									<?php dynamic_sidebar( 'menu' ); ?>
+								<?php endif; ?>
 							</div>
 						</div><!--#main-menu-->
 					<?php endif; ?>
 				</div><!--.navbar-wrapper-->
 			</div><!--.container-->
 		</nav>
-			<?php if ( is_singular() ) : ?>
+		<?php do_action( 'visualcomposerstarter_after_header_menu' ); ?>
+		<?php if ( is_singular() && apply_filters( 'visualcomposerstarter_single_image', true ) ) : ?>
 			<div class="header-image">
 				<?php visualcomposerstarter_header_featured_content(); ?>
 			</div>
-			<?php endif; ?>
+		<?php endif; ?>
 	</header>
 	<?php visualcomposerstarter_hook_after_header(); ?>
 <?php endif;
