@@ -37,7 +37,7 @@
 							<?php endif; ?>
 
 						</div>
-
+						<?php do_action( 'visualcomposerstarter_after_navbar_brand' ); ?>
 						<?php if ( has_nav_menu( 'primary' ) ) : ?>
 							<button type="button" class="navbar-toggle">
 								<span class="sr-only"><?php esc_html_e( 'Toggle navigation', 'visual-composer-starter' ) ?></span>
