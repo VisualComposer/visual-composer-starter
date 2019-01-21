@@ -15,7 +15,7 @@ This program is free software: you can redistribute it and/or modify it under th
 
 == Credits ==
 * TGM Plugin Activation - http://tgmpluginactivation.com/, 2011, Thomas Griffin [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* Visual Composer Starter Font - https://visualcomposer.io/, 2016
+* Visual Composer Starter Font - https://visualcomposer.com/, 2016
 * Slick Slider by Ken Wheeler. http://kenwheeler.github.io/slick/ Slick Slider is Licensed under the MIT license. https://github.com/kenwheeler/slick/blob/master/LICENSE
 * Images on screenshot.
 	- header photo
