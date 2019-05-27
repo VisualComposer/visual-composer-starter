@@ -15,27 +15,27 @@ if ( ! function_exists( 'visualcomposerstarter_post_thumbnail' ) ) :
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() || ! get_theme_mod( 'vct_overall_site_featured_image', true ) ) {
 			return;
 		}
-			?>
-			<div class="featured-content">
-				<div class="fade-in-img">
-					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?> ">
-						<?php
-						if ( 'none' === get_theme_mod( visualcomposerstarter_check_needed_sidebar(), 'none' ) ) {
-							the_post_thumbnail( 'visualcomposerstarter-featured-loop-image-full', array(
-									'data-src' => get_the_post_thumbnail_url( null, 'visualcomposerstarter-featured-loop-image-full' ),
-								) );
-						} else {
-							the_post_thumbnail( 'visualcomposerstarter-featured-loop-image', array(
-									'data-src' => get_the_post_thumbnail_url( null, 'visualcomposerstarter-featured-loop-image' ),
-								) );
-						}
-						?>
-					</a>
-					<noscript>
-						<?php the_post_thumbnail(); ?>
-					</noscript>
-				</div>
-			</div><!-- .post-thumbnail -->
+		?>
+		<div class="featured-content">
+			<div class="fade-in-img">
+				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?> ">
+					<?php
+					if ( 'none' === get_theme_mod( visualcomposerstarter_check_needed_sidebar(), 'none' ) ) {
+						the_post_thumbnail( 'visualcomposerstarter-featured-loop-image-full', array(
+							'data-src' => get_the_post_thumbnail_url( null, 'visualcomposerstarter-featured-loop-image-full' ),
+						) );
+					} else {
+						the_post_thumbnail( 'visualcomposerstarter-featured-loop-image', array(
+							'data-src' => get_the_post_thumbnail_url( null, 'visualcomposerstarter-featured-loop-image' ),
+						) );
+					}
+					?>
+				</a>
+				<noscript>
+					<?php the_post_thumbnail(); ?>
+				</noscript>
+			</div>
+		</div><!-- .post-thumbnail -->
 		<?php
 	}
 endif;
@@ -73,7 +73,7 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
 									</div>
 								</div><!--.fade-in-img-->
 							</div><!--.gallery-item-->
-							<?php
+						<?php
 						endforeach;
 						?>
 					</div><!--.gallery-slider-->
@@ -92,12 +92,12 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
 							<?php
 							if ( 'full_width' === get_theme_mod( 'vct_overall_site_featured_image_width', 'full_width' ) ) {
 								the_post_thumbnail( 'visualcomposerstarter-featured-single-image-full', array(
-										'data-src' => get_the_post_thumbnail_url( null, 'visualcomposerstarter-featured-single-image-full' ),
-									) );
+									'data-src' => get_the_post_thumbnail_url( null, 'visualcomposerstarter-featured-single-image-full' ),
+								) );
 							} else {
 								the_post_thumbnail( 'visualcomposerstarter-featured-single-image-boxed', array(
-										'data-src' => get_the_post_thumbnail_url( null, 'visualcomposerstarter-featured-single-image-boxed' ),
-									) );
+									'data-src' => get_the_post_thumbnail_url( null, 'visualcomposerstarter-featured-single-image-boxed' ),
+								) );
 							}
 							?>
 							<noscript>
@@ -132,7 +132,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_date' ) ) :
 
 		// Wrap the time string in a link, and preface it with 'Posted on'.
 		printf(
-			/* translators: %s: post date */
+		/* translators: %s: post date */
 			esc_html__( '%1$sPosted on%2$s %3$s', 'visual-composer-starter' ),
 			'<span class="screen-reader-text">',
 			'</span>',
@@ -140,8 +140,8 @@ if ( ! function_exists( 'visualcomposerstarter_entry_date' ) ) :
 			wp_kses( $time_string,
 				array(
 					'time' => array(
-					'class' => array(),
-					'datetime' => array(),
+						'class' => array(),
+						'datetime' => array(),
 					),
 				)
 			) .
@@ -169,10 +169,10 @@ if ( ! function_exists( 'visualcomposerstarter_entry_meta' ) ) :
 				<li class="entry-meta-category"><?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?></li>
 			<?php endif; ?>
 			<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
-				<li class="entry-meta-comments"><?php comments_popup_link( esc_html__( 'Leave a comment', 'visual-composer-starter' ), esc_html__( '1 Comment', 'visual-composer-starter' ), esc_html__( '% Comments', 'visual-composer-starter' ) ); ?>
+				<li class="entry-meta-comments">
+					<?php comments_popup_link( esc_html__( 'Leave a comment', 'visual-composer-starter' ), esc_html__( '1 Comment', 'visual-composer-starter' ), esc_html__( '% Comments', 'visual-composer-starter' ) ); ?>
+				</li>
 			<?php endif; ?>
-
-			</li>
 		</ul>
 		<?php
 	}
@@ -183,20 +183,36 @@ if ( ! function_exists( 'visualcomposerstarter_single_meta' ) ) :
 	 * Single meta
 	 */
 	function visualcomposerstarter_single_meta() {
-		?>
-		<div class="entry-meta">
-			<?php echo esc_html_x( 'On', 'Post meta', 'visual-composer-starter' ); ?>
-			<?php if ( in_array( get_post_type(), array( 'post', 'attachment' ), true ) ) : ?>
-				<span class="date"><?php visualcomposerstarter_entry_date(); ?></span>
-			<?php endif;?>
-			<?php echo esc_html_x( 'by', 'Post meta', 'visual-composer-starter' ); ?>
-			<?php if ( 'post' === get_post_type() ) : ?>
-				<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php echo get_the_author(); ?></span></a>
-			<?php endif; ?>
-			<?php echo esc_html_x( 'to', 'Post meta', 'visual-composer-starter' ); ?>
-			<?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?>
-		</div>
-		<?php
+		$categories = get_the_category();
+		if ( in_array( get_post_type(), array(
+				'post',
+				'attachment',
+			), true ) || ! empty( $categories ) ) {
+			?>
+			<div class="entry-meta">
+				<?php if ( in_array( get_post_type(), array(
+					'post',
+					'attachment',
+				), true ) ) : ?>
+					<?php echo esc_html_x( 'On', 'Post meta', 'visual-composer-starter' ); ?>
+					<?php if ( in_array( get_post_type(), array(
+						'post',
+						'attachment',
+					), true ) ) : ?>
+						<span class="date"><?php visualcomposerstarter_entry_date(); ?></span>
+					<?php endif; ?>
+					<?php if ( 'post' === get_post_type() ) : ?>
+						<?php echo esc_html_x( 'by', 'Post meta', 'visual-composer-starter' ); ?>
+						<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php echo get_the_author(); ?></span></a>
+					<?php endif; ?>
+				<?php endif; ?>
+				<?php if ( ! empty( $categories ) ) : ?>
+					<?php echo esc_html_x( 'to', 'Post meta', 'visual-composer-starter' ); ?>
+					<?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?>
+				<?php endif; ?>
+			</div>
+			<?php
+		}
 	}
 endif;
 
@@ -238,9 +254,9 @@ if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
 					<img src="<?php echo esc_url( get_avatar_url( $comment, array(
 						'size' => $args['avatar_size'],
 					) ) ); ?>"
-						data-src="<?php echo esc_url( get_avatar_url( $comment, array(
-							'size' => $args['avatar_size'],
-						) ) ); ?>">
+							data-src="<?php echo esc_url( get_avatar_url( $comment, array(
+								'size' => $args['avatar_size'],
+							) ) ); ?>">
 					<noscript>
 						<img src="<?php echo esc_url( get_avatar_url( $comment, array(
 							'size' => $args['avatar_size'],

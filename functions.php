@@ -1616,15 +1616,17 @@ function visualcomposerstarter_set_old_content_size() {
 	}
 }
 
+if ( ! function_exists( 'visualcomposerstarter_support' ) ) {
+	/**
+	 *  WooCommerce support
+	 */
+	function visualcomposerstarter_support() {
+		add_theme_support( 'woocommerce' );
+	}
 
-/**
- *  WooCommerce support
- */
-function visualcomposerstarter_support() {
-	add_theme_support( 'woocommerce' );
+	add_action( 'after_setup_theme', 'visualcomposerstarter_support' );
+
 }
-add_action( 'after_setup_theme', 'visualcomposerstarter_support' );
-
 /**
  *  WooCommerce single product gallery
  */
