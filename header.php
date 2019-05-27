@@ -37,7 +37,7 @@
 							<?php endif; ?>
 
 						</div>
-
+						<?php do_action( 'visualcomposerstarter_after_navbar_brand' ); ?>
 						<?php if ( has_nav_menu( 'primary' ) ) : ?>
 							<button type="button" class="navbar-toggle">
 								<span class="sr-only"><?php esc_html_e( 'Toggle navigation', 'visual-composer-starter' ) ?></span>
@@ -81,11 +81,12 @@
 								'container'      => '',
 							) );
 							?>
-							<div class="header-widgetised-area">
-								<?php if ( is_active_sidebar( 'menu' ) ) : ?>
+							<?php if ( is_active_sidebar( 'menu' ) ) : ?>
+								<div class="header-widgetised-area">
 									<?php dynamic_sidebar( 'menu' ); ?>
-								<?php endif; ?>
-							</div>
+								</div>
+							<?php endif; ?>
+							<?php do_action( 'visualcomposerstarter_after_header_widget_area' ); ?>
 						</div><!--#main-menu-->
 					<?php endif; ?>
 				</div><!--.navbar-wrapper-->

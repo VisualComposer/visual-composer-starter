@@ -7,7 +7,7 @@
  * @since Visual Composer Starter 1.0
  */
 
-define( 'VISUALCOMPOSERSTARTER_VERSION', '3.0' );
+define( 'VISUALCOMPOSERSTARTER_VERSION', '3.0.1' );
 
 if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 	/**
@@ -317,7 +317,7 @@ add_filter( 'mce_buttons', 'visualcomposerstarter_page_break' );
 /**
  * Add page break
  *
- * @param VisualComposerStarter_Customizer $mce_buttons Add page break.
+ * @param string[] $mce_buttons Add page break.
  *
  * @return array
  */
