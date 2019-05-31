@@ -1,0 +1,114 @@
+.visualcomposerstarter,
+.visualcomposerstarter.woocommerce {
+  div.woocommerce-error,
+  div.woocommerce-info,
+  div.woocommerce-message {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 23px;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    color: #fff;
+
+    &::before {
+      display: none;
+    }
+
+    a.button,
+    .button,
+    .restore-item,
+    .showcoupon {
+      float: none;
+      order: 1;
+      border: none;
+      padding: 1px 1px 1px 3px;
+      font-weight: 600;
+      line-height: 0;
+      color: #fff;
+      background: transparent;
+      font-size: 14px;
+
+      &:hover {
+        background: transparent;
+        color: #fff;
+      }
+    }
+
+    a.button,
+    .button,
+    .restore-item {
+      width: 100px;
+    }
+  }
+
+  .woocommerce-error {
+    background: #F6424C;
+    flex-wrap: wrap;
+
+    li {
+      .flex-center-all;
+      line-height: 2;
+      flex: 0 0 100%;
+      justify-content: flex-start;
+      &::before,
+      &::after {
+        display: none;
+      }
+      strong {
+        margin-right: 5px;
+      }
+    }
+    .vct-close-woocommerce-msg-container {
+      position: absolute;
+      right: 23px;
+    }
+  }
+
+  .woocommerce-info {
+    background: #FBD137;
+    .showlogin {
+      color: #fff;
+      margin-left: 5px;
+    }
+  }
+
+  .woocommerce > .woocommerce-info {
+    flex: 0 0 100%;
+  }
+
+  .woocommerce-message {
+    background: @vc-starter-theme-woocomemrce-dark-blue;
+  }
+
+  .vct-close-woocommerce-msg-container {
+    margin-left: auto !important; // to overwrite woocommerce important
+  }
+
+  .vct-close-woocommerce-msg {
+    .flex-center-all;
+    width: @woocommerce-close-button-size;
+    height: @woocommerce-close-button-size;
+    cursor: pointer;
+    order: 2;
+    margin-left: auto;
+
+    .close-button-character(relative);
+    &::before,
+    &::after {
+      background: #fff;
+    }
+  }
+
+  .woocommerce-store-notice.demo_store {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-style: italic;
+    background: @vc-starter-theme-woocomemrce-dark-blue;
+  }
+
+  .woocommerce-NoticeGroup {
+    width: 100%;
+  }
+}

@@ -57,6 +57,9 @@ class VisualComposerStarter_Customizer {
 	 * @return void
 	 */
 	public function register_customize_sections( $wp_customize ) {
+		$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+
 		// Create sections.
 		$wp_customize->add_section( 'vct_overall_site', array(
 			'title'             => esc_html__( 'Theme Options', 'visual-composer-starter' ),
@@ -79,18 +82,12 @@ class VisualComposerStarter_Customizer {
 			'theme_supports'    => '',
 			'title'             => esc_html__( 'Fonts & Style', 'visual-composer-starter' ),
 		) );
-		$wp_customize->add_section( 'vct_scripts', array(
-			'priority'          => 999,
-			'capability'        => 'edit_theme_options',
-			'theme_supports'    => '',
-			'title'             => esc_html__( 'Scripts', 'visual-composer-starter' ),
-		) );
-
 		// Populate sections.
 		$this->overall_site_section( $wp_customize );
 		$this->header_and_menu_section( $wp_customize );
 		$this->footer_section( $wp_customize );
 		$this->fonts_and_style_panel( $wp_customize );
+		$this->vct_woocommerce( $wp_customize );
 	}
 
 	/**
@@ -1003,6 +1000,320 @@ class VisualComposerStarter_Customizer {
 		$this->fonts_and_style_section_h6( $wp_customize );
 		$this->fonts_and_style_section_body( $wp_customize );
 		$this->fonts_and_style_section_buttons( $wp_customize );
+	}
+
+	/**
+	 * Check if header cart is enabled
+	 *
+	 * @return true|false
+	 */
+	public function header_cart_enabled() {
+		$header_cart = get_theme_mod( 'woocommerce_header_cart_icon' );
+		if ( $header_cart ) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Section: Woocommerce custom settings
+	 *
+	 * @param WP_Customize_Manager $wp_customize Customize manager class.
+	 *
+	 * @access private
+	 * @since  2.0.4
+	 * @return void
+	 */
+	private function vct_woocommerce( $wp_customize ) {
+		$wp_customize->add_section( 'vct_woocommerce_settings', array(
+			'title' => esc_html__( 'Visual Composer Starter Theme', 'visual-composer-starter' ),
+			'priority' => 90,
+			'panel' => 'woocommerce',
+		) );
+
+		$wp_customize->add_setting( 'woocommerce_header_cart_icon', array(
+			'default' => true,
+			'capability' => 'manage_woocommerce',
+			'sanitize_callback' => array(
+				$this,
+				'sanitize_checkbox',
+			),
+			'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new VisualComposerStarter_Toggle_Switch_Control(
+				$wp_customize,
+				'woocommerce_header_cart_icon',
+				array(
+					'label' => __( 'Cart Icon', 'visual-composer-starter' ),
+					'description' => __( 'If enabled, this show the cart icon right next to the main menu.', 'visual-composer-starter' ),
+					'section' => 'vct_woocommerce_settings',
+					'settings' => 'woocommerce_header_cart_icon',
+					'type' => 'toggle-switch',
+				)
+			)
+		);
+
+		$wp_customize->add_setting( 'woo_cart_color',  array(
+			'default'       => '#2b4b80',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_cart_color',
+				array(
+					'label'             => esc_html__( 'Cart icon color', 'visual-composer-starter' ),
+					'description'       => esc_html__( 'Color for header cart icon color.', 'visual-composer-starter' ),
+					'section'           => 'vct_woocommerce_settings',
+					'settings'          => 'woo_cart_color',
+				)
+			)
+		);
+
+		$wp_customize->add_setting( 'woo_cart_text_color',  array(
+			'default'       => '#fff',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_cart_text_color',
+				array(
+					'label'         => esc_html__( 'Cart icon text color', 'visual-composer-starter' ),
+					'description'   => esc_html__( 'Color for header cart text color.', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_cart_text_color',
+				)
+			)
+		);
+
+		$wp_customize->add_setting( 'woocommerce_coupon_from', array(
+			'default' => true,
+			'capability' => 'manage_woocommerce',
+			'sanitize_callback' => array(
+				$this,
+				'sanitize_checkbox',
+			),
+		) );
+		$wp_customize->add_control(
+			new VisualComposerStarter_Toggle_Switch_Control(
+				$wp_customize,
+				'woocommerce_coupon_from',
+				array(
+					'label' => __( 'Always open coupon form', 'visual-composer-starter' ),
+					'description' => __( 'If enabled, this show will leave the coupon form always open.', 'visual-composer-starter' ),
+					'section' => 'vct_woocommerce_settings',
+					'settings' => 'woocommerce_coupon_from',
+					'type' => 'toggle-switch',
+				)
+			)
+		);
+
+		$wp_customize->add_setting( 'woo_on_sale_color',  array(
+			'default'       => '#FAC917',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_on_sale_color',
+				array(
+					'label'         => esc_html__( 'On sale badge color', 'visual-composer-starter' ),
+					'description'   => esc_html__( 'Color for "On Sale" badge that is appearing on product image.', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_on_sale_color',
+				)
+			)
+		);
+
+		/** Price tag color. */
+		$wp_customize->add_setting( 'woo_price_tag_color',  array(
+			'default'       => '#2b4b80',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_price_tag_color',
+				array(
+					'label'         => esc_html__( 'Price tag color', 'visual-composer-starter' ),
+					'description'   => esc_html__( 'Color for each items price tag.', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_price_tag_color',
+				)
+			)
+		);
+
+		/** Old price tag color. */
+		$wp_customize->add_setting( 'woo_old_price_tag_color',  array(
+			'default'       => '#d5d5d5',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_old_price_tag_color',
+				array(
+					'label'         => esc_html__( 'Old price tag color', 'visual-composer-starter' ),
+					'description'   => esc_html__( 'Color for each items old price, in case there is a discount set.', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_old_price_tag_color',
+				)
+			)
+		);
+
+		/** Link color */
+		$wp_customize->add_setting( 'woo_link_color',  array(
+			'default'       => '#d5d5d5',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_link_color',
+				array(
+					'label'         => esc_html__( 'Secondary link color', 'visual-composer-starter' ),
+					'description'   => esc_html__( 'Color for links like categories, tabs links etc.', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_link_color',
+				)
+			)
+		);
+
+		/** Link hover color */
+		$wp_customize->add_setting( 'woo_link_hover_color',  array(
+			'default'       => '#2b4b80',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_link_hover_color',
+				array(
+					'label'         => esc_html__( 'Link hover color', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_link_hover_color',
+				)
+			)
+		);
+
+		/** Active tab color */
+		$wp_customize->add_setting( 'woo_link_active_color',  array(
+			'default'       => '#2b4b80',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_link_active_color',
+				array(
+					'label'         => esc_html__( 'Active tab color', 'visual-composer-starter' ),
+					'description'   => esc_html__( 'Color for active tab.', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_link_active_color',
+				)
+			)
+		);
+
+		/** Outline button color */
+		$wp_customize->add_setting( 'woo_outline_button_color',  array(
+			'default'       => '#4e4e4e',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_outline_button_color',
+				array(
+					'label'         => esc_html__( 'Outline button color', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_outline_button_color',
+				)
+			)
+		);
+
+		/** Price filter widget range color */
+		$wp_customize->add_setting( 'woo_price_filter_widget_color',  array(
+			'default'       => '#2b4b80',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_price_filter_widget_color',
+				array(
+					'label'         => esc_html__( 'Price filter color', 'visual-composer-starter' ),
+					'description'   => esc_html__( 'Color for price filter widget range bar.', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_price_filter_widget_color',
+				)
+			)
+		);
+
+		/** Widget links */
+		$wp_customize->add_setting( 'woo_widget_links_color',  array(
+			'default'       => '#000',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport' => 'postMessage',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_widget_links_color',
+				array(
+					'label'         => esc_html__( 'Widget link color', 'visual-composer-starter' ),
+					'description'   => esc_html__( 'Color for links in sidebar widgets.', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_widget_links_color',
+				)
+			)
+		);
+
+		/** Widget links hover color */
+		$wp_customize->add_setting( 'woo_widget_links_hover_color',  array(
+			'default'       => '#2b4b80',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_widget_links_hover_color',
+				array(
+					'label'         => esc_html__( 'Widget link hover color', 'visual-composer-starter' ),
+					'description'   => esc_html__( 'Color for links hover in sidebar widgets.', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_widget_links_hover_color',
+				)
+			)
+		);
+
+		/** Delete icon color */
+		$wp_customize->add_setting( 'woo_delete_icon_color',  array(
+			'default'       => '#d5d5d5',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'woo_delete_icon_color',
+				array(
+					'label'         => esc_html__( 'Delete icon color', 'visual-composer-starter' ),
+					'description'   => esc_html__( 'Color for "X" icon in cart, cart widgets etc.', 'visual-composer-starter' ),
+					'section'       => 'vct_woocommerce_settings',
+					'settings'      => 'woo_delete_icon_color',
+				)
+			)
+		);
 	}
 
 	/**

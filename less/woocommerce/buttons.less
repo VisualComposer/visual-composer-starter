@@ -1,0 +1,192 @@
+.visualcomposerstarter {
+  .products {
+    .button {
+      &.add_to_cart_button,
+      &.product_type_grouped,
+      &.product_type_simple {
+        padding: 17px 0;
+        text-align: center;
+        border-radius: 0;
+      }
+      &.product_type_external {
+        padding: 17px;
+        text-align: center;
+        border-radius: 0;
+      }
+    }
+    .product {
+      .button.add_to_cart_button {
+        width: auto;
+      }
+    }
+    .added_to_cart {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 17px;
+      font-size: 16px;
+      text-align: center;
+      line-height: 1;
+      color: #fff;
+      background: #51c15c;
+      transition: background .2s ease-in-out, opacity .2s ease-in-out;
+
+      &:hover {
+        background: darken(#51c15c, 10%);
+      }
+    }
+    .add_to_cart_button.button.loading {
+      opacity: .7;
+      color: transparent;
+      cursor: not-allowed;
+    }
+    .add_to_cart_button.button.loading::after {
+      content: '';
+      display: block;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 16px;
+      background: transparent url(../images/spinner-light.svg) 50% 50% no-repeat;
+      background-size: contain;
+      transform: translate(-50%, -50%);
+      animation: add-to-cart-loading-animation 1.08s linear infinite;
+    }
+  }
+
+  .woocommerce {
+    button.button,
+    a.button,
+    .woocommerce-MyAccount-content a.edit,
+    .button.checkout-button,
+    #place_order,
+    .woocommerce-mini-cart__buttons.buttons a,
+    .button.wc-backward,
+    .vct-thank-you-footer a,
+    .track_order .button,
+    .woocommerce-EditAccountForm .button,
+    .woocommerce-orders-table__cell .button {
+      border-radius: 0;
+      text-transform: uppercase;
+      color: #fff;
+      background: @woocommerce-basic-button-background-color;
+      font-size: 14px;
+      padding: 23px 20px;
+      text-decoration: none;
+      &:hover {
+        background: darken(@woocommerce-basic-button-background-color, 10%);
+      }
+    }
+
+    .button.woocommerce-button--next,
+    .button.woocommerce-button--previous,
+    .woocommerce-MyAccount-content a.edit {
+      padding: 15px 30px;
+    }
+
+    .woocommerce-MyAccount-downloads-file.button.alt {
+      padding: 15px 20px;
+      color: #fff;
+    }
+
+    .woocommerce-orders-table__cell .button {
+      padding: 13px 20px;
+    }
+
+    .vct-thank-you-footer a,
+    .track_order .button {
+      padding: 23px 60px;
+    }
+
+    .track_order .button {
+      margin: 20px 0 0;
+    }
+
+    #place_order {
+      text-transform: none;
+      font-size: 16px;
+      padding: 17px 0;
+      width: 150px;
+    }
+
+    .button[name="update_cart"],
+    .button[name="apply_coupon"],
+    .vct-checkout-button {
+      border: 2px solid;
+      border-radius: 0;
+      background: transparent;
+      padding: 15px 68px;
+      text-transform: uppercase;
+      float: right;
+      font-size: 12px;
+      transition: opacity .2s ease-in-out;
+
+      &:disabled[disabled],
+      &:disabled {
+        padding: 15px 68px;
+      }
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+
+    .vct-checkout-button {
+      padding: 13px 68px;
+    }
+  }
+
+  #review_form #respond .form-submit .submit {
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 23px 50px;
+    color: #fff;
+  }
+
+  .vct-promo.vct-visible .vct-show-promo-form::after{
+    transform: rotate(180deg);
+  }
+
+  .vct-show-promo-form {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    background: transparent;
+    padding: 0;
+    outline: none;
+
+    &::after {
+      content: '';
+      position: relative;
+      .arrow-down;
+    }
+  }
+
+  .vct-promo-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 0;
+  }
+
+  .widget.woocommerce {
+    .woocommerce-mini-cart__buttons {
+      display: flex;
+    }
+
+    a.button {
+      width: 50%;
+      color: #fff;
+      padding: 20px 12px;
+      font-size: 13px;
+      text-align: center;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

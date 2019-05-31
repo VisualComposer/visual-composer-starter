@@ -1,0 +1,343 @@
+.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs {
+  padding: 0;
+}
+.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs::before {
+  display: none;
+}
+.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li:first-child {
+  margin-left: 0;
+  padding-left: 0;
+}
+.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li {
+  border: none;
+  background: none;
+}
+.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+  position: relative;
+  text-transform: uppercase;
+}
+.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
+  color: #2b4b80;
+}
+.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li.active a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: #2b4b80;
+}
+.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li::after,
+.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li::before {
+  display: none;
+}
+.visualcomposerstarter.woocommerce div.product .entry-categories a {
+  text-transform: uppercase;
+  color: #c2c2c2;
+}
+.visualcomposerstarter.woocommerce div.product .entry-categories a:hover {
+  text-decoration: none;
+  color: #c2c2c2;
+}
+.visualcomposerstarter.woocommerce div.product .product_title {
+  margin-bottom: 10px;
+}
+.visualcomposerstarter.woocommerce div.product p.price,
+.visualcomposerstarter.woocommerce div.product span.price {
+  font-size: 30px;
+}
+.visualcomposerstarter.woocommerce div.product p.price,
+.visualcomposerstarter.woocommerce div.product span.price,
+.visualcomposerstarter.woocommerce div.product span.price ins {
+  color: #2b4b80;
+  text-decoration: none;
+}
+.visualcomposerstarter.woocommerce div.product span.price del,
+.visualcomposerstarter.woocommerce div.product p.price del,
+.visualcomposerstarter.woocommerce div.product p.price del span,
+.visualcomposerstarter.woocommerce div.product span.price del span {
+  color: #d5d5d5;
+}
+.visualcomposerstarter.woocommerce div.product div.quantity {
+  margin-left: 10px;
+}
+.visualcomposerstarter.woocommerce div.product form.cart .variations td.label {
+  display: none;
+}
+.visualcomposerstarter.woocommerce div.product .vct-variable-container {
+  position: relative;
+  display: inline-block;
+}
+.visualcomposerstarter.woocommerce div.product .vct-variable-container::before {
+  content: '';
+  position: absolute;
+  top: 23px;
+  right: 35px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #b9b9b9;
+}
+.visualcomposerstarter.woocommerce div.product .vct-input-qty {
+  position: relative;
+  display: inline-block;
+  /* For Firefox */
+  /* Webkit browsers like Safari and Chrome */
+}
+.visualcomposerstarter.woocommerce div.product .vct-input-qty .vct-input-qty-control {
+  content: '';
+  position: absolute;
+  right: 17px;
+  cursor: pointer;
+}
+.visualcomposerstarter.woocommerce div.product .vct-input-qty .vct-input-qty-control-add {
+  top: 22px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #b9b9b9;
+}
+.visualcomposerstarter.woocommerce div.product .vct-input-qty .vct-input-qty-control-remove {
+  top: 33px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #b9b9b9;
+}
+.visualcomposerstarter.woocommerce div.product .vct-input-qty input[type='number'] {
+  -moz-appearance: textfield;
+}
+.visualcomposerstarter.woocommerce div.product .vct-input-qty input[type=number]::-webkit-inner-spin-button,
+.visualcomposerstarter.woocommerce div.product .vct-input-qty input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.visualcomposerstarter.woocommerce div.product form.cart .variations select {
+  width: 340px;
+  height: 50px;
+  border-radius: 2px;
+  border: 1px solid #efefef;
+  background: transparent;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0 20px;
+}
+.visualcomposerstarter.woocommerce div.product div.images .flex-control-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.visualcomposerstarter.woocommerce div.product div.images .flex-control-thumbs li {
+  width: auto;
+  float: none;
+  margin: 0 12px 12px 0;
+}
+.visualcomposerstarter.woocommerce div.product .woocommerce-tabs .panel {
+  box-shadow: none;
+}
+.visualcomposerstarter.woocommerce .star-rating::before {
+  content: '\53\53\53\53\53';
+  color: #eee;
+}
+.visualcomposerstarter.woocommerce .star-rating span::before {
+  color: #fac917;
+}
+.visualcomposerstarter.woocommerce .visualcomposerstarter .woocommerce-Price-amount {
+  font-size: 30px;
+  font-weight: 600;
+}
+.visualcomposerstarter.woocommerce span.onsale {
+  top: 20px;
+  left: 20px;
+  background: none;
+}
+.visualcomposerstarter.woocommerce button.button,
+.visualcomposerstarter.woocommerce button.button.alt.disabled {
+  padding: 22px 48px;
+  border-radius: 0;
+  text-transform: uppercase;
+}
+.visualcomposerstarter.woocommerce .quantity .qty {
+  border-radius: 2px;
+  border: 1px solid #efefef;
+  line-height: 0;
+  height: 60px;
+  width: 120px;
+  text-align: left;
+  padding: 20px;
+}
+.visualcomposerstarter.woocommerce .entry-summary .product_meta {
+  margin-bottom: 30px;
+}
+.visualcomposerstarter.woocommerce table.shop_attributes {
+  border: none;
+}
+.visualcomposerstarter.woocommerce table.shop_attributes th,
+.visualcomposerstarter.woocommerce table.shop_attributes td {
+  border: none;
+  background: transparent !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+}
+.visualcomposerstarter.woocommerce p.stars a {
+  border: none;
+}
+.visualcomposerstarter.woocommerce p.stars a::before,
+.visualcomposerstarter.woocommerce p.stars a:hover ~ a::before {
+  content: '\e020';
+  color: #eee;
+}
+.visualcomposerstarter.woocommerce p.stars:hover a::before,
+.visualcomposerstarter.woocommerce p.stars.selected a.active::before,
+.visualcomposerstarter.woocommerce p.stars.selected a:not(.active)::before {
+  color: #fac917;
+}
+.visualcomposerstarter.woocommerce p.stars.selected a.active ~ a::before {
+  content: '\e020';
+  color: #eee;
+}
+.visualcomposerstarter.woocommerce #reviews #comments ol.commentlist li .comment-text {
+  border: none;
+  border-bottom: 1px solid #e4e1e3;
+}
+.visualcomposerstarter.woocommerce .related.products h2 {
+  font-size: 24px;
+}
+.visualcomposerstarter.woocommerce .related.products span.price {
+  font-size: 16px;
+}
+.visualcomposerstarter.woocommerce .related.products .button.add_to_cart_button {
+  padding: 17px 0;
+  width: 150px;
+  text-align: center;
+  border-radius: 0;
+}
+.visualcomposerstarter.woocommerce ul.products li.product .woocommerce-loop-product__title {
+  font-size: 20px;
+}
+.visualcomposerstarter.woocommerce .add_to_cart_button.button.loading::after {
+  top: 1em;
+  right: 0.5em;
+}
+.visualcomposerstarter.woocommerce .vct-cart-items-count {
+  background: #2b4b80;
+  color: #fff;
+  width: 25px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  border-radius: 50%;
+  line-height: 2.1;
+  margin-left: 10px;
+}
+.visualcomposerstarter.woocommerce .navbar-wrapper {
+  display: flex;
+}
+.visualcomposerstarter.woocommerce .navbar-header {
+  flex: 1 0 auto;
+}
+.visualcomposerstarter.woocommerce .vct-cart-wrapper {
+  display: flex;
+  align-items: flex-end;
+  flex: 0 0 auto;
+}
+.visualcomposerstarter.woocommerce .vct-cart-wrapper a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.visualcomposerstarter.woocommerce .vct-cart-wrapper a:hover {
+  text-decoration: none;
+  box-shadow: none;
+  outline: none;
+}
+.visualcomposerstarter.woocommerce .woocommerce-error,
+.visualcomposerstarter.woocommerce .woocommerce-info,
+.visualcomposerstarter.woocommerce .woocommerce-message {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 23px;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  color: #fff;
+}
+.visualcomposerstarter.woocommerce .woocommerce-error::before,
+.visualcomposerstarter.woocommerce .woocommerce-info::before,
+.visualcomposerstarter.woocommerce .woocommerce-message::before {
+  display: none;
+}
+.visualcomposerstarter.woocommerce .woocommerce-error .button,
+.visualcomposerstarter.woocommerce .woocommerce-info .button,
+.visualcomposerstarter.woocommerce .woocommerce-message .button {
+  width: 100px;
+  float: none;
+  order: 1;
+  border: none;
+  padding: 1px;
+  font-weight: 600;
+  line-height: 0;
+  color: #fff;
+  background: transparent;
+}
+.visualcomposerstarter.woocommerce .woocommerce-error .button:hover,
+.visualcomposerstarter.woocommerce .woocommerce-info .button:hover,
+.visualcomposerstarter.woocommerce .woocommerce-message .button:hover {
+  background: transparent;
+}
+.visualcomposerstarter.woocommerce .woocommerce-error {
+  background: #F6424C;
+}
+.visualcomposerstarter.woocommerce .woocommerce-error li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.visualcomposerstarter.woocommerce .woocommerce-info {
+  background: #FBD137;
+}
+.visualcomposerstarter.woocommerce .woocommerce-message {
+  background: #2B4B80;
+}
+.visualcomposerstarter.woocommerce .vct-close-woocommerce-msg-container {
+  margin-left: auto !important;
+}
+.visualcomposerstarter.woocommerce .vct-close-woocommerce-msg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  order: 2;
+  margin-left: auto;
+}
+.visualcomposerstarter.woocommerce .vct-close-woocommerce-msg::before,
+.visualcomposerstarter.woocommerce .vct-close-woocommerce-msg::after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  transform: rotate(45deg);
+}
+.visualcomposerstarter.woocommerce .vct-close-woocommerce-msg::before {
+  width: 100%;
+  height: 2px;
+}
+.visualcomposerstarter.woocommerce .vct-close-woocommerce-msg::after {
+  width: 2px;
+  height: 100%;
+}
+@media only screen and (min-width: 768px) {
+  .visualcomposerstarter.woocommerce:not(.menu-sandwich) .navbar-wrapper {
+    display: block;
+  }
+  .visualcomposerstarter.woocommerce:not(.menu-sandwich) .vct-cart-wrapper {
+    float: right;
+  }
+  .visualcomposerstarter.woocommerce:not(.menu-sandwich) .vct-cart-wrapper a {
+    height: 55px;
+  }
+}

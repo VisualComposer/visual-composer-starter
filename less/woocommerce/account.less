@@ -1,0 +1,69 @@
+.visualcomposerstarter.woocommerce-account {
+  .woocommerce-MyAccount-content {
+    p a {
+      border-bottom-color: transparent;
+
+      &:hover {
+        border-bottom-color: #557cbf;
+      }
+    }
+
+    table.woocommerce-table--order-downloads,
+    table.woocommerce-MyAccount-orders {
+      border: none;
+      border-collapse: collapse;
+
+      td a {
+        border: none;
+      }
+
+      th, td {
+        border: none;
+        border-bottom: 1px solid @woocommerce-cart-order-summary-border-color;
+        padding: 18px 13px;
+        text-align: center;
+      }
+
+      tbody tr:last-child {
+        th, td {
+          border-bottom: none;
+        }
+      }
+    }
+
+    li a {
+      color: #333;
+      transition: opacity .2s ease-in-out;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+
+  .woocommerce-MyAccount-navigation {
+    li a {
+      border: none;
+      color: #333;
+      transition: opacity .2s ease-in-out;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+
+    li::before {
+      content: '\2022';
+      font-size: 1.5em;
+      position: absolute;
+      left: 20px;
+      top: -4px;
+      line-height: 1.3;
+      color: #557cbf;
+    }
+  }
+
+  .woocommerce-Addresses address {
+    line-height: 2;
+  }
+}

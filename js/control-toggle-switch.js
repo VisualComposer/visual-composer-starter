@@ -80,7 +80,7 @@
     wp.customize.controlConstructor['toggle-switch'] = wp.customize.Control.extend( {
         ready: function() {
             var control = this;
-            var value = ( undefined !== control.setting._value ) ? control.setting._value : '';
+			var value = ( undefined !== control.setting._value ) ? control.setting._value : '';
 
             /**
              * Social Icons
@@ -140,8 +140,11 @@
                 }
                 control.setting.set( value );
 
-                // Refresh the preview
-                wp.customize.previewer.refresh();
+				if ( 'woocommerce_header_cart_icon' !== $this.attr( 'id' ) ) {
+
+					// Refresh the preview
+					wp.customize.previewer.refresh();
+				}
             });
         }
 
@@ -166,5 +169,22 @@
         if ( ! isToggleTrue( '#vct_overall_site_enable_bg_image' ) ) {
             hideBackgroundImageSettings();
         }
+		if ( ! isToggleTrue( '#woocommerce_header_cart_icon' ) ) {
+			$( '#customize-control-woo_cart_color' ).hide();
+			$( '#customize-control-woo_cart_text_color' ).hide();
+		}
     });
+
+	// Woocmmerce cart icon dependency
+	wp.customize( 'woocommerce_header_cart_icon', function( value ) {
+		value.bind( function( newval ) {
+			if ( newval ) {
+				$( '#customize-control-woo_cart_color' ).show();
+				$( '#customize-control-woo_cart_text_color' ).show();
+			} else {
+				$( '#customize-control-woo_cart_color' ).hide();
+				$( '#customize-control-woo_cart_text_color' ).hide();
+			}
+		} );
+	} );
 })( window.jQuery );

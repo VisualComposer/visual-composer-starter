@@ -7,7 +7,7 @@
  * @since Visual Composer Starter 1.0
  */
 
-define( 'VISUALCOMPOSERSTARTER_VERSION', '1.3' );
+define( 'VISUALCOMPOSERSTARTER_VERSION', '3.0.1' );
 
 if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 	/**
@@ -317,7 +317,7 @@ add_filter( 'mce_buttons', 'visualcomposerstarter_page_break' );
 /**
  * Add page break
  *
- * @param VisualComposerStarter_Customizer $mce_buttons Add page break.
+ * @param string[] $mce_buttons Add page break.
  *
  * @return array
  */
@@ -352,6 +352,9 @@ function visualcomposerstarter_style() {
 	/* General theme stylesheet */
 	wp_register_style( 'visualcomposerstarter-general', get_template_directory_uri() . '/css/style.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
 
+	/* Woocommerce stylesheet */
+	wp_register_style( 'visualcomposerstarter-woocommerce', get_template_directory_uri() . '/css/woocommerce.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
+
 	/* Stylesheet with additional responsive style */
 	wp_register_style( 'visualcomposerstarter-responsive', get_template_directory_uri() . '/css/responsive.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
 
@@ -380,6 +383,7 @@ function visualcomposerstarter_style() {
 	wp_enqueue_style( 'visualcomposerstarter-font' );
 	wp_enqueue_style( 'slick-style' );
 	wp_enqueue_style( 'visualcomposerstarter-general' );
+	wp_enqueue_style( 'visualcomposerstarter-woocommerce' );
 	wp_enqueue_style( 'visualcomposerstarter-responsive' );
 	wp_enqueue_style( 'visualcomposerstarter-style' );
 	wp_enqueue_style( 'visualcomposerstarter-fonts' );
@@ -405,6 +409,12 @@ function visualcomposerstarter_script() {
 	/* Main theme JS functions */
 	wp_register_script( 'visualcomposerstarter-script', get_template_directory_uri() . '/js/functions.min.js', array( 'jquery' ), VISUALCOMPOSERSTARTER_VERSION, true );
 
+	wp_localize_script( 'jquery', 'visualcomposerstarter', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'nonce' => wp_create_nonce( 'visualcomposerstarter' ),
+		'woo_coupon_form' => get_theme_mod( 'woocommerce_coupon_from', false ),
+	) );
+
 	/* Enqueue scripts */
 	wp_enqueue_script( 'bootstrap-transition' );
 	wp_enqueue_script( 'bootstrap-collapser' );
@@ -413,6 +423,18 @@ function visualcomposerstarter_script() {
 }
 add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_script' );
 
+/**
+ * Used by hook: 'customize_preview_init'
+ *
+ * @see add_action('customize_preview_init',$func)
+ */
+function visualcomposerstarter_customizer_live_preview() {
+	wp_enqueue_script( 'visualcomposerstarter-themecustomizer', get_template_directory_uri() . '/js/customize-preview.min.js', array(
+			'jquery',
+			'customize-preview',
+		), '', true );
+}
+add_action( 'customize_preview_init', 'visualcomposerstarter_customizer_live_preview' );
 
 /**
  * Adds custom classes to the array of body classes.
@@ -422,6 +444,8 @@ add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_script' );
  * @return array
  */
 function visualcomposerstarter_body_classes( $classes ) {
+	$classes[] = 'visualcomposerstarter';
+
 	/* Sandwich color */
 	if ( get_theme_mod( 'vct_header_sandwich_style', '#333333' ) === '#FFFFFF' ) {
 		$classes[] = 'sandwich-color-light';
@@ -665,8 +689,10 @@ function visualcomposerstarter_is_the_header_displayed() {
 	if ( get_theme_mod( VISUALCOMPOSERSTARTER_DISABLE_HEADER, false ) ) {
 		return false;
 	} elseif ( function_exists( 'get_field' ) ) {
-		if ( is_page() ) {
+		if ( is_page() && ! ( function_exists( 'is_shop' ) && is_shop() ) ) {
 			return ! get_field( 'field_58c800e5a7722' );
+		} elseif ( function_exists( 'is_shop' ) && is_shop() && get_option( 'woocommerce_shop_page_id' ) ) {
+			return ! get_field( 'field_58c800e5a7722', get_option( 'woocommerce_shop_page_id' ) );
 		} elseif ( is_singular() ) {
 			return ! get_field( 'field_58c7e3f0b7dfb' );
 		} else {
@@ -686,8 +712,10 @@ function visualcomposerstarter_is_the_footer_displayed() {
 	if ( get_theme_mod( VISUALCOMPOSERSTARTER_DISABLE_FOOTER, false ) ) {
 		return false;
 	} elseif ( function_exists( 'get_field' ) ) {
-		if ( is_page() ) {
+		if ( is_page() && ! ( function_exists( 'is_shop' ) && is_shop() ) ) {
 			return ! get_field( 'field_58c800faa7723' );
+		} elseif ( function_exists( 'is_shop' ) && is_shop() && get_option( 'woocommerce_shop_page_id' ) ) {
+			return ! get_field( 'field_58c800faa7723', get_option( 'woocommerce_shop_page_id' ) );
 		} elseif ( is_singular() ) {
 			return ! get_field( 'field_58c7e40db7dfc' );
 		} else {
@@ -743,7 +771,9 @@ function visualcomposerstarter_get_content_container_class() {
  * @return string
  */
 function visualcomposerstarter_check_needed_sidebar() {
-	if ( is_page() ) {
+	if ( is_page() && ! ( function_exists( 'is_shop' ) && is_shop() ) ) {
+		return VISUALCOMPOSERSTARTER_PAGE_SIDEBAR;
+	} elseif ( function_exists( 'is_shop' ) && is_shop() ) {
 		return VISUALCOMPOSERSTARTER_PAGE_SIDEBAR;
 	} elseif ( is_singular() ) {
 		return VISUALCOMPOSERSTARTER_POST_SIDEBAR;
@@ -764,7 +794,7 @@ function visualcomposerstarter_specify_sidebar() {
 		$value = function_exists( 'get_field' ) ? get_field( 'field_589f5a321f0bc' ) : null;
 	} elseif ( is_singular() ) {
 		$value = function_exists( 'get_field' ) ? get_field( 'field_589f5b1d656ca' ) : null;
-	} elseif ( is_archive() || is_category() || is_search() || is_front_page() || is_home() ) {
+	} elseif ( ( is_archive() || is_category() || is_search() || is_front_page() || is_home() ) && ! ( function_exists( 'is_shop' ) && is_shop() ) ) {
 		if ( is_front_page() ) {
 			$value = function_exists( 'get_field' ) ? get_field( 'field_589f5a321f0bc', get_option( 'page_on_front' ) ) : null;
 		} elseif ( is_home() ) {
@@ -772,9 +802,13 @@ function visualcomposerstarter_specify_sidebar() {
 		} else {
 			$value = get_theme_mod( visualcomposerstarter_check_needed_sidebar(), 'none' );
 		}
+	} elseif ( function_exists( 'is_shop' ) && is_shop() && get_option( 'woocommerce_shop_page_id' ) ) {
+		$value = function_exists( 'get_field' ) ? get_field( 'field_589f5a321f0bc', get_option( 'woocommerce_shop_page_id' ) ) : null;
 	} else {
 		$value = null;
 	}
+
+	$value = apply_filters( 'visualcomposerstarter_specify_sidebar', $value );
 
 	if ( 'default' === $value ) {
 		return get_theme_mod( visualcomposerstarter_check_needed_sidebar(), 'none' );
@@ -795,8 +829,10 @@ function visualcomposerstarter_specify_sidebar() {
  */
 function visualcomposerstarter_is_the_title_displayed() {
 	if ( function_exists( 'get_field' ) ) {
-		if ( is_page() ) {
+		if ( is_page() && ! ( function_exists( 'is_shop' ) && is_shop() ) ) {
 			return (bool) ! get_field( 'field_589f55db2faa9' );
+		} elseif ( function_exists( 'is_shop' ) && is_shop() && get_option( 'woocommerce_shop_page_id' ) ) {
+			return (bool) ! get_field( 'field_589f55db2faa9', get_option( 'woocommerce_shop_page_id' ) );
 		} elseif ( is_singular() ) {
 			return (bool) ! get_field( 'field_589f5b9a56207' );
 		} else {
@@ -857,10 +893,21 @@ function visualcomposerstarter_inline_styles() {
 	body,
 	#main-menu ul li ul li,
 	.comment-content cite,
-	.entry-content cite { font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto' ) ) . '; }
+	.entry-content cite,
+	#add_payment_method .cart-collaterals .cart_totals table small,
+	.woocommerce-cart .cart-collaterals .cart_totals table small,
+	.woocommerce-checkout .cart-collaterals .cart_totals table small,
+	.visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals .cart-subtotal td,
+	.visualcomposerstarter.woocommerce-cart .woocommerce .cart-collaterals .cart_totals .cart-subtotal th,
+	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart,
+	.visualcomposerstarter.woocommerce .woocommerce-ordering,
+	.visualcomposerstarter.woocommerce .woocommerce-result-count,
+	.visualcomposerstarter legend,
+	.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content a.button
+	 { font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto' ) ) . '; }
 	 body,
 	 .sidebar-widget-area a:hover, .sidebar-widget-area a:focus,
-	 .sidebar-widget-area .widget_recent_entries ul li:hover, .sidebar-widget-area .widget_archive ul li:hover, .sidebar-widget-area .widget_categories ul li:hover, .sidebar-widget-area .widget_meta ul li:hover, .sidebar-widget-area .widget_recent_entries ul li:focus, .sidebar-widget-area .widget_archive ul li:focus, .sidebar-widget-area .widget_categories ul li:focus, .sidebar-widget-area .widget_meta ul li:focus { color: ' . get_theme_mod( 'vct_fonts_and_style_body_primary_color', '#555555' ) . '; }
+	 .sidebar-widget-area .widget_recent_entries ul li:hover, .sidebar-widget-area .widget_archive ul li:hover, .sidebar-widget-area .widget_categories ul li:hover, .sidebar-widget-area .widget_meta ul li:hover, .sidebar-widget-area .widget_recent_entries ul li:focus, .sidebar-widget-area .widget_archive ul li:focus, .sidebar-widget-area .widget_categories ul li:focus, .sidebar-widget-area .widget_meta ul li:focus, .visualcomposerstarter.woocommerce-cart .woocommerce table.cart .product-name a { color: ' . get_theme_mod( 'vct_fonts_and_style_body_primary_color', '#555555' ) . '; }
 	  .comment-content table,
 	  .entry-content table { border-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_body_primary_color', '#555555' ) ) . '; }
 	  .entry-full-content .entry-author-data .author-biography,
@@ -985,6 +1032,9 @@ function visualcomposerstarter_inline_styles() {
 			margin-top: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_margin_top', '0' ) ) . ';
 			margin-bottom: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_margin_bottom', '0' ) ) . ';
 	  }
+	  .visualcomposerstarter .products .added_to_cart {
+			font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_family', 'Playfair Display' ) ) . ';
+	  }
 	  .comments-area .form-submit input[type=submit]:hover, .comments-area .form-submit input[type=submit]:focus,
 	  .blue-button:hover, .blue-button:focus, 
 	  .entry-content p a.blue-button:hover { 
@@ -992,13 +1042,83 @@ function visualcomposerstarter_inline_styles() {
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_hover_color', '#f4f4f4' ) ) . '; 
 	  }
 	  
-	  .nav-links.archive-navigation .page-numbers {
+	  .nav-links.archive-navigation .page-numbers,
+	  .visualcomposerstarter.woocommerce nav.woocommerce-pagination ul li .page-numbers {
 	        background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_color', '#557cbf' ) ) . '; 
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_color', '#f4f4f4' ) ) . ';
 	  }
 	  
-	  .nav-links.archive-navigation a.page-numbers:hover, .nav-links.archive-navigation a.page-numbers:focus, .nav-links.archive-navigation .page-numbers.current {
+	  .nav-links.archive-navigation a.page-numbers:hover, 
+	  .nav-links.archive-navigation a.page-numbers:focus, 
+	  .nav-links.archive-navigation .page-numbers.current,
+	  .visualcomposerstarter.woocommerce nav.woocommerce-pagination ul li .page-numbers:hover, 
+	  .visualcomposerstarter.woocommerce nav.woocommerce-pagination ul li .page-numbers:focus, 
+	  .visualcomposerstarter.woocommerce nav.woocommerce-pagination ul li .page-numbers.current {
 	        background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_hover_color', '#3c63a6' ) ) . '; 
+			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_hover_color', '#f4f4f4' ) ) . '; 
+	  }
+	  .visualcomposerstarter.woocommerce button.button,
+	  .visualcomposerstarter.woocommerce a.button.product_type_simple,
+	  .visualcomposerstarter.woocommerce a.button.product_type_grouped,
+	  .visualcomposerstarter.woocommerce a.button.product_type_variable,
+	  .visualcomposerstarter.woocommerce a.button.product_type_external,
+	  .visualcomposerstarter .woocommerce .buttons a.button.wc-forward,
+	  .visualcomposerstarter .woocommerce #place_order,
+	  .visualcomposerstarter .woocommerce .button.checkout-button,
+	  .visualcomposerstarter .woocommerce .button.wc-backward,
+	  .visualcomposerstarter .woocommerce .track_order .button,
+	  .visualcomposerstarter .woocommerce .vct-thank-you-footer a,
+	  .visualcomposerstarter .woocommerce .woocommerce-EditAccountForm .button,
+	  .visualcomposerstarter .woocommerce .woocommerce-MyAccount-content a.edit,
+	  .visualcomposerstarter .woocommerce .woocommerce-mini-cart__buttons.buttons a,
+	  .visualcomposerstarter .woocommerce .woocommerce-orders-table__cell .button,
+	  .visualcomposerstarter .woocommerce a.button,
+	  .visualcomposerstarter .woocommerce button.button,
+	  .visualcomposerstarter #review_form #respond .form-submit .submit
+	   {
+	  		background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_color', '#557cbf' ) ) . '; 
+			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_color', '#f4f4f4' ) ) . ';
+			font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_family', 'Playfair Display' ) ) . ';
+			font-size: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_size', '16px' ) ) . ';
+			font-weight: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_weight', '400' ) ) . ';
+			font-style: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_style', 'normal' ) ) . ';
+			letter-spacing: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_letter_spacing', '0.01rem' ) ) . ';
+			line-height: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_line_height', '1' ) ) . ';
+			text-transform: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_capitalization', 'none' ) ) . ';
+			margin-top: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_margin_top', '0' ) ) . ';
+			margin-bottom: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_margin_bottom', '0' ) ) . ';
+	  }
+	  .visualcomposerstarter.woocommerce button.button.alt.disabled {
+            background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_color', '#557cbf' ) ) . '; 
+			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_color', '#f4f4f4' ) ) . ';
+	  }
+	  .visualcomposerstarter.woocommerce a.button:hover,
+	  .visualcomposerstarter.woocommerce a.button:focus,
+	  .visualcomposerstarter.woocommerce button.button:hover,
+	  .visualcomposerstarter.woocommerce button.button:focus,
+	  .visualcomposerstarter .woocommerce #place_order:hover,
+	  .visualcomposerstarter .woocommerce .button.checkout-button:hover,
+	  .visualcomposerstarter .woocommerce .button.wc-backward:hover,
+	  .visualcomposerstarter .woocommerce .track_order .button:hover,
+	  .visualcomposerstarter .woocommerce .vct-thank-you-footer a:hover,
+	  .visualcomposerstarter .woocommerce .woocommerce-EditAccountForm .button:hover,
+	  .visualcomposerstarter .woocommerce .woocommerce-MyAccount-content a.edit:hover,
+	  .visualcomposerstarter .woocommerce .woocommerce-mini-cart__buttons.buttons a:hover,
+	  .visualcomposerstarter .woocommerce .woocommerce-orders-table__cell .button:hover,
+	  .visualcomposerstarter .woocommerce a.button:hover,
+	  .visualcomposerstarter #review_form #respond .form-submit .submit:hover
+	  .visualcomposerstarter .woocommerce #place_order:focus,
+	  .visualcomposerstarter .woocommerce .button.checkout-button:focus,
+	  .visualcomposerstarter .woocommerce .button.wc-backward:focus,
+	  .visualcomposerstarter .woocommerce .track_order .button:focus,
+	  .visualcomposerstarter .woocommerce .vct-thank-you-footer a:focus,
+	  .visualcomposerstarter .woocommerce .woocommerce-EditAccountForm .button:focus,
+	  .visualcomposerstarter .woocommerce .woocommerce-MyAccount-content a.edit:focus,
+	  .visualcomposerstarter .woocommerce .woocommerce-mini-cart__buttons.buttons a:focus,
+	  .visualcomposerstarter .woocommerce .woocommerce-orders-table__cell .button:focus,
+	  .visualcomposerstarter .woocommerce a.button:focus,
+	  .visualcomposerstarter #review_form #respond .form-submit .submit:focus { 
+			background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_hover_color', '#3c63a6' ) ) . '; 
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_hover_color', '#f4f4f4' ) ) . '; 
 	  }
 	';
@@ -1280,6 +1400,137 @@ function visualcomposerstarter_inline_styles() {
 		#footer a:hover { border-bottom-color: ' . esc_html( $footer_area_text_active_color ) . '; }
 		';
 	}
+	$on_sale_color = get_theme_mod( 'woo_on_sale_color', '#FAC917' );
+	if ( '#FAC917' !== $on_sale_color ) {
+		$css .= '
+		/*Woocommerce*/
+		.vct-sale svg>g>g {fill: ' . esc_html( $on_sale_color ) . ';}
+		';
+	}
+
+	$price_tag_color = get_theme_mod( 'woo_price_tag_color', '#2b4b80' );
+	$css .= '
+	.visualcomposerstarter.woocommerce ul.products li.product .price,
+	.visualcomposerstarter.woocommerce div.product p.price,
+	.visualcomposerstarter.woocommerce div.product p.price ins,
+	.visualcomposerstarter.woocommerce div.product span.price,
+	.visualcomposerstarter.woocommerce div.product span.price ins,
+	.visualcomposerstarter.woocommerce.widget .quantity,
+	.visualcomposerstarter.woocommerce.widget del,
+	.visualcomposerstarter.woocommerce.widget ins,
+	.visualcomposerstarter.woocommerce.widget span.woocommerce-Price-amount.amount,
+	.visualcomposerstarter.woocommerce p.price ins,
+	.visualcomposerstarter.woocommerce p.price,
+	.visualcomposerstarter.woocommerce span.price,
+	.visualcomposerstarter.woocommerce span.price ins,
+	.visualcomposerstarter .woocommerce.widget span.amount,
+	.visualcomposerstarter .woocommerce.widget ins {
+		color: ' . esc_html( $price_tag_color ) . '
+	}
+	';
+
+	$old_price_tag_color = get_theme_mod( 'woo_old_price_tag_color', '#d5d5d5' );
+	$css .= '
+	.visualcomposerstarter.woocommerce span.price del,
+	.visualcomposerstarter.woocommerce p.price del,
+	.visualcomposerstarter.woocommerce p.price del span,
+	.visualcomposerstarter.woocommerce span.price del span,
+	.visualcomposerstarter .woocommerce.widget del,
+	.visualcomposerstarter .woocommerce.widget del span.amount,
+	.visualcomposerstarter.woocommerce ul.products li.product .price del {
+		color: ' . esc_html( $old_price_tag_color ) . '
+	}
+	';
+
+	$cart_color = get_theme_mod( 'woo_cart_color', '#2b4b80' );
+	$cart_text_color = get_theme_mod( 'woo_cart_text_color', '#fff' );
+	$css .= '
+	.visualcomposerstarter .vct-cart-items-count {
+	    background: ' . esc_html( $cart_color ) . ';
+	    color: ' . esc_html( $cart_text_color ) . ';
+	}
+	.visualcomposerstarter .vct-cart-wrapper svg g>g {
+	    fill: ' . esc_html( $cart_color ) . ';
+	}
+	';
+
+	$link_color = get_theme_mod( 'woo_link_color', '#d5d5d5' );
+	$css .= '
+	.visualcomposerstarter.woocommerce div.product .entry-categories a,
+	.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li a
+	{
+		color: ' . esc_html( $link_color ) . ';
+	}
+	';
+
+	$link_hover_color = get_theme_mod( 'woo_link_hover_color', '#2b4b80' );
+	$css .= '
+	.visualcomposerstarter.woocommerce div.product .entry-categories a:hover,
+	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart .product-name a:hover,
+	.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover,
+	.visualcomposerstarter.woocommerce div.product .entry-categories a:focus,
+	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart .product-name a:focus,
+	.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li a:focus,
+	{
+		color: ' . esc_html( $link_hover_color ) . ';
+	}
+	';
+
+	$link_active_color = get_theme_mod( 'woo_link_active_color', '#2b4b80' );
+	$css .= '
+	.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li.active a
+	{
+		color: ' . esc_html( $link_active_color ) . ';
+	}
+	.visualcomposerstarter.woocommerce div.product .woocommerce-tabs ul.tabs li.active a:before
+	{
+		background: ' . esc_html( $link_active_color ) . ';
+	}
+	';
+
+	$outline_button_color = get_theme_mod( 'woo_outline_button_color', '#4e4e4e' );
+	$css .= '
+	.woocommerce button.button[name="update_cart"],
+    .button[name="apply_coupon"],
+    .vct-checkout-button,
+    .woocommerce button.button:disabled, 
+    .woocommerce button.button:disabled[disabled]
+	{
+		color: ' . esc_html( $outline_button_color ) . ';
+	}';
+
+	$price_filter_widget_color = get_theme_mod( 'woo_price_filter_widget_color', '#2b4b80' );
+	$css .= '
+	.visualcomposerstarter .woocommerce.widget.widget_price_filter .ui-slider .ui-slider-handle,
+	.visualcomposerstarter .woocommerce.widget.widget_price_filter .ui-slider .ui-slider-range
+	{
+		background-color: ' . esc_html( $price_filter_widget_color ) . ';
+	}';
+
+	$widget_links_color = get_theme_mod( 'woo_widget_links_color', '#000' );
+	$css .= '
+	.visualcomposerstarter .woocommerce.widget li a
+	{
+		color: ' . esc_html( $widget_links_color ) . ';
+	}';
+
+	$widget_links_hover_color = get_theme_mod( 'woo_widget_links_hover_color', '#2b4b80' );
+	$css .= '
+	.visualcomposerstarter .woocommerce.widget li a:hover,
+	.visualcomposerstarter .woocommerce.widget li a:focus
+	{
+		color: ' . esc_html( $widget_links_hover_color ) . ';
+	}';
+
+	$delete_icon_color = get_theme_mod( 'woo_delete_icon_color', '#d5d5d5' );
+	$css .= '
+	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart a.remove:before,
+	.visualcomposerstarter .woocommerce.widget .cart_list li a.remove:before,
+	.visualcomposerstarter.woocommerce-cart .woocommerce table.cart a.remove:after,
+	.visualcomposerstarter .woocommerce.widget .cart_list li a.remove:after
+	{
+		background-color: ' . esc_html( $delete_icon_color ) . ';
+	}';
 
 	wp_add_inline_style( 'visualcomposerstarter-custom-style', $css );
 }
@@ -1364,3 +1615,133 @@ function visualcomposerstarter_set_old_content_size() {
 		remove_theme_mod( 'vct_content_area_size' );
 	}
 }
+
+if ( ! function_exists( 'visualcomposerstarter_support' ) ) {
+	/**
+	 *  WooCommerce support
+	 */
+	function visualcomposerstarter_support() {
+		add_theme_support( 'woocommerce' );
+	}
+
+	add_action( 'after_setup_theme', 'visualcomposerstarter_support' );
+
+}
+/**
+ *  WooCommerce single product gallery
+ */
+function visualcomposerstarter_woo_setup() {
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
+}
+add_action( 'after_setup_theme', 'visualcomposerstarter_woo_setup' );
+
+/**
+ *  WooCommerce single product categories layout
+ */
+function visualcomposerstarter_woo_categories() {
+	global $product;
+	// @codingStandardsIgnoreLine
+	echo wc_get_product_category_list( $product->get_id(), ' ', '<div class="entry-categories"><span class="screen-reader-text">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'visual-composer-starter' ) . '</span>', '</div>' );
+}
+add_action( 'woocommerce_single_product_summary', 'visualcomposerstarter_woo_categories', 1 );
+
+/**
+ * WooCommerce single product tags layout
+ */
+function visualcomposerstarter_woo_tags() {
+	global $product;
+	// @codingStandardsIgnoreLine
+	echo wc_get_product_tag_list( $product->get_id(), ' ', '<div class="entry-tags"><span class="screen-reader-text">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'visual-composer-starter' ) . '</span>', '</div>' );
+}
+add_action( 'woocommerce_single_product_summary', 'visualcomposerstarter_woo_tags', 65 );
+
+/**
+ * WooCommerce single product price layout
+ *
+ * @param product $price layout.
+ * @param product $regular_price number.
+ * @param product $sale_price number.
+ * @return string
+ */
+function visualcomposerstarter_woo_format_sale_price( $price, $regular_price, $sale_price ) {
+	$price = '<ins>' . ( is_numeric( $sale_price ) ? wc_price( $sale_price ) : $sale_price ) . '</ins> <del>' . ( is_numeric( $regular_price ) ? wc_price( $regular_price ) : $regular_price ) . '</del>';
+
+	return $price;
+}
+add_filter( 'woocommerce_format_sale_price', 'visualcomposerstarter_woo_format_sale_price', 10, 3 );
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 25 );
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 15 );
+
+/**
+ * WooCommerce single product sale flash layout
+ *
+ * @param single $post data.
+ * @param single $product data.
+ * @return string
+ */
+function visualcomposerstarter_woo_sale_flash( $post, $product ) {
+	$sale = <<<HTML
+ <span class="onsale vct-sale">
+	<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Product-Open" transform="translate(-20.000000, -24.000000)" fill-rule="nonzero" fill="#FAC917">
+                <g id="Image" transform="translate(0.000000, 4.000000)">
+                    <g id="Discount" transform="translate(20.000000, 20.000000)">
+                        <ellipse id="Oval" cx="17.5163" cy="19.8834847" rx="2.04" ry="2.00245399"></ellipse>
+                        <ellipse id="Oval" cx="30.4763" cy="28.011092" rx="2.04" ry="2.00245399"></ellipse>
+                        <path d="M47.2963,26.5975951 L46.5563,25.606184 C45.7563,24.5264294 45.7363,23.0638528 46.5263,21.9644663 L47.2463,20.9632393 C48.3463,19.4319509 47.8363,17.3018896 46.1463,16.408638 L45.0463,15.8294969 C43.8463,15.2012761 43.1863,13.8859387 43.4163,12.5607853 L43.6263,11.3534233 C43.9463,9.50802454 42.5363,7.80004908 40.6263,7.72152147 L39.3763,7.67244172 C38.0163,7.61354601 36.8363,6.71047853 36.4563,5.42458896 L36.1063,4.24667485 C35.5763,2.44053988 33.5563,1.50802454 31.7963,2.25403681 L30.6463,2.7350184 C29.3963,3.26507975 27.9363,2.95096933 27.0263,1.94974233 L26.1963,1.0368589 C24.9263,-0.357006135 22.6963,-0.347190184 21.4363,1.0761227 L20.6163,1.99882209 C19.7163,3.00986503 18.2663,3.34360736 17.0063,2.83317791 L15.8463,2.36201227 C14.0763,1.64544785 12.0763,2.61722699 11.5663,4.42336196 L11.2363,5.61109202 C10.8763,6.90679755 9.7163,7.82949693 8.3563,7.89820859 L7.1063,7.96692025 C5.1963,8.07489571 3.8163,9.80250307 4.1663,11.6479018 L4.3963,12.8552638 C4.6463,14.1706012 4.0063,15.4957546 2.8163,16.1436074 L1.7263,16.7423804 C0.0563,17.6552638 -0.4237,19.7951411 0.7063,21.3067975 L1.4463,22.2982086 C2.2463,23.3779632 2.2663,24.8405399 1.4763,25.9399264 L0.7563,26.9411534 C-0.3437,28.4724417 0.1663,30.6025031 1.8563,31.4957546 L2.9563,32.0748957 C4.1563,32.7031166 4.8163,34.018454 4.5863,35.3436074 L4.3763,36.5509693 C4.0563,38.3963681 5.4663,40.1043436 7.3763,40.1828712 L8.6263,40.2319509 C9.9863,40.2908466 11.1663,41.1939141 11.5463,42.4798037 L11.8963,43.6577178 C12.4263,45.4638528 14.4463,46.3963681 16.2063,45.6503558 L17.3563,45.1693742 C18.6063,44.6393129 20.0663,44.9534233 20.9763,45.9546503 L21.8063,46.8675337 C23.0863,48.2613988 25.3163,48.2515828 26.5663,46.8282699 L27.3863,45.9055706 C28.2863,44.8945276 29.7363,44.5607853 30.9963,45.0712147 L32.1563,45.5423804 C33.9263,46.2589448 35.9263,45.2871656 36.4363,43.4810307 L36.7663,42.2933006 C37.1263,40.9975951 38.2863,40.0748957 39.6463,40.006184 L40.8963,39.9374724 C42.8063,39.8294969 44.1863,38.1018896 43.8363,36.2564908 L43.6063,35.0491288 C43.3563,33.7337914 43.9963,32.408638 45.1863,31.7607853 L46.2763,31.1620123 C47.9463,30.2589448 48.4263,28.1190675 47.2963,26.5975951 Z M12.5863,19.8834847 C12.5863,17.213546 14.7863,15.0540368 17.5063,15.0540368 C20.2263,15.0540368 22.4263,17.213546 22.4263,19.8834847 C22.4263,22.5534233 20.2263,24.7129325 17.5063,24.7129325 C14.7863,24.7129325 12.5863,22.5436074 12.5863,19.8834847 Z M18.4563,32.3399264 C18.0363,32.8405399 17.2763,32.9092515 16.7663,32.4969816 L16.7663,32.4969816 C16.2563,32.0847117 16.1863,31.3386994 16.6063,30.8380859 L29.5163,15.5742822 C29.9363,15.0736687 30.6963,15.0049571 31.2063,15.417227 C31.7163,15.8294969 31.7863,16.5755092 31.3663,17.0761227 L18.4563,32.3399264 Z M30.4763,32.8405399 C27.7563,32.8405399 25.5563,30.6810307 25.5563,28.011092 C25.5563,25.3411534 27.7563,23.1816442 30.4763,23.1816442 C33.1963,23.1816442 35.3963,25.3411534 35.3963,28.011092 C35.3963,30.6810307 33.1963,32.8405399 30.4763,32.8405399 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>
+</span>
+HTML;
+
+	return $sale;
+}
+add_filter( 'woocommerce_sale_flash', 'visualcomposerstarter_woo_sale_flash', 10, 2 );
+
+/**
+ * Update cart woocommerce cart item count
+ */
+function visualcomposerstarter_woo_cart_count() {
+	if ( function_exists( 'WC' ) ) {
+		echo esc_html( WC()->cart->get_cart_contents_count() );
+	}
+	die;
+}
+add_action( 'wp_ajax_visualcomposerstarter_woo_cart_count', 'visualcomposerstarter_woo_cart_count' );
+add_action( 'wp_ajax_nopriv_visualcomposerstarter_woo_cart_count', 'visualcomposerstarter_woo_cart_count' );
+
+/**
+ * Add variable container
+ *
+ * @param dropdown $html content.
+ * @return string
+ */
+function visualcomposerstarter_woo_variable_container( $html ) {
+	return '<div class="vct-variable-container">' . $html . '</div>';
+}
+add_filter( 'woocommerce_dropdown_variation_attribute_options_html', 'visualcomposerstarter_woo_variable_container' );
+
+/**
+ * Removes the "shop" title on the main shop page
+ *
+ * @access public
+ * @return bool
+ */
+function visualcomposerstarter_woo_hide_page_title() {
+	return visualcomposerstarter_is_the_title_displayed();
+}
+add_filter( 'woocommerce_show_page_title', 'visualcomposerstarter_woo_hide_page_title' );
+
+// Move payments after customer details.
+remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
+add_action( 'woocommerce_checkout_after_customer_details', 'woocommerce_checkout_payment', 20 );

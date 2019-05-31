@@ -1,0 +1,139 @@
+.visualcomposerstarter {
+  .vct-cart-items-count {
+    .item-count;
+  }
+
+  .vct-promo {
+    margin: 0 0 30px;
+  }
+
+  .navbar-wrapper {
+    display: flex;
+  }
+
+  .navbar-header {
+    flex: 1 0 auto;
+  }
+
+  .vct-cart-wrapper {
+    display: flex;
+    align-items: flex-end;
+    flex: 0 0 auto;
+    a {
+      .flex-center-all;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+        box-shadow: none;
+        outline: none;
+      }
+    }
+  }
+
+  &.woocommerce-cart {
+    .woocommerce {
+      display: flex;
+      flex-wrap: wrap;
+
+      .cart-empty {
+        .flex-center-all;
+        flex: 1 0 100%;
+        margin: 0 0 20px;
+      }
+
+      .return-to-shop {
+        .flex-center-all;
+        flex: 1 0 100%;
+        margin: 0;
+      }
+
+      .vcv-cart-container {
+        flex: 0 0 70%;
+        padding-right: 40px;
+      }
+
+      .cart-collaterals {
+        flex: 0 0 30%;
+        .cart_totals .wc-proceed-to-checkout {
+            padding: 0;
+        }
+      }
+
+      table.cart {
+        border: none;
+        font-weight: 300;
+
+        .coupon {
+          display: none;
+        }
+
+        thead {
+          display: none;
+        }
+
+        .cart_item:first-child td {
+          padding-top: 0;
+        }
+
+        tr:last-child {
+          td {
+            border-bottom: none;
+          }
+        }
+
+        td {
+          border: none;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          padding: 40px 0;
+          text-align: center;
+        }
+
+        img {
+          width: 100px;
+          height: 100px;
+        }
+
+        a.remove {
+          .close-button-character(relative);
+          width: @woocommerce-close-button-size;
+          height: @woocommerce-close-button-size;
+          font-size: 0;
+          .flex-center-all;
+          opacity: .8;
+          transition: opacity .2s ease-in-out;
+
+          &:hover {
+            background: transparent;
+            opacity: 1;
+          }
+        }
+
+        .product-remove {
+          width: 7%;
+        }
+
+        .product-name {
+          width: 35%;
+          a {
+            text-decoration: none;
+            border: none;
+          }
+        }
+
+        .quantity .qty {
+          width: 90px;
+          height: 50px;
+          padding: 10px 30px 10px 20px;
+        }
+
+        .vct-input-qty-control-add {
+          top: 18px;
+        }
+
+        .vct-input-qty-control-remove {
+          top: 28px;
+        }
+      }
+    }
+  }
+}
