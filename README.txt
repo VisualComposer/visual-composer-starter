@@ -1,7 +1,7 @@
 === Visual Composer Starter ===
 Contributors:   visualcomposer
 Tags:   one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, editor-style, featured-image-header, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, translation-ready, blog, portfolio, photography, entertainment, education
-Stable tag: 3.0.2
+Stable tag: 3.0.3
 Requires at least:  4.8
 Tested up to:   5.2.1
 License:    GPLv2 or later
