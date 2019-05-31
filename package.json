@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wpbakery/visual-composer-starter.git"
+    "url": "git+https://github.com/VisualComposer/visual-composer-starter.git"
   },
   "keywords": [
     "WordPress",
@@ -18,9 +18,9 @@
   "author": "Visual Composer",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/wpbakery/visual-composer-starter/issues"
+    "url": "https://github.com/VisualComposer/visual-composer-starter/issues"
   },
-  "homepage": "https://github.com/wpbakery/visual-composer-starter#readme",
+  "homepage": "https://github.com/VisualComposer/visual-composer-starter#readme",
   "devDependencies": {
     "autoprefixer": "8.6.0",
     "grunt": "1.0.3",
