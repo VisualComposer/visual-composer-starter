@@ -3,9 +3,7 @@
 
 //Link
 .a() {
-	border-bottom-width: 1px;
-	border-bottom-color: @active-text-color;
-	border-bottom-style: solid;
+	border-bottom: 1px @active-text-color solid;
 	line-height: 1.2;
 
 	&:hover, &:focus {
@@ -37,10 +35,14 @@ a {
 	color: @active-text-color;
 }
 
-*, :before, :after {
-  -webkit-transition: border-bottom 0.4s ease, color 0.4s ease, background-color 0.4s ease;
-  -o-transition: border-bottom 0.4s ease, color 0.4s ease, background-color 0.4s ease;
-  transition: border-bottom 0.4s ease, color 0.4s ease, background-color 0.4s ease;
+a,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+	-webkit-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	transition: all .4s ease;
 }
 
 .blue-button {
@@ -87,7 +89,6 @@ Accessibility
 	clip: auto !important;
 	color: #21759b;
 	display: block;
-	font-size: 14px;
 	font-size: 0.875rem;
 	font-weight: 700;
 	height: auto;
@@ -333,7 +334,6 @@ body.menu-sandwich {
     transition: -webkit-transform 0.3s ease;
     -o-transition: transform 0.3s ease;
     transition: transform 0.3s ease;
-    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 		color: #fff;
 
 		&.open {
@@ -716,9 +716,8 @@ body.featured-image-custom-height {
 
 		ol.children {
 			list-style: none;
-			padding: 0;
+			padding: 25px 0 0;
 			margin-left: 30px;
-			padding-top: 25px;
 			border-top: 1px solid #ddd;
 		}
 
@@ -913,7 +912,7 @@ body.featured-image-custom-height {
   }
 
   .bypostauthor .fade-in-image:before {
-    font-family: 'Visual Composer Starter Font';
+    font-family: 'Visual Composer Starter Font', Arial, sans-serif;
     content:'\6e';
     background: #557cbf;
     color: #fff;
@@ -928,7 +927,6 @@ body.featured-image-custom-height {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    -ms-flex-line-pack: center;
     align-content: center;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
@@ -1588,9 +1586,7 @@ h6 {
 	line-height: 1.7;
 
 	a {
-		border-bottom-width: 1px;
-		border-bottom-color: transparent;
-		border-bottom-style: solid;
+		border-bottom: 1px transparent solid;
 		line-height: 1.2;
 		color: @footer-active-color;
 
