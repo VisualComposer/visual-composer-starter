@@ -1,6 +1,6 @@
-# Contributing to Visual Composer Theme
+# Contributing to Visual Composer Starter Theme
 
-Visual Composer Theme project operates an open contributor model where anyone is
+Visual Composer Starter Theme project operates an open contributor model where anyone is
 welcome to contribute towards development in the form of peer review, testing
 and patches.
 
@@ -17,4 +17,34 @@ To contribute a patch, the workflow is as follows:
   - Create topic branch
   - Commit patches
   
- If you send a pull request, please do it against the master branch.
+If you send a pull request, please do it against the master branch.
+
+## Set up a local dev environment
+
+To set up a local dev environment following steps are required:
+
+### Clone repo:
+
+```
+git clone https://github.com/[Your UserName]/visual-composer-starter.git
+```
+
+### Build assets:
+
+Install node modules:
+
+```
+npm install
+```
+
+Build assets:
+
+```
+grunt build
+```
+
+Watch changes and build assets:
+
+```
+grunt watch
+```

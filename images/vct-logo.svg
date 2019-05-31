@@ -1,27 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="36px" height="37px" viewBox="0 0 36 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
-    <title>vct-logo</title>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="55px" height="40px" viewBox="0 0 55 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>VC symbol</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="08-After-Install" transform="translate(-683.000000, -185.000000)">
-            <g id="VCT-Logo" transform="translate(683.000000, 185.000000)">
-                <g id="Page-1">
-                    <g id="vct-logo">
-                        <g id="Page-1">
-                            <g id="vct-logo">
-                                <polygon id="Fill-1" fill="#257CA0" points="17.982 21.662 17.989 37 8.999 31.837 8.999 21.499"></polygon>
-                                <polyline id="Fill-5" fill="#74953D" points="17.71 5.977 26.694 6.139 26.708 21.494 17.71 21.315 17.71 5.977"></polyline>
-                                <polyline id="Fill-4" fill="#2CA2CF" points="26.708 21.494 17.982 26.656 8.999 21.498 17.72 16.315 26.708 21.494"></polyline>
-                                <polyline id="Fill-6" fill="#9AC753" points="35.42 5.972 26.694 11.135 17.71 5.977 26.432 0.793 35.42 5.972"></polyline>
-                                <polygon id="Fill-8" fill="#A77E2D" points="8.984 6.145 8.998 21.499 0 16.32 0 5.98"></polygon>
-                                <polyline id="Fill-9" fill="#F2AE3B" points="17.71 5.977 8.984 11.139 0 5.98 8.722 0.799 17.71 5.977"></polyline>
-                            </g>
-                        </g>
-                    </g>
-                </g>
+        <g id="VC-symbol" fill-rule="nonzero">
+            <polygon id="Path" fill="#0584B5" points="0 8 0 24 14 32 14 16"></polygon>
+            <g id="Group">
+                <polygon id="Path" fill="#09AEEF" points="13.7757009 0.0458781362 0.0342679128 8.01146953 13.7757009 15.9770609 27.517134 8.01146953"></polygon>
+                <polygon id="Path" fill="#AED13B" points="41.258567 0.0458781362 27.517134 8.01146953 41.258567 15.9770609 55 8.01146953"></polygon>
             </g>
+            <g id="Group" transform="translate(13.000000, 8.000000)">
+                <polygon id="Path" fill="#B9880C" points="13.9883817 0.0402154399 13.9883817 16 27.9651452 23.9798923 27.9651452 8.02010772"></polygon>
+                <polygon id="Path" fill="#B76800" points="0.0116182573 8.02010772 0.0116182573 23.9798923 13.9883817 16 13.9883817 0.0402154399"></polygon>
+                <polygon id="Path" fill="#FDB715" points="13.9883817 16 0.0116182573 23.9798923 13.9883817 31.9597846 27.9651452 23.9798923"></polygon>
+            </g>
+            <polygon id="Path" fill="#7F9E2E" points="41 16 41 32 55 24 55 8"></polygon>
         </g>
     </g>
 </svg>

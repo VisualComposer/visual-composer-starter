@@ -11,12 +11,14 @@ body {
 a {
   color: #557cbf;
 }
-*,
-:before,
-:after {
-  -webkit-transition: border-bottom 0.4s ease, color 0.4s ease, background-color 0.4s ease;
-  -o-transition: border-bottom 0.4s ease, color 0.4s ease, background-color 0.4s ease;
-  transition: border-bottom 0.4s ease, color 0.4s ease, background-color 0.4s ease;
+a,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 .blue-button {
   display: inline-block;
@@ -59,7 +61,6 @@ Accessibility
   clip: auto !important;
   color: #21759b;
   display: block;
-  font-size: 14px;
   font-size: 0.875rem;
   font-weight: 700;
   height: auto;
@@ -603,9 +604,8 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
 }
 .comments-area .comment-list ol.children {
   list-style: none;
-  padding: 0;
+  padding: 25px 0 0;
   margin-left: 30px;
-  padding-top: 25px;
   border-top: 1px solid #ddd;
 }
 .comments-area .comment-list .author-avatar {
@@ -778,7 +778,7 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   min-height: 500px;
 }
 .comments-area .bypostauthor .fade-in-image:before {
-  font-family: 'Visual Composer Starter Font';
+  font-family: 'Visual Composer Starter Font', Arial, sans-serif;
   content: '\6e';
   background: #557cbf;
   color: #fff;
@@ -794,7 +794,7 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   -ms-flex-align: center;
   align-items: center;
   -ms-flex-line-pack: center;
-  align-content: center;
+      align-content: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -1085,9 +1085,7 @@ h6 {
 .comment-content dl a,
 .entry-content address a,
 .comment-content address a {
-  border-bottom-width: 1px;
-  border-bottom-color: #557cbf;
-  border-bottom-style: solid;
+  border-bottom: 1px #557cbf solid;
   line-height: 1.2;
 }
 .entry-content p a:hover,
@@ -1485,9 +1483,7 @@ h6 {
   line-height: 1.7;
 }
 #footer a {
-  border-bottom-width: 1px;
-  border-bottom-color: transparent;
-  border-bottom-style: solid;
+  border-bottom: 1px transparent solid;
   line-height: 1.2;
   color: #fff;
 }
