@@ -17,6 +17,9 @@
 		<?php wp_head() ?>
 	</head>
 <body <?php body_class(); ?>>
+<?php if ( function_exists( 'wp_body_open' ) ) {
+    wp_body_open();
+} ?>
 <?php if ( visualcomposerstarter_is_the_header_displayed() ) : ?>
 	<?php visualcomposerstarter_hook_before_header(); ?>
 	<header id="header">
