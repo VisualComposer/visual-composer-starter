@@ -32,7 +32,6 @@
 
     // Fixed header
     if ( $body.hasClass( 'fixed-header' ) ) {
-        $navBar.addClass( 'fixed' );
         if ( ! $body.hasClass( 'navbar-no-background' ) ) {
             $body.css( { paddingTop: $navBar.outerHeight() } );
         } else {

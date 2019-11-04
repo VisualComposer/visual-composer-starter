@@ -20,7 +20,7 @@
 <?php if ( visualcomposerstarter_is_the_header_displayed() ) : ?>
 	<?php visualcomposerstarter_hook_before_header(); ?>
 	<header id="header">
-		<nav class="navbar">
+		<nav class="navbar <?php echo(in_array('fixed-header', get_body_class()))?'fixed':'';?>">
 			<div class="<?php echo esc_attr( visualcomposerstarter_get_header_container_class() ); ?>">
 				<div class="navbar-wrapper clearfix">
 					<div class="navbar-header">
