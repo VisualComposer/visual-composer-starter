@@ -1477,7 +1477,7 @@ h6 {
   padding-left: 16px;
 }
 #footer {
-  background-color: #333333;
+  background-color: hsl(0, 0%, 20%);
   color: #777;
   font-size: 14px;
   line-height: 1.7;
@@ -1528,7 +1528,7 @@ h6 {
   margin-bottom: 10px;
 }
 .footer-widget-area {
-  background-color: #383838;
+  background-color: hsl(0, 0%, 22%);
   padding: 45px 0 15px 0;
 }
 .footer-widget-area .widget {

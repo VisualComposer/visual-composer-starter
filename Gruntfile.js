@@ -1,12 +1,5 @@
 module.exports = function( grunt ) {
 	var globalOptions = {
-		browsers: [
-			'> 1%',
-			'last 3 versions',
-			'ie 9',
-			'ie 10',
-			'ie 11'
-		],
 		less: {
 			srcPath: 'less/',
 			srcFiles: [
@@ -107,7 +100,7 @@ module.exports = function( grunt ) {
 				options: {
 					map: false,
 					processors: [
-						require( 'autoprefixer' )( { browsers: globalOptions.browsers } )
+						require( 'autoprefixer' )()
 					]
 				},
 				files: [
@@ -146,7 +139,7 @@ module.exports = function( grunt ) {
 			lib: {
 				options: {
 					processors: [
-						require( 'autoprefixer' )( { browsers: globalOptions.browsers } )
+						require( 'autoprefixer' )()
 					],
 					map: false
 				}
