@@ -228,6 +228,26 @@ class VisualComposerStarter_Customizer {
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
+		$wp_customize->add_setting( 'vct_overall_site_tag_background',  array(
+			'default'       => '#eeeeee',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+
+		$wp_customize->add_setting( 'vct_overall_site_tag_hover_background',  array(
+			'default'       => '#557cbf',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+
+		$wp_customize->add_setting( 'vct_overall_site_tag_color',  array(
+			'default'       => '#777777',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+
+		$wp_customize->add_setting( 'vct_overall_site_tag_hover_color',  array(
+			'default'       => '#ffffff',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+
 		$wp_customize->add_control(
 			new VisualComposerStarter_Toggle_Switch_Control(
 				$wp_customize,
@@ -411,6 +431,54 @@ class VisualComposerStarter_Customizer {
 					'label'         => esc_html__( 'Comments Background', 'visual-composer-starter' ),
 					'section'       => 'vct_overall_site',
 					'settings'      => 'vct_overall_site_comments_background',
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'vct_overall_site_tag_background',
+				array(
+					'label'         => esc_html__( 'Tag Background', 'visual-composer-starter' ),
+					'section'       => 'vct_overall_site',
+					'settings'      => 'vct_overall_site_tag_background',
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'vct_overall_site_tag_hover_background',
+				array(
+					'label'         => esc_html__( 'Tag Hover Background', 'visual-composer-starter' ),
+					'section'       => 'vct_overall_site',
+					'settings'      => 'vct_overall_site_tag_hover_background',
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'vct_overall_site_tag_color',
+				array(
+					'label'         => esc_html__( 'Tag Color', 'visual-composer-starter' ),
+					'section'       => 'vct_overall_site',
+					'settings'      => 'vct_overall_site_tag_color',
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'vct_overall_site_tag_hover_color',
+				array(
+					'label'         => esc_html__( 'Tag Hover Color', 'visual-composer-starter' ),
+					'section'       => 'vct_overall_site',
+					'settings'      => 'vct_overall_site_tag_hover_color',
 				)
 			)
 		);

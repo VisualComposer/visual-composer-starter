@@ -1333,3 +1333,19 @@ msgstr ""
 #: woocommerce/single-product/meta.php:35
 msgid "N/A"
 msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:443
+msgid "Tag Background"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:455
+msgid "Tag Hover Background"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:467
+msgid "Tag Color"
+msgstr ""
+
+#: inc/customizer/class-visualcomposerstarter-customizer.php:479
+msgid "Tag Hover Color"
+msgstr ""
