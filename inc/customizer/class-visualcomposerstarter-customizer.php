@@ -1509,7 +1509,7 @@ class VisualComposerStarter_Customizer {
 			),
 		) );
 		$wp_customize->add_control( 'vct_fonts_and_style_h1_font_size', array(
-			'label'   => esc_html__( 'Size', 'visual-composer-starter' ),
+			'label'   => esc_html__( 'Size (include px, pt, etc.)', 'visual-composer-starter' ),
 			'section' => 'vct_fonts_and_style_h1',
 			'settings'   => 'vct_fonts_and_style_h1_font_size',
 			'type'    => 'text',
@@ -1678,7 +1678,7 @@ class VisualComposerStarter_Customizer {
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h2_font_size', array(
-			'label'   => esc_html__( 'Size', 'visual-composer-starter' ),
+			'label'   => esc_html__( 'Size (include px, pt, etc.)', 'visual-composer-starter' ),
 			'section' => 'vct_fonts_and_style_h2',
 			'settings'   => 'vct_fonts_and_style_h2_font_size',
 			'type'    => 'text',
@@ -1840,7 +1840,7 @@ class VisualComposerStarter_Customizer {
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h3_font_size', array(
-			'label'   => esc_html__( 'Size', 'visual-composer-starter' ),
+			'label'   => esc_html__( 'Size (include px, pt, etc.)', 'visual-composer-starter' ),
 			'section' => 'vct_fonts_and_style_h3',
 			'settings'   => 'vct_fonts_and_style_h3_font_size',
 			'type'    => 'text',
@@ -2009,7 +2009,7 @@ class VisualComposerStarter_Customizer {
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h4_font_size', array(
-			'label'   => esc_html__( 'Size', 'visual-composer-starter' ),
+			'label'   => esc_html__( 'Size (include px, pt, etc.)', 'visual-composer-starter' ),
 			'section' => 'vct_fonts_and_style_h4',
 			'settings'   => 'vct_fonts_and_style_h4_font_size',
 			'type'    => 'text',
@@ -2177,7 +2177,7 @@ class VisualComposerStarter_Customizer {
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h5_font_size', array(
-			'label'   => esc_html__( 'Size', 'visual-composer-starter' ),
+			'label'   => esc_html__( 'Size (include px, pt, etc.)', 'visual-composer-starter' ),
 			'section' => 'vct_fonts_and_style_h5',
 			'settings'   => 'vct_fonts_and_style_h5_font_size',
 			'type'    => 'text',
@@ -2346,7 +2346,7 @@ class VisualComposerStarter_Customizer {
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h6_font_size', array(
-			'label'   => esc_html__( 'Size', 'visual-composer-starter' ),
+			'label'   => esc_html__( 'Size (include px, pt, etc.)', 'visual-composer-starter' ),
 			'section' => 'vct_fonts_and_style_h6',
 			'settings'   => 'vct_fonts_and_style_h6_font_size',
 			'type'    => 'text',
@@ -2538,7 +2538,7 @@ class VisualComposerStarter_Customizer {
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_body_font_size', array(
-			'label'   => esc_html__( 'Size', 'visual-composer-starter' ),
+			'label'   => esc_html__( 'Size (include px, pt, etc.)', 'visual-composer-starter' ),
 			'section' => 'vct_fonts_and_style_body',
 			'settings'   => 'vct_fonts_and_style_body_font_size',
 			'type'    => 'text',
@@ -2740,7 +2740,7 @@ class VisualComposerStarter_Customizer {
 		) );
 
 		$wp_customize->add_control( 'vct_fonts_and_style_buttons_font_size', array(
-			'label'   => esc_html__( 'Size', 'visual-composer-starter' ),
+			'label'   => esc_html__( 'Size (include px, pt, etc.)', 'visual-composer-starter' ),
 			'section' => 'vct_fonts_and_style_buttons',
 			'settings'   => 'vct_fonts_and_style_buttons_font_size',
 			'type'    => 'text',
