@@ -540,7 +540,7 @@ register_sidebar(
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h2>',
+		'after_title'   => '</h3>',
 	)
 );
 
@@ -552,7 +552,7 @@ register_sidebar(
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h2>',
+		'after_title'   => '</h3>',
 	)
 );
 /**
@@ -568,7 +568,7 @@ function visualcomposerstarter_footer_1() {
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h2>',
+		'after_title' => '</h3>',
 	);
 }
 /**
@@ -584,7 +584,7 @@ function visualcomposerstarter_footer_2() {
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h2>',
+		'after_title' => '</h3>',
 	);
 }
 /**
@@ -600,7 +600,7 @@ function visualcomposerstarter_footer_3() {
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h2>',
+		'after_title' => '</h3>',
 	);
 }
 /**
@@ -616,7 +616,7 @@ function visualcomposerstarter_footer_4() {
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h2>',
+		'after_title' => '</h3>',
 	);
 }
 
