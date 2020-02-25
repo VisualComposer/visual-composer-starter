@@ -138,10 +138,6 @@ body.menu-sandwich #main-menu ul.nav {
 body.menu-sandwich #main-menu ul.nav li {
   float: none;
 }
-.navbar-brand {
-  height: auto;
-  padding: 0 15px;
-}
 .navbar-brand h1 a {
   font-size: 30px;
   color: #333;
