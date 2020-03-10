@@ -399,7 +399,7 @@ if ( ! function_exists( 'visualcomposerstarter_style' ) ) {
 		wp_enqueue_style( 'visualcomposerstarter-style' );
 		wp_enqueue_style( 'visualcomposerstarter-fonts' );
 	}
-}
+}// End if().
 add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_style' );
 
 
@@ -513,7 +513,7 @@ if ( ! function_exists( 'visualcomposerstarter_body_classes' ) ) {
 
 		return $classes;
 	}
-}
+}// End if().
 add_filter( 'body_class', 'visualcomposerstarter_body_classes' );
 
 if ( ! function_exists( 'visualcomposerstarter_give_linked_images_class' ) ) {
@@ -710,7 +710,7 @@ if ( ! function_exists( 'visualcomposerstarter_widgets' ) ) {
 		}
 
 	}
-}
+}// End if().
 
 if ( ! function_exists( 'visualcomposerstarter_is_the_header_displayed' ) ) {
 	/**
@@ -866,7 +866,7 @@ if ( ! function_exists( 'visualcomposerstarter_specify_sidebar' ) ) {
 			}
 		}
 	}
-}
+}// End if().
 
 if ( ! function_exists( 'visualcomposerstarter_is_the_title_displayed' ) ) {
 	/**
@@ -1619,7 +1619,7 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 
 		wp_add_inline_style( 'visualcomposerstarter-custom-style', $css );
 	}
-}
+}// End if().
 add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_inline_styles' );
 
 /**
