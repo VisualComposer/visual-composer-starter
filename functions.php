@@ -1346,6 +1346,38 @@ function visualcomposerstarter_inline_styles() {
 		';
 	}
 
+	$content_area_tag_background = get_theme_mod( 'vct_overall_site_tag_background', '#eeeeee' );
+	if ( '#eeeeee' !== $content_area_tag_background ) {
+		$css .= '
+		/*Tag background*/
+		.entry-tags a { background-color: ' . esc_html( $content_area_tag_background ) . '; }
+		';
+	}
+
+	$content_area_tag_hover_background = get_theme_mod( 'vct_overall_site_tag_hover_background', '#557cbf' );
+	if ( '#557cbf' !== $content_area_tag_hover_background ) {
+		$css .= '
+		/*Tag hover background*/
+		.entry-tags a:hover { background-color: ' . esc_html( $content_area_tag_hover_background ) . '; }
+		';
+	}
+
+	$content_area_tag_color = get_theme_mod( 'vct_overall_site_tag_color', '#777777' );
+	if ( '#777777' !== $content_area_tag_color ) {
+		$css .= '
+		/*Tag color*/
+		.entry-tags a { color: ' . esc_html( $content_area_tag_color ) . '; }
+		';
+	}
+
+	$content_area_tag_hover_color = get_theme_mod( 'vct_overall_site_tag_hover_color', '#ffffff' );
+	if ( '#ffffff' !== $content_area_tag_hover_color ) {
+		$css .= '
+		/*Tag hover color*/
+		.entry-tags a:hover { color: ' . esc_html( $content_area_tag_hover_color ) . '; }
+		';
+	}
+
 	$footer_area_background = get_theme_mod( 'vct_footer_area_background', '#333333' );
 	if ( '#333333' !== $footer_area_background ) {
 		// Work out if hash given.
