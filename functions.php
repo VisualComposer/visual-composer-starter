@@ -1662,13 +1662,14 @@ if ( ! function_exists( 'visualcomposerstarter_register_required_plugins' ) ) {
 		);
 		tgmpa( $plugins, $config );
 	}
-}
+}// End if().
 
 if ( ! function_exists( 'visualcomposerstarter_set_old_content_size' ) ) {
 	/**
 	 *  For backward compatibility for background
 	 *
 	 * @deprecated 1.3
+	 * BC for older users
 	 */
 	function visualcomposerstarter_set_old_styles() {
 		if ( get_theme_mod( 'vct_overall_site_bg_color' ) ) {
