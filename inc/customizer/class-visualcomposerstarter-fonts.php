@@ -148,6 +148,9 @@ class VisualComposerStarter_Fonts {
 
 			// Verify that the font exists.
 			if ( array_key_exists( $font, $allowed_fonts ) ) {
+				$fontArray = explode(",", $font);
+				$font = $fontArray[0];
+				$font = trim( $font );
 				// Build the family name and variant string (e.g., "Open+Sans:regular,italic,700").
 				$family[] = urlencode( $font . ':' . join( ',', self::vct_theme_google_font_variants( $font, $allowed_fonts[ $font ]['variants'] ) ) );
 			}
@@ -258,8 +261,8 @@ class VisualComposerStarter_Fonts {
 	 */
 	protected static function vct_theme_google_fonts() {
 		return apply_filters( 'vct_theme_google_fonts_list', array(
-			'ABeeZee' => array(
-				'label'  => 'ABeeZee',
+			'ABeeZee, sans-serif' => array(
+				'label'  => 'ABeeZee, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -268,8 +271,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Abel' => array(
-				'label'  => 'Abel',
+			'Abel, sans-serif' => array(
+				'label'  => 'Abel, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -277,8 +280,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Abril Fatface' => array(
-				'label'  => 'Abril Fatface',
+			'Abril Fatface, cursive' => array(
+				'label'  => 'Abril Fatface, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -287,8 +290,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Aclonica' => array(
-				'label'  => 'Aclonica',
+			'Aclonica, sans-serif' => array(
+				'label'  => 'Aclonica, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -296,8 +299,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Acme' => array(
-				'label'  => 'Acme',
+			'Acme, sans-serif' => array(
+				'label'  => 'Acme, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -305,8 +308,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Actor' => array(
-				'label'  => 'Actor',
+			'Actor, sans-serif' => array(
+				'label'  => 'Actor, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -314,8 +317,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Adamina' => array(
-				'label'  => 'Adamina',
+			'Adamina, sans-serif' => array(
+				'label'  => 'Adamina, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -323,8 +326,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Advent Pro' => array(
-				'label'  => 'Advent Pro',
+			'Advent Pro, sans-serif' => array(
+				'label'  => 'Advent Pro, sans-serif',
 				'variants' => array(
 					'100',
 					'200',
@@ -340,8 +343,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Aguafina Script' => array(
-				'label'  => 'Aguafina Script',
+			'Aguafina Script, cursive' => array(
+				'label'  => 'Aguafina Script, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -350,8 +353,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Akronim' => array(
-				'label'  => 'Akronim',
+			'Akronim, cursive' => array(
+				'label'  => 'Akronim, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -360,8 +363,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Aladin' => array(
-				'label'  => 'Aladin',
+			'Aladin, cursive' => array(
+				'label'  => 'Aladin, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -370,8 +373,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Aldrich' => array(
-				'label'  => 'Aldrich',
+			'Aldrich, sans-serif' => array(
+				'label'  => 'Aldrich, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -379,8 +382,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Alef' => array(
-				'label'  => 'Alef',
+			'Alef, sans-serif' => array(
+				'label'  => 'Alef, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -389,8 +392,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Alegreya' => array(
-				'label'  => 'Alegreya',
+			'Alegreya, sans-serif' => array(
+				'label'  => 'Alegreya, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -404,8 +407,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Alegreya SC' => array(
-				'label'  => 'Alegreya SC',
+			'Alegreya SC, sans-serif' => array(
+				'label'  => 'Alegreya SC, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -419,8 +422,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Alegreya Sans' => array(
-				'label'  => 'Alegreya Sans',
+			'Alegreya Sans, sans-serif' => array(
+				'label'  => 'Alegreya Sans, sans-serif',
 				'variants' => array(
 					'100',
 					'100italic',
@@ -443,8 +446,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Alegreya Sans SC' => array(
-				'label'  => 'Alegreya Sans SC',
+			'Alegreya Sans SC, sans-serif' => array(
+				'label'  => 'Alegreya Sans SC, sans-serif',
 				'variants' => array(
 					'100',
 					'100italic',
@@ -467,8 +470,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Alex Brush' => array(
-				'label'  => 'Alex Brush',
+			'Alex Brush, cursive' => array(
+				'label'  => 'Alex Brush, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -477,8 +480,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Alfa Slab One' => array(
-				'label'  => 'Alfa Slab One',
+			'Alfa Slab One, cursive' => array(
+				'label'  => 'Alfa Slab One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -486,8 +489,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Alice' => array(
-				'label'  => 'Alice',
+			'Alice, sans-serif' => array(
+				'label'  => 'Alice, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -495,8 +498,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Alike' => array(
-				'label'  => 'Alike',
+			'Alike, sans-serif' => array(
+				'label'  => 'Alike, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -504,8 +507,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Alike Angular' => array(
-				'label'  => 'Alike Angular',
+			'Alike Angular, sans-serif' => array(
+				'label'  => 'Alike Angular, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -513,8 +516,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Allan' => array(
-				'label'  => 'Allan',
+			'Allan, cursive' => array(
+				'label'  => 'Allan, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -524,8 +527,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Allerta' => array(
-				'label'  => 'Allerta',
+			'Allerta, sans-serif' => array(
+				'label'  => 'Allerta, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -533,8 +536,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Allerta Stencil' => array(
-				'label'  => 'Allerta Stencil',
+			'Allerta Stencil, sans-serif' => array(
+				'label'  => 'Allerta Stencil, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -542,8 +545,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Allura' => array(
-				'label'  => 'Allura',
+			'Allura, cursive' => array(
+				'label'  => 'Allura, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -552,8 +555,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Almendra' => array(
-				'label'  => 'Almendra',
+			'Almendra, sans-serif' => array(
+				'label'  => 'Almendra, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -565,8 +568,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Almendra Display' => array(
-				'label'  => 'Almendra Display',
+			'Almendra Display, sans-serif' => array(
+				'label'  => 'Almendra Display, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -575,8 +578,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Almendra SC' => array(
-				'label'  => 'Almendra SC',
+			'Almendra SC, sans-serif' => array(
+				'label'  => 'Almendra SC, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -584,8 +587,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Amarante' => array(
-				'label'  => 'Amarante',
+			'Amarante, cursive' => array(
+				'label'  => 'Amarante, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -594,8 +597,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Amaranth' => array(
-				'label'  => 'Amaranth',
+			'Amaranth, sans-serif' => array(
+				'label'  => 'Amaranth, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -606,8 +609,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Amatic SC' => array(
-				'label'  => 'Amatic SC',
+			'Amatic SC, cursive' => array(
+				'label'  => 'Amatic SC, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -616,8 +619,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Amethysta' => array(
-				'label'  => 'Amethysta',
+			'Amethysta, sans-serif' => array(
+				'label'  => 'Amethysta, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -625,18 +628,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Anaheim' => array(
-				'label'  => 'Anaheim',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Andada' => array(
-				'label'  => 'Andada',
+			'Anaheim, sans-serif' => array(
+				'label'  => 'Anaheim, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -645,8 +638,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Andika' => array(
-				'label'  => 'Andika',
+			'Andada, sans-serif' => array(
+				'label'  => 'Andada, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Andika, sans-serif' => array(
+				'label'  => 'Andika, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -657,8 +660,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Angkor' => array(
-				'label'  => 'Angkor',
+			'Angkor, cursive' => array(
+				'label'  => 'Angkor, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -666,8 +669,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Annie Use Your Telescope' => array(
-				'label'  => 'Annie Use Your Telescope',
+			'Annie Use Your Telescope, cursive' => array(
+				'label'  => 'Annie Use Your Telescope, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -675,8 +678,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Anonymous Pro' => array(
-				'label'  => 'Anonymous Pro',
+			'Anonymous Pro, monospace' => array(
+				'label'  => 'Anonymous Pro, monospace',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -692,8 +695,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Antic' => array(
-				'label'  => 'Antic',
+			'Antic, sans-serif' => array(
+				'label'  => 'Antic, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -701,8 +704,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Antic Didone' => array(
-				'label'  => 'Antic Didone',
+			'Antic Didone, sans-serif' => array(
+				'label'  => 'Antic Didone, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -710,8 +713,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Antic Slab' => array(
-				'label'  => 'Antic Slab',
+			'Antic Slab, sans-serif' => array(
+				'label'  => 'Antic Slab, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -719,8 +722,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Anton' => array(
-				'label'  => 'Anton',
+			'Anton, sans-serif' => array(
+				'label'  => 'Anton, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -729,8 +732,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Arapey' => array(
-				'label'  => 'Arapey',
+			'Arapey, sans-serif' => array(
+				'label'  => 'Arapey, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -739,8 +742,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Arbutus' => array(
-				'label'  => 'Arbutus',
+			'Arbutus, cursive' => array(
+				'label'  => 'Arbutus, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -749,8 +752,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Arbutus Slab' => array(
-				'label'  => 'Arbutus Slab',
+			'Arbutus Slab, sans-serif' => array(
+				'label'  => 'Arbutus Slab, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -759,8 +762,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Architects Daughter' => array(
-				'label'  => 'Architects Daughter',
+			'Architects Daughter, cursive' => array(
+				'label'  => 'Architects Daughter, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -768,8 +771,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Archivo Black' => array(
-				'label'  => 'Archivo Black',
+			'Archivo Black, sans-serif' => array(
+				'label'  => 'Archivo Black, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -778,8 +781,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Archivo Narrow' => array(
-				'label'  => 'Archivo Narrow',
+			'Archivo Narrow, sans-serif' => array(
+				'label'  => 'Archivo Narrow, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -791,8 +794,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Arimo' => array(
-				'label'  => 'Arimo',
+			'Arimo, sans-serif' => array(
+				'label'  => 'Arimo, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -809,8 +812,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Arizonia' => array(
-				'label'  => 'Arizonia',
+			'Arizonia, cursive' => array(
+				'label'  => 'Arizonia, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -819,8 +822,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Armata' => array(
-				'label'  => 'Armata',
+			'Armata, sans-serif' => array(
+				'label'  => 'Armata, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -829,8 +832,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Artifika' => array(
-				'label'  => 'Artifika',
+			'Artifika, sans-serif' => array(
+				'label'  => 'Artifika, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -838,8 +841,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Arvo' => array(
-				'label'  => 'Arvo',
+			'Arvo, sans-serif' => array(
+				'label'  => 'Arvo, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -850,8 +853,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Asap' => array(
-				'label'  => 'Asap',
+			'Asap, sans-serif' => array(
+				'label'  => 'Asap, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -863,8 +866,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Asset' => array(
-				'label'  => 'Asset',
+			'Asset, cursive' => array(
+				'label'  => 'Asset, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -872,18 +875,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Astloch' => array(
-				'label'  => 'Astloch',
-				'variants' => array(
-					'regular',
-					'700',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Asul' => array(
-				'label'  => 'Asul',
+			'Astloch, cursive' => array(
+				'label'  => 'Astloch, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -892,8 +885,18 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Atomic Age' => array(
-				'label'  => 'Atomic Age',
+			'Asul, sans-serif' => array(
+				'label'  => 'Asul, sans-serif',
+				'variants' => array(
+					'regular',
+					'700',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Atomic Age, cursive' => array(
+				'label'  => 'Atomic Age, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -901,8 +904,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Aubrey' => array(
-				'label'  => 'Aubrey',
+			'Aubrey, cursive' => array(
+				'label'  => 'Aubrey, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -910,28 +913,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Audiowide' => array(
-				'label'  => 'Audiowide',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Autour One' => array(
-				'label'  => 'Autour One',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Average' => array(
-				'label'  => 'Average',
+			'Audiowide, cursive' => array(
+				'label'  => 'Audiowide, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -940,8 +923,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Average Sans' => array(
-				'label'  => 'Average Sans',
+			'Autour One, cursive' => array(
+				'label'  => 'Autour One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -950,8 +933,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Averia Gruesa Libre' => array(
-				'label'  => 'Averia Gruesa Libre',
+			'Average, sans-serif' => array(
+				'label'  => 'Average, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -960,8 +943,28 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Averia Libre' => array(
-				'label'  => 'Averia Libre',
+			'Average Sans, sans-serif' => array(
+				'label'  => 'Average Sans, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Averia Gruesa Libre, cursive' => array(
+				'label'  => 'Averia Gruesa Libre, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Averia Libre, cursive' => array(
+				'label'  => 'Averia Libre, cursive',
 				'variants' => array(
 					'300',
 					'300italic',
@@ -974,8 +977,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Averia Sans Libre' => array(
-				'label'  => 'Averia Sans Libre',
+			'Averia Sans Libre, cursive' => array(
+				'label'  => 'Averia Sans Libre, cursive',
 				'variants' => array(
 					'300',
 					'300italic',
@@ -988,8 +991,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Averia Serif Libre' => array(
-				'label'  => 'Averia Serif Libre',
+			'Averia Serif Libre, cursive' => array(
+				'label'  => 'Averia Serif Libre, cursive',
 				'variants' => array(
 					'300',
 					'300italic',
@@ -1002,8 +1005,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Bad Script' => array(
-				'label'  => 'Bad Script',
+			'Bad Script, cursive' => array(
+				'label'  => 'Bad Script, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1012,8 +1015,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic',
 				),
 			),
-			'Balthazar' => array(
-				'label'  => 'Balthazar',
+			'Balthazar, sans-serif' => array(
+				'label'  => 'Balthazar, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1021,8 +1024,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Bangers' => array(
-				'label'  => 'Bangers',
+			'Bangers, cursive' => array(
+				'label'  => 'Bangers, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1030,8 +1033,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Basic' => array(
-				'label'  => 'Basic',
+			'Basic, sans-serif' => array(
+				'label'  => 'Basic, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1040,8 +1043,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Battambang' => array(
-				'label'  => 'Battambang',
+			'Battambang, cursive' => array(
+				'label'  => 'Battambang, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -1050,8 +1053,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Baumans' => array(
-				'label'  => 'Baumans',
+			'Baumans, cursive' => array(
+				'label'  => 'Baumans, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1059,8 +1062,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Bayon' => array(
-				'label'  => 'Bayon',
+			'Bayon, cursive' => array(
+				'label'  => 'Bayon, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1068,8 +1071,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Belgrano' => array(
-				'label'  => 'Belgrano',
+			'Belgrano, sans-serif' => array(
+				'label'  => 'Belgrano, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1077,8 +1080,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Belleza' => array(
-				'label'  => 'Belleza',
+			'Belleza, sans-serif' => array(
+				'label'  => 'Belleza, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1087,8 +1090,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'BenchNine' => array(
-				'label'  => 'BenchNine',
+			'BenchNine, sans-serif' => array(
+				'label'  => 'BenchNine, sans-serif',
 				'variants' => array(
 					'300',
 					'regular',
@@ -1099,8 +1102,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Bentham' => array(
-				'label'  => 'Bentham',
+			'Bentham, sans-serif' => array(
+				'label'  => 'Bentham, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1108,27 +1111,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Berkshire Swash' => array(
-				'label'  => 'Berkshire Swash',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Bevan' => array(
-				'label'  => 'Bevan',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Bigelow Rules' => array(
-				'label'  => 'Bigelow Rules',
+			'Berkshire Swash, cursive' => array(
+				'label'  => 'Berkshire Swash, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1137,8 +1121,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Bigshot One' => array(
-				'label'  => 'Bigshot One',
+			'Bevan, cursive' => array(
+				'label'  => 'Bevan, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1146,18 +1130,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Bilbo' => array(
-				'label'  => 'Bilbo',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Bilbo Swash Caps' => array(
-				'label'  => 'Bilbo Swash Caps',
+			'Bigelow Rules, cursive' => array(
+				'label'  => 'Bigelow Rules, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1166,8 +1140,37 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Bitter' => array(
-				'label'  => 'Bitter',
+			'Bigshot One, cursive' => array(
+				'label'  => 'Bigshot One, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Bilbo, cursive' => array(
+				'label'  => 'Bilbo, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Bilbo Swash Caps, cursive' => array(
+				'label'  => 'Bilbo Swash Caps, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Bitter, sans-serif' => array(
+				'label'  => 'Bitter, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -1178,8 +1181,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Black Ops One' => array(
-				'label'  => 'Black Ops One',
+			'Black Ops One, cursive' => array(
+				'label'  => 'Black Ops One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1188,8 +1191,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Bokor' => array(
-				'label'  => 'Bokor',
+			'Bokor, cursive' => array(
+				'label'  => 'Bokor, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1197,8 +1200,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Bonbon' => array(
-				'label'  => 'Bonbon',
+			'Bonbon, cursive' => array(
+				'label'  => 'Bonbon, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1206,8 +1209,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Boogaloo' => array(
-				'label'  => 'Boogaloo',
+			'Boogaloo, cursive' => array(
+				'label'  => 'Boogaloo, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1215,8 +1218,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Bowlby One' => array(
-				'label'  => 'Bowlby One',
+			'Bowlby One, cursive' => array(
+				'label'  => 'Bowlby One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1224,27 +1227,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Bowlby One SC' => array(
-				'label'  => 'Bowlby One SC',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Brawler' => array(
-				'label'  => 'Brawler',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Bree Serif' => array(
-				'label'  => 'Bree Serif',
+			'Bowlby One SC, cursive' => array(
+				'label'  => 'Bowlby One SC, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1253,8 +1237,17 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Bubblegum Sans' => array(
-				'label'  => 'Bubblegum Sans',
+			'Brawler, sans-serif' => array(
+				'label'  => 'Brawler, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Bree Serif, sans-serif' => array(
+				'label'  => 'Bree Serif, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1263,8 +1256,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Bubbler One' => array(
-				'label'  => 'Bubbler One',
+			'Bubblegum Sans, cursive' => array(
+				'label'  => 'Bubblegum Sans, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1273,8 +1266,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Buda' => array(
-				'label'  => 'Buda',
+			'Bubbler One, sans-serif' => array(
+				'label'  => 'Bubbler One, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Buda, cursive' => array(
+				'label'  => 'Buda, cursive',
 				'variants' => array(
 					'300',
 				),
@@ -1282,8 +1285,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Buenard' => array(
-				'label'  => 'Buenard',
+			'Buenard, sans-serif' => array(
+				'label'  => 'Buenard, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -1293,8 +1296,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Butcherman' => array(
-				'label'  => 'Butcherman',
+			'Butcherman, cursive' => array(
+				'label'  => 'Butcherman, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1303,8 +1306,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Butterfly Kids' => array(
-				'label'  => 'Butterfly Kids',
+			'Butterfly Kids, cursive' => array(
+				'label'  => 'Butterfly Kids, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1313,8 +1316,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Cabin' => array(
-				'label'  => 'Cabin',
+			'Cabin, sans-serif' => array(
+				'label'  => 'Cabin, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -1329,8 +1332,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Cabin Condensed' => array(
-				'label'  => 'Cabin Condensed',
+			'Cabin Condensed, sans-serif' => array(
+				'label'  => 'Cabin Condensed, sans-serif',
 				'variants' => array(
 					'regular',
 					'500',
@@ -1341,8 +1344,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Cabin Sketch' => array(
-				'label'  => 'Cabin Sketch',
+			'Cabin Sketch, cursive' => array(
+				'label'  => 'Cabin Sketch, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -1351,8 +1354,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Caesar Dressing' => array(
-				'label'  => 'Caesar Dressing',
+			'Caesar Dressing, cursive' => array(
+				'label'  => 'Caesar Dressing, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1360,8 +1363,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Cagliostro' => array(
-				'label'  => 'Cagliostro',
+			'Cagliostro, sans-serif' => array(
+				'label'  => 'Cagliostro, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1369,8 +1372,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Calligraffitti' => array(
-				'label'  => 'Calligraffitti',
+			'Calligraffitti, cursive' => array(
+				'label'  => 'Calligraffitti, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1378,8 +1381,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Cambo' => array(
-				'label'  => 'Cambo',
+			'Cambo, sans-serif' => array(
+				'label'  => 'Cambo, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1387,8 +1390,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Candal' => array(
-				'label'  => 'Candal',
+			'Candal, sans-serif' => array(
+				'label'  => 'Candal, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1396,8 +1399,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Cantarell' => array(
-				'label'  => 'Cantarell',
+			'Cantarell, sans-serif' => array(
+				'label'  => 'Cantarell, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -1408,8 +1411,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Cantata One' => array(
-				'label'  => 'Cantata One',
+			'Cantata One, sans-serif' => array(
+				'label'  => 'Cantata One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1418,8 +1421,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Cantora One' => array(
-				'label'  => 'Cantora One',
+			'Cantora One, sans-serif' => array(
+				'label'  => 'Cantora One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1428,8 +1431,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Capriola' => array(
-				'label'  => 'Capriola',
+			'Capriola, sans-serif' => array(
+				'label'  => 'Capriola, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1438,8 +1441,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Cardo' => array(
-				'label'  => 'Cardo',
+			'Cardo, sans-serif' => array(
+				'label'  => 'Cardo, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -1452,8 +1455,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Carme' => array(
-				'label'  => 'Carme',
+			'Carme, sans-serif' => array(
+				'label'  => 'Carme, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1461,8 +1464,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Carrois Gothic' => array(
-				'label'  => 'Carrois Gothic',
+			'Carrois Gothic, sans-serif' => array(
+				'label'  => 'Carrois Gothic, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1470,8 +1473,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Carrois Gothic SC' => array(
-				'label'  => 'Carrois Gothic SC',
+			'Carrois Gothic SC, sans-serif' => array(
+				'label'  => 'Carrois Gothic SC, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1479,8 +1482,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Carter One' => array(
-				'label'  => 'Carter One',
+			'Carter One, cursive' => array(
+				'label'  => 'Carter One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1488,8 +1491,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Caudex' => array(
-				'label'  => 'Caudex',
+			'Caudex, sans-serif' => array(
+				'label'  => 'Caudex, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -1503,8 +1506,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Cedarville Cursive' => array(
-				'label'  => 'Cedarville Cursive',
+			'Cedarville Cursive, cursive' => array(
+				'label'  => 'Cedarville Cursive, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1512,8 +1515,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Ceviche One' => array(
-				'label'  => 'Ceviche One',
+			'Ceviche One, cursive' => array(
+				'label'  => 'Ceviche One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1521,39 +1524,18 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Changa One' => array(
-				'label'  => 'Changa One',
-				'variants' => array(
-					'regular',
-					'italic',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Chango' => array(
-				'label'  => 'Chango',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Chau Philomene One' => array(
-				'label'  => 'Chau Philomene One',
+			'Changa One, cursive' => array(
+				'label'  => 'Changa One, cursive',
 				'variants' => array(
 					'regular',
 					'italic',
 				),
 				'subsets' => array(
 					'latin',
-					'latin-ext',
 				),
 			),
-			'Chela One' => array(
-				'label'  => 'Chela One',
+			'Chango, cursive' => array(
+				'label'  => 'Chango, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1562,8 +1544,19 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Chelsea Market' => array(
-				'label'  => 'Chelsea Market',
+			'Chau Philomene One, sans-serif' => array(
+				'label'  => 'Chau Philomene One, sans-serif',
+				'variants' => array(
+					'regular',
+					'italic',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Chela One, cursive' => array(
+				'label'  => 'Chela One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1572,8 +1565,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Chenla' => array(
-				'label'  => 'Chenla',
+			'Chelsea Market, cursive' => array(
+				'label'  => 'Chelsea Market, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Chenla, cursive' => array(
+				'label'  => 'Chenla, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1581,8 +1584,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Cherry Cream Soda' => array(
-				'label'  => 'Cherry Cream Soda',
+			'Cherry Cream Soda, cursive' => array(
+				'label'  => 'Cherry Cream Soda, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1590,8 +1593,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Cherry Swash' => array(
-				'label'  => 'Cherry Swash',
+			'Cherry Swash, cursive' => array(
+				'label'  => 'Cherry Swash, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -1601,8 +1604,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Chewy' => array(
-				'label'  => 'Chewy',
+			'Chewy, cursive' => array(
+				'label'  => 'Chewy, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1610,8 +1613,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Chicle' => array(
-				'label'  => 'Chicle',
+			'Chicle, cursive' => array(
+				'label'  => 'Chicle, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1620,8 +1623,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Chivo' => array(
-				'label'  => 'Chivo',
+			'Chivo, sans-serif' => array(
+				'label'  => 'Chivo, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -1632,8 +1635,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Cinzel' => array(
-				'label'  => 'Cinzel',
+			'Cinzel, sans-serif' => array(
+				'label'  => 'Cinzel, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -1643,8 +1646,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Cinzel Decorative' => array(
-				'label'  => 'Cinzel Decorative',
+			'Cinzel Decorative, cursive' => array(
+				'label'  => 'Cinzel Decorative, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -1654,8 +1657,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Clicker Script' => array(
-				'label'  => 'Clicker Script',
+			'Clicker Script, cursive' => array(
+				'label'  => 'Clicker Script, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1664,8 +1667,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Coda' => array(
-				'label'  => 'Coda',
+			'Coda, cursive' => array(
+				'label'  => 'Coda, cursive',
 				'variants' => array(
 					'regular',
 					'800',
@@ -1674,8 +1677,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Coda Caption' => array(
-				'label'  => 'Coda Caption',
+			'Coda Caption, sans-serif' => array(
+				'label'  => 'Coda Caption, sans-serif',
 				'variants' => array(
 					'800',
 				),
@@ -1683,8 +1686,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Codystar' => array(
-				'label'  => 'Codystar',
+			'Codystar, cursive' => array(
+				'label'  => 'Codystar, cursive',
 				'variants' => array(
 					'300',
 					'regular',
@@ -1694,8 +1697,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Combo' => array(
-				'label'  => 'Combo',
+			'Combo, cursive' => array(
+				'label'  => 'Combo, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1704,8 +1707,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Comfortaa' => array(
-				'label'  => 'Comfortaa',
+			'Comfortaa, cursive' => array(
+				'label'  => 'Comfortaa, cursive',
 				'variants' => array(
 					'300',
 					'regular',
@@ -1719,8 +1722,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Coming Soon' => array(
-				'label'  => 'Coming Soon',
+			'Coming Soon, cursive' => array(
+				'label'  => 'Coming Soon, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1728,18 +1731,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Concert One' => array(
-				'label'  => 'Concert One',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Condiment' => array(
-				'label'  => 'Condiment',
+			'Concert One, cursive' => array(
+				'label'  => 'Concert One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1748,8 +1741,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Content' => array(
-				'label'  => 'Content',
+			'Condiment, cursive' => array(
+				'label'  => 'Condiment, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Content, cursive' => array(
+				'label'  => 'Content, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -1758,8 +1761,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Contrail One' => array(
-				'label'  => 'Contrail One',
+			'Contrail One, cursive' => array(
+				'label'  => 'Contrail One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1767,8 +1770,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Convergence' => array(
-				'label'  => 'Convergence',
+			'Convergence, sans-serif' => array(
+				'label'  => 'Convergence, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1776,8 +1779,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Cookie' => array(
-				'label'  => 'Cookie',
+			'Cookie, cursive' => array(
+				'label'  => 'Cookie, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1785,8 +1788,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Copse' => array(
-				'label'  => 'Copse',
+			'Copse, sans-serif' => array(
+				'label'  => 'Copse, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1794,8 +1797,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Corben' => array(
-				'label'  => 'Corben',
+			'Corben, cursive' => array(
+				'label'  => 'Corben, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -1804,8 +1807,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Courgette' => array(
-				'label'  => 'Courgette',
+			'Courgette, cursive' => array(
+				'label'  => 'Courgette, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1814,8 +1817,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Cousine' => array(
-				'label'  => 'Cousine',
+			'Cousine, monospace' => array(
+				'label'  => 'Cousine, monospace',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -1832,8 +1835,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Coustard' => array(
-				'label'  => 'Coustard',
+			'Coustard, sans-serif' => array(
+				'label'  => 'Coustard, sans-serif',
 				'variants' => array(
 					'regular',
 					'900',
@@ -1842,8 +1845,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Covered By Your Grace' => array(
-				'label'  => 'Covered By Your Grace',
+			'Covered By Your Grace, cursive' => array(
+				'label'  => 'Covered By Your Grace, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1851,8 +1854,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Crafty Girls' => array(
-				'label'  => 'Crafty Girls',
+			'Crafty Girls, cursive' => array(
+				'label'  => 'Crafty Girls, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1860,8 +1863,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Creepster' => array(
-				'label'  => 'Creepster',
+			'Creepster, cursive' => array(
+				'label'  => 'Creepster, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1869,8 +1872,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Crete Round' => array(
-				'label'  => 'Crete Round',
+			'Crete Round, sans-serif' => array(
+				'label'  => 'Crete Round, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -1880,8 +1883,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Crimson Text' => array(
-				'label'  => 'Crimson Text',
+			'Crimson Text, sans-serif' => array(
+				'label'  => 'Crimson Text, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -1894,8 +1897,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Croissant One' => array(
-				'label'  => 'Croissant One',
+			'Croissant One, cursive' => array(
+				'label'  => 'Croissant One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1904,8 +1907,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Crushed' => array(
-				'label'  => 'Crushed',
+			'Crushed, cursive' => array(
+				'label'  => 'Crushed, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1913,8 +1916,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Cuprum' => array(
-				'label'  => 'Cuprum',
+			'Cuprum, sans-serif' => array(
+				'label'  => 'Cuprum, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -1927,8 +1930,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Cutive' => array(
-				'label'  => 'Cutive',
+			'Cutive, sans-serif' => array(
+				'label'  => 'Cutive, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1937,8 +1940,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Cutive Mono' => array(
-				'label'  => 'Cutive Mono',
+			'Cutive Mono, monospace' => array(
+				'label'  => 'Cutive Mono, monospace',
 				'variants' => array(
 					'regular',
 				),
@@ -1947,8 +1950,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Damion' => array(
-				'label'  => 'Damion',
+			'Damion, cursive' => array(
+				'label'  => 'Damion, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1956,8 +1959,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Dancing Script' => array(
-				'label'  => 'Dancing Script',
+			'Dancing Script, cursive' => array(
+				'label'  => 'Dancing Script, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -1966,8 +1969,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Dangrek' => array(
-				'label'  => 'Dangrek',
+			'Dangrek, cursive' => array(
+				'label'  => 'Dangrek, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1975,8 +1978,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Dawning of a New Day' => array(
-				'label'  => 'Dawning of a New Day',
+			'Dawning of a New Day, cursive' => array(
+				'label'  => 'Dawning of a New Day, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -1984,8 +1987,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Days One' => array(
-				'label'  => 'Days One',
+			'Days One, sans-serif' => array(
+				'label'  => 'Days One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -1993,8 +1996,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Delius' => array(
-				'label'  => 'Delius',
+			'Delius, cursive' => array(
+				'label'  => 'Delius, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2002,8 +2005,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Delius Swash Caps' => array(
-				'label'  => 'Delius Swash Caps',
+			'Delius Swash Caps, cursive' => array(
+				'label'  => 'Delius Swash Caps, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2011,8 +2014,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Delius Unicase' => array(
-				'label'  => 'Delius Unicase',
+			'Delius Unicase, cursive' => array(
+				'label'  => 'Delius Unicase, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -2021,8 +2024,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Della Respira' => array(
-				'label'  => 'Della Respira',
+			'Della Respira, sans-serif' => array(
+				'label'  => 'Della Respira, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2030,18 +2033,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Denk One' => array(
-				'label'  => 'Denk One',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Devonshire' => array(
-				'label'  => 'Devonshire',
+			'Denk One, sans-serif' => array(
+				'label'  => 'Denk One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2050,8 +2043,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Didact Gothic' => array(
-				'label'  => 'Didact Gothic',
+			'Devonshire, cursive' => array(
+				'label'  => 'Devonshire, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Didact Gothic, sans-serif' => array(
+				'label'  => 'Didact Gothic, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2064,8 +2067,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Diplomata' => array(
-				'label'  => 'Diplomata',
+			'Diplomata, cursive' => array(
+				'label'  => 'Diplomata, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2074,8 +2077,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Diplomata SC' => array(
-				'label'  => 'Diplomata SC',
+			'Diplomata SC, cursive' => array(
+				'label'  => 'Diplomata SC, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2084,8 +2087,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Domine' => array(
-				'label'  => 'Domine',
+			'Domine, sans-serif' => array(
+				'label'  => 'Domine, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -2095,8 +2098,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Donegal One' => array(
-				'label'  => 'Donegal One',
+			'Donegal One, sans-serif' => array(
+				'label'  => 'Donegal One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2105,8 +2108,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Doppio One' => array(
-				'label'  => 'Doppio One',
+			'Doppio One, sans-serif' => array(
+				'label'  => 'Doppio One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2115,8 +2118,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Dorsa' => array(
-				'label'  => 'Dorsa',
+			'Dorsa, sans-serif' => array(
+				'label'  => 'Dorsa, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2124,8 +2127,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Dosis' => array(
-				'label'  => 'Dosis',
+			'Dosis, sans-serif' => array(
+				'label'  => 'Dosis, sans-serif',
 				'variants' => array(
 					'200',
 					'300',
@@ -2140,8 +2143,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Dr Sugiyama' => array(
-				'label'  => 'Dr Sugiyama',
+			'Dr Sugiyama, cursive' => array(
+				'label'  => 'Dr Sugiyama, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2150,8 +2153,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Droid Sans' => array(
-				'label'  => 'Droid Sans',
+			'Droid Sans, sans-serif' => array(
+				'label'  => 'Droid Sans, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -2160,8 +2163,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Droid Sans Mono' => array(
-				'label'  => 'Droid Sans Mono',
+			'Droid Sans Mono, sans-serif' => array(
+				'label'  => 'Droid Sans Mono, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2169,8 +2172,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Droid Serif' => array(
-				'label'  => 'Droid Serif',
+			'Droid Serif, sans-serif' => array(
+				'label'  => 'Droid Serif, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -2181,8 +2184,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Duru Sans' => array(
-				'label'  => 'Duru Sans',
+			'Duru Sans, sans-serif' => array(
+				'label'  => 'Duru Sans, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2191,8 +2194,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Dynalight' => array(
-				'label'  => 'Dynalight',
+			'Dynalight, cursive' => array(
+				'label'  => 'Dynalight, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2201,8 +2204,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'EB Garamond' => array(
-				'label'  => 'EB Garamond',
+			'EB Garamond, sans-serif' => array(
+				'label'  => 'EB Garamond, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2214,8 +2217,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Eagle Lake' => array(
-				'label'  => 'Eagle Lake',
+			'Eagle Lake, cursive' => array(
+				'label'  => 'Eagle Lake, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2224,8 +2227,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Eater' => array(
-				'label'  => 'Eater',
+			'Eater, cursive' => array(
+				'label'  => 'Eater, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2234,8 +2237,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Economica' => array(
-				'label'  => 'Economica',
+			'Economica, sans-serif' => array(
+				'label'  => 'Economica, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -2247,8 +2250,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Electrolize' => array(
-				'label'  => 'Electrolize',
+			'Electrolize, sans-serif' => array(
+				'label'  => 'Electrolize, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2256,19 +2259,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Elsie' => array(
-				'label'  => 'Elsie',
-				'variants' => array(
-					'regular',
-					'900',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Elsie Swash Caps' => array(
-				'label'  => 'Elsie Swash Caps',
+			'Elsie, cursive' => array(
+				'label'  => 'Elsie, cursive',
 				'variants' => array(
 					'regular',
 					'900',
@@ -2278,8 +2270,19 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Emblema One' => array(
-				'label'  => 'Emblema One',
+			'Elsie Swash Caps, cursive' => array(
+				'label'  => 'Elsie Swash Caps, cursive',
+				'variants' => array(
+					'regular',
+					'900',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Emblema One, cursive' => array(
+				'label'  => 'Emblema One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2288,8 +2291,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Emilys Candy' => array(
-				'label'  => 'Emilys Candy',
+			'Emilys Candy, cursive' => array(
+				'label'  => 'Emilys Candy, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2298,8 +2301,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Engagement' => array(
-				'label'  => 'Engagement',
+			'Engagement, cursive' => array(
+				'label'  => 'Engagement, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2307,8 +2310,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Englebert' => array(
-				'label'  => 'Englebert',
+			'Englebert, sans-serif' => array(
+				'label'  => 'Englebert, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2317,8 +2320,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Enriqueta' => array(
-				'label'  => 'Enriqueta',
+			'Enriqueta, sans-serif' => array(
+				'label'  => 'Enriqueta, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -2328,8 +2331,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Erica One' => array(
-				'label'  => 'Erica One',
+			'Erica One, cursive' => array(
+				'label'  => 'Erica One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2337,18 +2340,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Esteban' => array(
-				'label'  => 'Esteban',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Euphoria Script' => array(
-				'label'  => 'Euphoria Script',
+			'Esteban, sans-serif' => array(
+				'label'  => 'Esteban, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2357,8 +2350,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Ewert' => array(
-				'label'  => 'Ewert',
+			'Euphoria Script, cursive' => array(
+				'label'  => 'Euphoria Script, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2367,35 +2360,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Exo' => array(
-				'label'  => 'Exo',
+			'Ewert, cursive' => array(
+				'label'  => 'Ewert, cursive',
 				'variants' => array(
-					'100',
-					'100italic',
-					'200',
-					'200italic',
-					'300',
-					'300italic',
 					'regular',
-					'italic',
-					'500',
-					'500italic',
-					'600',
-					'600italic',
-					'700',
-					'700italic',
-					'800',
-					'800italic',
-					'900',
-					'900italic',
 				),
 				'subsets' => array(
 					'latin',
 					'latin-ext',
 				),
 			),
-			'Exo 2' => array(
-				'label'  => 'Exo 2',
+			'Exo, sans-serif' => array(
+				'label'  => 'Exo, sans-serif',
 				'variants' => array(
 					'100',
 					'100italic',
@@ -2418,12 +2394,39 @@ class VisualComposerStarter_Fonts {
 				),
 				'subsets' => array(
 					'latin',
+					'latin-ext',
+				),
+			),
+			'Exo 2, sans-serif' => array(
+				'label'  => 'Exo 2, sans-serif',
+				'variants' => array(
+					'100',
+					'100italic',
+					'200',
+					'200italic',
+					'300',
+					'300italic',
+					'regular',
+					'italic',
+					'500',
+					'500italic',
+					'600',
+					'600italic',
+					'700',
+					'700italic',
+					'800',
+					'800italic',
+					'900',
+					'900italic',
+				),
+				'subsets' => array(
+					'latin',
 					'cyrillic',
 					'latin-ext',
 				),
 			),
-			'Expletus Sans' => array(
-				'label'  => 'Expletus Sans',
+			'Expletus Sans, cursive' => array(
+				'label'  => 'Expletus Sans, cursive',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -2438,8 +2441,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Fanwood Text' => array(
-				'label'  => 'Fanwood Text',
+			'Fanwood Text, sans-serif' => array(
+				'label'  => 'Fanwood Text, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -2448,8 +2451,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Fascinate' => array(
-				'label'  => 'Fascinate',
+			'Fascinate, cursive' => array(
+				'label'  => 'Fascinate, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2457,8 +2460,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Fascinate Inline' => array(
-				'label'  => 'Fascinate Inline',
+			'Fascinate Inline, cursive' => array(
+				'label'  => 'Fascinate Inline, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2466,8 +2469,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Faster One' => array(
-				'label'  => 'Faster One',
+			'Faster One, cursive' => array(
+				'label'  => 'Faster One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2475,8 +2478,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Fasthand' => array(
-				'label'  => 'Fasthand',
+			'Fasthand, sans-serif' => array(
+				'label'  => 'Fasthand, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2484,8 +2487,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Fauna One' => array(
-				'label'  => 'Fauna One',
+			'Fauna One, sans-serif' => array(
+				'label'  => 'Fauna One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2494,8 +2497,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Federant' => array(
-				'label'  => 'Federant',
+			'Federant, cursive' => array(
+				'label'  => 'Federant, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2503,8 +2506,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Federo' => array(
-				'label'  => 'Federo',
+			'Federo, sans-serif' => array(
+				'label'  => 'Federo, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2512,18 +2515,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Felipa' => array(
-				'label'  => 'Felipa',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Fenix' => array(
-				'label'  => 'Fenix',
+			'Felipa, cursive' => array(
+				'label'  => 'Felipa, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2532,8 +2525,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Finger Paint' => array(
-				'label'  => 'Finger Paint',
+			'Fenix, sans-serif' => array(
+				'label'  => 'Fenix, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Finger Paint, cursive' => array(
+				'label'  => 'Finger Paint, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2541,8 +2544,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Fira Sans' => array(
-				'label'  => 'Fira Sans',
+			'Fira Sans, sans-serif' => array(
+				'label'  => 'Fira Sans, sans-serif',
 				'variants' => array(
 					'300',
 					'300italic',
@@ -2561,8 +2564,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Fira Mono' => array(
-				'label'  => 'Fira Mono',
+			'Fira Mono, monospace' => array(
+				'label'  => 'Fira Mono, monospace',
 				'variants' => array(
 					'400',
 					'700',
@@ -2575,8 +2578,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Fjalla One' => array(
-				'label'  => 'Fjalla One',
+			'Fjalla One, sans-serif' => array(
+				'label'  => 'Fjalla One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2585,8 +2588,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Fjord One' => array(
-				'label'  => 'Fjord One',
+			'Fjord One, sans-serif' => array(
+				'label'  => 'Fjord One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2594,8 +2597,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Flamenco' => array(
-				'label'  => 'Flamenco',
+			'Flamenco, cursive' => array(
+				'label'  => 'Flamenco, cursive',
 				'variants' => array(
 					'300',
 					'regular',
@@ -2604,8 +2607,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Flavors' => array(
-				'label'  => 'Flavors',
+			'Flavors, cursive' => array(
+				'label'  => 'Flavors, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2613,8 +2616,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Fondamento' => array(
-				'label'  => 'Fondamento',
+			'Fondamento, cursive' => array(
+				'label'  => 'Fondamento, cursive',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -2624,8 +2627,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Fontdiner Swanky' => array(
-				'label'  => 'Fontdiner Swanky',
+			'Fontdiner Swanky, cursive' => array(
+				'label'  => 'Fontdiner Swanky, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2633,8 +2636,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Forum' => array(
-				'label'  => 'Forum',
+			'Forum, cursive' => array(
+				'label'  => 'Forum, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2645,8 +2648,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Francois One' => array(
-				'label'  => 'Francois One',
+			'Francois One, sans-serif' => array(
+				'label'  => 'Francois One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2655,8 +2658,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Freckle Face' => array(
-				'label'  => 'Freckle Face',
+			'Freckle Face, cursive' => array(
+				'label'  => 'Freckle Face, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2665,8 +2668,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Fredericka the Great' => array(
-				'label'  => 'Fredericka the Great',
+			'Fredericka the Great, cursive' => array(
+				'label'  => 'Fredericka the Great, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2674,8 +2677,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Fredoka One' => array(
-				'label'  => 'Fredoka One',
+			'Fredoka One, cursive' => array(
+				'label'  => 'Fredoka One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2683,8 +2686,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Freehand' => array(
-				'label'  => 'Freehand',
+			'Freehand, cursive' => array(
+				'label'  => 'Freehand, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2692,8 +2695,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Fresca' => array(
-				'label'  => 'Fresca',
+			'Fresca, sans-serif' => array(
+				'label'  => 'Fresca, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2702,8 +2705,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Frijole' => array(
-				'label'  => 'Frijole',
+			'Frijole, cursive' => array(
+				'label'  => 'Frijole, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2711,8 +2714,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Fruktur' => array(
-				'label'  => 'Fruktur',
+			'Fruktur, cursive' => array(
+				'label'  => 'Fruktur, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2721,8 +2724,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Fugaz One' => array(
-				'label'  => 'Fugaz One',
+			'Fugaz One, cursive' => array(
+				'label'  => 'Fugaz One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2730,8 +2733,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'GFS Didot' => array(
-				'label'  => 'GFS Didot',
+			'GFS Didot, sans-serif' => array(
+				'label'  => 'GFS Didot, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2739,8 +2742,8 @@ class VisualComposerStarter_Fonts {
 					'greek',
 				),
 			),
-			'GFS Neohellenic' => array(
-				'label'  => 'GFS Neohellenic',
+			'GFS Neohellenic, sans-serif' => array(
+				'label'  => 'GFS Neohellenic, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -2751,8 +2754,8 @@ class VisualComposerStarter_Fonts {
 					'greek',
 				),
 			),
-			'Gabriela' => array(
-				'label'  => 'Gabriela',
+			'Gabriela, sans-serif' => array(
+				'label'  => 'Gabriela, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2761,8 +2764,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Gafata' => array(
-				'label'  => 'Gafata',
+			'Gafata, sans-serif' => array(
+				'label'  => 'Gafata, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2771,8 +2774,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Galdeano' => array(
-				'label'  => 'Galdeano',
+			'Galdeano, sans-serif' => array(
+				'label'  => 'Galdeano, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2780,8 +2783,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Galindo' => array(
-				'label'  => 'Galindo',
+			'Galindo, cursive' => array(
+				'label'  => 'Galindo, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2790,8 +2793,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Gentium Basic' => array(
-				'label'  => 'Gentium Basic',
+			'Gentium Basic, sans-serif' => array(
+				'label'  => 'Gentium Basic, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -2803,8 +2806,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Gentium Book Basic' => array(
-				'label'  => 'Gentium Book Basic',
+			'Gentium Book Basic, sans-serif' => array(
+				'label'  => 'Gentium Book Basic, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -2816,8 +2819,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Geo' => array(
-				'label'  => 'Geo',
+			'Geo, sans-serif' => array(
+				'label'  => 'Geo, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -2826,8 +2829,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Geostar' => array(
-				'label'  => 'Geostar',
+			'Geostar, cursive' => array(
+				'label'  => 'Geostar, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2835,8 +2838,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Geostar Fill' => array(
-				'label'  => 'Geostar Fill',
+			'Geostar Fill, cursive' => array(
+				'label'  => 'Geostar Fill, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2844,8 +2847,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Germania One' => array(
-				'label'  => 'Germania One',
+			'Germania One, cursive' => array(
+				'label'  => 'Germania One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2853,27 +2856,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Gilda Display' => array(
-				'label'  => 'Gilda Display',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Give You Glory' => array(
-				'label'  => 'Give You Glory',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Glass Antiqua' => array(
-				'label'  => 'Glass Antiqua',
+			'Gilda Display, sans-serif' => array(
+				'label'  => 'Gilda Display, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2882,8 +2866,17 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Glegoo' => array(
-				'label'  => 'Glegoo',
+			'Give You Glory, cursive' => array(
+				'label'  => 'Give You Glory, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Glass Antiqua, cursive' => array(
+				'label'  => 'Glass Antiqua, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2892,8 +2885,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Gloria Hallelujah' => array(
-				'label'  => 'Gloria Hallelujah',
+			'Glegoo, sans-serif' => array(
+				'label'  => 'Glegoo, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Gloria Hallelujah, cursive' => array(
+				'label'  => 'Gloria Hallelujah, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2901,8 +2904,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Goblin One' => array(
-				'label'  => 'Goblin One',
+			'Goblin One, cursive' => array(
+				'label'  => 'Goblin One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2910,8 +2913,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Gochi Hand' => array(
-				'label'  => 'Gochi Hand',
+			'Gochi Hand, cursive' => array(
+				'label'  => 'Gochi Hand, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2919,8 +2922,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Gorditas' => array(
-				'label'  => 'Gorditas',
+			'Gorditas, cursive' => array(
+				'label'  => 'Gorditas, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -2929,8 +2932,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Goudy Bookletter 1911' => array(
-				'label'  => 'Goudy Bookletter 1911',
+			'Goudy Bookletter 1911, sans-serif' => array(
+				'label'  => 'Goudy Bookletter 1911, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -2938,8 +2941,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Graduate' => array(
-				'label'  => 'Graduate',
+			'Graduate, cursive' => array(
+				'label'  => 'Graduate, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2947,27 +2950,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Grand Hotel' => array(
-				'label'  => 'Grand Hotel',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Gravitas One' => array(
-				'label'  => 'Gravitas One',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Great Vibes' => array(
-				'label'  => 'Great Vibes',
+			'Grand Hotel, cursive' => array(
+				'label'  => 'Grand Hotel, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2976,8 +2960,17 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Griffy' => array(
-				'label'  => 'Griffy',
+			'Gravitas One, cursive' => array(
+				'label'  => 'Gravitas One, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Great Vibes, cursive' => array(
+				'label'  => 'Great Vibes, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2986,8 +2979,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Gruppo' => array(
-				'label'  => 'Gruppo',
+			'Griffy, cursive' => array(
+				'label'  => 'Griffy, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -2996,8 +2989,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Gudea' => array(
-				'label'  => 'Gudea',
+			'Gruppo, cursive' => array(
+				'label'  => 'Gruppo, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Gudea, sans-serif' => array(
+				'label'  => 'Gudea, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -3008,8 +3011,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Habibi' => array(
-				'label'  => 'Habibi',
+			'Habibi, sans-serif' => array(
+				'label'  => 'Habibi, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -3018,8 +3021,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Hammersmith One' => array(
-				'label'  => 'Hammersmith One',
+			'Hammersmith One, sans-serif' => array(
+				'label'  => 'Hammersmith One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -3028,8 +3031,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Hanalei' => array(
-				'label'  => 'Hanalei',
+			'Hanalei, cursive' => array(
+				'label'  => 'Hanalei, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3038,8 +3041,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Hanalei Fill' => array(
-				'label'  => 'Hanalei Fill',
+			'Hanalei Fill, cursive' => array(
+				'label'  => 'Hanalei Fill, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3048,8 +3051,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Handlee' => array(
-				'label'  => 'Handlee',
+			'Handlee, cursive' => array(
+				'label'  => 'Handlee, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3057,8 +3060,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Hanuman' => array(
-				'label'  => 'Hanuman',
+			'Hanuman, sans-serif' => array(
+				'label'  => 'Hanuman, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -3067,8 +3070,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Happy Monkey' => array(
-				'label'  => 'Happy Monkey',
+			'Happy Monkey, cursive' => array(
+				'label'  => 'Happy Monkey, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3077,8 +3080,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Headland One' => array(
-				'label'  => 'Headland One',
+			'Headland One, sans-serif' => array(
+				'label'  => 'Headland One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -3087,8 +3090,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Henny Penny' => array(
-				'label'  => 'Henny Penny',
+			'Henny Penny, cursive' => array(
+				'label'  => 'Henny Penny, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3096,36 +3099,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Herr Von Muellerhoff' => array(
-				'label'  => 'Herr Von Muellerhoff',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Holtwood One SC' => array(
-				'label'  => 'Holtwood One SC',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Homemade Apple' => array(
-				'label'  => 'Homemade Apple',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Homenaje' => array(
-				'label'  => 'Homenaje',
+			'Herr Von Muellerhoff, cursive' => array(
+				'label'  => 'Herr Von Muellerhoff, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3134,18 +3109,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'IM Fell DW Pica' => array(
-				'label'  => 'IM Fell DW Pica',
-				'variants' => array(
-					'regular',
-					'italic',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'IM Fell DW Pica SC' => array(
-				'label'  => 'IM Fell DW Pica SC',
+			'Holtwood One SC, sans-serif' => array(
+				'label'  => 'Holtwood One SC, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -3153,18 +3118,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'IM Fell Double Pica' => array(
-				'label'  => 'IM Fell Double Pica',
-				'variants' => array(
-					'regular',
-					'italic',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'IM Fell Double Pica SC' => array(
-				'label'  => 'IM Fell Double Pica SC',
+			'Homemade Apple, cursive' => array(
+				'label'  => 'Homemade Apple, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3172,83 +3127,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'IM Fell English' => array(
-				'label'  => 'IM Fell English',
-				'variants' => array(
-					'regular',
-					'italic',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'IM Fell English SC' => array(
-				'label'  => 'IM Fell English SC',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'IM Fell French Canon' => array(
-				'label'  => 'IM Fell French Canon',
-				'variants' => array(
-					'regular',
-					'italic',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'IM Fell French Canon SC' => array(
-				'label'  => 'IM Fell French Canon SC',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'IM Fell Great Primer' => array(
-				'label'  => 'IM Fell Great Primer',
-				'variants' => array(
-					'regular',
-					'italic',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'IM Fell Great Primer SC' => array(
-				'label'  => 'IM Fell Great Primer SC',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Iceberg' => array(
-				'label'  => 'Iceberg',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Iceland' => array(
-				'label'  => 'Iceland',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Imprima' => array(
-				'label'  => 'Imprima',
+			'Homenaje, sans-serif' => array(
+				'label'  => 'Homenaje, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -3257,8 +3137,131 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Inconsolata' => array(
-				'label'  => 'Inconsolata',
+			'IM Fell DW Pica, sans-serif' => array(
+				'label'  => 'IM Fell DW Pica, sans-serif',
+				'variants' => array(
+					'regular',
+					'italic',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'IM Fell DW Pica SC, sans-serif' => array(
+				'label'  => 'IM Fell DW Pica SC, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'IM Fell Double Pica, sans-serif' => array(
+				'label'  => 'IM Fell Double Pica, sans-serif',
+				'variants' => array(
+					'regular',
+					'italic',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'IM Fell Double Pica SC, sans-serif' => array(
+				'label'  => 'IM Fell Double Pica SC, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'IM Fell English, sans-serif' => array(
+				'label'  => 'IM Fell English, sans-serif',
+				'variants' => array(
+					'regular',
+					'italic',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'IM Fell English SC, sans-serif' => array(
+				'label'  => 'IM Fell English SC, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'IM Fell French Canon, sans-serif' => array(
+				'label'  => 'IM Fell French Canon, sans-serif',
+				'variants' => array(
+					'regular',
+					'italic',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'IM Fell French Canon SC, sans-serif' => array(
+				'label'  => 'IM Fell French Canon SC, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'IM Fell Great Primer, sans-serif' => array(
+				'label'  => 'IM Fell Great Primer, sans-serif',
+				'variants' => array(
+					'regular',
+					'italic',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'IM Fell Great Primer SC, sans-serif' => array(
+				'label'  => 'IM Fell Great Primer SC, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Iceberg, cursive' => array(
+				'label'  => 'Iceberg, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Iceland, cursive' => array(
+				'label'  => 'Iceland, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Imprima, sans-serif' => array(
+				'label'  => 'Imprima, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Inconsolata, monospace' => array(
+				'label'  => 'Inconsolata, monospace',
 				'variants' => array(
 					'regular',
 					'700',
@@ -3268,8 +3271,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Inder' => array(
-				'label'  => 'Inder',
+			'Inder, sans-serif' => array(
+				'label'  => 'Inder, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -3278,8 +3281,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Indie Flower' => array(
-				'label'  => 'Indie Flower',
+			'Indie Flower, cursive' => array(
+				'label'  => 'Indie Flower, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3287,8 +3290,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Inika' => array(
-				'label'  => 'Inika',
+			'Inika, sans-serif' => array(
+				'label'  => 'Inika, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -3298,8 +3301,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Irish Grover' => array(
-				'label'  => 'Irish Grover',
+			'Irish Grover, cursive' => array(
+				'label'  => 'Irish Grover, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3307,8 +3310,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Istok Web' => array(
-				'label'  => 'Istok Web',
+			'Istok Web, sans-serif' => array(
+				'label'  => 'Istok Web, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -3322,8 +3325,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Italiana' => array(
-				'label'  => 'Italiana',
+			'Italiana, sans-serif' => array(
+				'label'  => 'Italiana, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -3331,36 +3334,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Italianno' => array(
-				'label'  => 'Italianno',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Jacques Francois' => array(
-				'label'  => 'Jacques Francois',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Jacques Francois Shadow' => array(
-				'label'  => 'Jacques Francois Shadow',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Jim Nightshade' => array(
-				'label'  => 'Jim Nightshade',
+			'Italianno, cursive' => array(
+				'label'  => 'Italianno, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3369,8 +3344,26 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Jockey One' => array(
-				'label'  => 'Jockey One',
+			'Jacques Francois, sans-serif' => array(
+				'label'  => 'Jacques Francois, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Jacques Francois Shadow, cursive' => array(
+				'label'  => 'Jacques Francois Shadow, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Jim Nightshade, cursive' => array(
+				'label'  => 'Jim Nightshade, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3379,8 +3372,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Jolly Lodger' => array(
-				'label'  => 'Jolly Lodger',
+			'Jockey One, sans-serif' => array(
+				'label'  => 'Jockey One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -3389,8 +3382,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Josefin Sans' => array(
-				'label'  => 'Josefin Sans',
+			'Jolly Lodger, cursive' => array(
+				'label'  => 'Jolly Lodger, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Josefin Sans, sans-serif' => array(
+				'label'  => 'Josefin Sans, sans-serif',
 				'variants' => array(
 					'100',
 					'100italic',
@@ -3407,8 +3410,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Josefin Slab' => array(
-				'label'  => 'Josefin Slab',
+			'Josefin Slab, sans-serif' => array(
+				'label'  => 'Josefin Slab, sans-serif',
 				'variants' => array(
 					'100',
 					'100italic',
@@ -3425,8 +3428,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Joti One' => array(
-				'label'  => 'Joti One',
+			'Joti One, cursive' => array(
+				'label'  => 'Joti One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3435,8 +3438,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Judson' => array(
-				'label'  => 'Judson',
+			'Judson, sans-serif' => array(
+				'label'  => 'Judson, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -3446,8 +3449,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Julee' => array(
-				'label'  => 'Julee',
+			'Julee, cursive' => array(
+				'label'  => 'Julee, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3455,8 +3458,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Julius Sans One' => array(
-				'label'  => 'Julius Sans One',
+			'Julius Sans One, sans-serif' => array(
+				'label'  => 'Julius Sans One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -3465,8 +3468,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Junge' => array(
-				'label'  => 'Junge',
+			'Junge, sans-serif' => array(
+				'label'  => 'Junge, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -3474,8 +3477,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Jura' => array(
-				'label'  => 'Jura',
+			'Jura, sans-serif' => array(
+				'label'  => 'Jura, sans-serif',
 				'variants' => array(
 					'300',
 					'regular',
@@ -3491,8 +3494,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Just Another Hand' => array(
-				'label'  => 'Just Another Hand',
+			'Just Another Hand, cursive' => array(
+				'label'  => 'Just Another Hand, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3500,8 +3503,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Just Me Again Down Here' => array(
-				'label'  => 'Just Me Again Down Here',
+			'Just Me Again Down Here, cursive' => array(
+				'label'  => 'Just Me Again Down Here, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3510,8 +3513,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Kameron' => array(
-				'label'  => 'Kameron',
+			'Kameron, sans-serif' => array(
+				'label'  => 'Kameron, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -3520,8 +3523,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Kantumruy' => array(
-				'label'  => 'Kantumruy',
+			'Kantumruy, sans-serif' => array(
+				'label'  => 'Kantumruy, sans-serif',
 				'variants' => array(
 					'300',
 					'regular',
@@ -3531,8 +3534,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Karla' => array(
-				'label'  => 'Karla',
+			'Karla, sans-serif' => array(
+				'label'  => 'Karla, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -3544,8 +3547,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Kaushan Script' => array(
-				'label'  => 'Kaushan Script',
+			'Kaushan Script, cursive' => array(
+				'label'  => 'Kaushan Script, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3554,8 +3557,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Kavoon' => array(
-				'label'  => 'Kavoon',
+			'Kavoon, cursive' => array(
+				'label'  => 'Kavoon, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3564,8 +3567,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Kdam Thmor' => array(
-				'label'  => 'Kdam Thmor',
+			'Kdam Thmor, cursive' => array(
+				'label'  => 'Kdam Thmor, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3573,8 +3576,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Keania One' => array(
-				'label'  => 'Keania One',
+			'Keania One, cursive' => array(
+				'label'  => 'Keania One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3583,8 +3586,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Kelly Slab' => array(
-				'label'  => 'Kelly Slab',
+			'Kelly Slab, cursive' => array(
+				'label'  => 'Kelly Slab, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3594,8 +3597,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Kenia' => array(
-				'label'  => 'Kenia',
+			'Kenia, cursive' => array(
+				'label'  => 'Kenia, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3603,8 +3606,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Khmer' => array(
-				'label'  => 'Khmer',
+			'Khmer, cursive' => array(
+				'label'  => 'Khmer, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3612,8 +3615,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Kite One' => array(
-				'label'  => 'Kite One',
+			'Kite One, sans-serif' => array(
+				'label'  => 'Kite One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -3621,8 +3624,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Knewave' => array(
-				'label'  => 'Knewave',
+			'Knewave, cursive' => array(
+				'label'  => 'Knewave, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3631,8 +3634,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Kotta One' => array(
-				'label'  => 'Kotta One',
+			'Kotta One, sans-serif' => array(
+				'label'  => 'Kotta One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -3641,8 +3644,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Koulen' => array(
-				'label'  => 'Koulen',
+			'Koulen, cursive' => array(
+				'label'  => 'Koulen, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3650,8 +3653,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Kranky' => array(
-				'label'  => 'Kranky',
+			'Kranky, cursive' => array(
+				'label'  => 'Kranky, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3659,8 +3662,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Kreon' => array(
-				'label'  => 'Kreon',
+			'Kreon, sans-serif' => array(
+				'label'  => 'Kreon, sans-serif',
 				'variants' => array(
 					'300',
 					'regular',
@@ -3670,8 +3673,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Kristi' => array(
-				'label'  => 'Kristi',
+			'Kristi, cursive' => array(
+				'label'  => 'Kristi, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3679,8 +3682,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Krona One' => array(
-				'label'  => 'Krona One',
+			'Krona One, sans-serif' => array(
+				'label'  => 'Krona One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -3689,8 +3692,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'La Belle Aurore' => array(
-				'label'  => 'La Belle Aurore',
+			'La Belle Aurore, cursive' => array(
+				'label'  => 'La Belle Aurore, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3698,8 +3701,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Lancelot' => array(
-				'label'  => 'Lancelot',
+			'Lancelot, cursive' => array(
+				'label'  => 'Lancelot, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3707,8 +3710,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Lato' => array(
-				'label'  => 'Lato',
+			'Lato, sans-serif' => array(
+				'label'  => 'Lato, sans-serif',
 				'variants' => array(
 					'100',
 					'100italic',
@@ -3725,8 +3728,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'League Script' => array(
-				'label'  => 'League Script',
+			'League Script, cursive' => array(
+				'label'  => 'League Script, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3734,8 +3737,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Leckerli One' => array(
-				'label'  => 'Leckerli One',
+			'Leckerli One, cursive' => array(
+				'label'  => 'Leckerli One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3743,8 +3746,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Ledger' => array(
-				'label'  => 'Ledger',
+			'Ledger, sans-serif' => array(
+				'label'  => 'Ledger, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -3754,8 +3757,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Lekton' => array(
-				'label'  => 'Lekton',
+			'Lekton, sans-serif' => array(
+				'label'  => 'Lekton, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -3766,8 +3769,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Lemon' => array(
-				'label'  => 'Lemon',
+			'Lemon, cursive' => array(
+				'label'  => 'Lemon, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3775,8 +3778,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Libre Baskerville' => array(
-				'label'  => 'Libre Baskerville',
+			'Libre Baskerville, sans-serif' => array(
+				'label'  => 'Libre Baskerville, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -3787,8 +3790,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Life Savers' => array(
-				'label'  => 'Life Savers',
+			'Life Savers, cursive' => array(
+				'label'  => 'Life Savers, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -3798,8 +3801,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Lilita One' => array(
-				'label'  => 'Lilita One',
+			'Lilita One, cursive' => array(
+				'label'  => 'Lilita One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3808,8 +3811,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Lily Script One' => array(
-				'label'  => 'Lily Script One',
+			'Lily Script One, cursive' => array(
+				'label'  => 'Lily Script One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3818,8 +3821,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Limelight' => array(
-				'label'  => 'Limelight',
+			'Limelight, cursive' => array(
+				'label'  => 'Limelight, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3828,8 +3831,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Linden Hill' => array(
-				'label'  => 'Linden Hill',
+			'Linden Hill, sans-serif' => array(
+				'label'  => 'Linden Hill, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -3838,8 +3841,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Lobster' => array(
-				'label'  => 'Lobster',
+			'Lobster, cursive' => array(
+				'label'  => 'Lobster, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3850,8 +3853,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Lobster Two' => array(
-				'label'  => 'Lobster Two',
+			'Lobster Two, cursive' => array(
+				'label'  => 'Lobster Two, cursive',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -3862,8 +3865,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Londrina Outline' => array(
-				'label'  => 'Londrina Outline',
+			'Londrina Outline, cursive' => array(
+				'label'  => 'Londrina Outline, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3871,8 +3874,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Londrina Shadow' => array(
-				'label'  => 'Londrina Shadow',
+			'Londrina Shadow, cursive' => array(
+				'label'  => 'Londrina Shadow, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3880,8 +3883,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Londrina Sketch' => array(
-				'label'  => 'Londrina Sketch',
+			'Londrina Sketch, cursive' => array(
+				'label'  => 'Londrina Sketch, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3889,8 +3892,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Londrina Solid' => array(
-				'label'  => 'Londrina Solid',
+			'Londrina Solid, cursive' => array(
+				'label'  => 'Londrina Solid, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3898,8 +3901,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Lora' => array(
-				'label'  => 'Lora',
+			'Lora, sans-serif' => array(
+				'label'  => 'Lora, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -3912,8 +3915,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Love Ya Like A Sister' => array(
-				'label'  => 'Love Ya Like A Sister',
+			'Love Ya Like A Sister, cursive' => array(
+				'label'  => 'Love Ya Like A Sister, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3921,8 +3924,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Loved by the King' => array(
-				'label'  => 'Loved by the King',
+			'Loved by the King, cursive' => array(
+				'label'  => 'Loved by the King, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3930,8 +3933,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Lovers Quarrel' => array(
-				'label'  => 'Lovers Quarrel',
+			'Lovers Quarrel, cursive' => array(
+				'label'  => 'Lovers Quarrel, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3940,8 +3943,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Luckiest Guy' => array(
-				'label'  => 'Luckiest Guy',
+			'Luckiest Guy, cursive' => array(
+				'label'  => 'Luckiest Guy, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3949,8 +3952,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Lusitana' => array(
-				'label'  => 'Lusitana',
+			'Lusitana, sans-serif' => array(
+				'label'  => 'Lusitana, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -3959,8 +3962,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Lustria' => array(
-				'label'  => 'Lustria',
+			'Lustria, sans-serif' => array(
+				'label'  => 'Lustria, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -3968,8 +3971,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Macondo' => array(
-				'label'  => 'Macondo',
+			'Macondo, cursive' => array(
+				'label'  => 'Macondo, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3977,8 +3980,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Macondo Swash Caps' => array(
-				'label'  => 'Macondo Swash Caps',
+			'Macondo Swash Caps, cursive' => array(
+				'label'  => 'Macondo Swash Caps, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -3986,8 +3989,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Magra' => array(
-				'label'  => 'Magra',
+			'Magra, sans-serif' => array(
+				'label'  => 'Magra, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -3997,8 +4000,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Maiden Orange' => array(
-				'label'  => 'Maiden Orange',
+			'Maiden Orange, cursive' => array(
+				'label'  => 'Maiden Orange, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4006,8 +4009,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Mako' => array(
-				'label'  => 'Mako',
+			'Mako, sans-serif' => array(
+				'label'  => 'Mako, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -4015,18 +4018,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Marcellus' => array(
-				'label'  => 'Marcellus',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Marcellus SC' => array(
-				'label'  => 'Marcellus SC',
+			'Marcellus, sans-serif' => array(
+				'label'  => 'Marcellus, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -4035,8 +4028,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Marck Script' => array(
-				'label'  => 'Marck Script',
+			'Marcellus SC, sans-serif' => array(
+				'label'  => 'Marcellus SC, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Marck Script, cursive' => array(
+				'label'  => 'Marck Script, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4046,8 +4049,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Margarine' => array(
-				'label'  => 'Margarine',
+			'Margarine, cursive' => array(
+				'label'  => 'Margarine, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4056,8 +4059,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Marko One' => array(
-				'label'  => 'Marko One',
+			'Marko One, sans-serif' => array(
+				'label'  => 'Marko One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -4065,8 +4068,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Marmelad' => array(
-				'label'  => 'Marmelad',
+			'Marmelad, sans-serif' => array(
+				'label'  => 'Marmelad, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -4076,8 +4079,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Marvel' => array(
-				'label'  => 'Marvel',
+			'Marvel, sans-serif' => array(
+				'label'  => 'Marvel, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -4088,8 +4091,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Mate' => array(
-				'label'  => 'Mate',
+			'Mate, sans-serif' => array(
+				'label'  => 'Mate, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -4098,8 +4101,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Mate SC' => array(
-				'label'  => 'Mate SC',
+			'Mate SC, sans-serif' => array(
+				'label'  => 'Mate SC, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -4107,8 +4110,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Maven Pro' => array(
-				'label'  => 'Maven Pro',
+			'Maven Pro, sans-serif' => array(
+				'label'  => 'Maven Pro, sans-serif',
 				'variants' => array(
 					'regular',
 					'500',
@@ -4119,8 +4122,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'McLaren' => array(
-				'label'  => 'McLaren',
+			'McLaren, cursive' => array(
+				'label'  => 'McLaren, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4129,8 +4132,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Meddon' => array(
-				'label'  => 'Meddon',
+			'Meddon, cursive' => array(
+				'label'  => 'Meddon, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4138,36 +4141,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'MedievalSharp' => array(
-				'label'  => 'MedievalSharp',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Medula One' => array(
-				'label'  => 'Medula One',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Megrim' => array(
-				'label'  => 'Megrim',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Meie Script' => array(
-				'label'  => 'Meie Script',
+			'MedievalSharp, cursive' => array(
+				'label'  => 'MedievalSharp, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4176,8 +4151,36 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Merienda' => array(
-				'label'  => 'Merienda',
+			'Medula One, cursive' => array(
+				'label'  => 'Medula One, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Megrim, cursive' => array(
+				'label'  => 'Megrim, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Meie Script, cursive' => array(
+				'label'  => 'Meie Script, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Merienda, cursive' => array(
+				'label'  => 'Merienda, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -4187,8 +4190,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Merienda One' => array(
-				'label'  => 'Merienda One',
+			'Merienda One, cursive' => array(
+				'label'  => 'Merienda One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4196,8 +4199,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Merriweather' => array(
-				'label'  => 'Merriweather',
+			'Merriweather, sans-serif' => array(
+				'label'  => 'Merriweather, sans-serif',
 				'variants' => array(
 					'300',
 					'300italic',
@@ -4213,8 +4216,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Merriweather Sans' => array(
-				'label'  => 'Merriweather Sans',
+			'Merriweather Sans, sans-serif' => array(
+				'label'  => 'Merriweather Sans, sans-serif',
 				'variants' => array(
 					'300',
 					'300italic',
@@ -4230,8 +4233,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Metal' => array(
-				'label'  => 'Metal',
+			'Metal, cursive' => array(
+				'label'  => 'Metal, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4239,8 +4242,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Metal Mania' => array(
-				'label'  => 'Metal Mania',
+			'Metal Mania, cursive' => array(
+				'label'  => 'Metal Mania, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4249,8 +4252,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Metamorphous' => array(
-				'label'  => 'Metamorphous',
+			'Metamorphous, cursive' => array(
+				'label'  => 'Metamorphous, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4259,8 +4262,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Metrophobic' => array(
-				'label'  => 'Metrophobic',
+			'Metrophobic, sans-serif' => array(
+				'label'  => 'Metrophobic, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -4268,8 +4271,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Michroma' => array(
-				'label'  => 'Michroma',
+			'Michroma, sans-serif' => array(
+				'label'  => 'Michroma, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -4277,45 +4280,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Milonga' => array(
-				'label'  => 'Milonga',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Miltonian' => array(
-				'label'  => 'Miltonian',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Miltonian Tattoo' => array(
-				'label'  => 'Miltonian Tattoo',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Miniver' => array(
-				'label'  => 'Miniver',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Miss Fajardose' => array(
-				'label'  => 'Miss Fajardose',
+			'Milonga, cursive' => array(
+				'label'  => 'Milonga, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4324,8 +4290,35 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Modern Antiqua' => array(
-				'label'  => 'Modern Antiqua',
+			'Miltonian, cursive' => array(
+				'label'  => 'Miltonian, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Miltonian Tattoo, cursive' => array(
+				'label'  => 'Miltonian Tattoo, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Miniver, cursive' => array(
+				'label'  => 'Miniver, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Miss Fajardose, cursive' => array(
+				'label'  => 'Miss Fajardose, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4334,8 +4327,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Molengo' => array(
-				'label'  => 'Molengo',
+			'Modern Antiqua, cursive' => array(
+				'label'  => 'Modern Antiqua, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4344,8 +4337,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Molle' => array(
-				'label'  => 'Molle',
+			'Molengo, sans-serif' => array(
+				'label'  => 'Molengo, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Molle, cursive' => array(
+				'label'  => 'Molle, cursive',
 				'variants' => array(
 					'italic',
 				),
@@ -4354,8 +4357,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Monda' => array(
-				'label'  => 'Monda',
+			'Monda, sans-serif' => array(
+				'label'  => 'Monda, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -4365,8 +4368,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Monofett' => array(
-				'label'  => 'Monofett',
+			'Monofett, cursive' => array(
+				'label'  => 'Monofett, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4374,8 +4377,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Monoton' => array(
-				'label'  => 'Monoton',
+			'Monoton, cursive' => array(
+				'label'  => 'Monoton, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4383,8 +4386,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Monsieur La Doulaise' => array(
-				'label'  => 'Monsieur La Doulaise',
+			'Monsieur La Doulaise, cursive' => array(
+				'label'  => 'Monsieur La Doulaise, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4393,8 +4396,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Montaga' => array(
-				'label'  => 'Montaga',
+			'Montaga, sans-serif' => array(
+				'label'  => 'Montaga, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -4402,8 +4405,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Montez' => array(
-				'label'  => 'Montez',
+			'Montez, cursive' => array(
+				'label'  => 'Montez, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4411,18 +4414,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Montserrat' => array(
-				'label'  => 'Montserrat',
-				'variants' => array(
-					'regular',
-					'700',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Montserrat Alternates' => array(
-				'label'  => 'Montserrat Alternates',
+			'Montserrat, sans-serif' => array(
+				'label'  => 'Montserrat, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -4431,8 +4424,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Montserrat Subrayada' => array(
-				'label'  => 'Montserrat Subrayada',
+			'Montserrat Alternates, sans-serif' => array(
+				'label'  => 'Montserrat Alternates, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -4441,8 +4434,18 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Moul' => array(
-				'label'  => 'Moul',
+			'Montserrat Subrayada, sans-serif' => array(
+				'label'  => 'Montserrat Subrayada, sans-serif',
+				'variants' => array(
+					'regular',
+					'700',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Moul, cursive' => array(
+				'label'  => 'Moul, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4450,8 +4453,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Moulpali' => array(
-				'label'  => 'Moulpali',
+			'Moulpali, cursive' => array(
+				'label'  => 'Moulpali, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4459,8 +4462,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Mountains of Christmas' => array(
-				'label'  => 'Mountains of Christmas',
+			'Mountains of Christmas, cursive' => array(
+				'label'  => 'Mountains of Christmas, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -4469,8 +4472,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Mouse Memoirs' => array(
-				'label'  => 'Mouse Memoirs',
+			'Mouse Memoirs, sans-serif' => array(
+				'label'  => 'Mouse Memoirs, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -4479,8 +4482,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Mr Bedfort' => array(
-				'label'  => 'Mr Bedfort',
+			'Mr Bedfort, cursive' => array(
+				'label'  => 'Mr Bedfort, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4489,8 +4492,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Mr Dafoe' => array(
-				'label'  => 'Mr Dafoe',
+			'Mr Dafoe, cursive' => array(
+				'label'  => 'Mr Dafoe, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4499,8 +4502,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Mr De Haviland' => array(
-				'label'  => 'Mr De Haviland',
+			'Mr De Haviland, cursive' => array(
+				'label'  => 'Mr De Haviland, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4509,8 +4512,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Mrs Saint Delafield' => array(
-				'label'  => 'Mrs Saint Delafield',
+			'Mrs Saint Delafield, cursive' => array(
+				'label'  => 'Mrs Saint Delafield, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4519,8 +4522,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Mrs Sheppards' => array(
-				'label'  => 'Mrs Sheppards',
+			'Mrs Sheppards, cursive' => array(
+				'label'  => 'Mrs Sheppards, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4529,8 +4532,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Muli' => array(
-				'label'  => 'Muli',
+			'Muli, sans-serif' => array(
+				'label'  => 'Muli, sans-serif',
 				'variants' => array(
 					'300',
 					'300italic',
@@ -4541,8 +4544,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Mystery Quest' => array(
-				'label'  => 'Mystery Quest',
+			'Mystery Quest, cursive' => array(
+				'label'  => 'Mystery Quest, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4551,8 +4554,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Neucha' => array(
-				'label'  => 'Neucha',
+			'Neucha, cursive' => array(
+				'label'  => 'Neucha, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4561,8 +4564,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic',
 				),
 			),
-			'Neuton' => array(
-				'label'  => 'Neuton',
+			'Neuton, sans-serif' => array(
+				'label'  => 'Neuton, sans-serif',
 				'variants' => array(
 					'200',
 					'300',
@@ -4576,8 +4579,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'New Rocker' => array(
-				'label'  => 'New Rocker',
+			'New Rocker, cursive' => array(
+				'label'  => 'New Rocker, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4586,8 +4589,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'News Cycle' => array(
-				'label'  => 'News Cycle',
+			'News Cycle, sans-serif' => array(
+				'label'  => 'News Cycle, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -4597,8 +4600,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Niconne' => array(
-				'label'  => 'Niconne',
+			'Niconne, cursive' => array(
+				'label'  => 'Niconne, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4607,8 +4610,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Nixie One' => array(
-				'label'  => 'Nixie One',
+			'Nixie One, cursive' => array(
+				'label'  => 'Nixie One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4616,8 +4619,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Nobile' => array(
-				'label'  => 'Nobile',
+			'Nobile, sans-serif' => array(
+				'label'  => 'Nobile, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -4628,8 +4631,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Nokora' => array(
-				'label'  => 'Nokora',
+			'Nokora, serif' => array(
+				'label'  => 'Nokora, serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -4638,8 +4641,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Norican' => array(
-				'label'  => 'Norican',
+			'Norican, cursive' => array(
+				'label'  => 'Norican, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4648,8 +4651,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Nosifer' => array(
-				'label'  => 'Nosifer',
+			'Nosifer, cursive' => array(
+				'label'  => 'Nosifer, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4658,8 +4661,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Nothing You Could Do' => array(
-				'label'  => 'Nothing You Could Do',
+			'Nothing You Could Do, cursive' => array(
+				'label'  => 'Nothing You Could Do, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4667,8 +4670,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Noticia Text' => array(
-				'label'  => 'Noticia Text',
+			'Noticia Text, sans-serif' => array(
+				'label'  => 'Noticia Text, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -4681,8 +4684,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Noto Sans' => array(
-				'label'  => 'Noto Sans',
+			'Noto Sans, sans-serif' => array(
+				'label'  => 'Noto Sans, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -4700,8 +4703,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Noto Serif' => array(
-				'label'  => 'Noto Serif',
+			'Noto Serif, sans-serif' => array(
+				'label'  => 'Noto Serif, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -4718,8 +4721,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Nova Cut' => array(
-				'label'  => 'Nova Cut',
+			'Nova Cut, cursive' => array(
+				'label'  => 'Nova Cut, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4727,8 +4730,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Nova Flat' => array(
-				'label'  => 'Nova Flat',
+			'Nova Flat, cursive' => array(
+				'label'  => 'Nova Flat, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4736,8 +4739,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Nova Mono' => array(
-				'label'  => 'Nova Mono',
+			'Nova Mono, monospace' => array(
+				'label'  => 'Nova Mono, monospace',
 				'variants' => array(
 					'regular',
 				),
@@ -4746,8 +4749,8 @@ class VisualComposerStarter_Fonts {
 					'greek',
 				),
 			),
-			'Nova Oval' => array(
-				'label'  => 'Nova Oval',
+			'Nova Oval, cursive' => array(
+				'label'  => 'Nova Oval, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4755,8 +4758,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Nova Round' => array(
-				'label'  => 'Nova Round',
+			'Nova Round, cursive' => array(
+				'label'  => 'Nova Round, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4764,8 +4767,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Nova Script' => array(
-				'label'  => 'Nova Script',
+			'Nova Script, cursive' => array(
+				'label'  => 'Nova Script, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4773,8 +4776,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Nova Slim' => array(
-				'label'  => 'Nova Slim',
+			'Nova Slim, cursive' => array(
+				'label'  => 'Nova Slim, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4782,8 +4785,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Nova Square' => array(
-				'label'  => 'Nova Square',
+			'Nova Square, cursive' => array(
+				'label'  => 'Nova Square, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4791,8 +4794,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Numans' => array(
-				'label'  => 'Numans',
+			'Numans, sans-serif' => array(
+				'label'  => 'Numans, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -4800,8 +4803,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Nunito' => array(
-				'label'  => 'Nunito',
+			'Nunito, sans-serif' => array(
+				'label'  => 'Nunito, sans-serif',
 				'variants' => array(
 					'300',
 					'regular',
@@ -4811,8 +4814,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Odor Mean Chey' => array(
-				'label'  => 'Odor Mean Chey',
+			'Odor Mean Chey, cursive' => array(
+				'label'  => 'Odor Mean Chey, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4820,8 +4823,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Offside' => array(
-				'label'  => 'Offside',
+			'Offside, cursive' => array(
+				'label'  => 'Offside, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4829,8 +4832,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Old Standard TT' => array(
-				'label'  => 'Old Standard TT',
+			'Old Standard TT, sans-serif' => array(
+				'label'  => 'Old Standard TT, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -4840,8 +4843,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Oldenburg' => array(
-				'label'  => 'Oldenburg',
+			'Oldenburg, cursive' => array(
+				'label'  => 'Oldenburg, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4850,19 +4853,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Oleo Script' => array(
-				'label'  => 'Oleo Script',
-				'variants' => array(
-					'regular',
-					'700',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Oleo Script Swash Caps' => array(
-				'label'  => 'Oleo Script Swash Caps',
+			'Oleo Script, cursive' => array(
+				'label'  => 'Oleo Script, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -4872,8 +4864,19 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Open Sans' => array(
-				'label'  => 'Open Sans',
+			'Oleo Script Swash Caps, cursive' => array(
+				'label'  => 'Oleo Script Swash Caps, cursive',
+				'variants' => array(
+					'regular',
+					'700',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Open Sans, sans-serif' => array(
+				'label'  => 'Open Sans, sans-serif',
 				'variants' => array(
 					'300',
 					'300italic',
@@ -4897,8 +4900,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Open Sans Condensed' => array(
-				'label'  => 'Open Sans Condensed',
+			'Open Sans Condensed, sans-serif' => array(
+				'label'  => 'Open Sans Condensed, sans-serif',
 				'variants' => array(
 					'300',
 					'300italic',
@@ -4914,8 +4917,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Oranienbaum' => array(
-				'label'  => 'Oranienbaum',
+			'Oranienbaum, sans-serif' => array(
+				'label'  => 'Oranienbaum, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -4926,8 +4929,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Orbitron' => array(
-				'label'  => 'Orbitron',
+			'Orbitron, sans-serif' => array(
+				'label'  => 'Orbitron, sans-serif',
 				'variants' => array(
 					'regular',
 					'500',
@@ -4938,8 +4941,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Oregano' => array(
-				'label'  => 'Oregano',
+			'Oregano, cursive' => array(
+				'label'  => 'Oregano, cursive',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -4949,8 +4952,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Orienta' => array(
-				'label'  => 'Orienta',
+			'Orienta, sans-serif' => array(
+				'label'  => 'Orienta, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -4959,8 +4962,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Original Surfer' => array(
-				'label'  => 'Original Surfer',
+			'Original Surfer, cursive' => array(
+				'label'  => 'Original Surfer, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4968,8 +4971,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Oswald' => array(
-				'label'  => 'Oswald',
+			'Oswald, sans-serif' => array(
+				'label'  => 'Oswald, sans-serif',
 				'variants' => array(
 					'300',
 					'regular',
@@ -4980,8 +4983,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Over the Rainbow' => array(
-				'label'  => 'Over the Rainbow',
+			'Over the Rainbow, cursive' => array(
+				'label'  => 'Over the Rainbow, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -4989,8 +4992,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Overlock' => array(
-				'label'  => 'Overlock',
+			'Overlock, cursive' => array(
+				'label'  => 'Overlock, cursive',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5004,8 +5007,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Overlock SC' => array(
-				'label'  => 'Overlock SC',
+			'Overlock SC, cursive' => array(
+				'label'  => 'Overlock SC, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5014,8 +5017,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Ovo' => array(
-				'label'  => 'Ovo',
+			'Ovo, sans-serif' => array(
+				'label'  => 'Ovo, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -5023,8 +5026,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Oxygen' => array(
-				'label'  => 'Oxygen',
+			'Oxygen, sans-serif' => array(
+				'label'  => 'Oxygen, sans-serif',
 				'variants' => array(
 					'300',
 					'regular',
@@ -5035,8 +5038,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Oxygen Mono' => array(
-				'label'  => 'Oxygen Mono',
+			'Oxygen Mono, monospace' => array(
+				'label'  => 'Oxygen Mono, monospace',
 				'variants' => array(
 					'regular',
 				),
@@ -5045,8 +5048,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'PT Mono' => array(
-				'label'  => 'PT Mono',
+			'PT Mono, monospace' => array(
+				'label'  => 'PT Mono, monospace',
 				'variants' => array(
 					'regular',
 				),
@@ -5057,8 +5060,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'PT Sans' => array(
-				'label'  => 'PT Sans',
+			'PT Sans, sans-serif' => array(
+				'label'  => 'PT Sans, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5072,8 +5075,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'PT Sans Caption' => array(
-				'label'  => 'PT Sans Caption',
+			'PT Sans Caption, sans-serif' => array(
+				'label'  => 'PT Sans Caption, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -5085,8 +5088,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'PT Sans Narrow' => array(
-				'label'  => 'PT Sans Narrow',
+			'PT Sans Narrow, sans-serif' => array(
+				'label'  => 'PT Sans Narrow, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -5098,8 +5101,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'PT Serif' => array(
-				'label'  => 'PT Serif',
+			'PT Serif, sans-serif' => array(
+				'label'  => 'PT Serif, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5113,8 +5116,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'PT Serif Caption' => array(
-				'label'  => 'PT Serif Caption',
+			'PT Serif Caption, sans-serif' => array(
+				'label'  => 'PT Serif Caption, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5126,8 +5129,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Pacifico' => array(
-				'label'  => 'Pacifico',
+			'Pacifico, cursive' => array(
+				'label'  => 'Pacifico, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5135,8 +5138,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Paprika' => array(
-				'label'  => 'Paprika',
+			'Paprika, cursive' => array(
+				'label'  => 'Paprika, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5144,18 +5147,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Parisienne' => array(
-				'label'  => 'Parisienne',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Passero One' => array(
-				'label'  => 'Passero One',
+			'Parisienne, cursive' => array(
+				'label'  => 'Parisienne, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5164,8 +5157,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Passion One' => array(
-				'label'  => 'Passion One',
+			'Passero One, cursive' => array(
+				'label'  => 'Passero One, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Passion One, cursive' => array(
+				'label'  => 'Passion One, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -5176,8 +5179,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Pathway Gothic One' => array(
-				'label'  => 'Pathway Gothic One',
+			'Pathway Gothic One, sans-serif' => array(
+				'label'  => 'Pathway Gothic One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -5186,8 +5189,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Patrick Hand' => array(
-				'label'  => 'Patrick Hand',
+			'Patrick Hand, cursive' => array(
+				'label'  => 'Patrick Hand, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5197,8 +5200,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Patrick Hand SC' => array(
-				'label'  => 'Patrick Hand SC',
+			'Patrick Hand SC, cursive' => array(
+				'label'  => 'Patrick Hand SC, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5208,8 +5211,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Patua One' => array(
-				'label'  => 'Patua One',
+			'Patua One, cursive' => array(
+				'label'  => 'Patua One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5217,8 +5220,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Paytone One' => array(
-				'label'  => 'Paytone One',
+			'Paytone One, sans-serif' => array(
+				'label'  => 'Paytone One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -5226,27 +5229,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Peralta' => array(
-				'label'  => 'Peralta',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Permanent Marker' => array(
-				'label'  => 'Permanent Marker',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Petit Formal Script' => array(
-				'label'  => 'Petit Formal Script',
+			'Peralta, cursive' => array(
+				'label'  => 'Peralta, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5255,8 +5239,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Petrona' => array(
-				'label'  => 'Petrona',
+			'Permanent Marker, cursive' => array(
+				'label'  => 'Permanent Marker, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5264,8 +5248,27 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Philosopher' => array(
-				'label'  => 'Philosopher',
+			'Petit Formal Script, cursive' => array(
+				'label'  => 'Petit Formal Script, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Petrona, sans-serif' => array(
+				'label'  => 'Petrona, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Philosopher, sans-serif' => array(
+				'label'  => 'Philosopher, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5277,8 +5280,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic',
 				),
 			),
-			'Piedra' => array(
-				'label'  => 'Piedra',
+			'Piedra, cursive' => array(
+				'label'  => 'Piedra, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5287,8 +5290,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Pinyon Script' => array(
-				'label'  => 'Pinyon Script',
+			'Pinyon Script, cursive' => array(
+				'label'  => 'Pinyon Script, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5296,18 +5299,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Pirata One' => array(
-				'label'  => 'Pirata One',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Plaster' => array(
-				'label'  => 'Plaster',
+			'Pirata One, cursive' => array(
+				'label'  => 'Pirata One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5316,8 +5309,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Play' => array(
-				'label'  => 'Play',
+			'Plaster, cursive' => array(
+				'label'  => 'Plaster, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Play, sans-serif' => array(
+				'label'  => 'Play, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -5331,8 +5334,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Playball' => array(
-				'label'  => 'Playball',
+			'Playball, cursive' => array(
+				'label'  => 'Playball, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5341,8 +5344,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Playfair Display' => array(
-				'label'  => 'Playfair Display',
+			'Playfair Display, sans-serif' => array(
+				'label'  => 'Playfair Display, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5357,8 +5360,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Playfair Display SC' => array(
-				'label'  => 'Playfair Display SC',
+			'Playfair Display SC, sans-serif' => array(
+				'label'  => 'Playfair Display SC, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5373,8 +5376,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Podkova' => array(
-				'label'  => 'Podkova',
+			'Podkova, sans-serif' => array(
+				'label'  => 'Podkova, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -5383,8 +5386,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Poiret One' => array(
-				'label'  => 'Poiret One',
+			'Poiret One, cursive' => array(
+				'label'  => 'Poiret One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5394,8 +5397,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Poller One' => array(
-				'label'  => 'Poller One',
+			'Poller One, cursive' => array(
+				'label'  => 'Poller One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5403,8 +5406,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Poly' => array(
-				'label'  => 'Poly',
+			'Poly, sans-serif' => array(
+				'label'  => 'Poly, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5413,8 +5416,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Pompiere' => array(
-				'label'  => 'Pompiere',
+			'Pompiere, cursive' => array(
+				'label'  => 'Pompiere, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5422,8 +5425,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Pontano Sans' => array(
-				'label'  => 'Pontano Sans',
+			'Pontano Sans, sans-serif' => array(
+				'label'  => 'Pontano Sans, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -5432,8 +5435,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Port Lligat Sans' => array(
-				'label'  => 'Port Lligat Sans',
+			'Port Lligat Sans, sans-serif' => array(
+				'label'  => 'Port Lligat Sans, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -5441,8 +5444,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Port Lligat Slab' => array(
-				'label'  => 'Port Lligat Slab',
+			'Port Lligat Slab, sans-serif' => array(
+				'label'  => 'Port Lligat Slab, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -5450,8 +5453,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Prata' => array(
-				'label'  => 'Prata',
+			'Prata, sans-serif' => array(
+				'label'  => 'Prata, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -5459,8 +5462,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Preahvihear' => array(
-				'label'  => 'Preahvihear',
+			'Preahvihear, cursive' => array(
+				'label'  => 'Preahvihear, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5468,8 +5471,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Press Start 2P' => array(
-				'label'  => 'Press Start 2P',
+			'Press Start 2P, cursive' => array(
+				'label'  => 'Press Start 2P, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5480,8 +5483,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Princess Sofia' => array(
-				'label'  => 'Princess Sofia',
+			'Princess Sofia, cursive' => array(
+				'label'  => 'Princess Sofia, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5490,8 +5493,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Prociono' => array(
-				'label'  => 'Prociono',
+			'Prociono, sans-serif' => array(
+				'label'  => 'Prociono, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -5499,8 +5502,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Prosto One' => array(
-				'label'  => 'Prosto One',
+			'Prosto One, cursive' => array(
+				'label'  => 'Prosto One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5510,8 +5513,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Puritan' => array(
-				'label'  => 'Puritan',
+			'Puritan, sans-serif' => array(
+				'label'  => 'Puritan, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5522,8 +5525,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Purple Purse' => array(
-				'label'  => 'Purple Purse',
+			'Purple Purse, cursive' => array(
+				'label'  => 'Purple Purse, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5532,8 +5535,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Quando' => array(
-				'label'  => 'Quando',
+			'Quando, sans-serif' => array(
+				'label'  => 'Quando, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -5542,8 +5545,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Quantico' => array(
-				'label'  => 'Quantico',
+			'Quantico, sans-serif' => array(
+				'label'  => 'Quantico, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5554,8 +5557,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Quattrocento' => array(
-				'label'  => 'Quattrocento',
+			'Quattrocento, sans-serif' => array(
+				'label'  => 'Quattrocento, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -5565,8 +5568,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Quattrocento Sans' => array(
-				'label'  => 'Quattrocento Sans',
+			'Quattrocento Sans, sans-serif' => array(
+				'label'  => 'Quattrocento Sans, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5578,8 +5581,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Questrial' => array(
-				'label'  => 'Questrial',
+			'Questrial, sans-serif' => array(
+				'label'  => 'Questrial, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -5587,8 +5590,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Quicksand' => array(
-				'label'  => 'Quicksand',
+			'Quicksand, sans-serif' => array(
+				'label'  => 'Quicksand, sans-serif',
 				'variants' => array(
 					'300',
 					'regular',
@@ -5598,8 +5601,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Quintessential' => array(
-				'label'  => 'Quintessential',
+			'Quintessential, cursive' => array(
+				'label'  => 'Quintessential, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5608,8 +5611,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Qwigley' => array(
-				'label'  => 'Qwigley',
+			'Qwigley, cursive' => array(
+				'label'  => 'Qwigley, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5618,8 +5621,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Racing Sans One' => array(
-				'label'  => 'Racing Sans One',
+			'Racing Sans One, cursive' => array(
+				'label'  => 'Racing Sans One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5628,8 +5631,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Radley' => array(
-				'label'  => 'Radley',
+			'Radley, sans-serif' => array(
+				'label'  => 'Radley, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5639,8 +5642,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Raleway' => array(
-				'label'  => 'Raleway',
+			'Raleway, sans-serif' => array(
+				'label'  => 'Raleway, sans-serif',
 				'variants' => array(
 					'100',
 					'200',
@@ -5656,8 +5659,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Raleway Dots' => array(
-				'label'  => 'Raleway Dots',
+			'Raleway Dots, cursive' => array(
+				'label'  => 'Raleway Dots, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5666,8 +5669,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Rambla' => array(
-				'label'  => 'Rambla',
+			'Rambla, sans-serif' => array(
+				'label'  => 'Rambla, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5679,8 +5682,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Rammetto One' => array(
-				'label'  => 'Rammetto One',
+			'Rammetto One, cursive' => array(
+				'label'  => 'Rammetto One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5689,8 +5692,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Ranchers' => array(
-				'label'  => 'Ranchers',
+			'Ranchers, cursive' => array(
+				'label'  => 'Ranchers, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5699,8 +5702,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Rancho' => array(
-				'label'  => 'Rancho',
+			'Rancho, cursive' => array(
+				'label'  => 'Rancho, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5708,8 +5711,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Rationale' => array(
-				'label'  => 'Rationale',
+			'Rationale, sans-serif' => array(
+				'label'  => 'Rationale, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -5717,8 +5720,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Redressed' => array(
-				'label'  => 'Redressed',
+			'Redressed, cursive' => array(
+				'label'  => 'Redressed, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5726,8 +5729,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Reenie Beanie' => array(
-				'label'  => 'Reenie Beanie',
+			'Reenie Beanie, cursive' => array(
+				'label'  => 'Reenie Beanie, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5735,18 +5738,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Revalia' => array(
-				'label'  => 'Revalia',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Ribeye' => array(
-				'label'  => 'Ribeye',
+			'Revalia, cursive' => array(
+				'label'  => 'Revalia, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5755,8 +5748,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Ribeye Marrow' => array(
-				'label'  => 'Ribeye Marrow',
+			'Ribeye, cursive' => array(
+				'label'  => 'Ribeye, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5765,8 +5758,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Righteous' => array(
-				'label'  => 'Righteous',
+			'Ribeye Marrow, cursive' => array(
+				'label'  => 'Ribeye Marrow, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5775,8 +5768,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Risque' => array(
-				'label'  => 'Risque',
+			'Righteous, cursive' => array(
+				'label'  => 'Righteous, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5785,8 +5778,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Roboto' => array(
-				'label'  => 'Roboto',
+			'Risque, cursive' => array(
+				'label'  => 'Risque, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Roboto, sans-serif' => array(
+				'label'  => 'Roboto, sans-serif',
 				'variants' => array(
 					'100',
 					'100italic',
@@ -5811,8 +5814,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Roboto Condensed' => array(
-				'label'  => 'Roboto Condensed',
+			'Roboto Condensed, sans-serif' => array(
+				'label'  => 'Roboto Condensed, sans-serif',
 				'variants' => array(
 					'300',
 					'300italic',
@@ -5831,8 +5834,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Roboto Slab' => array(
-				'label'  => 'Roboto Slab',
+			'Roboto Slab, sans-serif' => array(
+				'label'  => 'Roboto Slab, sans-serif',
 				'variants' => array(
 					'100',
 					'300',
@@ -5849,8 +5852,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Rochester' => array(
-				'label'  => 'Rochester',
+			'Rochester, cursive' => array(
+				'label'  => 'Rochester, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5858,8 +5861,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Rock Salt' => array(
-				'label'  => 'Rock Salt',
+			'Rock Salt, cursive' => array(
+				'label'  => 'Rock Salt, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5867,8 +5870,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Rokkitt' => array(
-				'label'  => 'Rokkitt',
+			'Rokkitt, sans-serif' => array(
+				'label'  => 'Rokkitt, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -5877,8 +5880,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Romanesco' => array(
-				'label'  => 'Romanesco',
+			'Romanesco, cursive' => array(
+				'label'  => 'Romanesco, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5887,8 +5890,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Ropa Sans' => array(
-				'label'  => 'Ropa Sans',
+			'Ropa Sans, sans-serif' => array(
+				'label'  => 'Ropa Sans, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5898,8 +5901,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Rosario' => array(
-				'label'  => 'Rosario',
+			'Rosario, sans-serif' => array(
+				'label'  => 'Rosario, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5910,8 +5913,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Rosarivo' => array(
-				'label'  => 'Rosarivo',
+			'Rosarivo, sans-serif' => array(
+				'label'  => 'Rosarivo, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -5921,8 +5924,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Rouge Script' => array(
-				'label'  => 'Rouge Script',
+			'Rouge Script, cursive' => array(
+				'label'  => 'Rouge Script, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5930,8 +5933,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Ruda' => array(
-				'label'  => 'Ruda',
+			'Ruda, sans-serif' => array(
+				'label'  => 'Ruda, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -5942,8 +5945,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Rubik One' => array(
-				'label'  => 'Rubik One',
+			'Rubik One, sans-serif' => array(
+				'label'  => 'Rubik One, sans-serif',
 				'variants' => array(
 					'400',
 				),
@@ -5952,8 +5955,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Rubik Mono One' => array(
-				'label'  => 'Rubik Mono One',
+			'Rubik Mono One, sans-serif' => array(
+				'label'  => 'Rubik Mono One, sans-serif',
 				'variants' => array(
 					'400',
 				),
@@ -5962,8 +5965,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Rufina' => array(
-				'label'  => 'Rufina',
+			'Rufina, sans-serif' => array(
+				'label'  => 'Rufina, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -5973,8 +5976,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Ruge Boogie' => array(
-				'label'  => 'Ruge Boogie',
+			'Ruge Boogie, cursive' => array(
+				'label'  => 'Ruge Boogie, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -5983,8 +5986,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Ruluko' => array(
-				'label'  => 'Ruluko',
+			'Ruluko, sans-serif' => array(
+				'label'  => 'Ruluko, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -5993,8 +5996,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Rum Raisin' => array(
-				'label'  => 'Rum Raisin',
+			'Rum Raisin, sans-serif' => array(
+				'label'  => 'Rum Raisin, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6003,8 +6006,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Ruslan Display' => array(
-				'label'  => 'Ruslan Display',
+			'Ruslan Display, cursive' => array(
+				'label'  => 'Ruslan Display, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6015,8 +6018,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Russo One' => array(
-				'label'  => 'Russo One',
+			'Russo One, sans-serif' => array(
+				'label'  => 'Russo One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6026,8 +6029,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Ruthie' => array(
-				'label'  => 'Ruthie',
+			'Ruthie, cursive' => array(
+				'label'  => 'Ruthie, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6036,8 +6039,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Rye' => array(
-				'label'  => 'Rye',
+			'Rye, cursive' => array(
+				'label'  => 'Rye, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6046,8 +6049,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Sacramento' => array(
-				'label'  => 'Sacramento',
+			'Sacramento, cursive' => array(
+				'label'  => 'Sacramento, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6056,8 +6059,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Sail' => array(
-				'label'  => 'Sail',
+			'Sail, cursive' => array(
+				'label'  => 'Sail, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6065,8 +6068,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Salsa' => array(
-				'label'  => 'Salsa',
+			'Salsa, cursive' => array(
+				'label'  => 'Salsa, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6074,8 +6077,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Sanchez' => array(
-				'label'  => 'Sanchez',
+			'Sanchez, sans-serif' => array(
+				'label'  => 'Sanchez, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -6085,8 +6088,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Sancreek' => array(
-				'label'  => 'Sancreek',
+			'Sancreek, cursive' => array(
+				'label'  => 'Sancreek, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6095,8 +6098,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Sansita One' => array(
-				'label'  => 'Sansita One',
+			'Sansita One, sans-serif' => array(
+				'label'  => 'Sansita One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6104,50 +6107,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Sarina' => array(
-				'label'  => 'Sarina',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Satisfy' => array(
-				'label'  => 'Satisfy',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Scada' => array(
-				'label'  => 'Scada',
-				'variants' => array(
-					'regular',
-					'italic',
-					'700',
-					'700italic',
-				),
-				'subsets' => array(
-					'latin',
-					'cyrillic',
-					'latin-ext',
-				),
-			),
-			'Schoolbell' => array(
-				'label'  => 'Schoolbell',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Seaweed Script' => array(
-				'label'  => 'Seaweed Script',
+			'Sarina, cursive' => array(
+				'label'  => 'Sarina, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6156,29 +6117,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Sevillana' => array(
-				'label'  => 'Sevillana',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Seymour One' => array(
-				'label'  => 'Seymour One',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'cyrillic',
-					'latin-ext',
-				),
-			),
-			'Shadows Into Light' => array(
-				'label'  => 'Shadows Into Light',
+			'Satisfy, cursive' => array(
+				'label'  => 'Satisfy, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6186,27 +6126,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Shadows Into Light Two' => array(
-				'label'  => 'Shadows Into Light Two',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Shanti' => array(
-				'label'  => 'Shanti',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Share' => array(
-				'label'  => 'Share',
+			'Scada, sans-serif' => array(
+				'label'  => 'Scada, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -6215,11 +6136,12 @@ class VisualComposerStarter_Fonts {
 				),
 				'subsets' => array(
 					'latin',
+					'cyrillic',
 					'latin-ext',
 				),
 			),
-			'Share Tech' => array(
-				'label'  => 'Share Tech',
+			'Schoolbell, cursive' => array(
+				'label'  => 'Schoolbell, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6227,17 +6149,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Share Tech Mono' => array(
-				'label'  => 'Share Tech Mono',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Shojumaru' => array(
-				'label'  => 'Shojumaru',
+			'Seaweed Script, cursive' => array(
+				'label'  => 'Seaweed Script, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6246,8 +6159,29 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Short Stack' => array(
-				'label'  => 'Short Stack',
+			'Sevillana, cursive' => array(
+				'label'  => 'Sevillana, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Seymour One, sans-serif' => array(
+				'label'  => 'Seymour One, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'cyrillic',
+					'latin-ext',
+				),
+			),
+			'Shadows Into Light, cursive' => array(
+				'label'  => 'Shadows Into Light, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6255,8 +6189,77 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Siemreap' => array(
-				'label'  => 'Siemreap',
+			'Shadows Into Light Two, cursive' => array(
+				'label'  => 'Shadows Into Light Two, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Shanti, sans-serif' => array(
+				'label'  => 'Shanti, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Share, cursive' => array(
+				'label'  => 'Share, cursive',
+				'variants' => array(
+					'regular',
+					'italic',
+					'700',
+					'700italic',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Share Tech, sans-serif' => array(
+				'label'  => 'Share Tech, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Share Tech Mono, monospace' => array(
+				'label'  => 'Share Tech Mono, monospace',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Shojumaru, cursive' => array(
+				'label'  => 'Shojumaru, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Short Stack, cursive' => array(
+				'label'  => 'Short Stack, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Siemreap, cursive' => array(
+				'label'  => 'Siemreap, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6264,8 +6267,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Sigmar One' => array(
-				'label'  => 'Sigmar One',
+			'Sigmar One, cursive' => array(
+				'label'  => 'Sigmar One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6273,21 +6276,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Signika' => array(
-				'label'  => 'Signika',
-				'variants' => array(
-					'300',
-					'regular',
-					'600',
-					'700',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Signika Negative' => array(
-				'label'  => 'Signika Negative',
+			'Signika, sans-serif' => array(
+				'label'  => 'Signika, sans-serif',
 				'variants' => array(
 					'300',
 					'regular',
@@ -6299,8 +6289,21 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Simonetta' => array(
-				'label'  => 'Simonetta',
+			'Signika Negative, sans-serif' => array(
+				'label'  => 'Signika Negative, sans-serif',
+				'variants' => array(
+					'300',
+					'regular',
+					'600',
+					'700',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Simonetta, cursive' => array(
+				'label'  => 'Simonetta, cursive',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -6312,8 +6315,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Sintony' => array(
-				'label'  => 'Sintony',
+			'Sintony, sans-serif' => array(
+				'label'  => 'Sintony, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -6323,8 +6326,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Sirin Stencil' => array(
-				'label'  => 'Sirin Stencil',
+			'Sirin Stencil, cursive' => array(
+				'label'  => 'Sirin Stencil, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6332,8 +6335,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Six Caps' => array(
-				'label'  => 'Six Caps',
+			'Six Caps, sans-serif' => array(
+				'label'  => 'Six Caps, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6341,8 +6344,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Skranji' => array(
-				'label'  => 'Skranji',
+			'Skranji, cursive' => array(
+				'label'  => 'Skranji, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -6352,8 +6355,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Slackey' => array(
-				'label'  => 'Slackey',
+			'Slackey, cursive' => array(
+				'label'  => 'Slackey, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6361,8 +6364,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Smokum' => array(
-				'label'  => 'Smokum',
+			'Smokum, cursive' => array(
+				'label'  => 'Smokum, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6370,8 +6373,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Smythe' => array(
-				'label'  => 'Smythe',
+			'Smythe, cursive' => array(
+				'label'  => 'Smythe, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6379,8 +6382,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Sniglet' => array(
-				'label'  => 'Sniglet',
+			'Sniglet, cursive' => array(
+				'label'  => 'Sniglet, cursive',
 				'variants' => array(
 					'regular',
 					'800',
@@ -6390,8 +6393,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Snippet' => array(
-				'label'  => 'Snippet',
+			'Snippet, sans-serif' => array(
+				'label'  => 'Snippet, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6399,36 +6402,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Snowburst One' => array(
-				'label'  => 'Snowburst One',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Sofadi One' => array(
-				'label'  => 'Sofadi One',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Sofia' => array(
-				'label'  => 'Sofia',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Sonsie One' => array(
-				'label'  => 'Sonsie One',
+			'Snowburst One, cursive' => array(
+				'label'  => 'Snowburst One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6437,8 +6412,36 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Sorts Mill Goudy' => array(
-				'label'  => 'Sorts Mill Goudy',
+			'Sofadi One, cursive' => array(
+				'label'  => 'Sofadi One, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Sofia, cursive' => array(
+				'label'  => 'Sofia, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Sonsie One, cursive' => array(
+				'label'  => 'Sonsie One, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Sorts Mill Goudy, sans-serif' => array(
+				'label'  => 'Sorts Mill Goudy, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -6448,8 +6451,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Source Code Pro' => array(
-				'label'  => 'Source Code Pro',
+			'Source Code Pro, monospace' => array(
+				'label'  => 'Source Code Pro, monospace',
 				'variants' => array(
 					'200',
 					'300',
@@ -6464,8 +6467,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Source Sans Pro' => array(
-				'label'  => 'Source Sans Pro',
+			'Source Sans Pro, sans-serif' => array(
+				'label'  => 'Source Sans Pro, sans-serif',
 				'variants' => array(
 					'200',
 					'200italic',
@@ -6486,8 +6489,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Source Serif Pro' => array(
-				'label'  => 'Source Serif Pro',
+			'Source Serif Pro, sans-serif' => array(
+				'label'  => 'Source Serif Pro, sans-serif',
 				'variants' => array(
 					'400',
 					'600',
@@ -6498,8 +6501,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Special Elite' => array(
-				'label'  => 'Special Elite',
+			'Special Elite, cursive' => array(
+				'label'  => 'Special Elite, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6507,8 +6510,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Spicy Rice' => array(
-				'label'  => 'Spicy Rice',
+			'Spicy Rice, cursive' => array(
+				'label'  => 'Spicy Rice, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6516,36 +6519,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Spinnaker' => array(
-				'label'  => 'Spinnaker',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Spirax' => array(
-				'label'  => 'Spirax',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Squada One' => array(
-				'label'  => 'Squada One',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Stalemate' => array(
-				'label'  => 'Stalemate',
+			'Spinnaker, sans-serif' => array(
+				'label'  => 'Spinnaker, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6554,8 +6529,36 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Stalinist One' => array(
-				'label'  => 'Stalinist One',
+			'Spirax, cursive' => array(
+				'label'  => 'Spirax, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Squada One, cursive' => array(
+				'label'  => 'Squada One, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Stalemate, cursive' => array(
+				'label'  => 'Stalemate, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Stalinist One, cursive' => array(
+				'label'  => 'Stalinist One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6565,8 +6568,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Stardos Stencil' => array(
-				'label'  => 'Stardos Stencil',
+			'Stardos Stencil, cursive' => array(
+				'label'  => 'Stardos Stencil, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -6575,8 +6578,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Stint Ultra Condensed' => array(
-				'label'  => 'Stint Ultra Condensed',
+			'Stint Ultra Condensed, cursive' => array(
+				'label'  => 'Stint Ultra Condensed, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6585,8 +6588,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Stint Ultra Expanded' => array(
-				'label'  => 'Stint Ultra Expanded',
+			'Stint Ultra Expanded, cursive' => array(
+				'label'  => 'Stint Ultra Expanded, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6595,8 +6598,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Stoke' => array(
-				'label'  => 'Stoke',
+			'Stoke, sans-serif' => array(
+				'label'  => 'Stoke, sans-serif',
 				'variants' => array(
 					'300',
 					'regular',
@@ -6606,8 +6609,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Strait' => array(
-				'label'  => 'Strait',
+			'Strait, sans-serif' => array(
+				'label'  => 'Strait, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6615,8 +6618,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Sue Ellen Francisco' => array(
-				'label'  => 'Sue Ellen Francisco',
+			'Sue Ellen Francisco, cursive' => array(
+				'label'  => 'Sue Ellen Francisco, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6624,8 +6627,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Sunshiney' => array(
-				'label'  => 'Sunshiney',
+			'Sunshiney, cursive' => array(
+				'label'  => 'Sunshiney, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6633,8 +6636,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Supermercado One' => array(
-				'label'  => 'Supermercado One',
+			'Supermercado One, cursive' => array(
+				'label'  => 'Supermercado One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6642,8 +6645,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Suwannaphum' => array(
-				'label'  => 'Suwannaphum',
+			'Suwannaphum, cursive' => array(
+				'label'  => 'Suwannaphum, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6651,8 +6654,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Swanky and Moo Moo' => array(
-				'label'  => 'Swanky and Moo Moo',
+			'Swanky and Moo Moo, cursive' => array(
+				'label'  => 'Swanky and Moo Moo, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6660,8 +6663,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Syncopate' => array(
-				'label'  => 'Syncopate',
+			'Syncopate, sans-serif' => array(
+				'label'  => 'Syncopate, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -6670,8 +6673,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Tangerine' => array(
-				'label'  => 'Tangerine',
+			'Tangerine, cursive' => array(
+				'label'  => 'Tangerine, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -6680,8 +6683,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Taprom' => array(
-				'label'  => 'Taprom',
+			'Taprom, cursive' => array(
+				'label'  => 'Taprom, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6689,8 +6692,8 @@ class VisualComposerStarter_Fonts {
 					'khmer',
 				),
 			),
-			'Tauri' => array(
-				'label'  => 'Tauri',
+			'Tauri, sans-serif' => array(
+				'label'  => 'Tauri, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6699,8 +6702,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Telex' => array(
-				'label'  => 'Telex',
+			'Telex, sans-serif' => array(
+				'label'  => 'Telex, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6708,8 +6711,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Tenor Sans' => array(
-				'label'  => 'Tenor Sans',
+			'Tenor Sans, sans-serif' => array(
+				'label'  => 'Tenor Sans, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6720,8 +6723,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Text Me One' => array(
-				'label'  => 'Text Me One',
+			'Text Me One, sans-serif' => array(
+				'label'  => 'Text Me One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6730,8 +6733,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'The Girl Next Door' => array(
-				'label'  => 'The Girl Next Door',
+			'The Girl Next Door, cursive' => array(
+				'label'  => 'The Girl Next Door, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6739,8 +6742,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Tienne' => array(
-				'label'  => 'Tienne',
+			'Tienne, sans-serif' => array(
+				'label'  => 'Tienne, sans-serif',
 				'variants' => array(
 					'regular',
 					'700',
@@ -6750,8 +6753,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Tinos' => array(
-				'label'  => 'Tinos',
+			'Tinos, sans-serif' => array(
+				'label'  => 'Tinos, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -6768,8 +6771,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Titan One' => array(
-				'label'  => 'Titan One',
+			'Titan One, cursive' => array(
+				'label'  => 'Titan One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6778,8 +6781,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Titillium Web' => array(
-				'label'  => 'Titillium Web',
+			'Titillium Web, sans-serif' => array(
+				'label'  => 'Titillium Web, sans-serif',
 				'variants' => array(
 					'200',
 					'200italic',
@@ -6798,8 +6801,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Trade Winds' => array(
-				'label'  => 'Trade Winds',
+			'Trade Winds, cursive' => array(
+				'label'  => 'Trade Winds, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6807,8 +6810,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Trocchi' => array(
-				'label'  => 'Trocchi',
+			'Trocchi, serif' => array(
+				'label'  => 'Trocchi, serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6817,8 +6820,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Trochut' => array(
-				'label'  => 'Trochut',
+			'Trochut, cursive' => array(
+				'label'  => 'Trochut, cursive',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -6828,8 +6831,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Trykker' => array(
-				'label'  => 'Trykker',
+			'Trykker, sans-serif' => array(
+				'label'  => 'Trykker, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6838,8 +6841,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Tulpen One' => array(
-				'label'  => 'Tulpen One',
+			'Tulpen One, cursive' => array(
+				'label'  => 'Tulpen One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6847,8 +6850,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Ubuntu' => array(
-				'label'  => 'Ubuntu',
+			'Ubuntu, sans-serif' => array(
+				'label'  => 'Ubuntu, sans-serif',
 				'variants' => array(
 					'300',
 					'300italic',
@@ -6868,8 +6871,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Ubuntu Condensed' => array(
-				'label'  => 'Ubuntu Condensed',
+			'Ubuntu Condensed, sans-serif' => array(
+				'label'  => 'Ubuntu Condensed, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6882,8 +6885,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Ubuntu Mono' => array(
-				'label'  => 'Ubuntu Mono',
+			'Ubuntu Mono, monospace' => array(
+				'label'  => 'Ubuntu Mono, monospace',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -6899,8 +6902,8 @@ class VisualComposerStarter_Fonts {
 					'cyrillic-ext',
 				),
 			),
-			'Ultra' => array(
-				'label'  => 'Ultra',
+			'Ultra, sans-serif' => array(
+				'label'  => 'Ultra, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6908,8 +6911,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Uncial Antiqua' => array(
-				'label'  => 'Uncial Antiqua',
+			'Uncial Antiqua, cursive' => array(
+				'label'  => 'Uncial Antiqua, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6917,8 +6920,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Underdog' => array(
-				'label'  => 'Underdog',
+			'Underdog, cursive' => array(
+				'label'  => 'Underdog, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6928,8 +6931,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Unica One' => array(
-				'label'  => 'Unica One',
+			'Unica One, cursive' => array(
+				'label'  => 'Unica One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6938,8 +6941,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'UnifrakturCook' => array(
-				'label'  => 'UnifrakturCook',
+			'UnifrakturCook, cursive' => array(
+				'label'  => 'UnifrakturCook, cursive',
 				'variants' => array(
 					'700',
 				),
@@ -6947,8 +6950,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'UnifrakturMaguntia' => array(
-				'label'  => 'UnifrakturMaguntia',
+			'UnifrakturMaguntia, cursive' => array(
+				'label'  => 'UnifrakturMaguntia, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6956,8 +6959,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Unkempt' => array(
-				'label'  => 'Unkempt',
+			'Unkempt, cursive' => array(
+				'label'  => 'Unkempt, cursive',
 				'variants' => array(
 					'regular',
 					'700',
@@ -6966,8 +6969,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Unlock' => array(
-				'label'  => 'Unlock',
+			'Unlock, cursive' => array(
+				'label'  => 'Unlock, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -6975,8 +6978,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Unna' => array(
-				'label'  => 'Unna',
+			'Unna, sans-serif' => array(
+				'label'  => 'Unna, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -6984,8 +6987,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'VT323' => array(
-				'label'  => 'VT323',
+			'VT323, monospace' => array(
+				'label'  => 'VT323, monospace',
 				'variants' => array(
 					'regular',
 				),
@@ -6993,18 +6996,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Vampiro One' => array(
-				'label'  => 'Vampiro One',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Varela' => array(
-				'label'  => 'Varela',
+			'Vampiro One, cursive' => array(
+				'label'  => 'Vampiro One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -7013,44 +7006,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Varela Round' => array(
-				'label'  => 'Varela Round',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Vast Shadow' => array(
-				'label'  => 'Vast Shadow',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Vibur' => array(
-				'label'  => 'Vibur',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Vidaloka' => array(
-				'label'  => 'Vidaloka',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-				),
-			),
-			'Viga' => array(
-				'label'  => 'Viga',
+			'Varela, sans-serif' => array(
+				'label'  => 'Varela, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -7059,8 +7016,44 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Voces' => array(
-				'label'  => 'Voces',
+			'Varela Round, sans-serif' => array(
+				'label'  => 'Varela Round, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Vast Shadow, cursive' => array(
+				'label'  => 'Vast Shadow, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Vibur, cursive' => array(
+				'label'  => 'Vibur, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Vidaloka, sans-serif' => array(
+				'label'  => 'Vidaloka, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+				),
+			),
+			'Viga, sans-serif' => array(
+				'label'  => 'Viga, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -7069,8 +7062,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Volkhov' => array(
-				'label'  => 'Volkhov',
+			'Voces, cursive' => array(
+				'label'  => 'Voces, cursive',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Volkhov, sans-serif' => array(
+				'label'  => 'Volkhov, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -7081,8 +7084,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Vollkorn' => array(
-				'label'  => 'Vollkorn',
+			'Vollkorn, sans-serif' => array(
+				'label'  => 'Vollkorn, sans-serif',
 				'variants' => array(
 					'regular',
 					'italic',
@@ -7093,8 +7096,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Voltaire' => array(
-				'label'  => 'Voltaire',
+			'Voltaire, sans-serif' => array(
+				'label'  => 'Voltaire, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -7102,8 +7105,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Waiting for the Sunrise' => array(
-				'label'  => 'Waiting for the Sunrise',
+			'Waiting for the Sunrise, cursive' => array(
+				'label'  => 'Waiting for the Sunrise, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -7111,8 +7114,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Wallpoet' => array(
-				'label'  => 'Wallpoet',
+			'Wallpoet, cursive' => array(
+				'label'  => 'Wallpoet, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -7120,8 +7123,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Walter Turncoat' => array(
-				'label'  => 'Walter Turncoat',
+			'Walter Turncoat, cursive' => array(
+				'label'  => 'Walter Turncoat, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -7129,18 +7132,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Warnes' => array(
-				'label'  => 'Warnes',
-				'variants' => array(
-					'regular',
-				),
-				'subsets' => array(
-					'latin',
-					'latin-ext',
-				),
-			),
-			'Wellfleet' => array(
-				'label'  => 'Wellfleet',
+			'Warnes, cursive' => array(
+				'label'  => 'Warnes, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -7149,8 +7142,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Wendy One' => array(
-				'label'  => 'Wendy One',
+			'Wellfleet, cursive' => array(
+				'label'  => 'Wellfleet, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -7159,8 +7152,18 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Wire One' => array(
-				'label'  => 'Wire One',
+			'Wendy One, sans-serif' => array(
+				'label'  => 'Wendy One, sans-serif',
+				'variants' => array(
+					'regular',
+				),
+				'subsets' => array(
+					'latin',
+					'latin-ext',
+				),
+			),
+			'Wire One, sans-serif' => array(
+				'label'  => 'Wire One, sans-serif',
 				'variants' => array(
 					'regular',
 				),
@@ -7168,8 +7171,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Yanone Kaffeesatz' => array(
-				'label'  => 'Yanone Kaffeesatz',
+			'Yanone Kaffeesatz, sans-serif' => array(
+				'label'  => 'Yanone Kaffeesatz, sans-serif',
 				'variants' => array(
 					'200',
 					'300',
@@ -7181,8 +7184,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Yellowtail' => array(
-				'label'  => 'Yellowtail',
+			'Yellowtail, cursive' => array(
+				'label'  => 'Yellowtail, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -7190,8 +7193,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Yeseva One' => array(
-				'label'  => 'Yeseva One',
+			'Yeseva One, cursive' => array(
+				'label'  => 'Yeseva One, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -7201,8 +7204,8 @@ class VisualComposerStarter_Fonts {
 					'latin-ext',
 				),
 			),
-			'Yesteryear' => array(
-				'label'  => 'Yesteryear',
+			'Yesteryear, cursive' => array(
+				'label'  => 'Yesteryear, cursive',
 				'variants' => array(
 					'regular',
 				),
@@ -7210,8 +7213,8 @@ class VisualComposerStarter_Fonts {
 					'latin',
 				),
 			),
-			'Zeyada' => array(
-				'label'  => 'Zeyada',
+			'Zeyada, cursive' => array(
+				'label'  => 'Zeyada, cursive',
 				'variants' => array(
 					'regular',
 				),
