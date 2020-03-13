@@ -374,7 +374,7 @@ if ( ! function_exists( 'visualcomposerstarter_style' ) ) {
 
 		/* Font options */
 		$fonts = array(
-			get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto, sans-serif' ),
+			get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto' ),
 			get_theme_mod( 'vct_fonts_and_style_h1_font_family', 'Playfair Display' ),
 			get_theme_mod( 'vct_fonts_and_style_h2_font_family', 'Playfair Display' ),
 			get_theme_mod( 'vct_fonts_and_style_h3_font_family', 'Playfair Display' ),
@@ -957,7 +957,7 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 	.visualcomposerstarter.woocommerce .woocommerce-result-count,
 	.visualcomposerstarter legend,
 	.visualcomposerstarter.woocommerce-account .woocommerce-MyAccount-content a.button
-	 { font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto, sans-serif' ) ) . '; }
+	 { font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto' ) ) . '; }
 	 body,
 	 .sidebar-widget-area a:hover, .sidebar-widget-area a:focus,
 	 .sidebar-widget-area .widget_recent_entries ul li:hover, .sidebar-widget-area .widget_archive ul li:hover, .sidebar-widget-area .widget_categories ul li:hover, .sidebar-widget-area .widget_meta ul li:hover, .sidebar-widget-area .widget_recent_entries ul li:focus, .sidebar-widget-area .widget_archive ul li:focus, .sidebar-widget-area .widget_categories ul li:focus, .sidebar-widget-area .widget_meta ul li:focus, .visualcomposerstarter.woocommerce-cart .woocommerce table.cart .product-name a { color: ' . get_theme_mod( 'vct_fonts_and_style_body_primary_color', '#555555' ) . '; }

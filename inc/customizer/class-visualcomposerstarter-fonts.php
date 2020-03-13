@@ -147,7 +147,10 @@ class VisualComposerStarter_Fonts {
 			$font = trim( $font );
 
 			// Verify that the font exists.
-			if ( array_key_exists( $font, $allowed_fonts ) ) {
+			if ( array_key_exists( $font, $allowed_fonts ) || array_key_exists( $font . ', sans-serif', $allowed_fonts ) ) {
+				if ( array_key_exists( $font . ', sans-serif', $allowed_fonts ) ) {
+					$font = $font . ', sans-serif';
+				}
 				$font_full_name = $font;
 				$font_array = explode( ',', $font );
 				$font = $font_array[0];
