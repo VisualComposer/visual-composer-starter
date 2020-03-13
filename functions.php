@@ -374,7 +374,7 @@ if ( ! function_exists( 'visualcomposerstarter_style' ) ) {
 
 		/* Font options */
 		$fonts = array(
-			get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto' ),
+			get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto, sans-serif' ),
 			get_theme_mod( 'vct_fonts_and_style_h1_font_family', 'Playfair Display' ),
 			get_theme_mod( 'vct_fonts_and_style_h2_font_family', 'Playfair Display' ),
 			get_theme_mod( 'vct_fonts_and_style_h3_font_family', 'Playfair Display' ),
