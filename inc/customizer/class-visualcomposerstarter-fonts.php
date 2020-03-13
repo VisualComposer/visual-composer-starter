@@ -148,11 +148,12 @@ class VisualComposerStarter_Fonts {
 
 			// Verify that the font exists.
 			if ( array_key_exists( $font, $allowed_fonts ) ) {
+				$font_full_name = $font;
 				$font_array = explode( ',', $font );
 				$font = $font_array[0];
 				$font = trim( $font );
 				// Build the family name and variant string (e.g., "Open+Sans:regular,italic,700").
-				$family[] = urlencode( $font . ':' . join( ',', self::vct_theme_google_font_variants( $font, $allowed_fonts[ $font ]['variants'] ) ) );
+				$family[] = urlencode( $font . ':' . join( ',', self::vct_theme_google_font_variants( $font, $allowed_fonts[ $font_full_name ]['variants'] ) ) );
 			}
 		}
 
