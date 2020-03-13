@@ -1647,12 +1647,6 @@ if ( ! function_exists( 'visualcomposerstarter_register_required_plugins' ) ) {
 			);
 		}
 
-		$plugins[] = array(
-			'name' => 'Visual Composer Website Builder',
-			'slug' => 'visualcomposer',
-			'required' => false,
-		);
-
 		/*
 		 * Array of configuration settings. Amend each line as needed.
 		 */
@@ -1672,6 +1666,9 @@ if ( ! function_exists( 'visualcomposerstarter_register_required_plugins' ) ) {
 
 if ( ! function_exists( 'visualcomposerstarter_set_old_content_size' ) ) {
 	/**
+	 *  For backward compatibility for background
+	 *
+	 * @deprecated 1.3
 	 * BC for older users
 	 */
 	function visualcomposerstarter_set_old_styles() {
