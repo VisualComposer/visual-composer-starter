@@ -1647,6 +1647,12 @@ if ( ! function_exists( 'visualcomposerstarter_register_required_plugins' ) ) {
 			);
 		}
 
+		$plugins[] = array(
+			'name' => 'Visual Composer Website Builder',
+			'slug' => 'visualcomposer',
+			'required' => false,
+		);
+
 		/*
 		 * Array of configuration settings. Amend each line as needed.
 		 */
