@@ -7,7 +7,7 @@
  * @since Visual Composer Starter 1.0
  */
 
-define( 'VISUALCOMPOSERSTARTER_VERSION', '3.1' );
+define( 'VISUALCOMPOSERSTARTER_VERSION', '3.1.1' );
 
 if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 	/**
@@ -422,7 +422,7 @@ if ( ! function_exists( 'visualcomposerstarter_script' ) ) {
 		/* Main theme JS functions */
 		wp_register_script( 'visualcomposerstarter-script', get_template_directory_uri() . '/js/functions.min.js', array( 'jquery' ), VISUALCOMPOSERSTARTER_VERSION, true );
 
-		wp_localize_script( 'jquery', 'visualcomposerstarter', array(
+		wp_localize_script( 'bootstrap-transition', 'visualcomposerstarter', array(
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
 			'nonce' => wp_create_nonce( 'visualcomposerstarter' ),
 			'woo_coupon_form' => get_theme_mod( 'woocommerce_coupon_from', false ),
