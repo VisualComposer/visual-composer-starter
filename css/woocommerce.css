@@ -1077,6 +1077,9 @@
   font-size: 30px;
   margin: 10px 0;
 }
+.visualcomposerstarter.woocommerce .related.products {
+  clear: both;
+}
 .visualcomposerstarter.woocommerce .related.products h2 {
   font-size: 24px;
   margin-bottom: 40px;

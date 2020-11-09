@@ -4,7 +4,9 @@ Theme URI: https://visualcomposer.com/visual-composer-starter-theme/
 Author: The Visual Composer Team
 Author URI: https://visualcomposer.com/
 Description: Visual Composer Starter theme designed to be a perfect companion for a simple and good looking website.
-Version: 3.1.1
+Version: 3.1.2
+Requires PHP: 5.6
+Tested up to: 5.5.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: featured-images, full-width-template, blog
