@@ -7,7 +7,7 @@
  * @since Visual Composer Starter 1.0
  */
 
-define( 'VISUALCOMPOSERSTARTER_VERSION', '3.1.2' );
+define( 'VISUALCOMPOSERSTARTER_VERSION', '3.1.3' );
 
 if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 	/**
