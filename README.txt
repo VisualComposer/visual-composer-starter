@@ -1,11 +1,11 @@
 === Visual Composer Starter ===
 Contributors:   visualcomposer
-Tags:   one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, editor-style, featured-image-header, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, translation-ready, blog, portfolio, photography, entertainment, education
-Stable tag: 3.1.2
-Requires at least:  4.8
-Tested up to:   5.5.3
-License:    GPLv2 or later
-License URI:    http://www.gnu.org/licenses/gpl-3.0.html
+Tags: blog, portfolio, featured-images, full-width-template, e-commerce, translation-ready, rtl-language-support, theme-options, custom-colors, custom-logo, custom-menu, footer-widgets, left-sidebar, right-sidebar, custom-background, one-column, two-columns
+Stable tag: 3.1.3
+Requires at least: 4.8
+Tested up to: 5.7
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 A starter theme for Visual Composer.
 
@@ -27,11 +27,7 @@ This program is free software: you can redistribute it and/or modify it under th
 
 == Description ==
 
-Visual Composer Starter theme designed to be a perfect companion for a simple and good looking website. It is an easy-to-use multipurpose theme that can help you create business websites, portfolio, blogs, WooCommerce stores, and more.
-
-Intuitive theme options allow you to quickly create landing pages, business websites, portfolio, blogs, and more. Advanced page options allow you to quickly customize individual pages to design unique layouts.
-
-Developed by Visual Composer team, Starter theme is the result of multiple years experience and carefully crafted UX expertise.
+Visual Composer Starter theme designed to be a perfect companion for a good-looking and mobile-friendly website. This is a lightweight multipurpose bundle of a fully customizable theme and a powerful website builder for WordPress. The functionality of the Visual Composer plugin combined with a fast and SEO-responsive theme allows you to design a professional portfolio, WooCommerce store, business website, personal blog, and more. The theme is compatible with the most popular WordPress plugins like WooCommerce and Toolset and is translation & child theme & custom post types ready. Combine the power of drag and drop visual editor and a highly extendable theme to build websites you love.
 
 == Installation ==
 
