@@ -18,7 +18,7 @@
     $( 'img[data-src]' ).each( function() {
         var $this = $( this );
         $this.attr( 'src', $this.attr( 'data-src' ) );
-        $this.load( function() {
+        $this.on("load", function() {
             $this.removeAttr( 'data-src' );
         } );
     } );
