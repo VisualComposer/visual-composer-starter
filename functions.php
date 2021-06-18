@@ -1386,8 +1386,8 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 		$content_area_background = get_theme_mod( 'vct_overall_site_content_background', '#ffffff' );
 		if ( '#ffffff' !== $content_area_background ) {
 			$css .= '
-		/*Content area background*/
-		.content-wrapper { background-color: ' . esc_html( $content_area_background ) . '; }
+		/*Body background*/
+		body { background-color: ' . esc_html( $content_area_background ) . '; }
 		';
 		}
 
