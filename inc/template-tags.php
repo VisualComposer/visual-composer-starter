@@ -45,13 +45,14 @@ if ( ! function_exists( 'visualcomposerstarter_header_featured_content' ) ) :
 	 * Header featured content.
 	 */
 	function visualcomposerstarter_header_featured_content() {
-		if ( 'gallery' === get_post_format() ) {
+        $gallery_images = get_post_gallery( get_the_ID(), false );
+		if ( 'gallery' === get_post_format() && !empty( $gallery_images ) ) {
 			?>
 			<div class="<?php echo esc_attr( visualcomposerstarter_get_header_image_container_class() ); ?>">
 				<div class="row">
 					<div class="gallery-slider">
 						<?php
-						$gallery_images = get_post_gallery( get_the_ID(), false );
+
 						$gallery_images_ids = explode( ',', $gallery_images['ids'] );
 						$featured_image_width = get_theme_mod( 'vct_overall_site_featured_image_width', 'full_width' );
 
