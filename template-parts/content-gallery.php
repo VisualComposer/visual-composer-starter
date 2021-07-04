@@ -10,8 +10,8 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'entry-preview' ); ?>>
 	<?php
-        $gallery_images = get_post_gallery( get_the_ID(), false );
-        if ( 'gallery' === get_post_format() && !empty( $gallery_images ) ) {
+	$gallery_images = get_post_gallery( get_the_ID(), false );
+	if ( 'gallery' === get_post_format() && ! empty( $gallery_images ) ) {
 	?>
 		<div class="featured-content">
 			<div class="gallery-slider">
