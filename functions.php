@@ -1877,7 +1877,7 @@ if ( ! function_exists( 'visualcomposerstarter_strpos_array' ) ) {
 		}
 		foreach ( $needle as $what ) {
 			$pos = strpos( $haystack, $what );
-			if ( $pos !== false ) {
+			if ( false !== $pos ) {
 				return $pos;
 			}
 		}
