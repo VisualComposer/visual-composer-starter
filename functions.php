@@ -363,7 +363,7 @@ if ( ! function_exists( 'visualcomposerstarter_style' ) ) {
 			wp_enqueue_style( 'slick-style' );
 		}
 
-        /* General theme stylesheet */
+		/* General theme stylesheet */
 		wp_register_style( 'visualcomposerstarter-general', get_template_directory_uri() . '/css/style.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
 
 		if ( function_exists( 'is_woocommerce_activated' ) ) {
@@ -1867,6 +1867,8 @@ if ( ! function_exists( 'visualcomposerstarter_strpos_array' ) ) {
 	/**
 	 * Strpos for arrays
 	 *
+	 * @param $haystack string.
+	 * @param $needle array.
 	 * @return false|int
 	 */
 	function visualcomposerstarter_strpos_array( $haystack, $needle ) {
@@ -1888,6 +1890,7 @@ if ( ! function_exists( 'visualcomposerstarter_js_defer_parsing' ) ) {
 	/**
 	 * Add defer to selected js files
 	 *
+	 * @param $url string.
 	 * @return array|mixed|string|string[]
 	 */
 	function visualcomposerstarter_js_defer( $url ) {
