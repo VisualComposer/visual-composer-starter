@@ -357,25 +357,20 @@ if ( ! function_exists( 'visualcomposerstarter_style' ) ) {
 		/* Add Visual Composer Starter Font */
 		wp_register_style( 'visualcomposerstarter-font', get_template_directory_uri() . '/css/visual-composer-starter-font.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
 
-		if (is_home() || 'gallery' === get_post_format() || (is_front_page() && 'posts' === get_option('show_on_front'))) {
-            /* Slick slider stylesheet */
-            wp_register_style('slick-style', get_template_directory_uri() . '/css/slick.min.css', [], '1.6.0');
-            wp_enqueue_style('slick-style');
-        }
+		if ( is_home() || 'gallery' === get_post_format() || ( is_front_page() && 'posts' === get_option( 'show_on_front' ) ) ) {
+			/* Slick slider stylesheet */
+			wp_register_style( 'slick-style', get_template_directory_uri() . '/css/slick.min.css', [], '1.6.0' );
+			wp_enqueue_style( 'slick-style' );
+		}
 
         /* General theme stylesheet */
 		wp_register_style( 'visualcomposerstarter-general', get_template_directory_uri() . '/css/style.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
 
-        if ( function_exists( 'is_woocommerce_activated' ) ) {
-            /* Woocommerce stylesheet */
-            wp_register_style(
-                'visualcomposerstarter-woocommerce',
-                get_template_directory_uri() . '/css/woocommerce.min.css',
-                [],
-                VISUALCOMPOSERSTARTER_VERSION
-            );
-            wp_enqueue_style( 'visualcomposerstarter-woocommerce' );
-        }
+		if ( function_exists( 'is_woocommerce_activated' ) ) {
+			/* Woocommerce stylesheet */
+			wp_register_style( 'visualcomposerstarter-woocommerce', get_template_directory_uri() . '/css/woocommerce.min.css', [], VISUALCOMPOSERSTARTER_VERSION );
+			wp_enqueue_style( 'visualcomposerstarter-woocommerce' );
+		}
 
 		/* Stylesheet with additional responsive style */
 		wp_register_style( 'visualcomposerstarter-responsive', get_template_directory_uri() . '/css/responsive.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
@@ -425,10 +420,10 @@ if ( ! function_exists( 'visualcomposerstarter_script' ) ) {
 		/* Bootstrap Transition JS */
 		wp_register_script( 'bootstrap-collapser', get_template_directory_uri() . '/js/bootstrap/collapse.min.js', array( 'jquery-core' ), '3.3.7', true );
 
-        if (is_home() || 'gallery' === get_post_format() || (is_front_page() && 'posts' === get_option('show_on_front'))) {
-            /* Slick Slider JS */
-            wp_register_script( 'slick-js', get_template_directory_uri() . '/js/slick/slick.min.js', array( 'jquery-core' ), '1.6.0', true );
-            wp_enqueue_script( 'slick-js' );
+		if (is_home() || 'gallery' === get_post_format() || (is_front_page() && 'posts' === get_option('show_on_front'))) {
+			/* Slick Slider JS */
+			wp_register_script( 'slick-js', get_template_directory_uri() . '/js/slick/slick.min.js', array( 'jquery-core' ), '1.6.0', true );
+			wp_enqueue_script( 'slick-js' );
         }
 
 		/* Main theme JS functions */
@@ -441,8 +436,6 @@ if ( ! function_exists( 'visualcomposerstarter_script' ) ) {
 		) );
 
 		/* Enqueue scripts */
-		//wp_enqueue_script( 'bootstrap-transition' );
-		//wp_enqueue_script( 'bootstrap-collapser' );
 		wp_enqueue_script( 'visualcomposerstarter-script' );
 	}
 }
@@ -1871,12 +1864,20 @@ remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_paymen
 add_action( 'woocommerce_checkout_after_customer_details', 'woocommerce_checkout_payment', 20 );
 
 if ( ! function_exists( 'visualcomposerstarter_strpos_array' ) ) {
+	/**
+	 * Strpos for arrays
+	 *
+	 * @param $haystack
+	 * @param $needle
+	 * @return false|int
+	 */
 	function visualcomposerstarter_strpos_array( $haystack, $needle ) {
 		if ( ! is_array( $needle ) ) {
 			$needle = array( $needle );
 		}
 		foreach ( $needle as $what ) {
-			if ( ( $pos = strpos( $haystack, $what ) ) !== false ) {
+			$pos = strpos( $haystack, $what );
+			if ( $pos !== false ) {
 				return $pos;
 			}
 		}
@@ -1885,24 +1886,23 @@ if ( ! function_exists( 'visualcomposerstarter_strpos_array' ) ) {
 	}
 }
 
-/**
- * Add defer to selected js files
- *
- * @param $url
- * @return array|mixed|string|string[]
- */
-
 if ( ! function_exists( 'visualcomposerstarter_js_defer_parsing' ) ) {
+	/**
+	 * Add defer to selected js files
+	 *
+	 * @param $url
+	 * @return array|mixed|string|string[]
+	 */
 	function visualcomposerstarter_js_defer( $url ) {
 		if ( is_user_logged_in() ) {
 			return $url;
 		}
 
-		if ( visualcomposerstarter_strpos_array( $url, [
+		if ( visualcomposerstarter_strpos_array( $url, array(
 			'functions.min.js',
 			'slick.min.js',
 			'jquery.min.js',
-		] ) ) {
+		) ) ) {
 			return str_replace( ' src', ' defer src', $url );
 		}
 
