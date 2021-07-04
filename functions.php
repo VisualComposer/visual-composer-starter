@@ -1867,8 +1867,8 @@ if ( ! function_exists( 'visualcomposerstarter_strpos_array' ) ) {
 	/**
 	 * Strpos for arrays
 	 *
-	 * @param $haystack string.
-	 * @param $needle array.
+	 * @param $haystack
+	 * @param $needle
 	 * @return false|int
 	 */
 	function visualcomposerstarter_strpos_array( $haystack, $needle ) {
@@ -1890,7 +1890,7 @@ if ( ! function_exists( 'visualcomposerstarter_js_defer_parsing' ) ) {
 	/**
 	 * Add defer to selected js files
 	 *
-	 * @param $url string.
+	 * @param $url
 	 * @return array|mixed|string|string[]
 	 */
 	function visualcomposerstarter_js_defer( $url ) {

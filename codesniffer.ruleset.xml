@@ -18,6 +18,7 @@
 		<exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon" />
 		<exclude name="Squiz.PHP.EmbeddedPhp.ContentBeforeOpen" />
 		<exclude name="Squiz.PHP.EmbeddedPhp.ContentBeforeEnd" />
+		<exclude name="Squiz.Commenting.FunctionComment.MissingParamTag" />
 		<exclude name="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace" />
 		<exclude name="Squiz.PHP.EmbeddedPhp.ContentAfterOpen" />
 		<exclude name="WordPress.Arrays.ArrayIndentation.ItemNotAligned" />
