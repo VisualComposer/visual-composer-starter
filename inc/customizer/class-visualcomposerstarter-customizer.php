@@ -183,6 +183,11 @@ class VisualComposerStarter_Customizer {
 			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
 		) );
 
+		$wp_customize->add_setting( 'vct_overall_site_enable_bootstrap',  array(
+			'default' => false,
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
+		) );
+
 		$wp_customize->add_setting( 'vct_overall_site_featured_image_width',  array(
 			'default' => 'full_width',
 			'sanitize_callback' => array( $this, 'sanitize_select' ),
@@ -282,6 +287,20 @@ class VisualComposerStarter_Customizer {
 					'description'   => esc_html__( 'Show featured image for posts and pages.', 'visual-composer-starter' ),
 					'section'       => 'vct_overall_site',
 					'settings'      => 'vct_overall_site_featured_image',
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new VisualComposerStarter_Toggle_Switch_Control(
+				$wp_customize,
+				'vct_overall_site_enable_bootstrap',
+				array(
+					'type'          => 'toggle-switch',
+					'label'         => esc_html__( 'Use Bootstrap', 'visual-composer-starter' ),
+					'description'   => esc_html__( 'Load css and js files from bootstrap framework.', 'visual-composer-starter' ),
+					'section'       => 'vct_overall_site',
+					'settings'      => 'vct_overall_site_enable_bootstrap',
 				)
 			)
 		);
@@ -1400,7 +1419,7 @@ class VisualComposerStarter_Customizer {
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_font_family', array(
-			'default'        => 'Playfair Display',
+			'default'        => 'Montserrat',
 			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
 		) );
 
@@ -1568,7 +1587,7 @@ class VisualComposerStarter_Customizer {
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_font_family', array(
-			'default'        => 'Playfair Display',
+			'default'        => 'Montserrat',
 			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
 		) );
 
@@ -1738,7 +1757,7 @@ class VisualComposerStarter_Customizer {
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_font_family', array(
-			'default'        => 'Playfair Display',
+			'default'        => 'Montserrat',
 			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_subsets', array(
@@ -1900,7 +1919,7 @@ class VisualComposerStarter_Customizer {
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_font_family', array(
-			'default'        => 'Playfair Display',
+			'default'        => 'Montserrat',
 			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
 		) );
 
@@ -2069,7 +2088,7 @@ class VisualComposerStarter_Customizer {
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_font_family', array(
-			'default'        => 'Playfair Display',
+			'default'        => 'Montserrat',
 			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
 		) );
 
@@ -2237,7 +2256,7 @@ class VisualComposerStarter_Customizer {
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_font_family', array(
-			'default'        => 'Playfair Display',
+			'default'        => 'Montserrat',
 			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
 		) );
 
@@ -2607,7 +2626,7 @@ class VisualComposerStarter_Customizer {
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_font_family', array(
-			'default'        => 'Playfair Display',
+			'default'        => 'Montserrat',
 			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
 		) );
 
