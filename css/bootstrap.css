@@ -303,11 +303,6 @@ figure {
 img {
   vertical-align: middle;
 }
-.img-responsive {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
 .img-rounded {
   border-radius: 6px;
 }
@@ -320,9 +315,6 @@ img {
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  display: inline-block;
-  max-width: 100%;
-  height: auto;
 }
 .img-circle {
   border-radius: 50%;

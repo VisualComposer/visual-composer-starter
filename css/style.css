@@ -1,3 +1,23 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/default-fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/default-fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/default-fonts/Montserrat/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/default-fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
 html {
   font-size: 16px;
 }
@@ -26,7 +46,7 @@ input[type="button"] {
   border-radius: 0;
   border: none;
   color: #f4f4f4;
-  font-family: 'Playfair Display';
+  font-family: 'Montserrat';
   padding: 15px 30px;
   line-height: 1;
 }
@@ -304,7 +324,7 @@ body.menu-sandwich #main-menu ul.nav li {
 }
 #main-menu > ul > li > a {
   padding: 12px 0;
-  font-family: 'Playfair Display';
+  font-family: 'Montserrat';
   color: #fff;
 }
 #main-menu > ul > li > a:hover,
@@ -427,7 +447,7 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
 }
 .entry-full-content .entry-author-data .author-name {
   color: #333;
-  font-family: 'Playfair Display';
+  font-family: 'Montserrat';
   font-size: 22px;
   font-weight: 500;
   margin-bottom: 7px;
@@ -490,7 +510,7 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   display: block;
 }
 .nav-links.post-navigation a .post-title {
-  font-family: 'Playfair Display';
+  font-family: 'Montserrat';
   font-size: 22px;
   font-weight: 700;
   color: #333;
@@ -616,7 +636,7 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   border-radius: 50%;
 }
 .comments-area .comment-list .comment-author {
-  font-family: 'Playfair Display';
+  font-family: 'Montserrat';
   font-size: 22px;
   color: #333;
   line-height: 1.4;
@@ -645,7 +665,7 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   border-bottom-color: #777;
 }
 .comments-area .comment-list .reply a {
-  font-family: 'Playfair Display';
+  font-family: 'Montserrat';
   color: #557cbf;
   border-bottom: 1px solid transparent;
 }
@@ -673,7 +693,7 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   font-weight: normal;
   display: block;
   margin-bottom: 10px;
-  font-family: 'Playfair Display';
+  font-family: 'Montserrat';
 }
 .comments-area .comment-form-comment textarea {
   width: 100%;
@@ -711,7 +731,7 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   font-weight: normal;
   display: block;
   margin-bottom: 10px;
-  font-family: 'Playfair Display';
+  font-family: 'Montserrat';
 }
 .comments-area .comment-form-author input,
 .comments-area .comment-form-email input,
@@ -759,7 +779,7 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   border-radius: 0;
   border: none;
   color: #f4f4f4;
-  font-family: 'Playfair Display';
+  font-family: 'Montserrat';
   padding: 15px 40px;
   line-height: 1;
 }
@@ -978,7 +998,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Playfair Display';
+  font-family: 'Montserrat';
   color: #333;
 }
 h1 a,
@@ -1245,7 +1265,7 @@ h6 {
   padding: 10px 0 10px 23px;
   color: #777;
   font-size: 22px;
-  font-family: 'Playfair Display';
+  font-family: 'Montserrat';
   font-style: italic;
 }
 .entry-content blockquote cite,
