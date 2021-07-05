@@ -1,5 +1,6 @@
 @font-face {
   font-family: 'Visual Composer Starter Font';
+  font-display: swap;
   src: url('../fonts/visual-composer-starter-font.eot');
   src: url('../fonts/visual-composer-starter-font.eot?#iefix') format('embedded-opentype'), url('../fonts/visual-composer-starter-font.woff2') format('woff2'), url('../fonts/visual-composer-starter-font.woff') format('woff'), url('../fonts/visual-composer-starter-font.ttf') format('truetype'), url('../fonts/visual-composer-starter-font.svg#visual-composer-starter-font') format('svg');
 }

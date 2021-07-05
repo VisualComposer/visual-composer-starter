@@ -7,7 +7,6 @@ body {
   line-height: 1.7;
   color: #555;
   letter-spacing: 0.01rem;
-  background-color: #fff;
 }
 a {
   color: #557cbf;
@@ -399,6 +398,7 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   padding: 45px 15px 1px 15px;
   margin: 0 -15px;
   overflow-wrap: break-word;
+  background-color: #fff;
 }
 .main-content {
   padding-bottom: 40px;
