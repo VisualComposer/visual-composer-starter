@@ -144,7 +144,7 @@ class VisualComposerStarter_Fonts {
 
 		// Validate each font and convert to URL format.
 		foreach ( $fonts as $font ) {
-			if ( in_array( $font, array( 'Roboto', 'Montserrat', ) ) ) {
+			if ( in_array( $font, array( 'Roboto', 'Montserrat' ) ) ) {
 				return;
 			}
 

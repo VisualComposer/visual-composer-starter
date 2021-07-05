@@ -450,7 +450,7 @@ if ( ! function_exists( 'visualcomposerstarter_script' ) ) {
 
 		wp_enqueue_script( 'visualcomposerstarter-script' );
 	}
-}
+}// End if().
 add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_script' );
 
 if ( ! function_exists( 'visualcomposerstarter_customizer_live_preview' ) ) {
