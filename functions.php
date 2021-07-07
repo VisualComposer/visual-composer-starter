@@ -351,29 +351,31 @@ if ( ! function_exists( 'visualcomposerstarter_style' ) ) {
 	 */
 	function visualcomposerstarter_style() {
 
-		/* Bootstrap stylesheet */
-		wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.7' );
+		if ( get_theme_mod( 'vct_overall_site_enable_bootstrap', false ) === true ) {
+			/* Bootstrap stylesheet */
+			wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap/bootstrap.min.css', array(), '3.3.7' );
+		}
 
 		/* Add Visual Composer Starter Font */
-		wp_register_style( 'visualcomposerstarter-font', get_template_directory_uri() . '/css/visual-composer-starter-font.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
+		wp_register_style( 'visualcomposerstarter-font', get_template_directory_uri() . '/css/vc-font/visual-composer-starter-font.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
 
 		if ( is_home() || 'gallery' === get_post_format() || ( is_front_page() && 'posts' === get_option( 'show_on_front' ) ) ) {
 			/* Slick slider stylesheet */
-			wp_register_style( 'slick-style', get_template_directory_uri() . '/css/slick.min.css', array(), '1.6.0' );
+			wp_register_style( 'slick-style', get_template_directory_uri() . '/css/styles/slick.min.css', array(), '1.6.0' );
 			wp_enqueue_style( 'slick-style' );
 		}
 
 		/* General theme stylesheet */
-		wp_register_style( 'visualcomposerstarter-general', get_template_directory_uri() . '/css/style.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
+		wp_register_style( 'visualcomposerstarter-general', get_template_directory_uri() . '/css/styles/style.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
 
 		if ( function_exists( 'is_woocommerce_activated' ) ) {
 			/* Woocommerce stylesheet */
-			wp_register_style( 'visualcomposerstarter-woocommerce', get_template_directory_uri() . '/css/woocommerce.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
+			wp_register_style( 'visualcomposerstarter-woocommerce', get_template_directory_uri() . '/css/woocommerce/woocommerce.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
 			wp_enqueue_style( 'visualcomposerstarter-woocommerce' );
 		}
 
 		/* Stylesheet with additional responsive style */
-		wp_register_style( 'visualcomposerstarter-responsive', get_template_directory_uri() . '/css/responsive.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
+		wp_register_style( 'visualcomposerstarter-responsive', get_template_directory_uri() . '/css/styles/responsive.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
 
 		/* Theme stylesheet */
 		wp_register_style( 'visualcomposerstarter-style', get_stylesheet_uri() );
@@ -381,13 +383,13 @@ if ( ! function_exists( 'visualcomposerstarter_style' ) ) {
 		/* Font options */
 		$fonts = array(
 			get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto' ),
-			get_theme_mod( 'vct_fonts_and_style_h1_font_family', 'Playfair Display' ),
-			get_theme_mod( 'vct_fonts_and_style_h2_font_family', 'Playfair Display' ),
-			get_theme_mod( 'vct_fonts_and_style_h3_font_family', 'Playfair Display' ),
-			get_theme_mod( 'vct_fonts_and_style_h4_font_family', 'Playfair Display' ),
-			get_theme_mod( 'vct_fonts_and_style_h5_font_family', 'Playfair Display' ),
-			get_theme_mod( 'vct_fonts_and_style_h6_font_family', 'Playfair Display' ),
-			get_theme_mod( 'vct_fonts_and_style_buttons_font_family', 'Playfair Display' ),
+			get_theme_mod( 'vct_fonts_and_style_h1_font_family', 'Montserrat' ),
+			get_theme_mod( 'vct_fonts_and_style_h2_font_family', 'Montserrat' ),
+			get_theme_mod( 'vct_fonts_and_style_h3_font_family', 'Montserrat' ),
+			get_theme_mod( 'vct_fonts_and_style_h4_font_family', 'Montserrat' ),
+			get_theme_mod( 'vct_fonts_and_style_h5_font_family', 'Montserrat' ),
+			get_theme_mod( 'vct_fonts_and_style_h6_font_family', 'Montserrat' ),
+			get_theme_mod( 'vct_fonts_and_style_buttons_font_family', 'Montserrat' ),
 		);
 
 		$font_uri = VisualComposerStarter_Fonts::vct_theme_get_google_font_uri( $fonts );
@@ -396,7 +398,9 @@ if ( ! function_exists( 'visualcomposerstarter_style' ) ) {
 		wp_register_style( 'visualcomposerstarter-fonts', $font_uri, array(), null, 'screen' );
 
 		/* Enqueue styles */
-		wp_enqueue_style( 'bootstrap' );
+		if ( get_theme_mod( 'vct_overall_site_enable_bootstrap', false ) === true ) {
+			wp_enqueue_style( 'bootstrap' );
+		}
 		wp_enqueue_style( 'visualcomposerstarter-font' );
 		wp_enqueue_style( 'visualcomposerstarter-general' );
 		wp_enqueue_style( 'visualcomposerstarter-responsive' );
@@ -414,11 +418,14 @@ if ( ! function_exists( 'visualcomposerstarter_script' ) ) {
 	 * @since Visual Composer Starter 1.0
 	 */
 	function visualcomposerstarter_script() {
-		/* Bootstrap Transition JS */
-		wp_register_script( 'bootstrap-transition', get_template_directory_uri() . '/js/bootstrap/transition.min.js', array( 'jquery-core' ), '3.3.7', true );
 
-		/* Bootstrap Transition JS */
-		wp_register_script( 'bootstrap-collapser', get_template_directory_uri() . '/js/bootstrap/collapse.min.js', array( 'jquery-core' ), '3.3.7', true );
+		if ( get_theme_mod( 'vct_overall_site_enable_bootstrap', false ) === true ) {
+			/* Bootstrap Transition JS */
+			wp_register_script( 'bootstrap-transition', get_template_directory_uri() . '/js/bootstrap/transition.min.js', array( 'jquery-core' ), '3.3.7', true );
+
+			/* Bootstrap Transition JS */
+			wp_register_script( 'bootstrap-collapser', get_template_directory_uri() . '/js/bootstrap/collapse.min.js', array( 'jquery-core' ), '3.3.7', true );
+		}
 
 		if ( is_home() || 'gallery' === get_post_format() || ( is_front_page() && 'posts' === get_option( 'show_on_front' ) ) ) {
 			/* Slick Slider JS */
@@ -436,9 +443,14 @@ if ( ! function_exists( 'visualcomposerstarter_script' ) ) {
 		) );
 
 		/* Enqueue scripts */
+		if ( get_theme_mod( 'vct_overall_site_enable_bootstrap', false ) === true ) {
+			wp_enqueue_script( 'bootstrap-transition' );
+			wp_enqueue_script( 'bootstrap-collapser' );
+		}
+
 		wp_enqueue_script( 'visualcomposerstarter-script' );
 	}
-}
+}// End if().
 add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_script' );
 
 if ( ! function_exists( 'visualcomposerstarter_customizer_live_preview' ) ) {
@@ -1077,7 +1089,7 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 	  .blue-button { 
 			background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_color', '#557cbf' ) ) . '; 
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_color', '#f4f4f4' ) ) . ';
-			font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_family', 'Playfair Display' ) ) . ';
+			font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_family', 'Montserrat' ) ) . ';
 			font-size: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_size', '16px' ) ) . ';
 			font-weight: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_weight', '400' ) ) . ';
 			font-style: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_style', 'normal' ) ) . ';
@@ -1088,7 +1100,7 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 			margin-bottom: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_margin_bottom', '0' ) ) . ';
 	  }
 	  .visualcomposerstarter .products .added_to_cart {
-			font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_family', 'Playfair Display' ) ) . ';
+			font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_family', 'Montserrat' ) ) . ';
 	  }
 	  .comments-area .form-submit input[type=submit]:hover, .comments-area .form-submit input[type=submit]:focus,
 	  .blue-button:hover, .blue-button:focus, 
@@ -1133,7 +1145,7 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 	   {
 	  		background-color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_background_color', '#557cbf' ) ) . '; 
 			color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_text_color', '#f4f4f4' ) ) . ';
-			font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_family', 'Playfair Display' ) ) . ';
+			font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_family', 'Montserrat' ) ) . ';
 			font-size: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_size', '16px' ) ) . ';
 			font-weight: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_weight', '400' ) ) . ';
 			font-style: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_buttons_font_style', 'normal' ) ) . ';
@@ -1192,7 +1204,7 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 	 .comments-area .comment-form-email label,
 	 .comments-area .comment-form-url label,
 	 .comment-content blockquote,
-	 .entry-content blockquote { font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h1_font_family', 'Playfair Display' ) ) . '; }
+	 .entry-content blockquote { font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h1_font_family', 'Montserrat' ) ) . '; }
 	.entry-full-content .entry-author-data .author-name,
 	.entry-full-content .entry-meta a,
 	.nav-links.post-navigation a .post-title,
@@ -1210,7 +1222,7 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 	 
 	 h1 {
 		color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h1_text_color', '#333333' ) ) . ';
-		font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h1_font_family', 'Playfair Display' ) ) . ';
+		font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h1_font_family', 'Montserrat' ) ) . ';
 		font-size: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h1_font_size', '42px' ) ) . ';
 		font-weight: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h1_weight', '400' ) ) . ';
 		font-style: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h1_font_style', 'normal' ) ) . ';
@@ -1224,7 +1236,7 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 	 h1 a:hover, h1 a:focus {color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h1_active_color', '#557cbf' ) ) . ';}
 	 h2 {
 		color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h2_text_color', '#333333' ) ) . ';
-		font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h2_font_family', 'Playfair Display' ) ) . ';
+		font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h2_font_family', 'Montserrat' ) ) . ';
 		font-size: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h2_font_size', '36px' ) ) . ';
 		font-weight: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h2_weight', '400' ) ) . ';
 		font-style: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h2_font_style', 'normal' ) ) . ';
@@ -1238,7 +1250,7 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 	 h2 a:hover, h2 a:focus {color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h2_active_color', '#557cbf' ) ) . ';}
 	 h3 {
 		color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h3_text_color', '#333333' ) ) . ';
-		font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h3_font_family', 'Playfair Display' ) ) . ';
+		font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h3_font_family', 'Montserrat' ) ) . ';
 		font-size: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h3_font_size', '30px' ) ) . ';
 		font-weight: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h3_weight', '400' ) ) . ';
 		font-style: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h3_font_style', 'normal' ) ) . ';
@@ -1252,7 +1264,7 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 	 h3 a:hover, h3 a:focus {color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h3_active_color', '#557cbf' ) ) . ';}
 	 h4 {
 		color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h4_text_color', '#333333' ) ) . ';
-		font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h4_font_family', 'Playfair Display' ) ) . ';
+		font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h4_font_family', 'Montserrat' ) ) . ';
 		font-size: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h4_font_size', '22px' ) ) . ';
 		font-weight: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h4_weight', '400' ) ) . ';
 		font-style: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h4_font_style', 'normal' ) ) . ';
@@ -1266,7 +1278,7 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 	 h4 a:hover, h4 a:focus {color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h4_active_color', '#557cbf' ) ) . ';}
 	 h5 {
 		color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h5_text_color', '#333333' ) ) . ';
-		font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h5_font_family', 'Playfair Display' ) ) . ';
+		font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h5_font_family', 'Montserrat' ) ) . ';
 		font-size: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h5_font_size', '22px' ) ) . ';
 		font-weight: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h5_weight', '400' ) ) . ';
 		font-style: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h5_font_style', 'normal' ) ) . ';
@@ -1280,7 +1292,7 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 	 h5 a:hover, h5 a:focus {color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h5_active_color', '#557cbf' ) ) . ';}
 	 h6 {
 		color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h6_text_color', '#333333' ) ) . ';
-		font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h6_font_family', 'Playfair Display' ) ) . ';
+		font-family: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h6_font_family', 'Montserrat' ) ) . ';
 		font-size: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h6_font_size', '16px' ) ) . ';
 		font-weight: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h6_weight', '400' ) ) . ';
 		font-style: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h6_font_style', 'normal' ) ) . ';
@@ -1619,7 +1631,7 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 		background-color: ' . esc_html( $delete_icon_color ) . ';
 	}';
 
-		wp_add_inline_style( 'visualcomposerstarter-custom-style', $css );
+		wp_add_inline_style( 'visualcomposerstarter-style', $css );
 	}
 }// End if().
 add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_inline_styles' );

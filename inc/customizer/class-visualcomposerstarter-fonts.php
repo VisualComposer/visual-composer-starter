@@ -144,6 +144,10 @@ class VisualComposerStarter_Fonts {
 
 		// Validate each font and convert to URL format.
 		foreach ( $fonts as $font ) {
+			if ( in_array( $font, array( 'Roboto', 'Montserrat' ) ) ) {
+				return;
+			}
+
 			$font = trim( $font );
 
 			// Verify that the font exists.
@@ -4422,6 +4426,7 @@ class VisualComposerStarter_Fonts {
 				'label'  => 'Montserrat, sans-serif',
 				'variants' => array(
 					'regular',
+					'600',
 					'700',
 				),
 				'subsets' => array(

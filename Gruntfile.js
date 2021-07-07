@@ -3,12 +3,12 @@ module.exports = function( grunt ) {
 		less: {
 			srcPath: 'less/',
 			srcFiles: [
-				'bootstrap.less',
-				'style.less',
-				'responsive.less',
-				'slick.less',
-				'visual-composer-starter-font.less',
-				'woocommerce.less'
+				'styles/style.less',
+				'styles/responsive.less',
+				'styles/slick.less',
+				'vc-font/visual-composer-starter-font.less',
+				'woocommerce/woocommerce.less',
+				'bootstrap/bootstrap.less'
 			],
 			destPath: 'css/'
 		},
@@ -70,25 +70,22 @@ module.exports = function( grunt ) {
 						extDot: 'first'         // Extensions in filenames begin after the first dot
 					},
 					{
-						'css/style.css': 'less/style.less'
+						'css/styles/style.css': 'less/styles/style.less'
 					},
 					{
-						'css/bootstrap.css': 'less/bootstrap.less'
+						'css/bootstrap/bootstrap.css': 'less/bootstrap/bootstrap.less'
 					},
 					{
-						'css/responsive.css': 'less/responsive.less'
+						'css/styles/responsive.css': 'less/styles/responsive.less'
 					},
 					{
-						'css/slick.css': 'less/slick.less'
+						'css/styles/slick.css': 'less/styles/slick.less'
 					},
 					{
-						'css/style.css': 'less/style.less'
+						'css/vc-font/visual-composer-starter-font.css': 'less/vc-font/visual-composer-starter-font.less'
 					},
 					{
-						'css/visual-composer-starter-font.css': 'less/visual-composer-starter-font.less'
-					},
-					{
-						'css/woocommerce.css': 'less/woocommerce.less'
+						'css/woocommerce/woocommerce.css': 'less/woocommerce/woocommerce.less'
 					}
 				]
 			}
@@ -114,25 +111,22 @@ module.exports = function( grunt ) {
 						ext: '.min.css'
 					},
 					{
-						'css/style.css': 'css/style.css'
+						'css/styles/style.css': 'css/styles/style.css'
 					},
 					{
-						'css/bootstrap.css': 'css/bootstrap.css'
+						'css/bootstrap/bootstrap.css': 'css/bootstrap/bootstrap.css'
 					},
 					{
-						'css/responsive.css': 'css/responsive.css'
+						'css/styles/responsive.css': 'css/styles/responsive.css'
 					},
 					{
-						'css/slick.css': 'css/slick.css'
+						'css/styles/slick.css': 'css/styles/slick.css'
 					},
 					{
-						'css/style.css': 'css/style.css'
+						'css/vc-font/visual-composer-starter-font.css': 'css/vc-font/visual-composer-starter-font.css'
 					},
 					{
-						'css/visual-composer-starter-font.css': 'css/visual-composer-starter-font.css'
-					},
-					{
-						'css/woocommerce.css': 'css/woocommerce.css'
+						'css/woocommerce/woocommerce.css': 'css/woocommerce/woocommerce.css'
 					}
 				]
 			},
@@ -153,7 +147,7 @@ module.exports = function( grunt ) {
 					{
 						expand: true,
 						cwd: globalOptions.less.destPath,
-						src: [ '*.min.css' ],
+						src: [ '**/*.min.css' ],
 						dest: globalOptions.less.destPath,
 						ext: '.min.css'
 					}
