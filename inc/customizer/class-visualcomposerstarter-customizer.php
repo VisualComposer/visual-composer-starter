@@ -298,7 +298,7 @@ class VisualComposerStarter_Customizer {
 				array(
 					'type'          => 'toggle-switch',
 					'label'         => esc_html__( 'Use Bootstrap', 'visual-composer-starter' ),
-					'description'   => esc_html__( 'Load css and js files from bootstrap framework.', 'visual-composer-starter' ),
+					'description'   => esc_html__( 'Load CSS and JS files from the Bootstrap framework.', 'visual-composer-starter' ),
 					'section'       => 'vct_overall_site',
 					'settings'      => 'vct_overall_site_enable_bootstrap',
 				)
