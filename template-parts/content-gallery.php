@@ -11,12 +11,11 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'entry-preview' ); ?>>
 	<?php
 	$gallery_images = get_post_gallery( get_the_ID(), false );
-	if ( 'gallery' === get_post_format() && ! empty( $gallery_images ) ) {
+	if ( 'gallery' === get_post_format() && ! empty( $gallery_images ) && isset( $gallery_images['ids'] ) ) {
 	?>
 		<div class="featured-content">
 			<div class="gallery-slider">
 				<?php
-				$gallery_images = get_post_gallery( get_the_ID(), false );
 				$gallery_images_ids = explode( ',', $gallery_images['ids'] );
 				$featured_image_width = get_theme_mod( 'vct_overall_site_featured_image_width', 'full_width' );
 

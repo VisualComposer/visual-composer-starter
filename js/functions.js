@@ -144,12 +144,14 @@
     } );
 
     //Gallery Slider
+  if ($( '.gallery-slider' ).length) {
     $( '.gallery-slider' ).slick( {
-        autoplay: true,
-        arrows: false,
-        dots: true,
-        adaptiveHeight: true
+      autoplay: true,
+      arrows: false,
+      dots: true,
+      adaptiveHeight: true
     } );
+  }
 
     // Set scroller to submenu when submenu height is bigger than screen height
     if ( 'fixed' === $navBar.css( 'position' ) ) {

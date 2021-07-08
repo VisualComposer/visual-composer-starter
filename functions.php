@@ -7,7 +7,7 @@
  * @since Visual Composer Starter 1.0
  */
 
-define( 'VISUALCOMPOSERSTARTER_VERSION', '3.2' );
+define( 'VISUALCOMPOSERSTARTER_VERSION', '3.2.1' );
 
 if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 	/**
@@ -1912,8 +1912,7 @@ if ( ! function_exists( 'visualcomposerstarter_js_defer_parsing' ) ) {
 
 		if ( visualcomposerstarter_strpos_array( $url, array(
 			'functions.min.js',
-			'slick.min.js',
-			'jquery.min.js',
+			'slick.min.js'
 		) ) ) {
 			return str_replace( ' src', ' defer src', $url );
 		}
