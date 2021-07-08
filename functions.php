@@ -7,7 +7,7 @@
  * @since Visual Composer Starter 1.0
  */
 
-define( 'VISUALCOMPOSERSTARTER_VERSION', '3.2.1' );
+define( 'VISUALCOMPOSERSTARTER_VERSION', '3.2.2' );
 
 if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 	/**
@@ -368,7 +368,7 @@ if ( ! function_exists( 'visualcomposerstarter_style' ) ) {
 		/* General theme stylesheet */
 		wp_register_style( 'visualcomposerstarter-general', get_template_directory_uri() . '/css/styles/style.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
 
-		if ( function_exists( 'is_woocommerce_activated' ) ) {
+        if ( class_exists( 'WooCommerce' ) ) {
 			/* Woocommerce stylesheet */
 			wp_register_style( 'visualcomposerstarter-woocommerce', get_template_directory_uri() . '/css/woocommerce/woocommerce.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
 			wp_enqueue_style( 'visualcomposerstarter-woocommerce' );
