@@ -144,7 +144,7 @@
     } );
 
     //Gallery Slider
-  if ($( '.gallery-slider' ).length) {
+  if ( $( '.gallery-slider' ).length ) {
     $( '.gallery-slider' ).slick( {
       autoplay: true,
       arrows: false,
