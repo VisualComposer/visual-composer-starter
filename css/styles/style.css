@@ -3086,6 +3086,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 html {
   font-size: 16px;
+  -webkit-font-smoothing: antialiased;
 }
 body {
   font-size: 100%;
