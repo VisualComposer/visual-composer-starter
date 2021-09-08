@@ -69,6 +69,7 @@
   padding: 17px 0;
   text-align: center;
   border-radius: 0;
+  display: block;
 }
 .visualcomposerstarter .products .button.product_type_external {
   padding: 17px;
