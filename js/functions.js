@@ -12,7 +12,8 @@
 
     // Add dropdown toggle that displays child menu items.
     var $dropdownToggle = $( '<button />', {
-        'class': 'dropdown-toggle vct-icon-dropdown'
+        'class': 'dropdown-toggle vct-icon-dropdown',
+        'aria-label' : 'Dropdown'
     } );
 
     $( 'img[data-src]' ).each( function() {
