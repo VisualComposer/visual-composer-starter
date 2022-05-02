@@ -1660,7 +1660,7 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 			  background-color: ' . esc_html( $delete_icon_color ) . ';
 			}
 			';
-		}
+		}// End if().
 
 		wp_add_inline_style( 'visualcomposerstarter-style', $css );
 	}
