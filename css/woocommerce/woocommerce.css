@@ -1078,6 +1078,15 @@
   font-size: 30px;
   margin: 10px 0;
 }
+.visualcomposerstarter .wc-block-grid__products {
+  margin: 0 -8px 16px;
+}
+.visualcomposerstarter .wc-block-grid__products .wc-block-grid__product {
+  padding-left: 0;
+}
+.visualcomposerstarter .wc-block-grid__products .wc-block-grid__product:before {
+  content: none;
+}
 .visualcomposerstarter.woocommerce .related.products {
   clear: both;
 }
