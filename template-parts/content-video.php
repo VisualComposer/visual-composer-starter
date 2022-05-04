@@ -21,7 +21,10 @@
 
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-		<?php echo esc_html( get_the_content( '', false ) ); ?>
+		<?php if ( has_excerpt() ) : ?>
+			<?php the_excerpt(); ?>
+		<?php endif; ?>
+
 	</div><!--.entry-content-->
 	<?php if ( ! is_singular() ) :?>
 		<a href="<?php echo esc_url( get_permalink( get_the_ID() ) ) ?>" class="blue-button read-more"><?php echo esc_html__( 'Read Full Article', 'visual-composer-starter' ) ?></a>
