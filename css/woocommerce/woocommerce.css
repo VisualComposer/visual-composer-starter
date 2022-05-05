@@ -633,6 +633,18 @@
 .visualcomposerstarter.woocommerce-cart .woocommerce table.cart .vct-input-qty-control-remove {
   top: 28px;
 }
+.visualcomposerstarter .woocommerce-notices-wrapper,
+.visualcomposerstarter.woocommerce .woocommerce-notices-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
 .visualcomposerstarter div.woocommerce-error,
 .visualcomposerstarter.woocommerce div.woocommerce-error,
 .visualcomposerstarter div.woocommerce-info,
