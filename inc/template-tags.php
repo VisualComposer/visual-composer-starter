@@ -317,20 +317,19 @@ if ( ! function_exists( 'visualcomposerstarter_entry_featured_video' ) ) :
 			$content = $post->post_content;
 		}
 
-		// Check for wp:embed block first
+		// Check for wp:embed block first.
 		if ( has_block( 'embed', $content ) ) {
 			$blocks = parse_blocks( $content );
 			// Loop through all blocks until we find the first wp:embed.
 			// Get the url from that block and break a loop.
 			foreach ( $blocks as $block ) {
-				if ( $block['blockName'] === 'core/embed' && ! empty( $block['attrs']['url'] ) ) {
+				if ( 'core/embed' === $block['blockName'] && ! empty( $block['attrs']['url'] ) ) {
 					$embed_url = $block['attrs']['url'];
 					break;
 				}
 			}
 		} elseif ( preg_match( '#(^|\s|>)https?://#i', (string) $content ) ) {
-			// Detect embeds, added without using a block. @see \WP_Embed::autoembed
-
+			// Detect embeds, added without using a block. @see \WP_Embed::autoembed.
 			// Find URLs on their own line.
 			if ( preg_match( '|^(\s*)(https?://[^\s<>"]+)(\s*)$|im', $content, $matches ) ) {
 				$embed_url = trim( $matches[0] );
@@ -343,7 +342,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_featured_video' ) ) :
 		}
 
 		if ( $embed_url ) {
-			echo wp_oembed_get( $embed_url );
+			echo wp_kses_post( wp_oembed_get( $embed_url ) );
 		}
 	}
 endif;
