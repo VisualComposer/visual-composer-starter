@@ -11,7 +11,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'entry-preview' ); ?>>
 	<div class="featured-content">
 		<div class="video-wrapper">
-			<?php the_content( '', true );?>
+			<?php visualcomposerstarter_entry_featured_video(); ?>
 		</div>
 	</div><!--.featured-content-->
 

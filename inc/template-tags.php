@@ -304,3 +304,46 @@ if ( ! function_exists( 'visualcomposerstarter_comment' ) ) :
 		<?php
 	}
 endif;
+
+if ( ! function_exists( 'visualcomposerstarter_entry_featured_video' ) ) :
+	/**
+	 * Display featured video for appropriate post format
+	 */
+	function visualcomposerstarter_entry_featured_video() {
+		$embed_url = null;
+		$content = null;
+		$post = get_post();
+		if ( $post instanceof WP_Post ) {
+			$content = $post->post_content;
+		}
+
+		// Check for wp:embed block first
+		if ( has_block( 'embed', $content ) ) {
+			$blocks = parse_blocks( $content );
+			// Loop through all blocks until we find the first wp:embed.
+			// Get the url from that block and break a loop.
+			foreach ( $blocks as $block ) {
+				if ( $block['blockName'] === 'core/embed' && ! empty( $block['attrs']['url'] ) ) {
+					$embed_url = $block['attrs']['url'];
+					break;
+				}
+			}
+		} elseif ( preg_match( '#(^|\s|>)https?://#i', (string) $content ) ) {
+			// Detect embeds, added without using a block. @see \WP_Embed::autoembed
+
+			// Find URLs on their own line.
+			if ( preg_match( '|^(\s*)(https?://[^\s<>"]+)(\s*)$|im', $content, $matches ) ) {
+				$embed_url = trim( $matches[0] );
+			}
+
+			// Find URLs in their own paragraph.
+			if ( preg_match( '|(<p(?: [^>]*)?>\s*)(https?://[^\s<>"]+)(\s*<\/p>)|i', $content, $matches ) ) {
+				$embed_url = strip_tags( $matches[0] );
+			}
+		}
+
+		if ( $embed_url ) {
+			echo wp_oembed_get( $embed_url );
+		}
+	}
+endif;
