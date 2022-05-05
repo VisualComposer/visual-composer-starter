@@ -342,7 +342,25 @@ if ( ! function_exists( 'visualcomposerstarter_entry_featured_video' ) ) :
 		}
 
 		if ( $embed_url ) {
-			echo wp_kses_post( wp_oembed_get( $embed_url ) );
+			echo wp_kses(
+				wp_oembed_get( $embed_url ),
+				array(
+					'iframe' => array(
+						'align'        => true,
+						'width'        => true,
+						'height'       => true,
+						'frameborder'  => true,
+						'name'         => true,
+						'src'          => true,
+						'id'           => true,
+						'class'        => true,
+						'style'        => true,
+						'scrolling'    => true,
+						'marginwidth'  => true,
+						'marginheight' => true,
+					),
+				)
+			);
 		}
 	}
 endif;
