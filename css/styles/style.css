@@ -3930,20 +3930,15 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   height: auto;
   display: block;
 }
-.video-wrapper,
-.entry-preview.format-video .video-wrapper > .wp-block-embed > .wp-block-embed__wrapper {
+.video-wrapper {
   position: relative;
   height: 0;
   padding-bottom: 56.25%;
 }
 .video-wrapper embed,
-.entry-preview.format-video .video-wrapper > .wp-block-embed > .wp-block-embed__wrapper embed,
 .video-wrapper iframe,
-.entry-preview.format-video .video-wrapper > .wp-block-embed > .wp-block-embed__wrapper iframe,
 .video-wrapper object,
-.entry-preview.format-video .video-wrapper > .wp-block-embed > .wp-block-embed__wrapper object,
-.video-wrapper video,
-.entry-preview.format-video .video-wrapper > .wp-block-embed > .wp-block-embed__wrapper video {
+.video-wrapper video {
   width: 100%;
   height: 100%;
   position: absolute;
