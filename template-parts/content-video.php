@@ -21,9 +21,7 @@
 
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-		<?php if ( has_excerpt() ) : ?>
-			<?php the_excerpt(); ?>
-		<?php endif; ?>
+		<?php the_excerpt(); ?>
 
 	</div><!--.entry-content-->
 	<?php if ( ! is_singular() ) :?>
