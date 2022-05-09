@@ -402,12 +402,12 @@ if ( ! function_exists( 'visualcomposerstarter_entry_featured_video' ) ) :
 								'source' => array(
 									'type' => true,
 									'src'  => true,
-								)
+								),
 							) )
 						);
 					}
 				}
 			}
-		}
+		} // End if().
 	}
 endif;
