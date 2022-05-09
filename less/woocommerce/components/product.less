@@ -190,3 +190,41 @@
     margin: 10px 0;
   }
 }
+
+.visualcomposerstarter {
+  .wc-block-grid__products {
+    margin: 0 -8px 16px;
+
+    .wc-block-grid__product {
+      padding-left: 0;
+
+      &:before {
+        content: none;
+      }
+    }
+  }
+
+  .vce-woocommerce-wrapper {
+    .products {
+      .product {
+        &:before {
+          content: none;
+        }
+
+        .onsale {
+          top: 2%;
+          left: 4%;
+          right: auto;
+          width: 2%;
+          margin: 0;
+          background: none;
+
+          svg {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
