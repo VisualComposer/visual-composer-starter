@@ -310,26 +310,53 @@ if ( ! function_exists( 'visualcomposerstarter_entry_featured_video' ) ) :
 	 * Display featured video for appropriate post format
 	 */
 	function visualcomposerstarter_entry_featured_video() {
-		$embed_url = null;
 		$content = null;
-		$post = get_post();
+		$post    = get_post();
 		if ( $post instanceof WP_Post ) {
 			$content = $post->post_content;
 		}
 
-		// Check for wp:embed block first.
-		if ( has_block( 'embed', $content ) ) {
+		/*
+		 * There are 4 possible options to add a video:
+		 * 1. <!-- wp:embed --> block.
+		 * 2. Inline embeds, when you just add a URL, e.g. YouTube,
+		 * and WordPress converts it to iframe while outputting the_content.
+		 * 3. [video] shortcode. E.g. for videos uploaded via Media Library.
+		 * 4. iframe added directly to the editor.
+		 */
+
+        // iframes must have a priority over shortcodes.
+		$iframe = null;
+		if ( false !== strpos( $content, '<iframe' ) ) {
+			// Check for <iframe> tag. Try to extract an iframe from the content.
+			// First found one will be our preview.
+			preg_match_all( '/(?:<iframe[^>]*)(?:(?:\/>)|(?:>.*?<\/iframe>))/', $content, $matches, PREG_SET_ORDER );
+			if ( ! empty( $matches ) ) {
+				foreach ( $matches as $match ) {
+					if ( ! empty( $match[0] ) ) {
+						$iframe = $match[0];
+						break;
+					}
+				}
+			}
+			unset( $matches );
+	    } elseif ( has_block( 'embed', $content ) ) {
+			// Check for wp:embed block first.
 			$blocks = parse_blocks( $content );
 			// Loop through all blocks until we find the first wp:embed.
 			// Get the url from that block and break a loop.
 			foreach ( $blocks as $block ) {
 				if ( 'core/embed' === $block['blockName'] && ! empty( $block['attrs']['url'] ) ) {
-					$embed_url = $block['attrs']['url'];
+					$iframe = wp_oembed_get( $block['attrs']['url'] );
 					break;
 				}
 			}
 		} elseif ( preg_match( '#(^|\s|>)https?://#i', (string) $content ) ) {
-			// Detect embeds, added without using a block. @see \WP_Embed::autoembed.
+			// Check for inline embeds (added without using a block).
+			// Should be last, as there may be other links in a post, not just embeds.
+			// @see \WP_Embed::autoembed.
+			$embed_url = null;
+
 			// Find URLs on their own line.
 			if ( preg_match( '|^(\s*)(https?://[^\s<>"]+)(\s*)$|im', $content, $matches ) ) {
 				$embed_url = trim( $matches[0] );
@@ -339,11 +366,13 @@ if ( ! function_exists( 'visualcomposerstarter_entry_featured_video' ) ) :
 			if ( preg_match( '|(<p(?: [^>]*)?>\s*)(https?://[^\s<>"]+)(\s*<\/p>)|i', $content, $matches ) ) {
 				$embed_url = strip_tags( $matches[0] );
 			}
+
+			$iframe = wp_oembed_get( $embed_url );
 		}
 
-		if ( $embed_url ) {
+		if ( ! empty( $iframe ) ) {
 			echo wp_kses(
-				wp_oembed_get( $embed_url ),
+				$iframe,
 				array(
 					'iframe' => array(
 						'align'        => true,
@@ -361,6 +390,16 @@ if ( ! function_exists( 'visualcomposerstarter_entry_featured_video' ) ) :
 					),
 				)
 			);
+		} elseif ( has_shortcode( $content, 'video' ) ) {
+			// Fallback to shortcode.
+			preg_match_all( '/' . get_shortcode_regex( array( 'video' ) ) . '/', $content, $matches, PREG_SET_ORDER );
+			if ( ! empty( $matches ) ) {
+				foreach ( $matches as $shortcode ) {
+					if ( ! empty( $shortcode[0] ) ) {
+						echo wp_kses_post( do_shortcode( $shortcode[0] ) );
+					}
+				}
+			}
 		}
 	}
 endif;
