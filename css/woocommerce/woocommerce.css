@@ -1099,6 +1099,9 @@
 .visualcomposerstarter .wc-block-grid__products .wc-block-grid__product:before {
   content: none;
 }
+.visualcomposerstarter .vce-woocommerce-wrapper .products .product:before {
+  content: none;
+}
 .visualcomposerstarter.woocommerce .related.products {
   clear: both;
 }
