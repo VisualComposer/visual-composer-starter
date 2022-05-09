@@ -396,7 +396,15 @@ if ( ! function_exists( 'visualcomposerstarter_entry_featured_video' ) ) :
 			if ( ! empty( $matches ) ) {
 				foreach ( $matches as $shortcode ) {
 					if ( ! empty( $shortcode[0] ) ) {
-						echo wp_kses_post( do_shortcode( $shortcode[0] ) );
+						echo wp_kses(
+							do_shortcode( $shortcode[0] ),
+							array_merge( wp_kses_allowed_html( 'post' ), array(
+								'source' => array(
+									'type' => true,
+									'src'  => true,
+								)
+							) )
+						);
 					}
 				}
 			}
