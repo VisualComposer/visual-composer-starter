@@ -1090,6 +1090,30 @@
   font-size: 30px;
   margin: 10px 0;
 }
+.visualcomposerstarter .wc-block-grid__products {
+  margin: 0 -8px 16px;
+}
+.visualcomposerstarter .wc-block-grid__products .wc-block-grid__product {
+  padding-left: 0;
+}
+.visualcomposerstarter .wc-block-grid__products .wc-block-grid__product:before {
+  content: none;
+}
+.visualcomposerstarter .vce-woocommerce-wrapper .products .product:before {
+  content: none;
+}
+.visualcomposerstarter .vce-woocommerce-wrapper .products .product .onsale {
+  top: 2%;
+  left: 4%;
+  right: auto;
+  width: 2%;
+  margin: 0;
+  background: none;
+}
+.visualcomposerstarter .vce-woocommerce-wrapper .products .product .onsale svg {
+  width: 100%;
+  height: auto;
+}
 .visualcomposerstarter.woocommerce .related.products {
   clear: both;
 }
