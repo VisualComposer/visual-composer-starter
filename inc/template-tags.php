@@ -325,7 +325,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_featured_video' ) ) :
 		 * 4. iframe added directly to the editor.
 		 */
 
-        // iframes must have a priority over shortcodes.
+		// iframes must have a priority over shortcodes.
 		$iframe = null;
 		if ( false !== strpos( $content, '<iframe' ) ) {
 			// Check for <iframe> tag. Try to extract an iframe from the content.
@@ -368,7 +368,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_featured_video' ) ) :
 			}
 
 			$iframe = wp_oembed_get( $embed_url );
-		}
+		} // End if().
 
 		if ( ! empty( $iframe ) ) {
 			echo wp_kses(
