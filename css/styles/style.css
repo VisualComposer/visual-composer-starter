@@ -3946,6 +3946,9 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   left: 0;
   z-index: 1;
 }
+.video-wrapper .wp-video {
+  width: 100% !important;
+}
 .gallery-slider {
   position: relative;
 }
