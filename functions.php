@@ -1252,6 +1252,7 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 		 */
 		if ( true === get_theme_mod( 'vct_header_reserve_space_for_header', true ) ) {
 			$header_and_menu_area_background = get_theme_mod( 'vct_header_background', '#ffffff' );
+
 			/*
 			 * For backward compatibility, set header's background-color to `transparent` only if:
 			 * 1. The user set `vct_header_background_type` setting to `default` in Customizer.

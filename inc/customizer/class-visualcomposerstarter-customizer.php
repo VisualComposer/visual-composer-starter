@@ -159,6 +159,17 @@ class VisualComposerStarter_Customizer {
 	}
 
 	/**
+	 * Check if `vct_header_background_type` setting is set to "custom"
+	 *
+	 * @param WP_Customize_Control $control
+	 *
+	 * @return bool
+	 */
+	public function is_header_background_type_custom( WP_Customize_Control $control ) {
+		return 'custom' === get_theme_mod( 'vct_header_background_type' );
+	}
+
+	/**
 	 * Section: Overall Site
 	 *
 	 * @param WP_Customize_Manager $wp_customize Customize manager class.
@@ -643,9 +654,7 @@ class VisualComposerStarter_Customizer {
 					'description'     => esc_html__( 'Define header and submenu custom background color.', 'visual-composer-starter' ),
 					'section'         => 'vct_header_and_menu_area',
 					'settings'        => 'vct_header_background',
-					'active_callback' => function ( WP_Customize_Control $control ) {
-						return 'custom' === get_theme_mod( 'vct_header_background_type' );
-					},
+					'active_callback' => array( $this, 'is_header_background_type_custom' ),
 				)
 			)
 		);
