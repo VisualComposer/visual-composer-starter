@@ -142,12 +142,11 @@ class VisualComposerStarter_Fonts {
 		$allowed_fonts = self::vct_theme_google_fonts();
 		$family    = array();
 
+		// The theme stylesheets load fonts "Roboto" and "Montserrat".
+		$fonts = array_diff( $fonts, array( 'Roboto', 'Roboto, sans-serif', 'Montserrat' ) );
+
 		// Validate each font and convert to URL format.
 		foreach ( $fonts as $font ) {
-			if ( in_array( $font, array( 'Roboto', 'Montserrat' ) ) ) {
-				return;
-			}
-
 			$font = trim( $font );
 
 			// Verify that the font exists.
