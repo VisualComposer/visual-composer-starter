@@ -1246,8 +1246,27 @@ if ( ! function_exists( 'visualcomposerstarter_inline_styles' ) ) {
 	 h6 a:hover, h6 a:focus {color: ' . esc_html( get_theme_mod( 'vct_fonts_and_style_h6_active_color', '#557cbf' ) ) . ';}
 	';
 
-		$header_and_menu_area_background = get_theme_mod( 'vct_header_background', '#ffffff' );
-		if ( true === get_theme_mod( 'vct_header_reserve_space_for_header', true ) || '#ffffff' !== $header_and_menu_area_background ) {
+		/*
+		 * Do not need to check the value of $header_and_menu_area_background in this condition,
+		 * because it (condition) is completely depends on the value of `vct_header_reserve_space_for_header`.
+		 */
+		if ( true === get_theme_mod( 'vct_header_reserve_space_for_header', true ) ) {
+			$header_and_menu_area_background = get_theme_mod( 'vct_header_background', '#ffffff' );
+
+			/*
+			 * For backward compatibility, set header's background-color to `transparent` only if:
+			 * 1. The user set `vct_header_background_type` setting to `default` in Customizer.
+			 * 2. The user did not change settings related to header color in Customizer.
+			 *
+			 * Note: do not use a default value for `get_theme_mod` in this case!
+			 */
+			$header_background_type = get_theme_mod( 'vct_header_background_type' );
+			if ( 'default' === $header_background_type ) {
+				$header_and_menu_area_background = 'transparent';
+			} elseif ( empty( $header_background_type ) && '#ffffff' === $header_and_menu_area_background ) {
+				$header_and_menu_area_background = 'transparent';
+			}
+
 			$css .= '
 		/*Header and menu area background color*/
 		#header .navbar .navbar-wrapper,

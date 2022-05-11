@@ -159,6 +159,17 @@ class VisualComposerStarter_Customizer {
 	}
 
 	/**
+	 * Check if `vct_header_background_type` setting is set to "custom"
+	 *
+	 * @param WP_Customize_Control $control Customize control class.
+	 *
+	 * @return bool
+	 */
+	public function is_header_background_type_custom( WP_Customize_Control $control ) {
+		return 'custom' === get_theme_mod( 'vct_header_background_type' );
+	}
+
+	/**
 	 * Section: Overall Site
 	 *
 	 * @param WP_Customize_Manager $wp_customize Customize manager class.
@@ -513,6 +524,19 @@ class VisualComposerStarter_Customizer {
 	 * @return void
 	 */
 	private function header_and_menu_section( $wp_customize ) {
+		/*
+		 * Backward compatibility.
+		 * Set setting's default value to "custom" when:
+		 * 1. Value of setting doesn't exist or doesn't equal to "default".
+		 * 2. `vct_header_background` has a value other than #ffffff.
+		 */
+		$current_type         = get_theme_mod( 'vct_header_background_type' );
+		$current_background   = get_theme_mod( 'vct_header_background', '#ffffff' );
+		$is_custom_background = '#ffffff' !== $current_background && ( empty( $current_type ) || 'default' !== $current_type );
+		$wp_customize->add_setting( 'vct_header_background_type', array(
+			'default'           => $is_custom_background ? 'custom' : 'default',
+			'sanitize_callback' => array( $this, 'sanitize_select' ),
+		) );
 		$wp_customize->add_setting( 'vct_header_background',  array(
 			'default'       => '#ffffff',
 			'sanitize_callback' => 'sanitize_hex_color',
@@ -604,14 +628,33 @@ class VisualComposerStarter_Customizer {
 		);
 
 		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'vct_header_background_type',
+				array(
+					'type'        => 'select',
+					'label'       => esc_html__( 'Background Color', 'visual-composer-starter' ),
+					'description' => esc_html__( 'Define header and submenu custom background color.', 'visual-composer-starter' ),
+					'section'     => 'vct_header_and_menu_area',
+					'settings'    => 'vct_header_background_type',
+					'choices'     => array(
+						'default' => esc_html__( 'Default', 'visual-composer-starter' ),
+						'custom'  => esc_html__( 'Custom', 'visual-composer-starter' ),
+					),
+				)
+			)
+		);
+
+		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,
 				'vct_header_background',
 				array(
-					'label'         => esc_html__( 'Background Color', 'visual-composer-starter' ),
-					'description'   => esc_html__( 'Define header and submenu background color.', 'visual-composer-starter' ),
-					'section'       => 'vct_header_and_menu_area',
-					'settings'      => 'vct_header_background',
+					'label'           => esc_html__( 'Background Color Custom', 'visual-composer-starter' ),
+					'description'     => esc_html__( 'Define header and submenu custom background color.', 'visual-composer-starter' ),
+					'section'         => 'vct_header_and_menu_area',
+					'settings'        => 'vct_header_background',
+					'active_callback' => array( $this, 'is_header_background_type_custom' ),
 				)
 			)
 		);
