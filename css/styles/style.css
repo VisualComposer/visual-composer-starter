@@ -3486,6 +3486,13 @@ body.featured-image-custom-height .header-image .fade-in-img .fade-in-img-inner-
   margin: 0 -15px;
   overflow-wrap: break-word;
 }
+.container .content-wrapper,
+.container-fluid .content-wrapper {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
 .main-content {
   padding-bottom: 40px;
 }
