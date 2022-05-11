@@ -161,7 +161,7 @@ class VisualComposerStarter_Customizer {
 	/**
 	 * Check if `vct_header_background_type` setting is set to "custom"
 	 *
-	 * @param WP_Customize_Control $control
+	 * @param WP_Customize_Control $control Customize control class.
 	 *
 	 * @return bool
 	 */
