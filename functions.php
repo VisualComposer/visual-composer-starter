@@ -380,6 +380,15 @@ if ( ! function_exists( 'visualcomposerstarter_style' ) ) {
 		/* Theme stylesheet */
 		wp_register_style( 'visualcomposerstarter-style', get_stylesheet_uri() );
 
+		/* Enqueue styles */
+		if ( get_theme_mod( 'vct_overall_site_enable_bootstrap', false ) === true ) {
+			wp_enqueue_style( 'bootstrap' );
+		}
+		wp_enqueue_style( 'visualcomposerstarter-font' );
+		wp_enqueue_style( 'visualcomposerstarter-general' );
+		wp_enqueue_style( 'visualcomposerstarter-responsive' );
+		wp_enqueue_style( 'visualcomposerstarter-style' );
+
 		/* Font options */
 		$fonts = array(
 			get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto, sans-serif' ),
@@ -392,20 +401,26 @@ if ( ! function_exists( 'visualcomposerstarter_style' ) ) {
 			get_theme_mod( 'vct_fonts_and_style_buttons_font_family', 'Montserrat' ),
 		);
 
-		$font_uri = VisualComposerStarter_Fonts::vct_theme_get_google_font_uri( $fonts );
+		/* Load Google Fonts (hosted locally) */
+		foreach ( $fonts as $font ) {
+			if ( ! VisualComposerStarter_Fonts::is_google_font( $font ) ) {
+				continue;
+			}
 
-		/* Load Google Fonts */
-		wp_register_style( 'visualcomposerstarter-fonts', $font_uri, array(), null, 'screen' );
+			if ( ! VisualComposerStarter_Fonts::is_google_font_exists_locally( $font ) ) {
+				continue;
+			}
 
-		/* Enqueue styles */
-		if ( get_theme_mod( 'vct_overall_site_enable_bootstrap', false ) === true ) {
-			wp_enqueue_style( 'bootstrap' );
+			$font_id  = VisualComposerStarter_Fonts::get_google_font_id( $font );
+			$font_uri = VisualComposerStarter_Fonts::get_google_font_uri( $font );
+			wp_enqueue_style(
+				"visualcomposerstarter-font-{$font_id}",
+				esc_url( $font_uri ),
+				array(),
+				null,
+				'screen'
+			);
 		}
-		wp_enqueue_style( 'visualcomposerstarter-font' );
-		wp_enqueue_style( 'visualcomposerstarter-general' );
-		wp_enqueue_style( 'visualcomposerstarter-responsive' );
-		wp_enqueue_style( 'visualcomposerstarter-style' );
-		wp_enqueue_style( 'visualcomposerstarter-fonts' );
 	}
 }// End if().
 add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_style' );
@@ -460,7 +475,7 @@ if ( ! function_exists( 'visualcomposerstarter_customizer_live_preview' ) ) {
 	 * @see add_action('customize_preview_init',$func)
 	 */
 	function visualcomposerstarter_customizer_live_preview() {
-		wp_enqueue_script( 'visualcomposerstarter-themecustomizer', get_template_directory_uri() . '/js/customize-preview.min.js', array(
+		wp_enqueue_script( 'visualcomposerstarter-themecustomizer', get_template_directory_uri() . '/js/customize-preview.js', array(
 			'jquery',
 			'customize-preview',
 		), '', true );
