@@ -7441,6 +7441,7 @@ class VisualComposerStarter_Fonts {
 	 */
 	public static function get_google_font_families() {
 		return array(
+			'serif',
 			'sans-serif',
 			'cursive',
 			'monospace',
