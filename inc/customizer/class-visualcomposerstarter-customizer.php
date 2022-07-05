@@ -21,6 +21,8 @@ class VisualComposerStarter_Customizer {
 		add_action( 'customize_register', array( $this, 'include_controls' ) );
 		add_action( 'customize_register', array( $this, 'custom_css' ) );
 		add_action( 'customize_register', array( $this, 'register_customize_sections' ) );
+		add_action( 'wp_ajax_vct_check_font', array( $this, 'ajax_check_font' ) );
+		add_action( 'wp_ajax_vct_download_font', array( $this, 'ajax_download_font' ) );
 	}
 
 	/**
@@ -45,6 +47,9 @@ class VisualComposerStarter_Customizer {
 	public function include_controls( $wp_customize ) {
 		require_once get_template_directory() . '/inc/customizer/controls/class-visualcomposerstarter-toggle-switch-control.php';
 		$wp_customize->register_control_type( 'VisualComposerStarter_Toggle_Switch_Control' );
+
+		require_once get_template_directory() . '/inc/customizer/controls/class-visualcomposerstarter-google-fonts-control.php';
+		// Do not register "google-fonts" control as it is rendered via php
 	}
 
 	/**
@@ -2845,5 +2850,73 @@ class VisualComposerStarter_Customizer {
 				'capitalize' => esc_html__( 'Capitalize', 'visual-composer-starter' ),
 			),
 		) );
+	}
+
+	/**
+	 * Check whether provided font is from Google Fonts library and exists locally
+	 *
+	 * Callback for ajax "wp_ajax_vct_check_font".
+	 *
+	 * @return void
+	 */
+	public function ajax_check_font() {
+		if ( ! check_ajax_referer( 'vct_google_fonts_ajax_nonce', 'security', false ) ) {
+			wp_send_json_error( esc_html__( 'Invalid security token sent.', 'visual-composer-starter' ) );
+		}
+
+		if ( empty( $_POST['font'] ) ) {
+			wp_send_json_error( esc_html__( 'Invalid font family.', 'visual-composer-starter' ) );
+		}
+
+		$font = sanitize_text_field( $_POST['font'] );
+
+		$is_google_font = VisualComposerStarter_Fonts::is_google_font( $font );
+		$exists_locally = false;
+		if ( $is_google_font ) {
+			$exists_locally = VisualComposerStarter_Fonts::is_google_font_exists_locally( $font );
+		}
+
+		wp_send_json_success( array(
+			'isGoogleFont'  => $is_google_font,
+			'existsLocally' => $exists_locally,
+		) );
+	}
+
+	/**
+	 * Download google font
+	 *
+	 * Callback for ajax "wp_ajax_vct_download_font"
+	 *
+	 * @return void
+	 */
+	public function ajax_download_font() {
+		if ( ! check_ajax_referer( 'vct_google_fonts_ajax_nonce', 'security', false ) ) {
+			wp_send_json_error( esc_html__( 'Invalid security token sent.', 'visual-composer-starter' ) );
+		}
+
+		if ( empty( $_POST['font'] ) ) {
+			wp_send_json_error( esc_html__( 'Invalid font family.', 'visual-composer-starter' ) );
+		}
+
+		$font = sanitize_text_field( $_POST['font'] );
+
+		$is_google_font = VisualComposerStarter_Fonts::is_google_font( $font );
+		if ( ! $is_google_font ) {
+			wp_send_json_error( esc_html__( 'Not a Google Font.', 'visual-composer-starter' ) );
+		}
+
+		if ( $is_google_font && VisualComposerStarter_Fonts::is_google_font_exists_locally( $font ) ) {
+			wp_send_json_error( esc_html__(
+				sprintf( 'Font %s already exists locally.', $font ),
+				'visual-composer-starter'
+			) );
+		}
+
+		$is_downloaded = VisualComposerStarter_Fonts::download_google_font( $font );
+		if ( is_wp_error( $is_downloaded ) ) {
+			wp_send_json_error( $is_downloaded );
+		}
+
+		wp_send_json_success();
 	}
 }
