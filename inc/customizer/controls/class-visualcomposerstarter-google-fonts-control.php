@@ -81,12 +81,17 @@ class VisualComposerStarter_Google_Fonts_Control extends WP_Customize_Control {
 			?>
 		</select>
 		<span id="<?php echo esc_attr( $message_id ); ?>" class="description customize-control-description" style="display: none;">
-			<?php echo strip_tags(
+			<?php echo wp_kses(
 				__(
 					'To see the typography preview you need to <a href="#" data-vct-download-font="true">download</a> this font family locally',
 					'visual-composer-starter'
 				),
-				'<a>'
+				array(
+					'a' => array(
+						'href'                   => array(),
+						'data-vct-download-font' => array(),
+					)
+				)
 			); ?>
 		</span>
 		<?php

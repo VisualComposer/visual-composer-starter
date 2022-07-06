@@ -7351,7 +7351,7 @@ class VisualComposerStarter_Fonts {
 			$font
 		);
 
-		// Note the dash in a list of default characters
+		// Note the dash in a list of default characters.
 		return trim( $font, " \n\r\t\v\x00-" );
 	}
 
@@ -7497,7 +7497,7 @@ class VisualComposerStarter_Fonts {
 			$font = trim( str_replace( ',', '', $font ) );
 			foreach ( $families as $family ) {
 				if ( array_key_exists( "{$font}, {$family}", $google_fonts ) ) {
-					$google_font = $google_fonts["{$font}, {$family}"];
+					$google_font = $google_fonts[ "{$font}, {$family}" ];
 				}
 			}
 		} else {
@@ -7591,6 +7591,7 @@ class VisualComposerStarter_Fonts {
 		if ( 200 !== (int) $code || empty( $body ) ) {
 			return new WP_Error(
 				'vct-google-font-not-found',
+				/* translators: %s is a font family name */
 				sprintf( esc_html__( "'%s' font not found.", 'visual-composer-starter' ), $font )
 			);
 		}

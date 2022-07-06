@@ -46,7 +46,7 @@
 		$( '#save' ).off( 'click' ).on( 'click', function( e ) {
 
 			// Make sure all font are downloaded if changed any
-			if ( !$.isEmptyObject( changedFonts ) ) {
+			if ( ! $.isEmptyObject( changedFonts ) ) {
 				$.post( window.ajaxurl, {
 					'action': 'vct_check_fonts',
 					'security': window.googleFontControlData.nonce,
@@ -80,7 +80,7 @@
 	// Download fonts
 	$( document ).on( 'click', '#vct-popup-accept-button', function( e ) {
 		e && e.preventDefault && e.preventDefault();
-		if ( !$.isEmptyObject( changedFonts ) ) {
+		if ( ! $.isEmptyObject( changedFonts ) ) {
 			$.post( window.ajaxurl, {
 				'action': 'vct_download_fonts',
 				'security': window.googleFontControlData.nonce,
@@ -104,7 +104,7 @@
 	$( document ).on( 'click', '#vct-popup-cancel-button', function( e ) {
 		e && e.preventDefault && e.preventDefault();
 		let previousFonts = window.vctCurrentFonts;
-		if ( !$.isEmptyObject( changedFonts ) && !$.isEmptyObject( previousFonts ) ) {
+		if ( ! $.isEmptyObject( changedFonts ) && ! $.isEmptyObject( previousFonts ) ) {
 			$.each( changedFonts, function( id, value ) {
 				if ( previousFonts.hasOwnProperty( id ) ) {
 					wp.customize( id, function( setting ) {

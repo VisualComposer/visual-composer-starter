@@ -2921,7 +2921,7 @@ class VisualComposerStarter_Customizer {
 			wp_send_json_error( esc_html__( 'Invalid security token sent.', 'visual-composer-starter' ) );
 		}
 
-		$font = sanitize_text_field( wp_unslash( $_POST['font'] ) );
+		$font = isset( $_POST['font'] ) ? sanitize_text_field( wp_unslash( $_POST['font'] ) ) : '';
 		if ( empty( $font ) ) {
 			wp_send_json_error( esc_html__( 'Invalid font family.', 'visual-composer-starter' ) );
 		}
@@ -2950,7 +2950,7 @@ class VisualComposerStarter_Customizer {
 			wp_send_json_error( esc_html__( 'Invalid security token sent.', 'visual-composer-starter' ) );
 		}
 
-		$fonts = array_map( 'sanitize_text_field', wp_unslash( $_POST['fonts'] ) );
+		$fonts = isset( $_POST['fonts'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['fonts'] ) ) : '';
 		if ( empty( $fonts ) ) {
 			wp_send_json_error( esc_html__( 'Fonts are missing.', 'visual-composer-starter' ) );
 		}
@@ -2981,7 +2981,7 @@ class VisualComposerStarter_Customizer {
 			wp_send_json_error( esc_html__( 'Invalid security token sent.', 'visual-composer-starter' ) );
 		}
 
-		$font = sanitize_text_field( wp_unslash( $_POST['font'] ) );
+		$font = isset( $_POST['font'] ) ? sanitize_text_field( wp_unslash( $_POST['font'] ) ) : '';
 		if ( empty( $font ) ) {
 			wp_send_json_error( esc_html__( 'Invalid font family.', 'visual-composer-starter' ) );
 		}
@@ -3019,7 +3019,7 @@ class VisualComposerStarter_Customizer {
 			wp_send_json_error( esc_html__( 'Invalid security token sent.', 'visual-composer-starter' ) );
 		}
 
-		$fonts = array_map( 'sanitize_text_field', wp_unslash( $_POST['fonts'] ) );
+		$fonts = isset( $_POST['fonts'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['fonts'] ) ) : '';
 		if ( empty( $fonts ) ) {
 			wp_send_json_error( esc_html__( 'Missing fonts.', 'visual-composer-starter' ) );
 		}
