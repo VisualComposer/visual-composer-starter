@@ -17,8 +17,6 @@
 		}
 	};
 
-	window.vctHandleOpenPopup = handleOpenPopup;
-
 	var fontSettings = [
 		'vct_fonts_and_style_h1_font_family',
 		'vct_fonts_and_style_h2_font_family',
@@ -31,6 +29,8 @@
 	];
 
 	var changedFonts = {};
+
+	window.vctHandleOpenPopup = handleOpenPopup;
 
 	wp.customize.bind( 'ready', function() {
 		wp.customize.bind( 'change', function( setting ) {
@@ -54,10 +54,10 @@
 				} ).fail( function( xhr ) {
 					window.alert( xhr.responseText );
 				} ).done( function( response ) {
+					var data = response.data;
 					if ( false === response.success ) {
-						window.alert( response.data );
+						window.alert( data );
 					} else {
-						var data = response.data;
 
 						// All fonts are downloaded: just save
 						if ( data.hasOwnProperty( 'all_fonts_exists' ) && true === data.all_fonts_exists ) {
@@ -102,8 +102,8 @@
 
 	// Handle click of "Revert" button
 	$( document ).on( 'click', '#vct-popup-cancel-button', function( e ) {
-		e && e.preventDefault && e.preventDefault();
 		var previousFonts = window.vctCurrentFonts;
+		e && e.preventDefault && e.preventDefault();
 		if ( ! $.isEmptyObject( changedFonts ) && ! $.isEmptyObject( previousFonts ) ) {
 			$.each( changedFonts, function( id ) {
 				if ( previousFonts.hasOwnProperty( id ) ) {

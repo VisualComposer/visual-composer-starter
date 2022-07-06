@@ -19,14 +19,14 @@
 				        message: xhr.responseText
 			        } );
 		        } ).done( function( response ) {
+			        var isGoogleFont = response.data.isGoogleFont;
+			        var existsLocally = response.data.existsLocally;
 			        if ( false === response.success ) {
 				        wp.customize.notifications.add( 'vct_fail_to_check_font', {
 					        type: 'warning',
 					        message: response.data
 				        } );
 			        } else {
-				        var isGoogleFont = response.data.isGoogleFont;
-				        var existsLocally = response.data.existsLocally;
 				        if ( isGoogleFont && existsLocally ) {
 
 					        // Refresh the preview
