@@ -1,10 +1,10 @@
 (function( $, wp, document, window ) {
     wp.customize.controlConstructor['google-fonts'] = wp.customize.Control.extend({
         ready: function() {
-			const control = this;
-			const setting = this.setting;
+			var control = this;
+			var setting = this.setting;
 
-	        let message = $( control.container.find( '#_customize-message-' + control.id ) );
+	        var message = $( control.container.find( '#_customize-message-' + control.id ) );
 
 	        // Fonts from Google CDN should be hosted locally to comply with GDPR.
 	        // Check whether it is required to show a message with download link for the user.
@@ -13,7 +13,7 @@
 			        'action': 'vct_check_font',
 			        'security': window.googleFontControlData.nonce,
 			        'font': value
-		        } ).fail( function( xhr, status, error ) {
+		        } ).fail( function( xhr ) {
 			        wp.customize.notifications.add( 'vct_check_font_ajax', {
 				        type: 'error',
 				        message: xhr.responseText
@@ -25,8 +25,8 @@
 					        message: response.data
 				        } );
 			        } else {
-				        let isGoogleFont = response.data.isGoogleFont;
-				        let existsLocally = response.data.existsLocally;
+				        var isGoogleFont = response.data.isGoogleFont;
+				        var existsLocally = response.data.existsLocally;
 				        if ( isGoogleFont && existsLocally ) {
 
 					        // Refresh the preview
@@ -51,7 +51,7 @@
 			        'action': 'vct_download_font',
 			        'security': window.googleFontControlData.nonce,
 			        'font': setting.get()
-		        } ).fail( function( xhr, status, error ) {
+		        } ).fail( function( xhr ) {
 			        wp.customize.notifications.add( 'vct_download_font_ajax', {
 				        type: 'error',
 				        message: xhr.responseText

@@ -1,16 +1,16 @@
 ( function( $, document, window, wp ) {
-	let popupElement = null;
+	var popupElement = null;
 
-	const handlePopupClose = ( e ) => {
+	var handlePopupClose = function( e ) {
 		e && e.preventDefault && e.preventDefault();
 		closePopup();
 	};
 
-	const closePopup = () => {
+	var closePopup = function() {
 		popupElement.style = 'display: none;';
 	};
 
-	const handleOpenPopup = ( id ) => {
+	var handleOpenPopup = function( id ) {
 		popupElement = document.getElementById( id );
 		if ( popupElement ) {
 			popupElement.style = 'display: flex;';
@@ -19,7 +19,7 @@
 
 	window.vctHandleOpenPopup = handleOpenPopup;
 
-	const fontSettings = [
+	var fontSettings = [
 		'vct_fonts_and_style_h1_font_family',
 		'vct_fonts_and_style_h2_font_family',
 		'vct_fonts_and_style_h3_font_family',
@@ -30,7 +30,7 @@
 		'vct_fonts_and_style_buttons_font_family'
 	];
 
-	let changedFonts = {};
+	var changedFonts = {};
 
 	wp.customize.bind( 'ready', function() {
 		wp.customize.bind( 'change', function( setting ) {
@@ -51,13 +51,13 @@
 					'action': 'vct_check_fonts',
 					'security': window.googleFontControlData.nonce,
 					'fonts': changedFonts
-				} ).fail( function( xhr, status, error ) {
-					alert( xhr.responseText );
+				} ).fail( function( xhr ) {
+					window.alert( xhr.responseText );
 				} ).done( function( response ) {
 					if ( false === response.success ) {
-						alert( response.data );
+						window.alert( response.data );
 					} else {
-						let data = response.data;
+						var data = response.data;
 
 						// All fonts are downloaded: just save
 						if ( data.hasOwnProperty( 'all_fonts_exists' ) && true === data.all_fonts_exists ) {
@@ -85,11 +85,11 @@
 				'action': 'vct_download_fonts',
 				'security': window.googleFontControlData.nonce,
 				'fonts': changedFonts
-			} ).fail( function( xhr, status, error ) {
-				alert( xhr.responseText );
+			} ).fail( function( xhr ) {
+				window.alert( xhr.responseText );
 			} ).done( function( response ) {
 				if ( false === response.success ) {
-					alert( response.data );
+					window.alert( response.data );
 				} else {
 					closePopup();
 					wp.customize.previewer.save();
@@ -103,9 +103,9 @@
 	// Handle click of "Revert" button
 	$( document ).on( 'click', '#vct-popup-cancel-button', function( e ) {
 		e && e.preventDefault && e.preventDefault();
-		let previousFonts = window.vctCurrentFonts;
+		var previousFonts = window.vctCurrentFonts;
 		if ( ! $.isEmptyObject( changedFonts ) && ! $.isEmptyObject( previousFonts ) ) {
-			$.each( changedFonts, function( id, value ) {
+			$.each( changedFonts, function( id ) {
 				if ( previousFonts.hasOwnProperty( id ) ) {
 					wp.customize( id, function( setting ) {
 						setting.set( previousFonts[id] );
