@@ -90,7 +90,7 @@ class VisualComposerStarter_Google_Fonts_Control extends WP_Customize_Control {
 					'a' => array(
 						'href'                   => array(),
 						'data-vct-download-font' => array(),
-					)
+					),
 				)
 			); ?>
 		</span>
