@@ -475,13 +475,44 @@ if ( ! function_exists( 'visualcomposerstarter_customizer_live_preview' ) ) {
 	 * @see add_action('customize_preview_init',$func)
 	 */
 	function visualcomposerstarter_customizer_live_preview() {
-		wp_enqueue_script( 'visualcomposerstarter-themecustomizer', get_template_directory_uri() . '/js/customize-preview.js', array(
+		wp_enqueue_script( 'visualcomposerstarter-themecustomizer', get_template_directory_uri() . '/js/customize-preview.min.js', array(
 			'jquery',
 			'customize-preview',
 		), '', true );
 	}
 }
 add_action( 'customize_preview_init', 'visualcomposerstarter_customizer_live_preview' );
+
+if ( ! function_exists( 'visualcomposerstarter_customizer_scripts' ) ) {
+	/**
+	 * Enqueue script in customizer (not preview!)
+	 *
+	 * Used by hook: 'customize_controls_enqueue_scripts'
+	 *
+	 * @return void
+	 */
+	function visualcomposerstarter_customizer_scripts() {
+		wp_enqueue_script( 'visualcomposerstarter-customizer-popup', get_template_directory_uri() . '/js/customize-popup.js', array(
+			'jquery',
+			'wp-util',
+		), null, true );
+
+		// Add current fonts for "revert" button
+		$fonts = array(
+			'vct_fonts_and_style_h1_font_family'      => get_theme_mod( 'vct_fonts_and_style_h1_font_family' ),
+			'vct_fonts_and_style_h2_font_family'      => get_theme_mod( 'vct_fonts_and_style_h2_font_family' ),
+			'vct_fonts_and_style_h3_font_family'      => get_theme_mod( 'vct_fonts_and_style_h3_font_family' ),
+			'vct_fonts_and_style_h4_font_family'      => get_theme_mod( 'vct_fonts_and_style_h4_font_family' ),
+			'vct_fonts_and_style_h5_font_family'      => get_theme_mod( 'vct_fonts_and_style_h5_font_family' ),
+			'vct_fonts_and_style_h6_font_family'      => get_theme_mod( 'vct_fonts_and_style_h6_font_family' ),
+			'vct_fonts_and_style_body_font_family'    => get_theme_mod( 'vct_fonts_and_style_body_font_family' ),
+			'vct_fonts_and_style_buttons_font_family' => get_theme_mod( 'vct_fonts_and_style_buttons_font_family' ),
+		);
+
+		wp_localize_script( 'visualcomposerstarter-customizer-popup', 'vctCurrentFonts', $fonts );
+	}
+}
+add_action( 'customize_controls_enqueue_scripts', 'visualcomposerstarter_customizer_scripts' );
 
 if ( ! function_exists( 'visualcomposerstarter_body_classes' ) ) {
 	/**
