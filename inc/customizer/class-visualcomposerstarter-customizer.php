@@ -52,7 +52,7 @@ class VisualComposerStarter_Customizer {
 		$wp_customize->register_control_type( 'VisualComposerStarter_Toggle_Switch_Control' );
 
 		require_once get_template_directory() . '/inc/customizer/controls/class-visualcomposerstarter-google-fonts-control.php';
-		// Do not register "google-fonts" control as it is rendered via php
+		// Do not register "google-fonts" control as it is rendered via php.
 	}
 
 	/**
@@ -2921,11 +2921,10 @@ class VisualComposerStarter_Customizer {
 			wp_send_json_error( esc_html__( 'Invalid security token sent.', 'visual-composer-starter' ) );
 		}
 
-		if ( empty( $_POST['font'] ) ) {
+		$font = sanitize_text_field( wp_unslash( $_POST['font'] ) );
+		if ( empty( $font ) ) {
 			wp_send_json_error( esc_html__( 'Invalid font family.', 'visual-composer-starter' ) );
 		}
-
-		$font = sanitize_text_field( $_POST['font'] );
 
 		$is_google_font = VisualComposerStarter_Fonts::is_google_font( $font );
 		$exists_locally = false;
@@ -2951,18 +2950,23 @@ class VisualComposerStarter_Customizer {
 			wp_send_json_error( esc_html__( 'Invalid security token sent.', 'visual-composer-starter' ) );
 		}
 
-		if ( empty( $_POST['fonts'] ) ) {
+		$fonts = array_map( 'sanitize_text_field', wp_unslash( $_POST['fonts'] ) );
+		if ( empty( $fonts ) ) {
 			wp_send_json_error( esc_html__( 'Fonts are missing.', 'visual-composer-starter' ) );
 		}
 
-		foreach ( $_POST['fonts'] as $font ) {
+		foreach ( $fonts as $font ) {
 			$is_google_font = VisualComposerStarter_Fonts::is_google_font( $font );
 			if ( $is_google_font && ! VisualComposerStarter_Fonts::is_google_font_exists_locally( $font ) ) {
-				wp_send_json_success( array( 'at_least_one_missing' => true ) );
+				wp_send_json_success( array(
+					'at_least_one_missing' => true,
+				) );
 			}
 		}
 
-		wp_send_json_success( array( 'all_fonts_exists' => true ) );
+		wp_send_json_success( array(
+			'all_fonts_exists' => true,
+		) );
 	}
 
 	/**
@@ -2977,11 +2981,10 @@ class VisualComposerStarter_Customizer {
 			wp_send_json_error( esc_html__( 'Invalid security token sent.', 'visual-composer-starter' ) );
 		}
 
-		if ( empty( $_POST['font'] ) ) {
+		$font = sanitize_text_field( wp_unslash( $_POST['font'] ) );
+		if ( empty( $font ) ) {
 			wp_send_json_error( esc_html__( 'Invalid font family.', 'visual-composer-starter' ) );
 		}
-
-		$font = sanitize_text_field( $_POST['font'] );
 
 		$is_google_font = VisualComposerStarter_Fonts::is_google_font( $font );
 		if ( ! $is_google_font ) {
@@ -2989,9 +2992,10 @@ class VisualComposerStarter_Customizer {
 		}
 
 		if ( $is_google_font && VisualComposerStarter_Fonts::is_google_font_exists_locally( $font ) ) {
-			wp_send_json_error( esc_html__(
-				sprintf( 'Font %s already exists locally.', $font ),
-				'visual-composer-starter'
+			wp_send_json_error( sprintf(
+				/* translators: %s is a font family name */
+				esc_html__( 'Font %s already exists locally.', 'visual-composer-starter' ),
+				$font
 			) );
 		}
 
@@ -3015,17 +3019,18 @@ class VisualComposerStarter_Customizer {
 			wp_send_json_error( esc_html__( 'Invalid security token sent.', 'visual-composer-starter' ) );
 		}
 
-		if ( empty( $_POST['fonts'] ) ) {
+		$fonts = array_map( 'sanitize_text_field', wp_unslash( $_POST['fonts'] ) );
+		if ( empty( $fonts ) ) {
 			wp_send_json_error( esc_html__( 'Missing fonts.', 'visual-composer-starter' ) );
 		}
 
-		foreach ( $_POST['fonts'] as $font ) {
-			// Check if provided font is from Google Fonts library
+		foreach ( $fonts as $font ) {
+			// Check if provided font is from Google Fonts library.
 			if ( ! VisualComposerStarter_Fonts::is_google_font( $font ) ) {
 				continue;
 			}
 
-			// Check if provided font already downloaded
+			// Check if provided font already downloaded.
 			if ( VisualComposerStarter_Fonts::is_google_font_exists_locally( $font ) ) {
 				continue;
 			}

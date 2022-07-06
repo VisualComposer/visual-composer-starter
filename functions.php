@@ -497,7 +497,7 @@ if ( ! function_exists( 'visualcomposerstarter_customizer_scripts' ) ) {
 			'wp-util',
 		), null, true );
 
-		// Add current fonts for "revert" button
+		// Add current fonts for "revert" button.
 		$fonts = array(
 			'vct_fonts_and_style_h1_font_family'      => get_theme_mod( 'vct_fonts_and_style_h1_font_family' ),
 			'vct_fonts_and_style_h2_font_family'      => get_theme_mod( 'vct_fonts_and_style_h2_font_family' ),

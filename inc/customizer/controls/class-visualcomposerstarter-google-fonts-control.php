@@ -1,17 +1,31 @@
 <?php
+/**
+ * Google Fonts control for Customizer
+ *
+ * @package WordPress
+ * @subpackage Visual Composer Starter
+ * @since Visual Composer Starter 3.3
+ */
 
 /**
  * Select with Google Fonts with GDPR message
+ *
+ * A new control for Customizer.
  */
 class VisualComposerStarter_Google_Fonts_Control extends WP_Customize_Control {
 
 	/**
-	 * @inheritDoc
+	 * Control's Type.
+	 *
+	 * @since 3.4.0
+	 * @var string
 	 */
 	public $type = 'google-fonts';
 
 	/**
-	 * @inheritDoc
+	 * Enqueue control related scripts/styles.
+	 *
+	 * @since 3.4.0
 	 */
 	public function enqueue() {
 		wp_enqueue_script(
@@ -31,7 +45,16 @@ class VisualComposerStarter_Google_Fonts_Control extends WP_Customize_Control {
 	}
 
 	/**
-	 * @inheritDoc
+	 * Render the control's content.
+	 *
+	 * Allows the content to be overridden without having to rewrite the wrapper in `$this::render()`.
+	 *
+	 * Supports basic input types `text`, `checkbox`, `textarea`, `radio`, `select` and `dropdown-pages`.
+	 * Additional input types such as `email`, `url`, `number`, `hidden` and `date` are supported implicitly.
+	 *
+	 * Control content can alternately be rendered in JS. See WP_Customize_Control::print_template().
+	 *
+	 * @since 3.4.0
 	 */
 	protected function render_content() {
 		if ( empty( $this->choices ) ) {
@@ -53,7 +76,7 @@ class VisualComposerStarter_Google_Fonts_Control extends WP_Customize_Control {
 		<select id="<?php echo esc_attr( $input_id ); ?>" <?php echo esc_html( $describedby_attr ); ?> <?php $this->link(); ?>>
 			<?php
 			foreach ( $this->choices as $value => $label ) :
-				echo '<option value="' . esc_attr( $value ) . '"' . selected( $this->value(), $value, false ) . '>' . $label . '</option>';
+				echo '<option value="' . esc_attr( $value ) . '"' . selected( $this->value(), $value, false ) . '>' . esc_html( $label ) . '</option>';
 			endforeach;
 			?>
 		</select>

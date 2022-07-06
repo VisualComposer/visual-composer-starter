@@ -163,8 +163,6 @@ class VisualComposerStarter_Fonts {
 		foreach ( $fonts as $font ) {
 			$font = trim( $font );
 
-			// TODO: check is font exists locally
-
 			// Verify that the font exists.
 			if ( array_key_exists( $font, $allowed_fonts ) || array_key_exists( $font . ', sans-serif', $allowed_fonts ) ) {
 				if ( array_key_exists( $font . ', sans-serif', $allowed_fonts ) ) {
@@ -7252,7 +7250,7 @@ class VisualComposerStarter_Fonts {
 	/**
 	 * Check if provided font is from Google Fonts collection
 	 *
-	 * @param string $font Font name
+	 * @param string $font Font name.
 	 *
 	 * @return bool
 	 */
@@ -7260,13 +7258,13 @@ class VisualComposerStarter_Fonts {
 		$google_fonts = self::vct_theme_google_fonts();
 		$families     = self::get_google_font_families();
 
-		// If the font already has a font family in its name just make sure it exists in $google_fonts
+		// If the font already has a font family in its name just make sure it exists in $google_fonts.
 		if ( self::is_google_font_has_family_suffix( $font, $families ) ) {
 			return array_key_exists( $font, $google_fonts );
 		}
 
 		// Font can be with or without family, e.g. "Roboto" or "Roboto, sans-serif",
-		// while in $google_fonts keys are only with font-family
+		// while in $google_fonts keys are only with font-family.
 		$font = trim( str_replace( ',', '', $font ) );
 		foreach ( $families as $family ) {
 			if ( array_key_exists( "{$font}, {$family}", $google_fonts ) ) {
@@ -7284,7 +7282,7 @@ class VisualComposerStarter_Fonts {
 	 * we don't know in advance what font files (variants or extensions)
 	 * will be in the font folder.
 	 *
-	 * @param string $font
+	 * @param string $font Font name.
 	 *
 	 * @return bool
 	 */
@@ -7300,8 +7298,8 @@ class VisualComposerStarter_Fonts {
 	/**
 	 * Checks if font name contains a font family suffix
 	 *
-	 * @param string $font Font name, e.g. "Roboto" or "Roboto, sans-serif"
-	 * @param array $families Font families.
+	 * @param string $font Font name, e.g. "Roboto" or "Roboto, sans-serif".
+	 * @param array  $families Font families.
 	 *
 	 * @return bool
 	 */
@@ -7325,12 +7323,12 @@ class VisualComposerStarter_Fonts {
 	 * - 'Waiting for the Sunrise' -> waiting-for-the-sunrise
 	 * and so on.
 	 *
-	 * @param string $font Font family name
+	 * @param string $font Font family name.
 	 *
 	 * @return string
 	 */
 	public static function get_google_font_id( $font ) {
-		// Replace possible multiple whitespaces with single one
+		// Replace possible multiple whitespaces with single one.
 		$font = preg_replace( '/\\s\\s+/', ' ', $font );
 		$font = mb_strtolower( $font );
 		$font = str_replace(
@@ -7339,16 +7337,16 @@ class VisualComposerStarter_Fonts {
 				'cursive',
 				'monospace',
 				',',
-				' ', // space
-				"'", // single quote
+				' ', // space.
+				"'", // single quote.
 			),
 			array(
 				'',
 				'',
 				'',
 				'',
-				'-', // to dash
-				'', // remove single quote
+				'-', // to dash.
+				'', // remove single quote.
 			),
 			$font
 		);
@@ -7367,14 +7365,14 @@ class VisualComposerStarter_Fonts {
 	 * - Waiting for the Sunrise -> WaitingForTheSunrise
 	 * and so on.
 	 *
-	 * @param string $font Font family name
+	 * @param string $font Font family name.
 	 *
 	 * @return string
 	 */
 	public static function get_google_font_name( $font ) {
 		$families = self::get_google_font_families();
 
-		// Note the single quote
+		// Note the single quote.
 		$font = str_replace( array_merge( $families, array( ',', "'" ) ), '', $font );
 		$font = mb_convert_case( $font, MB_CASE_TITLE, 'UTF-8' );
 		$font = str_replace( ' ', '', $font );
@@ -7390,7 +7388,7 @@ class VisualComposerStarter_Fonts {
 	 * - Roboto, 400, italic -> Roboto-Regular-Italic
 	 * - Roboto, 100, italic -> Roboto-Thin-Italic
 	 *
-	 * @param array $font_variant Font variant
+	 * @param array $font_variant Font variant.
 	 *
 	 * @return string
 	 */
@@ -7410,7 +7408,7 @@ class VisualComposerStarter_Fonts {
 	/**
 	 * Get relative path to google font subdirectory
 	 *
-	 * @param string $font_id Font id
+	 * @param string $font_id Font id.
 	 *
 	 * @return string
 	 */
@@ -7421,7 +7419,7 @@ class VisualComposerStarter_Fonts {
 	/**
 	 * Get a font URI hosted locally
 	 *
-	 * @param string $font Font family
+	 * @param string $font Font family.
 	 *
 	 * @return string
 	 */
@@ -7485,7 +7483,7 @@ class VisualComposerStarter_Fonts {
 	/**
 	 * Returns a list of allowed subset for provided font name
 	 *
-	 * @param string $font Font name, e.g. "Roboto" or "Roboto, sans-serif"
+	 * @param string $font Font name, e.g. "Roboto" or "Roboto, sans-serif".
 	 *
 	 * @return string[]
 	 */
@@ -7494,7 +7492,7 @@ class VisualComposerStarter_Fonts {
 		$google_fonts = self::vct_theme_google_fonts();
 		$google_font  = array();
 
-		// Find the correct Google Font if font name provided without font family suffix
+		// Find the correct Google Font if font name provided without font family suffix.
 		if ( ! self::is_google_font_has_family_suffix( $font, $families ) ) {
 			$font = trim( str_replace( ',', '', $font ) );
 			foreach ( $families as $family ) {
@@ -7507,7 +7505,7 @@ class VisualComposerStarter_Fonts {
 		}
 
 		if ( empty( $google_font ) || empty( $google_font['subsets'] ) ) {
-			return [];
+			return array();
 		}
 
 		return $google_font['subsets'];
@@ -7517,17 +7515,15 @@ class VisualComposerStarter_Fonts {
 	 * Generate CSS declarations like "width: auto;", "background-color: red;", etc.
 	 *
 	 * @param array $props Array of properties where field is a property name
-	 *                     and value is a property value
+	 *                     and value is a property value.
 	 *
 	 * @return string
 	 */
 	public static function get_css_declarations( $props ) {
 		$declarations = array();
 
-		// remove empty properties
-		$props = array_filter( $props, function ( $prop ) {
-			return '' !== (string) $prop;
-		} );
+		// remove empty properties.
+		$props = array_filter( $props );
 
 		foreach ( $props as $name => $value ) {
 			if ( is_scalar( $value ) ) {
@@ -7555,18 +7551,18 @@ class VisualComposerStarter_Fonts {
 	/**
 	 * Generate CSS rules in format .selector {property: value;
 	 *
-	 * @param string|array $selectors Classes or tags, array or divided by whitespace
-	 * @param string|array $props     Array of css rules
+	 * @param string|array $selectors Classes or tags, array or divided by whitespace.
+	 * @param string|array $props     Array of css rules.
 	 *
 	 * @return string
 	 */
 	public static function get_css_rules( $selectors, $props ) {
-		// Convert to string
+		// Convert to string.
 		if ( is_array( $selectors ) ) {
 			$selectors = implode( ', ', $selectors );
 		}
 
-		// convert to string, too
+		// Convert to string, too.
 		if ( is_array( $props ) ) {
 			$props = self::get_css_declarations( $props );
 		}
@@ -7577,7 +7573,7 @@ class VisualComposerStarter_Fonts {
 	/**
 	 * Download a font from Google Fonts and store it locally
 	 *
-	 * @param string $font Font family
+	 * @param string $font Font family.
 	 *
 	 * @return bool|WP_Error
 	 */
@@ -7585,7 +7581,7 @@ class VisualComposerStarter_Fonts {
 		$font_id  = self::get_google_font_id( $font );
 		$subsets  = self::get_google_font_subsets( $font );
 		$variants = self::vct_theme_google_font_variants( $font );
-		$response = self::request_google_font_api( $font_id, $subsets, $variants, [ 'woff', 'woff2' ] );
+		$response = self::request_google_font_api( $font_id, $subsets, $variants, array( 'woff', 'woff2' ) );
 		if ( is_wp_error( $response ) ) {
 			return $response;
 		}
@@ -7599,19 +7595,22 @@ class VisualComposerStarter_Fonts {
 			);
 		}
 
-		// Can't generate a font-face without variants
+		// Can't generate a font-face without variants.
 		if ( empty( $body['variants'] ) ) {
 			return new WP_Error(
 				'vct-google-font-no-variants',
+				/* translators: %s is a font name */
 				sprintf( esc_html__( "Missing variants for font '%s'.", 'visual-composer-starter' ), $font )
 			);
 		}
 
-		// Get only required variants, because Google Fonts Helper API does not support variants and formats
-		// without passing an argument for downloading a zip.
+		/*
+		 * Get only required variants, because Google Fonts Helper API does not support variants and formats
+		 * without passing an argument for downloading a zip.
+		 */
 		$fonts = array();
 		foreach ( $body['variants'] as $font_variant ) {
-			// Variant ID examples: 100, 100italic, regular, italic and so on
+			// Variant ID examples: 100, 100italic, regular, italic and so on.
 			if ( empty( $variants ) || ! in_array( (string) $font_variant['id'], $variants, true ) ) {
 				continue;
 			}
@@ -7621,11 +7620,11 @@ class VisualComposerStarter_Fonts {
 
 		// Allow uploading .woff, .woff2 files.
 		add_filter( 'mime_types', array( 'VisualComposerStarter_Fonts', 'allow_uploading_fonts' ) );
-		// Prevent creating a year/month subdirectory in uploads
+		// Prevent creating a year/month subdirectory in uploads.
 		self::$font_id = $font_id;
 		add_filter( 'upload_dir', array( 'VisualComposerStarter_Fonts', 'modify_uploads_subdir' ) );
 
-		// Download font file(s) and generate @font-face rules
+		// Download font file(s) and generate @font-face rules.
 		$font_faces = array();
 		foreach ( $fonts as $font_variant ) {
 			$font_variant_files = self::download_google_font_files( $font_variant, array( 'woff', 'woff2' ) );
@@ -7636,7 +7635,7 @@ class VisualComposerStarter_Fonts {
 			$font_faces[] = self::generate_google_font_face( $font_variant, $font_variant_files );
 		}
 
-		// Upload a .css file with @font-face rules in the same directory as font files
+		// Upload a .css file with @font-face rules in the same directory as font files.
 		$is_css_uploaded = self::upload_google_font_css( $font, $font_faces );
 		// Note: check only for WP_Error. True and false are both valid.
 		if ( is_wp_error( $is_css_uploaded ) ) {
@@ -7645,7 +7644,7 @@ class VisualComposerStarter_Fonts {
 
 		remove_filter( 'mime_types', array( 'VisualComposerStarter_Fonts', 'allow_uploading_fonts' ) );
 		remove_filter( 'upload_dir', array( 'VisualComposerStarter_Fonts', 'modify_uploads_subdir' ) );
-		self::$font_id = ''; // reset
+		self::$font_id = ''; // reset.
 
 		return true;
 	}
@@ -7655,7 +7654,7 @@ class VisualComposerStarter_Fonts {
 	 *
 	 * Don't just save file into uploads directly. Required for Indystack.
 	 *
-	 * @param array $font_variant Font variant
+	 * @param array    $font_variant Font variant.
 	 * @param string[] $formats Formats, e.g. [woff, woff2]. If empty all formats will be downloaded.
 	 *
 	 * @return string[] Path to uploaded file(s)
@@ -7674,7 +7673,7 @@ class VisualComposerStarter_Fonts {
 			$filename = self::get_google_font_filename_by_variant( $font_variant );
 			$filename = "{$filename}.{$format}";
 
-			// Check if file exists
+			// Check if file exists.
 			if ( file_exists( "{$uploads['basedir']}/{$subdir}/{$filename}" ) ) {
 				continue;
 			}
@@ -7693,7 +7692,7 @@ class VisualComposerStarter_Fonts {
 
 			if ( empty( $response['filename'] ) ) {
 				if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-					error_log( sprintf( "Failed to download a font %s.%s",
+					error_log( sprintf( 'Failed to download a font %s.%s',
 						self::get_google_font_name( $font ),
 						$format
 					) );
@@ -7701,7 +7700,7 @@ class VisualComposerStarter_Fonts {
 				continue;
 			}
 
-			// Do not specify path when upload a file
+			// Do not specify path when upload a file.
 			$upload = wp_upload_bits( $filename, null, file_get_contents( $response['filename'] ) );
 			if ( ! empty( $upload['error'] ) ) {
 				if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
@@ -7715,7 +7714,7 @@ class VisualComposerStarter_Fonts {
 			}
 
 			$files[ $format ] = "{$subdir}/{$filename}";
-		}
+		} // End foreach().
 
 		return $files;
 	}
@@ -7723,7 +7722,7 @@ class VisualComposerStarter_Fonts {
 	/**
 	 * Generate @font-face snippets by provided font variant
 	 *
-	 * @param array $font_variant Font variant
+	 * @param array $font_variant Font variant.
 	 * @param array $font_variant_files Uploaded font files.
 	 *
 	 * @return string
@@ -7731,9 +7730,9 @@ class VisualComposerStarter_Fonts {
 	public static function generate_google_font_face( $font_variant, $font_variant_files ) {
 		$formats = self::get_google_font_formats();
 
-		$src = [];
+		$src = array();
 		foreach ( $font_variant_files as $format => $font_variant_file ) {
-			// .css file should be in the same directory with font files
+			// .css file should be in the same directory with font files.
 			$src[] = sprintf( "url('%s') format('%s')", basename( $font_variant_file ), $formats[ $format ] );
 		}
 
@@ -7750,8 +7749,8 @@ class VisualComposerStarter_Fonts {
 	 *
 	 * Should be in the same place where font files located.
 	 *
-	 * @param string $font Font family
-	 * @param array $font_faces
+	 * @param string $font Font family.
+	 * @param array  $font_faces A list of @font-face rules.
 	 *
 	 * @return bool|WP_Error True for success, false if no font faces provided, WP_Error in case of uploading errors.
 	 */
@@ -7773,7 +7772,6 @@ class VisualComposerStarter_Fonts {
 		 * for downloading font files). So, maybe comparing the .css file content with a provided list
 		 * of font faces is better? Or always override the .css file? How will this work on Indystack?
 		 */
-		// TODO: add some additional checks for .css file
 		if ( file_exists( "{$uploads['basedir']}/{$subdir}/{$filename}" ) ) {
 			return true;
 		}
@@ -7795,10 +7793,10 @@ class VisualComposerStarter_Fonts {
 	 *
 	 * @link https://github.com/majodev/google-webfonts-helper
 	 *
-	 * @param string $font_id Font id
-	 * @param array $subsets Subsets, e.g. [latin, cyrillic]. Affect only the path to the font file.
-	 * @param array $variants Variants (or styles), e.g. [100, 100italic]
-	 * @param array $formats Font formats, e.g. [woff, woff2]
+	 * @param string $font_id Font id.
+	 * @param array  $subsets Subsets, e.g. [latin, cyrillic]. Affect only the path to the font file.
+	 * @param array  $variants Variants (or styles), e.g. [100, 100italic].
+	 * @param array  $formats Font formats, e.g. [woff, woff2].
 	 *
 	 * @return array|WP_Error
 	 */
@@ -7824,7 +7822,7 @@ class VisualComposerStarter_Fonts {
 	/**
 	 * Allow uploading font files
 	 *
-	 * @param array $mimes
+	 * @param array $mimes Mime types.
 	 *
 	 * @return array
 	 */
@@ -7843,7 +7841,7 @@ class VisualComposerStarter_Fonts {
 	 *
 	 * @uses VisualComposerStarter_Fonts::$font_id
 	 *
-	 * @param array $uploads
+	 * @param array $uploads Uploads directory data.
 	 *
 	 * @return array
 	 */
