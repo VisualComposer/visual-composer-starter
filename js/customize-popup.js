@@ -92,6 +92,19 @@
 					window.alert( response.data );
 				} else {
 					closePopup();
+					wp.customize.previewer.refresh();
+
+					// Hide messages from all "font-family" fields
+					$.each( fontSettings, function( id, settingId ) {
+						wp.customize.control( settingId, function( control ) {
+							var message = $( control.container.find( '#_customize-message-' + control.id ) );
+							if ( message ) {
+								message.hide();
+							}
+						} );
+					} );
+
+					// Save settings
 					wp.customize.previewer.save();
 				}
 			} );
