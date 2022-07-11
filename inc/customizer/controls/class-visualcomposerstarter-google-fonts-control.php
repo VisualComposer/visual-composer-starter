@@ -80,7 +80,7 @@ class VisualComposerStarter_Google_Fonts_Control extends WP_Customize_Control {
 			endforeach;
 			?>
 		</select>
-		<span id="<?php echo esc_attr( $message_id ); ?>" class="description customize-control-description" style="display: none;">
+		<span id="<?php echo esc_attr( $message_id ); ?>" class="vct-message description customize-control-description" style="display: none;">
 			<?php echo wp_kses(
 				__(
 					'To see the typography preview you need to <a href="#" data-vct-download-font="true">download</a> this font family locally',

@@ -3065,8 +3065,8 @@ class VisualComposerStarter_Customizer {
 					); ?>
 				</p>
 				<div class="vct-popup-buttons">
-					<button id="vct-popup-accept-button"><?php esc_html_e( 'Download & Publish', 'visual-composer-starter' ); ?></button>
-					<button id="vct-popup-cancel-button"><?php esc_html_e( 'Revert & Publish', 'visual-composer-starter' ); ?></button>
+					<button id="vct-popup-accept-button" class="button button-primary"><?php esc_html_e( 'Download & Publish', 'visual-composer-starter' ); ?></button>
+					<button id="vct-popup-cancel-button" class="button button-primary"><?php esc_html_e( 'Revert & Publish', 'visual-composer-starter' ); ?></button>
 				</div>
 			</div>
 		</div>

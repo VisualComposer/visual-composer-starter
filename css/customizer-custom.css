@@ -6,6 +6,10 @@
     display: none !important;
 }
 
+.vct-message {
+    margin-top: 5px;
+}
+
 .vct-popup {
     background-color: rgba(0,0,0, .4);
     position: fixed;
