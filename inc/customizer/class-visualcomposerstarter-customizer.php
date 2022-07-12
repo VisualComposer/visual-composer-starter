@@ -21,6 +21,11 @@ class VisualComposerStarter_Customizer {
 		add_action( 'customize_register', array( $this, 'include_controls' ) );
 		add_action( 'customize_register', array( $this, 'custom_css' ) );
 		add_action( 'customize_register', array( $this, 'register_customize_sections' ) );
+		add_action( 'wp_ajax_vct_check_font', array( $this, 'ajax_check_font' ) );
+		add_action( 'wp_ajax_vct_check_fonts', array( $this, 'ajax_check_fonts' ) );
+		add_action( 'wp_ajax_vct_download_font', array( $this, 'ajax_download_font' ) );
+		add_action( 'wp_ajax_vct_download_fonts', array( $this, 'ajax_download_fonts' ) );
+		add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_popup_template' ), 999 );
 	}
 
 	/**
@@ -45,6 +50,9 @@ class VisualComposerStarter_Customizer {
 	public function include_controls( $wp_customize ) {
 		require_once get_template_directory() . '/inc/customizer/controls/class-visualcomposerstarter-toggle-switch-control.php';
 		$wp_customize->register_control_type( 'VisualComposerStarter_Toggle_Switch_Control' );
+
+		require_once get_template_directory() . '/inc/customizer/controls/class-visualcomposerstarter-google-fonts-control.php';
+		// Do not register "google-fonts" control as it is rendered via php.
 	}
 
 	/**
@@ -1449,7 +1457,7 @@ class VisualComposerStarter_Customizer {
 	/**
 	 * H1 fonts and style section
 	 *
-	 * @param object $wp_customize Customizer object.
+	 * @param WP_Customize_Manager $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_h1( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_text_color', array(
@@ -1462,8 +1470,9 @@ class VisualComposerStarter_Customizer {
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_font_family', array(
-			'default'        => 'Montserrat',
+			'default'           => 'Montserrat, sans-serif',
 			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
+			'transport'         => 'postMessage',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h1_subsets', array(
@@ -1532,13 +1541,20 @@ class VisualComposerStarter_Customizer {
 				)
 			)
 		);
-		$wp_customize->add_control( 'vct_fonts_and_style_h1_font_family', array(
-			'label'   => esc_html__( 'Font-family', 'visual-composer-starter' ),
-			'section' => 'vct_fonts_and_style_h1',
-			'settings'   => 'vct_fonts_and_style_h1_font_family',
-			'type'    => 'select',
-			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
-		) );
+
+		$wp_customize->add_control(
+			new VisualComposerStarter_Google_Fonts_Control(
+				$wp_customize,
+				'vct_fonts_and_style_h1_font_family',
+				array(
+					'label'    => esc_html__( 'Font-family', 'visual-composer-starter' ),
+					'section'  => 'vct_fonts_and_style_h1',
+					'settings' => 'vct_fonts_and_style_h1_font_family',
+					'choices'  => VisualComposerStarter_Fonts::vct_theme_font_choices(),
+				)
+			)
+		);
+
 		$wp_customize->add_control( 'vct_fonts_and_style_h1_subsets', array(
 			'label'   => esc_html__( 'Google Fonts Subsets', 'visual-composer-starter' ),
 			'section' => 'vct_fonts_and_style_h1',
@@ -1617,7 +1633,7 @@ class VisualComposerStarter_Customizer {
 	/**
 	 * H2 fonts and style section
 	 *
-	 * @param object $wp_customize Customizer object.
+	 * @param WP_Customize_Manager $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_h2( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_text_color', array(
@@ -1630,8 +1646,9 @@ class VisualComposerStarter_Customizer {
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_font_family', array(
-			'default'        => 'Montserrat',
+			'default'           => 'Montserrat, sans-serif',
 			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
+			'transport'         => 'postMessage',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h2_subsets', array(
@@ -1697,13 +1714,18 @@ class VisualComposerStarter_Customizer {
 			)
 		);
 
-		$wp_customize->add_control( 'vct_fonts_and_style_h2_font_family', array(
-			'label'   => esc_html__( 'Font-family', 'visual-composer-starter' ),
-			'section' => 'vct_fonts_and_style_h2',
-			'settings'   => 'vct_fonts_and_style_h2_font_family',
-			'type'    => 'select',
-			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
-		) );
+		$wp_customize->add_control(
+			new VisualComposerStarter_Google_Fonts_Control(
+				$wp_customize,
+				'vct_fonts_and_style_h2_font_family',
+				array(
+					'label'    => esc_html__( 'Font-family', 'visual-composer-starter' ),
+					'section'  => 'vct_fonts_and_style_h2',
+					'settings' => 'vct_fonts_and_style_h2_font_family',
+					'choices'  => VisualComposerStarter_Fonts::vct_theme_font_choices(),
+				)
+			)
+		);
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h2_subsets', array(
 			'label'   => esc_html__( 'Google Fonts Subsets', 'visual-composer-starter' ),
@@ -1788,7 +1810,7 @@ class VisualComposerStarter_Customizer {
 	/**
 	 * H3 fonts and style section
 	 *
-	 * @param object $wp_customize Customizer object.
+	 * @param WP_Customize_Manager $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_h3( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_text_color', array(
@@ -1800,8 +1822,9 @@ class VisualComposerStarter_Customizer {
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_font_family', array(
-			'default'        => 'Montserrat',
+			'default'           => 'Montserrat, sans-serif',
 			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
+			'transport'         => 'postMessage',
 		) );
 		$wp_customize->add_setting( 'vct_fonts_and_style_h3_subsets', array(
 			'default'        => 'all',
@@ -1862,13 +1885,20 @@ class VisualComposerStarter_Customizer {
 				)
 			)
 		);
-		$wp_customize->add_control( 'vct_fonts_and_style_h3_font_family', array(
-			'label'   => esc_html__( 'Font-family', 'visual-composer-starter' ),
-			'section' => 'vct_fonts_and_style_h3',
-			'settings'   => 'vct_fonts_and_style_h3_font_family',
-			'type'    => 'select',
-			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
-		) );
+
+		$wp_customize->add_control(
+			new VisualComposerStarter_Google_Fonts_Control(
+				$wp_customize,
+				'vct_fonts_and_style_h3_font_family',
+				array(
+					'label'    => esc_html__( 'Font-family', 'visual-composer-starter' ),
+					'section'  => 'vct_fonts_and_style_h3',
+					'settings' => 'vct_fonts_and_style_h3_font_family',
+					'choices'  => VisualComposerStarter_Fonts::vct_theme_font_choices(),
+				)
+			)
+		);
+
 		$wp_customize->add_control( 'vct_fonts_and_style_h3_subsets', array(
 			'label'   => esc_html__( 'Google Fonts Subsets', 'visual-composer-starter' ),
 			'section' => 'vct_fonts_and_style_h3',
@@ -1950,7 +1980,7 @@ class VisualComposerStarter_Customizer {
 	/**
 	 * H4 fonts and style section
 	 *
-	 * @param object $wp_customize Customizer object.
+	 * @param WP_Customize_Manager $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_h4( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_text_color', array(
@@ -1961,9 +1991,11 @@ class VisualComposerStarter_Customizer {
 			'default'        => '#557cbf',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
+
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_font_family', array(
-			'default'        => 'Montserrat',
+			'default'           => 'Montserrat, sans-serif',
 			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
+			'transport'         => 'postMessage',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h4_subsets', array(
@@ -2029,13 +2061,18 @@ class VisualComposerStarter_Customizer {
 			)
 		);
 
-		$wp_customize->add_control( 'vct_fonts_and_style_h4_font_family', array(
-			'label'   => esc_html__( 'Font-family', 'visual-composer-starter' ),
-			'section' => 'vct_fonts_and_style_h4',
-			'settings'   => 'vct_fonts_and_style_h4_font_family',
-			'type'    => 'select',
-			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
-		) );
+		$wp_customize->add_control(
+			new VisualComposerStarter_Google_Fonts_Control(
+				$wp_customize,
+				'vct_fonts_and_style_h4_font_family',
+				array(
+					'label'    => esc_html__( 'Font-family', 'visual-composer-starter' ),
+					'section'  => 'vct_fonts_and_style_h4',
+					'settings' => 'vct_fonts_and_style_h4_font_family',
+					'choices'  => VisualComposerStarter_Fonts::vct_theme_font_choices(),
+				)
+			)
+		);
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h4_subsets', array(
 			'label'   => esc_html__( 'Google Fonts Subsets', 'visual-composer-starter' ),
@@ -2119,7 +2156,7 @@ class VisualComposerStarter_Customizer {
 	/**
 	 * H5 fonts and style section
 	 *
-	 * @param object $wp_customize Customizer object.
+	 * @param WP_Customize_Manager $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_h5( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_text_color', array(
@@ -2130,9 +2167,11 @@ class VisualComposerStarter_Customizer {
 			'default'        => '#557cbf',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
+
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_font_family', array(
-			'default'        => 'Montserrat',
+			'default'           => 'Montserrat, sans-serif',
 			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
+			'transport'         => 'postMessage',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h5_subsets', array(
@@ -2197,13 +2236,18 @@ class VisualComposerStarter_Customizer {
 			)
 		);
 
-		$wp_customize->add_control( 'vct_fonts_and_style_h5_font_family', array(
-			'label'   => esc_html__( 'Font-family', 'visual-composer-starter' ),
-			'section' => 'vct_fonts_and_style_h5',
-			'settings'   => 'vct_fonts_and_style_h5_font_family',
-			'type'    => 'select',
-			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
-		) );
+		$wp_customize->add_control(
+			new VisualComposerStarter_Google_Fonts_Control(
+				$wp_customize,
+				'vct_fonts_and_style_h5_font_family',
+				array(
+					'label'    => esc_html__( 'Font-family', 'visual-composer-starter' ),
+					'section'  => 'vct_fonts_and_style_h5',
+					'settings' => 'vct_fonts_and_style_h5_font_family',
+					'choices'  => VisualComposerStarter_Fonts::vct_theme_font_choices(),
+				)
+			)
+		);
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h5_subsets', array(
 			'label'   => esc_html__( 'Google Fonts Subsets', 'visual-composer-starter' ),
@@ -2287,7 +2331,7 @@ class VisualComposerStarter_Customizer {
 	/**
 	 * H6 fonts and style section
 	 *
-	 * @param object $wp_customize Customizer object.
+	 * @param WP_Customize_Manager $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_h6( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_text_color', array(
@@ -2298,9 +2342,11 @@ class VisualComposerStarter_Customizer {
 			'default'        => '#557cbf',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
+
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_font_family', array(
-			'default'        => 'Montserrat',
+			'default'           => 'Montserrat, sans-serif',
 			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
+			'transport'         => 'postMessage',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_h6_subsets', array(
@@ -2365,13 +2411,18 @@ class VisualComposerStarter_Customizer {
 			)
 		);
 
-		$wp_customize->add_control( 'vct_fonts_and_style_h6_font_family', array(
-			'label'   => esc_html__( 'Font-family', 'visual-composer-starter' ),
-			'section' => 'vct_fonts_and_style_h6',
-			'settings'   => 'vct_fonts_and_style_h6_font_family',
-			'type'    => 'select',
-			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
-		) );
+		$wp_customize->add_control(
+			new VisualComposerStarter_Google_Fonts_Control(
+				$wp_customize,
+				'vct_fonts_and_style_h6_font_family',
+				array(
+					'label'    => esc_html__( 'Font-family', 'visual-composer-starter' ),
+					'section'  => 'vct_fonts_and_style_h6',
+					'settings' => 'vct_fonts_and_style_h6_font_family',
+					'choices'  => VisualComposerStarter_Fonts::vct_theme_font_choices(),
+				)
+			)
+		);
 
 		$wp_customize->add_control( 'vct_fonts_and_style_h6_subsets', array(
 			'label'   => esc_html__( 'Google Fonts Subsets', 'visual-composer-starter' ),
@@ -2459,7 +2510,7 @@ class VisualComposerStarter_Customizer {
 	/**
 	 * Body fonts and style section
 	 *
-	 * @param object $wp_customize Customizer object.
+	 * @param WP_Customize_Manager $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_body( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_primary_color', array(
@@ -2477,8 +2528,9 @@ class VisualComposerStarter_Customizer {
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_font_family', array(
-			'default'        => 'Roboto, sans-serif',
+			'default'           => 'Roboto, sans-serif',
 			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
+			'transport'         => 'postMessage',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_body_subsets', array(
@@ -2558,13 +2610,17 @@ class VisualComposerStarter_Customizer {
 			)
 		);
 
-		$wp_customize->add_control( 'vct_fonts_and_style_body_font_family', array(
-			'label'   => esc_html__( 'Font-family', 'visual-composer-starter' ),
-			'section' => 'vct_fonts_and_style_body',
-			'settings'   => 'vct_fonts_and_style_body_font_family',
-			'type'    => 'select',
-			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
-		) );
+		$wp_customize->add_control(
+			new VisualComposerStarter_Google_Fonts_Control(
+				$wp_customize,
+				'vct_fonts_and_style_body_font_family', array(
+					'label'    => esc_html__( 'Font-family', 'visual-composer-starter' ),
+					'section'  => 'vct_fonts_and_style_body',
+					'settings' => 'vct_fonts_and_style_body_font_family',
+					'choices'  => VisualComposerStarter_Fonts::vct_theme_font_choices(),
+				)
+			)
+		);
 
 		$wp_customize->add_control( 'vct_fonts_and_style_body_subsets', array(
 			'label'   => esc_html__( 'Google Fonts Subsets', 'visual-composer-starter' ),
@@ -2648,7 +2704,7 @@ class VisualComposerStarter_Customizer {
 	/**
 	 * Buttons fonts and style section
 	 *
-	 * @param object $wp_customize Customizer object.
+	 * @param WP_Customize_Manager $wp_customize Customizer object.
 	 */
 	private function fonts_and_style_section_buttons( $wp_customize ) {
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_background_color', array(
@@ -2669,8 +2725,9 @@ class VisualComposerStarter_Customizer {
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_font_family', array(
-			'default'        => 'Montserrat',
+			'default'           => 'Montserrat, sans-serif',
 			'sanitize_callback' => array( $this, 'sanitize_select_google_fonts' ),
+			'transport'         => 'postMessage',
 		) );
 
 		$wp_customize->add_setting( 'vct_fonts_and_style_buttons_subsets', array(
@@ -2760,13 +2817,18 @@ class VisualComposerStarter_Customizer {
 			)
 		);
 
-		$wp_customize->add_control( 'vct_fonts_and_style_buttons_font_family', array(
-			'label'   => esc_html__( 'Font-family', 'visual-composer-starter' ),
-			'section' => 'vct_fonts_and_style_buttons',
-			'settings'   => 'vct_fonts_and_style_buttons_font_family',
-			'type'    => 'select',
-			'choices'     => VisualComposerStarter_Fonts::vct_theme_font_choices(),
-		) );
+		$wp_customize->add_control(
+			new VisualComposerStarter_Google_Fonts_Control(
+				$wp_customize,
+				'vct_fonts_and_style_buttons_font_family',
+				array(
+					'label'    => esc_html__( 'Font-family', 'visual-composer-starter' ),
+					'section'  => 'vct_fonts_and_style_buttons',
+					'settings' => 'vct_fonts_and_style_buttons_font_family',
+					'choices'  => VisualComposerStarter_Fonts::vct_theme_font_choices(),
+				)
+			)
+		);
 
 		$wp_customize->add_control( 'vct_fonts_and_style_buttons_subsets', array(
 			'label'   => esc_html__( 'Google Fonts Subsets', 'visual-composer-starter' ),
@@ -2845,5 +2907,175 @@ class VisualComposerStarter_Customizer {
 				'capitalize' => esc_html__( 'Capitalize', 'visual-composer-starter' ),
 			),
 		) );
+	}
+
+	/**
+	 * Check whether provided font is from Google Fonts library and exists locally
+	 *
+	 * Callback for ajax "wp_ajax_vct_check_font".
+	 *
+	 * @return void
+	 */
+	public function ajax_check_font() {
+		if ( ! check_ajax_referer( 'vct_google_fonts_ajax_nonce', 'security', false ) ) {
+			wp_send_json_error( esc_html__( 'Invalid security token sent.', 'visual-composer-starter' ) );
+		}
+
+		$font = isset( $_POST['font'] ) ? sanitize_text_field( wp_unslash( $_POST['font'] ) ) : '';
+		if ( empty( $font ) ) {
+			wp_send_json_error( esc_html__( 'Invalid font family.', 'visual-composer-starter' ) );
+		}
+
+		$is_google_font = VisualComposerStarter_Fonts::is_google_font( $font );
+		$exists_locally = false;
+		if ( $is_google_font ) {
+			$exists_locally = VisualComposerStarter_Fonts::is_google_font_exists_locally( $font );
+		}
+
+		wp_send_json_success( array(
+			'isGoogleFont'  => $is_google_font,
+			'existsLocally' => $exists_locally,
+		) );
+	}
+
+	/**
+	 * Batch check whether provided fonts is from Google Fonts library and exists locally
+	 *
+	 * Callback for ajax "wp_ajax_vct_check_fonts".
+	 *
+	 * @return void
+	 */
+	public function ajax_check_fonts() {
+		if ( ! check_ajax_referer( 'vct_google_fonts_ajax_nonce', 'security', false ) ) {
+			wp_send_json_error( esc_html__( 'Invalid security token sent.', 'visual-composer-starter' ) );
+		}
+
+		$fonts = isset( $_POST['fonts'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['fonts'] ) ) : '';
+		if ( empty( $fonts ) ) {
+			wp_send_json_error( esc_html__( 'Fonts are missing.', 'visual-composer-starter' ) );
+		}
+
+		foreach ( $fonts as $font ) {
+			$is_google_font = VisualComposerStarter_Fonts::is_google_font( $font );
+			if ( $is_google_font && ! VisualComposerStarter_Fonts::is_google_font_exists_locally( $font ) ) {
+				wp_send_json_success( array(
+					'at_least_one_missing' => true,
+				) );
+			}
+		}
+
+		wp_send_json_success( array(
+			'all_fonts_exists' => true,
+		) );
+	}
+
+	/**
+	 * Download google font
+	 *
+	 * Callback for ajax "wp_ajax_vct_download_font"
+	 *
+	 * @return void
+	 */
+	public function ajax_download_font() {
+		if ( ! check_ajax_referer( 'vct_google_fonts_ajax_nonce', 'security', false ) ) {
+			wp_send_json_error( esc_html__( 'Invalid security token sent.', 'visual-composer-starter' ) );
+		}
+
+		$font = isset( $_POST['font'] ) ? sanitize_text_field( wp_unslash( $_POST['font'] ) ) : '';
+		if ( empty( $font ) ) {
+			wp_send_json_error( esc_html__( 'Invalid font family.', 'visual-composer-starter' ) );
+		}
+
+		$is_google_font = VisualComposerStarter_Fonts::is_google_font( $font );
+		if ( ! $is_google_font ) {
+			wp_send_json_error( esc_html__( 'Not a Google Font.', 'visual-composer-starter' ) );
+		}
+
+		if ( $is_google_font && VisualComposerStarter_Fonts::is_google_font_exists_locally( $font ) ) {
+			wp_send_json_error( sprintf(
+				/* translators: %s is a font family name */
+				esc_html__( 'Font %s already exists locally.', 'visual-composer-starter' ),
+				$font
+			) );
+		}
+
+		$is_downloaded = VisualComposerStarter_Fonts::download_google_font( $font );
+		if ( is_wp_error( $is_downloaded ) ) {
+			wp_send_json_error( $is_downloaded );
+		}
+
+		wp_send_json_success();
+	}
+
+	/**
+	 * Batch download Google Fonts
+	 *
+	 * Callback for ajax "wp_ajax_vct_download_fonts"
+	 *
+	 * @return void
+	 */
+	public function ajax_download_fonts() {
+		if ( ! check_ajax_referer( 'vct_google_fonts_ajax_nonce', 'security', false ) ) {
+			wp_send_json_error( esc_html__( 'Invalid security token sent.', 'visual-composer-starter' ) );
+		}
+
+		$fonts = isset( $_POST['fonts'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['fonts'] ) ) : '';
+		if ( empty( $fonts ) ) {
+			wp_send_json_error( esc_html__( 'Missing fonts.', 'visual-composer-starter' ) );
+		}
+
+		foreach ( $fonts as $font ) {
+			// Check if provided font is from Google Fonts library.
+			if ( ! VisualComposerStarter_Fonts::is_google_font( $font ) ) {
+				continue;
+			}
+
+			// Check if provided font already downloaded.
+			if ( VisualComposerStarter_Fonts::is_google_font_exists_locally( $font ) ) {
+				continue;
+			}
+
+			$is_downloaded = VisualComposerStarter_Fonts::download_google_font( $font );
+			if ( is_wp_error( $is_downloaded ) ) {
+				wp_send_json_error( $is_downloaded );
+			}
+		}
+
+		wp_send_json_success();
+	}
+
+	/**
+	 * Print popup template
+	 *
+	 * @return void
+	 */
+	public function print_popup_template() {
+		if ( ! is_customize_preview() ) {
+			return;
+		}
+
+		?>
+		<div class="vct-popup" id="vct-popup" style="display: none;">
+			<div class="vct-popup-content">
+				<button class="vct-popup-close"></button>
+				<p>
+					<?php esc_html_e(
+						'In order to comply with the GDPR, you need to download all font families and store them locally on your server.',
+						'visual-composer-starter'
+					); ?>
+				</p>
+				<div class="vct-popup-buttons">
+					<button id="vct-popup-accept-button" class="button button-primary"><?php esc_html_e( 'Download & Publish', 'visual-composer-starter' ); ?></button>
+					<button id="vct-popup-cancel-button" class="button button-primary"><?php esc_html_e( 'Revert & Publish', 'visual-composer-starter' ); ?></button>
+				</div>
+				<div class="vct-spinner-wrapper" style="display: none;">
+					<span>
+						<img src="<?php echo esc_url( includes_url( 'images/spinner.gif' ) ); ?>"
+						     alt="<?php esc_html_e( 'Spinner', 'visual-composer-starter' ); ?>">
+					</span>
+				</div>
+			</div>
+		</div>
+		<?php
 	}
 }
