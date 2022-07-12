@@ -35,6 +35,9 @@
 				        } else if ( isGoogleFont && ! existsLocally ) {
 					        message.show();
 				        } else {
+
+					        // Refresh the preview
+					        wp.customize.previewer.refresh();
 					        message.hide();
 				        }
 			        }
