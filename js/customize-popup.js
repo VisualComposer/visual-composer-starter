@@ -79,9 +79,9 @@
 
 	// Download fonts
 	$( document ).on( 'click', '#vct-popup-accept-button', function( e ) {
-		var $downloadBtn = $(this);
-		var $revertBtn = $downloadBtn.siblings('button');
-		var $spinner = $downloadBtn.parents('.vct-popup-buttons').siblings('.vct-spinner-wrapper');
+		var $downloadBtn = $( this );
+		var $revertBtn = $downloadBtn.siblings( 'button' );
+		var $spinner = $downloadBtn.parents( '.vct-popup-buttons' ).siblings( '.vct-spinner-wrapper' );
 
 		e && e.preventDefault && e.preventDefault();
 
@@ -122,8 +122,8 @@
 					wp.customize.previewer.save();
 				}
 
-				$downloadBtn.prop('disabled', false);
-				$revertBtn.prop('disabled', false);
+				$downloadBtn.prop( 'disabled', false );
+				$revertBtn.prop( 'disabled', false );
 				$spinner.hide();
 			} );
 		} else {
