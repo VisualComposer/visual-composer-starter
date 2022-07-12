@@ -3068,6 +3068,12 @@ class VisualComposerStarter_Customizer {
 					<button id="vct-popup-accept-button" class="button button-primary"><?php esc_html_e( 'Download & Publish', 'visual-composer-starter' ); ?></button>
 					<button id="vct-popup-cancel-button" class="button button-primary"><?php esc_html_e( 'Revert & Publish', 'visual-composer-starter' ); ?></button>
 				</div>
+				<div class="vct-spinner-wrapper" style="display: none;">
+					<span>
+						<img src="<?php echo esc_url( includes_url( 'images/spinner.gif' ) ); ?>"
+						     alt="<?php esc_html_e( 'Spinner', 'visual-composer-starter' ); ?>">
+					</span>
+				</div>
 			</div>
 		</div>
 		<?php

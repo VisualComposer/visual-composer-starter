@@ -79,12 +79,26 @@
 
 	// Download fonts
 	$( document ).on( 'click', '#vct-popup-accept-button', function( e ) {
+		var $downloadBtn = $(this);
+		var $revertBtn = $downloadBtn.siblings('button');
+		var $spinner = $downloadBtn.parents('.vct-popup-buttons').siblings('.vct-spinner-wrapper');
+
 		e && e.preventDefault && e.preventDefault();
+
 		if ( ! $.isEmptyObject( changedFonts ) ) {
-			$.post( window.ajaxurl, {
-				'action': 'vct_download_fonts',
-				'security': window.googleFontControlData.nonce,
-				'fonts': changedFonts
+			$.ajax( {
+				method: 'POST',
+				url: window.ajaxurl,
+				beforeSend: function() {
+					$downloadBtn.prop('disabled', true);
+					$revertBtn.prop('disabled', true);
+					$spinner.show();
+				},
+				data: {
+					'action': 'vct_download_fonts',
+					'security': window.googleFontControlData.nonce,
+					'fonts': changedFonts
+				}
 			} ).fail( function( xhr ) {
 				window.alert( xhr.responseText );
 			} ).done( function( response ) {
@@ -107,6 +121,10 @@
 					// Save settings
 					wp.customize.previewer.save();
 				}
+
+				$downloadBtn.prop('disabled', false);
+				$revertBtn.prop('disabled', false);
+				$spinner.hide();
 			} );
 		} else {
 			wp.customize.previewer.save();

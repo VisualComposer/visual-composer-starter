@@ -67,7 +67,8 @@
     transform: rotate(-45deg);
 }
 
-.vct-popup-buttons {
+.vct-popup-buttons,
+.vct-spinner-wrapper {
     margin-top: 30px;
 }
 
