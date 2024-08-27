@@ -1,9 +1,9 @@
 === Visual Composer Starter ===
 Contributors:   visualcomposer
 Tags: blog, portfolio, featured-images, full-width-template, e-commerce, translation-ready, rtl-language-support, theme-options, custom-colors, custom-logo, custom-menu, footer-widgets, left-sidebar, right-sidebar, custom-background, one-column, two-columns
-Stable tag: 3.4
+Stable tag: 3.4.1
 Requires at least: 4.8
-Tested up to: 6.0.1
+Tested up to: 6.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
