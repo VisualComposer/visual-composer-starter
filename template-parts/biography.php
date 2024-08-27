@@ -17,12 +17,12 @@ $author = get_the_author();
 				data-src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array(
 					'size' => 100,
 				) ) ); ?>"
-				alt="<?php echo esc_attr( $author ); ?>">
+				alt="<?php esc_attr_e( $author ); ?>">
 			<noscript>
 				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array(
 					'size' => 100,
 				) ) ); ?>"
-					alt="<?php echo esc_attr( $author ); ?>">
+					alt="<?php esc_attr_e( $author ); ?>">
 			</noscript>
 		</div>
 	</div><!--.author-avatar-->
