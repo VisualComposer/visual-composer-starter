@@ -164,7 +164,7 @@ if ( ! function_exists( 'visualcomposerstarter_entry_meta' ) ) :
 				</li>
 			<?php endif;?>
 			<?php if ( 'post' === get_post_type() ) : ?>
-				<li class="entry-meta-author"><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php esc_html_e(get_the_author()); ?></span></a></li>
+				<li class="entry-meta-author"><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php echo esc_html(get_the_author()); ?></span></a></li>
 			<?php endif; ?>
 			<?php if ( get_the_category_list() ) : ?>
 				<li class="entry-meta-category"><?php the_category( _x( ', ', 'Used between list items, there is a space after the comma.', 'visual-composer-starter' ) ); ?></li>
@@ -204,7 +204,7 @@ if ( ! function_exists( 'visualcomposerstarter_single_meta' ) ) :
 					<?php endif; ?>
 					<?php if ( 'post' === get_post_type() ) : ?>
 						<?php echo esc_html_x( 'by', 'Post meta', 'visual-composer-starter' ); ?>
-						<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php esc_html_e(get_the_author()); ?></span></a>
+						<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><span class="author vcard"><?php echo esc_html(get_the_author()); ?></span></a>
 					<?php endif; ?>
 				<?php endif; ?>
 				<?php if ( ! empty( $categories ) ) : ?>
