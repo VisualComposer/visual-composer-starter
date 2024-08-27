@@ -3071,7 +3071,7 @@ class VisualComposerStarter_Customizer {
 				<div class="vct-spinner-wrapper" style="display: none;">
 					<span>
 						<img src="<?php echo esc_url( includes_url( 'images/spinner.gif' ) ); ?>"
-						     alt="<?php esc_html_e( 'Spinner', 'visual-composer-starter' ); ?>">
+						     alt="<?php esc_attr_e( 'Spinner', 'visual-composer-starter' ); ?>">
 					</span>
 				</div>
 			</div>

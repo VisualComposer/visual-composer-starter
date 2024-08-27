@@ -22,10 +22,16 @@
 			        var isGoogleFont = response.data.isGoogleFont;
 			        var existsLocally = response.data.existsLocally;
 			        if ( false === response.success ) {
-				        wp.customize.notifications.add( 'vct_fail_to_check_font', {
-					        type: 'warning',
-					        message: response.data
-				        } );
+                wp.customize.notifications.add(
+                  'vct_fail_to_check_font',
+                  new wp.customize.Notification(
+                    'vct_fail_to_check_font', {
+                      dismissible: true,
+                      message: typeof response.data === 'string' ? response.data : response.data[0].message,
+                      type: 'warning'
+                    }
+                  )
+                );
 			        } else {
 				        if ( isGoogleFont && existsLocally ) {
 
@@ -35,15 +41,13 @@
 				        } else if ( isGoogleFont && ! existsLocally ) {
 					        message.show();
 				        } else {
-
+					        wp.customize.notifications.remove( 'vct_check_font_ajax' );
+					        wp.customize.notifications.remove( 'vct_fail_to_check_font' );
 					        // Refresh the preview
 					        wp.customize.previewer.refresh();
 					        message.hide();
 				        }
 			        }
-		        } ).always( function() {
-			        wp.customize.notifications.remove( 'vct_check_font_ajax' );
-			        wp.customize.notifications.remove( 'vct_fail_to_check_font' );
 		        } );
 	        } );
 
@@ -55,25 +59,35 @@
 			        'security': window.googleFontControlData.nonce,
 			        'font': setting.get()
 		        } ).fail( function( xhr ) {
-			        wp.customize.notifications.add( 'vct_download_font_ajax', {
-				        type: 'error',
-				        message: xhr.responseText
-			        } );
+              wp.customize.notifications.add(
+                'vct_failed_to_download_font',
+                new wp.customize.Notification(
+                  'vct_failed_to_download_font', {
+                    dismissible: true,
+                    message: xhr.responseText,
+                    type: 'error'
+                  }
+                )
+              );
 		        } ).done( function( response ) {
 			        if ( false === response.success ) {
-				        wp.customize.notifications.add( 'vct_failed_to_download_font', {
-					        type: 'warning',
-					        message: response.data
-				        } );
+                  wp.customize.notifications.add(
+                    'vct_failed_to_download_font',
+                    new wp.customize.Notification(
+                      'vct_failed_to_download_font', {
+                        dismissible: true,
+                        message: typeof response.data === 'string' ? response.data : response.data[0].message,
+                        type: 'warning'
+                      }
+                    )
+                  );
 			        } else {
-
+				        wp.customize.notifications.remove( 'vct_download_font_ajax' );
+				        wp.customize.notifications.remove( 'vct_failed_to_download_font' );
 				        // Refresh the preview
 				        wp.customize.previewer.refresh();
 				        message.hide();
 			        }
-		        } ).always( function() {
-			        wp.customize.notifications.remove( 'vct_download_font_ajax' );
-			        wp.customize.notifications.remove( 'vct_failed_to_download_font' );
 		        } );
 	        } );
         }

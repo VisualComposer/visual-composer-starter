@@ -26,6 +26,8 @@ class VisualComposerStarter_Fonts {
 	 */
 	public static $font_id = '';
 
+    public static $filter_type = 'mime_types';
+
 	/**
 	 * Get Fonts List
 	 *
@@ -7620,7 +7622,7 @@ class VisualComposerStarter_Fonts {
 		}
 
 		// Allow uploading .woff, .woff2 files.
-		add_filter( 'mime_types', array( 'VisualComposerStarter_Fonts', 'allow_uploading_fonts' ) );
+		add_filter( self::$filter_type, array( 'VisualComposerStarter_Fonts', 'allow_uploading_fonts' ) );
 		// Prevent creating a year/month subdirectory in uploads.
 		self::$font_id = $font_id;
 		add_filter( 'upload_dir', array( 'VisualComposerStarter_Fonts', 'modify_uploads_subdir' ) );
@@ -7643,7 +7645,7 @@ class VisualComposerStarter_Fonts {
 			return $is_css_uploaded;
 		}
 
-		remove_filter( 'mime_types', array( 'VisualComposerStarter_Fonts', 'allow_uploading_fonts' ) );
+		remove_filter( self::$filter_type, array( 'VisualComposerStarter_Fonts', 'allow_uploading_fonts' ) );
 		remove_filter( 'upload_dir', array( 'VisualComposerStarter_Fonts', 'modify_uploads_subdir' ) );
 		self::$font_id = ''; // reset.
 
@@ -7653,7 +7655,7 @@ class VisualComposerStarter_Fonts {
 	/**
 	 * Download a font file(s) and "upload" it (them) via WordPress API
 	 *
-	 * Don't just save file into uploads directly. Required for Indystack.
+	 * Don't just save file into uploads directly.
 	 *
 	 * @param array    $font_variant Font variant.
 	 * @param string[] $formats Formats, e.g. [woff, woff2]. If empty all formats will be downloaded.
@@ -7767,12 +7769,6 @@ class VisualComposerStarter_Fonts {
 
 		$filename = "{$name}.css";
 
-		/*
-		 * Theoretically, there may be some other font variants (or formats) that we saved initially.
-		 * For example, the user may change the font-weight option (font style is not currently used
-		 * for downloading font files). So, maybe comparing the .css file content with a provided list
-		 * of font faces is better? Or always override the .css file? How will this work on Indystack?
-		 */
 		if ( file_exists( "{$uploads['basedir']}/{$subdir}/{$filename}" ) ) {
 			return true;
 		}
@@ -7802,7 +7798,7 @@ class VisualComposerStarter_Fonts {
 	 * @return array|WP_Error
 	 */
 	public static function request_google_font_api( $font_id, array $subsets = array(), array $variants = array(), array $formats = array() ) {
-		$url   = 'https://google-webfonts-helper.herokuapp.com/api/fonts/' . $font_id;
+		$url   = 'https://gwfh.mranftl.com/api/fonts/' . $font_id;
 		$query = http_build_query( array(
 			'subsets'  => empty( $subsets ) ? null : implode( ',', $subsets ),
 			'variants' => empty( $variants ) ? null : implode( ',', $variants ),
